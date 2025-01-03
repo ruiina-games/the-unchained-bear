@@ -97,5 +97,3 @@ func fix_easing():
 	if !(easing and bone_node and target_node):
 		return
 	easing.initialize_variables(target_node.global_position)
-
-
