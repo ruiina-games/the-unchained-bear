@@ -7,58 +7,65 @@
 script = ExtResource("1_jg0g5")
 
 [node name="BearNew" parent="." instance=ExtResource("2_drj5a")]
+unique_name_in_owner = true
+
+[node name="Camera2D" type="Camera2D" parent="BearNew"]
+offset = Vector2(0, -400)
+zoom = Vector2(0.4, 0.4)
 
 [node name="TorsoTop" parent="BearNew/Skeleton2D/TorsoMain" index="0"]
-rotation = 0.599288
-scale = Vector2(0.999999, 0.999999)
+rotation = 0.474784
+scale = Vector2(0.999998, 0.999998)
 
 [node name="UpperArmR" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop" index="0"]
-rotation = -1.77617
-scale = Vector2(0.999999, 0.999999)
+rotation = -1.6787
+scale = Vector2(0.999998, 0.999998)
 
 [node name="LowerArmR" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR" index="0"]
-rotation = -1.74266
+rotation = -1.93413
+scale = Vector2(0.999998, 0.999998)
 
 [node name="WristR" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR" index="0"]
-rotation = 1.3631
-scale = Vector2(0.999999, 0.999999)
+rotation = 1.23297
+scale = Vector2(0.999998, 0.999998)
 
 [node name="UpperArmL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop" index="1"]
-rotation = -1.02912
-scale = Vector2(0.999999, 0.999999)
+rotation = -0.987107
+scale = Vector2(0.999997, 0.999997)
 
 [node name="LowerArmL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL" index="0"]
-rotation = 0.678551
+rotation = 1.13272
+scale = Vector2(0.999998, 0.999998)
 
 [node name="WristL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL" index="0"]
-rotation = 1.35407
+rotation = 1.79271
+scale = Vector2(0.999997, 0.999997)
 
 [node name="HeadMain" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop" index="2"]
-rotation = -0.259008
+rotation = -0.183319
+scale = Vector2(0.999997, 0.999997)
 
 [node name="LowerJaw" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="0"]
-rotation = 1.20108
-scale = Vector2(0.999996, 0.999996)
+rotation = 1.31964
+scale = Vector2(0.999994, 0.999994)
 
 [node name="EarL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="2"]
 scale = Vector2(0.443939, 0.778982)
 
 [node name="UpperLegR" parent="BearNew/Skeleton2D/TorsoMain" index="1"]
-rotation = 2.36388
-scale = Vector2(1, 1)
-
-[node name="LowerLegR" parent="BearNew/Skeleton2D/TorsoMain/UpperLegR" index="0"]
-rotation = 0.81661
-
-[node name="UpperLegL" parent="BearNew/Skeleton2D/TorsoMain" index="2"]
-rotation = 1.99897
-scale = Vector2(1, 1)
-
-[node name="LowerLegL" parent="BearNew/Skeleton2D/TorsoMain/UpperLegL" index="0"]
-rotation = 1.43151
+rotation = 2.15262
 scale = Vector2(0.999999, 0.999999)
 
-[node name="Camera2D" type="Camera2D" parent="BearNew"]
-zoom = Vector2(0.2, 0.2)
+[node name="LowerLegR" parent="BearNew/Skeleton2D/TorsoMain/UpperLegR" index="0"]
+rotation = 1.15813
+scale = Vector2(0.999997, 0.999997)
+
+[node name="UpperLegL" parent="BearNew/Skeleton2D/TorsoMain" index="2"]
+rotation = 2.57725
+scale = Vector2(0.999999, 0.999999)
+
+[node name="LowerLegL" parent="BearNew/Skeleton2D/TorsoMain/UpperLegL" index="0"]
+rotation = 0.512909
+scale = Vector2(0.999998, 0.999998)
 
 [editable path="BearNew"]
