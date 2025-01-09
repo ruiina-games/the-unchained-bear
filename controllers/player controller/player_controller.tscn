@@ -1,0 +1,93 @@
+[gd_scene load_steps=6 format=3 uid="uid://cevie0mm3xc4j"]
+
+[ext_resource type="Script" path="res://controllers/player controller/player_controller.gd" id="1_jg0g5"]
+[ext_resource type="PackedScene" uid="uid://cjbnosxi4m18l" path="res://characters/bear/bear_new.tscn" id="2_drj5a"]
+[ext_resource type="Script" path="res://controllers/player controller/player state machine/player_state_machine.gd" id="3_7xkve"]
+[ext_resource type="Script" path="res://controllers/player controller/player state machine/states/idle.gd" id="4_hhf8t"]
+[ext_resource type="Script" path="res://controllers/player controller/run.gd" id="5_kcgja"]
+
+[node name="PlayerController" type="Node2D"]
+script = ExtResource("1_jg0g5")
+
+[node name="BearNew" parent="." instance=ExtResource("2_drj5a")]
+unique_name_in_owner = true
+
+[node name="TorsoMain" parent="BearNew/Skeleton2D" index="1"]
+scale = Vector2(0.999999, 0.999999)
+
+[node name="TorsoTop" parent="BearNew/Skeleton2D/TorsoMain" index="0"]
+rotation = 0.277461
+scale = Vector2(0.999996, 0.999996)
+
+[node name="UpperArmR" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop" index="0"]
+rotation = -2.23364
+scale = Vector2(0.999996, 0.999996)
+
+[node name="LowerArmR" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR" index="0"]
+rotation = -2.30823
+scale = Vector2(0.999995, 0.999995)
+
+[node name="WristR" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR" index="0"]
+rotation = 0.309436
+scale = Vector2(0.999996, 0.999996)
+
+[node name="UpperArmL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop" index="1"]
+rotation = 0.35822
+scale = Vector2(0.999994, 0.999994)
+
+[node name="LowerArmL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL" index="0"]
+rotation = -0.20675
+scale = Vector2(0.999996, 0.999996)
+
+[node name="WristL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL" index="0"]
+rotation = 1.91239
+scale = Vector2(0.999994, 0.999994)
+
+[node name="HeadMain" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop" index="2"]
+rotation = 0.0211007
+scale = Vector2(0.999993, 0.999993)
+
+[node name="LowerJaw" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="0"]
+rotation = 1.20139
+scale = Vector2(0.999991, 0.999991)
+
+[node name="EarL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="2"]
+scale = Vector2(0.443939, 0.778982)
+
+[node name="UpperLegR" parent="BearNew/Skeleton2D/TorsoMain" index="1"]
+rotation = 2.39094
+scale = Vector2(0.999997, 0.999997)
+
+[node name="LowerLegR" parent="BearNew/Skeleton2D/TorsoMain/UpperLegR" index="0"]
+rotation = 0.266133
+scale = Vector2(0.999995, 0.999995)
+
+[node name="UpperLegL" parent="BearNew/Skeleton2D/TorsoMain" index="2"]
+rotation = 2.43924
+scale = Vector2(0.999997, 0.999997)
+
+[node name="LowerLegL" parent="BearNew/Skeleton2D/TorsoMain/UpperLegL" index="0"]
+rotation = 1.49973
+scale = Vector2(0.999995, 0.999995)
+
+[node name="Camera2D" type="Camera2D" parent="BearNew"]
+offset = Vector2(0, -400)
+zoom = Vector2(0.4, 0.4)
+
+[node name="LimboHSM" type="LimboHSM" parent="." node_paths=PackedStringArray("character", "controller")]
+unique_name_in_owner = true
+script = ExtResource("3_7xkve")
+character = NodePath("../BearNew")
+controller = NodePath("..")
+
+[node name="Idle" type="LimboState" parent="LimboHSM"]
+unique_name_in_owner = true
+script = ExtResource("4_hhf8t")
+animation_state_name = "idle"
+
+[node name="Run" type="LimboState" parent="LimboHSM"]
+unique_name_in_owner = true
+script = ExtResource("5_kcgja")
+animation_state_name = "run"
+
+[editable path="BearNew"]
