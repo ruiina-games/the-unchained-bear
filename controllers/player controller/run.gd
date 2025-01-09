@@ -40,8 +40,4 @@ func handle_movement():
 	else:
 		controller.tilt = lerp(controller.tilt, 0.0, 0.1)
 	
-	controller.tilt = clamp(controller.tilt, -controller.max_tilt, controller.max_tilt)
-	controller.actor.rotation = 0  # Скидаємо будь-який попередній нахил
-	controller.actor.rotate(deg_to_rad(controller.tilt))
-	
 	super.handle_movement()

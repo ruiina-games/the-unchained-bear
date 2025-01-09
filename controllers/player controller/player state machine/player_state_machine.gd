@@ -5,9 +5,12 @@ class_name PlayerStateMachine
 @export var controller: PlayerController
 @export var state_conditions: Dictionary = {}
 @export var path_to_anim_parameters: String = "parameters/MainStateMachine/conditions/"
+@export var debug_label: Label
 
 var MOVEMENT_STARTED: StringName = "movement_started"
 var MOVEMENT_FINISHED: StringName = "movement_finished"
+var JUMPED: StringName = "jumped"
+var LANDED: StringName = "landed"
 # var GOT_HIT: StringName = "got_hit"
 # var CHARACTER_DIED: StringName = "character_died"
 
@@ -37,6 +40,12 @@ func create_state_conditions():
 	state_conditions["idle"] = path_to_anim_parameters + "idle"
 	state_conditions["jump"] =  path_to_anim_parameters + "jump"
 	state_conditions["run"] =  path_to_anim_parameters + "run"
+	state_conditions["land"] =  path_to_anim_parameters + "land"
+	state_conditions["fly"] =  path_to_anim_parameters + "fly"
+	
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("jump"):
+		dispatch(JUMPED)
 	
 # Ця функція сетитів всі умови в animation_tree на false, а умову анімаціїї,
 # яку потрібно зараз програвати на true

@@ -11,10 +11,12 @@ class_name PlayerController
 @export var acceleration: float = 100.0  # Заміна для delta
 @export var deceleration: float = 20.0  # Заміна для delta
 @export var gravity: float = 40.0
+@export var jump_force: float = 2000
 
 @onready var hsm: LimboHSM = %LimboHSM
 @onready var idle_state: LimboState = %Idle
 @onready var run_state: PlayerState = %Run
+@onready var jump_state: LimboState = %Jump
 
 # Змінні для руху
 var current_velocity: Vector2 = Vector2.ZERO
@@ -29,6 +31,8 @@ func _init_state_machine() -> void:
 	# hsm.add_transition(idle_state, run_state, idle_state.EVENT_FINISHED)
 	hsm.add_transition(hsm.ANYSTATE, run_state, hsm.MOVEMENT_STARTED)
 	hsm.add_transition(run_state, idle_state, hsm.MOVEMENT_FINISHED)
+	hsm.add_transition(hsm.ANYSTATE, jump_state, hsm.JUMPED)
+	hsm.add_transition(jump_state, idle_state, hsm.LANDED)
 	# hsm.add_transition(move_state, idle_state, move_state.EVENT_FINISHED)
 
 	hsm.initialize(self)
