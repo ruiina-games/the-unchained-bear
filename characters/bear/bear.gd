@@ -7,3 +7,9 @@ enum STYLES_ID {
 	LUMBERJACK = 2,
 	LEGHAND = 3
 }
+
+func set_facing(dir :float):
+	if dir > 0:
+		 = 1
+	elif dir < 0:
+		transform.x.x = -1
