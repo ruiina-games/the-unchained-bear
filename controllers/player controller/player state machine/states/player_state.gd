@@ -21,6 +21,9 @@ func _enter() -> void:
 func _update(delta: float) -> void:
 	handle_movement()
 
+func state_input():
+	pass
+
 func initialize_state():
 	if !animation_tree:
 		return
@@ -32,8 +35,20 @@ func initialize_state():
 		return
 		
 	playback = animation_tree["parameters/MainStateMachine/playback"]
+	animation_tree.animation_finished.connect(_on_animation_finished)
 
 func handle_movement():
+	if controller.current_velocity.x > 0:
+		controller.current_velocity.x -= controller.deceleration
+		controller.current_velocity.x = max(controller.current_velocity.x, 0)
+	elif controller.current_velocity.x < 0:
+		controller.current_velocity.x += controller.deceleration
+		controller.current_velocity.x = min(controller.current_velocity.x, 0)
+			
+		# Виклик події MOVEMENT_FINISHED, коли швидкість занадто мала
+	if abs(character.velocity.x) < 1:  # Поріг швидкості, щоб вважати рух завершеним
+		dispatch(state_machine.MOVEMENT_FINISHED)
+	
 	# Збереження поточного масштабу та ротації
 	var original_scale = character.scale
 	var original_rotation = character.rotation
@@ -50,3 +65,6 @@ func handle_movement():
 	controller.tilt = clamp(controller.tilt, -controller.max_tilt, controller.max_tilt)
 	controller.actor.rotation = 0  # Скидаємо будь-який попередній нахил
 	controller.actor.rotate(deg_to_rad(controller.tilt))
+
+func _on_animation_finished(anim_name: String):
+	pass

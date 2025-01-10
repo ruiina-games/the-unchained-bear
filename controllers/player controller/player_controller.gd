@@ -17,23 +17,26 @@ class_name PlayerController
 @onready var idle_state: LimboState = %Idle
 @onready var run_state: PlayerState = %Run
 @onready var jump_state: LimboState = %Jump
+@onready var attack_state: LimboState = %Attack
 
 # Змінні для руху
 var current_velocity: Vector2 = Vector2.ZERO
 var tilt: float = 0.0
 var direction: float = 1.0
 var tilt_inertia: float = 0.1
+var combo_count: int
 
 func _ready() -> void:
 	_init_state_machine()
 
 func _init_state_machine() -> void:
-	# hsm.add_transition(idle_state, run_state, idle_state.EVENT_FINISHED)
 	hsm.add_transition(hsm.ANYSTATE, run_state, hsm.MOVEMENT_STARTED)
 	hsm.add_transition(run_state, idle_state, hsm.MOVEMENT_FINISHED)
 	hsm.add_transition(hsm.ANYSTATE, jump_state, hsm.JUMPED)
 	hsm.add_transition(jump_state, idle_state, hsm.LANDED)
-	# hsm.add_transition(move_state, idle_state, move_state.EVENT_FINISHED)
+	hsm.add_transition(run_state, attack_state, hsm.STARTED_ATTACK)
+	hsm.add_transition(idle_state, attack_state, hsm.STARTED_ATTACK)
+	hsm.add_transition(attack_state, idle_state, hsm.FINISHED_ATTACK)
 
 	hsm.initialize(self)
 	hsm.set_active(true)
@@ -41,6 +44,7 @@ func _init_state_machine() -> void:
 
 func _physics_process(delta: float):
 	current_velocity.y += gravity
+	
 	# Плавне вирівнювання нахилу
 	if abs(current_velocity.x) < 10:
 		tilt = lerp(tilt, 0.0, 0.2)

@@ -11,8 +11,8 @@ var MOVEMENT_STARTED: StringName = "movement_started"
 var MOVEMENT_FINISHED: StringName = "movement_finished"
 var JUMPED: StringName = "jumped"
 var LANDED: StringName = "landed"
-# var GOT_HIT: StringName = "got_hit"
-# var CHARACTER_DIED: StringName = "character_died"
+var STARTED_ATTACK: StringName = "started_attack"
+var FINISHED_ATTACK: StringName = "finished_attack"
 
 var animation_tree: AnimationTree
 var current_state: String = "Idle"
@@ -46,6 +46,11 @@ func create_state_conditions():
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump"):
 		dispatch(JUMPED)
+	if event.is_action_pressed("attack"):
+		dispatch(STARTED_ATTACK)
+		
+	if get_active_state():
+		get_active_state().state_input()
 	
 # Ця функція сетитів всі умови в animation_tree на false, а умову анімаціїї,
 # яку потрібно зараз програвати на true
