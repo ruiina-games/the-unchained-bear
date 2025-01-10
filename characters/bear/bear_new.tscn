@@ -1,7 +1,8 @@
-[gd_scene load_steps=46 format=3 uid="uid://cjbnosxi4m18l"]
+[gd_scene load_steps=48 format=3 uid="uid://cjbnosxi4m18l"]
 
 [ext_resource type="Texture2D" uid="uid://0qm6mhlm33ap" path="res://assets/New_Bear/images/template.png" id="1_8qh4k"]
 [ext_resource type="Script" path="res://characters/bear/bear.gd" id="1_kcxgq"]
+[ext_resource type="Script" path="res://components/hit_box.gd" id="2_dnbu0"]
 [ext_resource type="Texture2D" uid="uid://ccxm1obtjugnu" path="res://assets/New_Bear/images/L_Hand_Up.png" id="2_v84js"]
 [ext_resource type="Texture2D" uid="uid://dsr0q4xt2m230" path="res://assets/New_Bear/images/Body_Down.png" id="2_yshw0"]
 [ext_resource type="Texture2D" uid="uid://5k2we1ld01js" path="res://assets/New_Bear/images/Body_Up.png" id="3_2b316"]
@@ -35,6 +36,9 @@
 [ext_resource type="AnimationNodeBlendTree" uid="uid://co5jje3igjqpg" path="res://characters/bear/bear_blend_tree.tres" id="32_j7wfx"]
 [ext_resource type="AnimationLibrary" uid="uid://icr8p2j85hny" path="res://characters/bear/animations/BOXING_STYLE.res" id="32_o8u03"]
 [ext_resource type="AnimationLibrary" uid="uid://j7f1i3heuntm" path="res://characters/bear/animations/LUMBERJACK_STYLE.res" id="34_53lbr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u3g2m"]
+size = Vector2(282, 376)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5sqcp"]
 radius = 89.0505
@@ -2119,6 +2123,17 @@ position = Vector2(0, 29)
 script = ExtResource("1_kcxgq")
 animation_tree = NodePath("AnimationTree")
 
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("2_dnbu0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(295, -427)
+shape = SubResource("RectangleShape2D_u3g2m")
+disabled = true
+debug_color = Color(0, 0.63404, 0.433626, 0.42)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 4000
 position = Vector2(-2, -118)
@@ -2459,25 +2474,25 @@ rest = Transform2D(0.27827, -0.960503, 0.960503, 0.27827, -69, -372)
 
 [node name="TorsoTop" type="Bone2D" parent="Skeleton2D/TorsoMain"]
 position = Vector2(68.0068, 40.6826)
-rotation = 0.229676
+rotation = 0.582255
 scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(0.979417, 0.201843, -0.201843, 0.979417, 68.0068, 40.6826)
 
 [node name="UpperArmR" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop"]
 position = Vector2(14.7319, -42.8132)
-rotation = 0.381826
+rotation = -1.81988
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(-0.619213, 0.785223, -0.785223, -0.619213, 35.0991, -54.9368)
 
 [node name="LowerArmR" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/UpperArmR"]
 position = Vector2(87.0015, -14.133)
-rotation = -0.558557
+rotation = -1.775
 scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(0.489786, -0.871843, 0.871843, 0.489786, 118.59, 1.53075)
 
 [node name="WristR" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR"]
 position = Vector2(97.3649, 21.8967)
-rotation = 0.376447
+rotation = 1.24434
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.965287, 0.261192, -0.261192, 0.965287, 112.95, 10.1021)
 auto_calculate_length_and_angle = false
@@ -2509,18 +2524,19 @@ texture = ExtResource("9_82aq5")
 
 [node name="UpperArmL" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop"]
 position = Vector2(74.8369, 35.4323)
-rotation = -1.77427
+rotation = -1.40419
+scale = Vector2(1, 1)
 rest = Transform2D(0.998048, -0.0624427, 0.0624427, 0.998048, 74.8369, 35.4323)
 
 [node name="LowerArmL" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/UpperArmL"]
 position = Vector2(-40.9861, 98.2146)
-rotation = 1.13272
+rotation = 0.905993
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.911628, 0.411016, -0.411016, 0.911628, -40.9861, 98.2146)
 
 [node name="WristL" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL"]
 position = Vector2(43.2869, 47.6577)
-rotation = 0.883018
+rotation = 1.21591
 scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(-0.154783, 0.987948, -0.987948, -0.154783, 43.2869, 47.6577)
 auto_calculate_length_and_angle = false
@@ -2529,13 +2545,13 @@ bone_angle = 0.0
 
 [node name="HeadMain" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop"]
 position = Vector2(122.167, 2.28322)
-rotation = -0.484673
+rotation = -0.248669
 scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(0.999947, 0.010315, -0.010315, 0.999947, 122.167, 2.28322)
 
 [node name="LowerJaw" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/HeadMain"]
 position = Vector2(-29.8503, -14.7242)
-rotation = 1.44959
+rotation = 1.24044
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.256368, 0.966579, -0.966579, 0.256368, -29.8503, -14.7242)
 auto_calculate_length_and_angle = false
@@ -2564,13 +2580,13 @@ bone_angle = 0.0
 
 [node name="UpperLegR" type="Bone2D" parent="Skeleton2D/TorsoMain"]
 position = Vector2(-63.9228, 23.7249)
-rotation = 3.10397
+rotation = 2.31662
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(-0.809772, 0.586744, -0.586744, -0.809772, -63.9228, 23.7249)
 
 [node name="LowerLegR" type="Bone2D" parent="Skeleton2D/TorsoMain/UpperLegR"]
 position = Vector2(105.268, 2.76837)
-rotation = 0.0262924
+rotation = 0.905658
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.865783, 0.50042, -0.50042, 0.865783, 105.268, 2.76837)
 auto_calculate_length_and_angle = false
@@ -2579,13 +2595,13 @@ bone_angle = 0.0
 
 [node name="UpperLegL" type="Bone2D" parent="Skeleton2D/TorsoMain"]
 position = Vector2(-42.3166, 109.084)
-rotation = 3.11483
+rotation = 2.31863
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(-0.938539, 0.345172, -0.345172, -0.938539, -42.3166, 109.084)
 
 [node name="LowerLegL" type="Bone2D" parent="Skeleton2D/TorsoMain/UpperLegL"]
 position = Vector2(100.597, -4.93311)
-rotation = -0.0489992
+rotation = 0.885532
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.969936, 0.243361, -0.243361, 0.969936, 100.597, -4.93311)
 auto_calculate_length_and_angle = false
@@ -2640,7 +2656,6 @@ libraries = {
 "FREE_STYLE": ExtResource("31_snb1d"),
 "LUMBERJACK_STYLE": ExtResource("34_53lbr")
 }
-speed_scale = 5.0
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = ExtResource("32_j7wfx")
