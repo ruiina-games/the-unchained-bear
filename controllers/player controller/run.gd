@@ -28,5 +28,9 @@ func handle_movement():
 		controller.tilt = lerp(controller.tilt, dir * controller.max_tilt, controller.tilt_inertia)
 	else:
 		controller.tilt = lerp(controller.tilt, 0.0, 0.1)
+		
+		# Виклик події MOVEMENT_FINISHED, коли швидкість занадто мала
+	if abs(controller.current_velocity.x) < 1:  # Поріг швидкості, щоб вважати рух завершеним
+		dispatch(state_machine.MOVEMENT_FINISHED)
 	
 	super()

@@ -13,6 +13,10 @@ class_name PlayerController
 @export var gravity: float = 40.0
 @export var jump_force: float = 2000
 
+@export_category("Attack")
+@export var max_combo_count: int = 3
+@export var sec_to_reset_combo: float = 0.4
+
 @onready var hsm: LimboHSM = %LimboHSM
 @onready var idle_state: LimboState = %Idle
 @onready var run_state: PlayerState = %Run
@@ -30,7 +34,7 @@ func _ready() -> void:
 	_init_state_machine()
 
 func _init_state_machine() -> void:
-	hsm.add_transition(hsm.ANYSTATE, run_state, hsm.MOVEMENT_STARTED)
+	hsm.add_transition(idle_state, run_state, hsm.MOVEMENT_STARTED)
 	hsm.add_transition(run_state, idle_state, hsm.MOVEMENT_FINISHED)
 	hsm.add_transition(hsm.ANYSTATE, jump_state, hsm.JUMPED)
 	hsm.add_transition(jump_state, idle_state, hsm.LANDED)
@@ -43,7 +47,8 @@ func _init_state_machine() -> void:
 	hsm.change_active_state(idle_state)
 
 func _physics_process(delta: float):
-	current_velocity.y += gravity
+	if !actor.is_on_floor():
+		current_velocity.y += gravity
 	
 	# Плавне вирівнювання нахилу
 	if abs(current_velocity.x) < 10:
@@ -51,3 +56,7 @@ func _physics_process(delta: float):
 
 	if abs(tilt) < 0.5 and abs(current_velocity.x) < 5:
 		tilt = 0.0
+
+func reset_combo():
+	print("Combo has been reset")
+	combo_count = 0

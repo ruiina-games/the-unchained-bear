@@ -44,10 +44,6 @@ func handle_movement():
 	elif controller.current_velocity.x < 0:
 		controller.current_velocity.x += controller.deceleration
 		controller.current_velocity.x = min(controller.current_velocity.x, 0)
-			
-		# Виклик події MOVEMENT_FINISHED, коли швидкість занадто мала
-	if abs(character.velocity.x) < 1:  # Поріг швидкості, щоб вважати рух завершеним
-		dispatch(state_machine.MOVEMENT_FINISHED)
 	
 	# Збереження поточного масштабу та ротації
 	var original_scale = character.scale
