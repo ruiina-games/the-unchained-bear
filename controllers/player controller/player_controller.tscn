@@ -1,0 +1,124 @@
+[gd_scene load_steps=9 format=3 uid="uid://cevie0mm3xc4j"]
+
+[ext_resource type="Script" path="res://controllers/player controller/player_controller.gd" id="1_jg0g5"]
+[ext_resource type="PackedScene" uid="uid://cjbnosxi4m18l" path="res://characters/bear/bear_new.tscn" id="2_drj5a"]
+[ext_resource type="Script" path="res://controllers/player controller/player state machine/player_state_machine.gd" id="3_7xkve"]
+[ext_resource type="Script" path="res://controllers/player controller/player state machine/states/idle.gd" id="4_hhf8t"]
+[ext_resource type="Script" path="res://controllers/player controller/run.gd" id="5_kcgja"]
+[ext_resource type="Script" path="res://controllers/player controller/jump.gd" id="6_ofg5v"]
+[ext_resource type="Script" path="res://controllers/player controller/player state machine/states/attack.gd" id="7_ieqh6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uxfgu"]
+font_size = 50
+
+[node name="PlayerController" type="Node2D"]
+script = ExtResource("1_jg0g5")
+speed = 1200.0
+turn_speed = 0.2
+max_tilt = 10.0
+gravity = 75.0
+
+[node name="BearNew" parent="." instance=ExtResource("2_drj5a")]
+unique_name_in_owner = true
+
+[node name="TorsoTop" parent="BearNew/Skeleton2D/TorsoMain" index="0"]
+rotation = -0.0212905
+scale = Vector2(0.999986, 0.999986)
+
+[node name="UpperArmR" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop" index="0"]
+rotation = 2.93131
+scale = Vector2(0.999985, 0.999985)
+
+[node name="LowerArmR" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR" index="0"]
+rotation = -1.34809
+scale = Vector2(0.999984, 0.999984)
+
+[node name="WristR" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR" index="0"]
+rotation = 0.682974
+scale = Vector2(0.99999, 0.99999)
+
+[node name="UpperArmL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop" index="1"]
+rotation = 0.262941
+scale = Vector2(0.999984, 0.999984)
+
+[node name="LowerArmL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL" index="0"]
+rotation = 1.09794
+scale = Vector2(0.999987, 0.999987)
+
+[node name="WristL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL" index="0"]
+rotation = 1.23855
+scale = Vector2(0.999983, 0.999983)
+
+[node name="HeadMain" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop" index="2"]
+rotation = 0.122973
+scale = Vector2(0.99998, 0.99998)
+
+[node name="LowerJaw" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="0"]
+rotation = 1.29364
+scale = Vector2(0.999981, 0.999981)
+
+[node name="EarL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="2"]
+scale = Vector2(0.443939, 0.778982)
+
+[node name="UpperLegR" parent="BearNew/Skeleton2D/TorsoMain" index="1"]
+rotation = 2.37431
+scale = Vector2(0.999991, 0.999991)
+
+[node name="LowerLegR" parent="BearNew/Skeleton2D/TorsoMain/UpperLegR" index="0"]
+rotation = 0.818943
+scale = Vector2(0.999985, 0.999985)
+
+[node name="UpperLegL" parent="BearNew/Skeleton2D/TorsoMain" index="2"]
+rotation = 2.52801
+scale = Vector2(0.999991, 0.999991)
+
+[node name="LowerLegL" parent="BearNew/Skeleton2D/TorsoMain/UpperLegL" index="0"]
+rotation = 0.578502
+scale = Vector2(0.999987, 0.999987)
+
+[node name="AnimationTree" parent="BearNew" index="6"]
+parameters/MainStateMachine/ATTACK/blend_position = 0.0
+parameters/MainStateMachine/ATTACK/0/blend_position = -0.108141
+parameters/MainStateMachine/JUMP/blend_position = 0.27096
+
+[node name="Camera2D" type="Camera2D" parent="BearNew"]
+offset = Vector2(0, -400)
+zoom = Vector2(0.4, 0.4)
+
+[node name="Label" type="Label" parent="BearNew"]
+unique_name_in_owner = true
+offset_left = -8.0
+offset_top = -827.0
+offset_right = 25.0
+offset_bottom = -804.0
+text = "rare"
+label_settings = SubResource("LabelSettings_uxfgu")
+
+[node name="LimboHSM" type="LimboHSM" parent="." node_paths=PackedStringArray("character", "controller", "debug_label")]
+unique_name_in_owner = true
+script = ExtResource("3_7xkve")
+character = NodePath("../BearNew")
+controller = NodePath("..")
+debug_label = NodePath("../BearNew/Label")
+
+[node name="Idle" type="LimboState" parent="LimboHSM"]
+unique_name_in_owner = true
+script = ExtResource("4_hhf8t")
+animation_state_name = "idle"
+
+[node name="Run" type="LimboState" parent="LimboHSM"]
+unique_name_in_owner = true
+script = ExtResource("5_kcgja")
+animation_state_name = "run"
+
+[node name="Jump" type="LimboState" parent="LimboHSM"]
+unique_name_in_owner = true
+script = ExtResource("6_ofg5v")
+animation_state_name = "jump"
+
+[node name="Attack" type="LimboState" parent="LimboHSM"]
+unique_name_in_owner = true
+script = ExtResource("7_ieqh6")
+animation_state_name = "attack"
+
+[editable path="BearNew"]

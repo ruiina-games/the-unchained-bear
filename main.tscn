@@ -1,6 +1,38 @@
-[gd_scene format=3 uid="uid://nyr1tohq4w76"]
+[gd_scene load_steps=5 format=3 uid="uid://nyr1tohq4w76"]
+
+[ext_resource type="PackedScene" uid="uid://cevie0mm3xc4j" path="res://controllers/player controller/player_controller.tscn" id="1_8hir8"]
+[ext_resource type="Script" path="res://components/hurt_box.gd" id="2_x7ab6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8e4fu"]
+size = Vector2(5492, 144)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0jn5v"]
+size = Vector2(322, 1110)
 
 [node name="main" type="Node2D"]
 position = Vector2(0, -1)
 
-[node name="Node" type="Node" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(181, 242)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(91, 411)
+shape = SubResource("RectangleShape2D_8e4fu")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-862, 63)
+rotation = -1.57487
+shape = SubResource("RectangleShape2D_8e4fu")
+
+[node name="PlayerController" parent="." instance=ExtResource("1_8hir8")]
+position = Vector2(-446, 532)
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("2_x7ab6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(888, 28)
+shape = SubResource("RectangleShape2D_0jn5v")
+debug_color = Color(0.985992, 0, 0.328183, 0.42)
