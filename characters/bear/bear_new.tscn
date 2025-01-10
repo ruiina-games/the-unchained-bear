@@ -949,7 +949,7 @@ tracks/7/keys = {
 
 [sub_resource type="Animation" id="Animation_axxn3"]
 resource_name = "JUMP"
-length = 0.5
+length = 0.3
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -958,7 +958,7 @@ tracks/0/path = NodePath("Skeleton2D/TorsoMain:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.5),
+"times": PackedFloat32Array(0, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(-69, -372), Vector2(-156, -279), Vector2(-65, -415)]
@@ -982,7 +982,7 @@ tracks/2/path = NodePath("AnimationTargets/LegRTarget:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.4),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-60, -120), Vector2(-51, -118)]
@@ -1006,7 +1006,7 @@ tracks/4/path = NodePath("AnimationTargets/LegLTarget:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.4),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(35, -119), Vector2(39, -119)]
@@ -1030,7 +1030,7 @@ tracks/6/path = NodePath("AnimationTargets/TorsoTopTarget/RHandTarget:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.5),
+"times": PackedFloat32Array(0, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(106.898, 258.223), Vector2(73.2216, 302.471), Vector2(310.225, -379.287)]
@@ -1054,7 +1054,7 @@ tracks/8/path = NodePath("AnimationTargets/TorsoTopTarget/LHandTarget:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.5),
+"times": PackedFloat32Array(0, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(180.976, 268.679), Vector2(113.58, 351.176), Vector2(352.853, -157.594)]
@@ -1078,7 +1078,7 @@ tracks/10/path = NodePath("AnimationTargets/TorsoTopTarget/RHandTarget/RWristTar
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0, 0.4),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-29.1438, 140.056), Vector2(37.1855, 129.082)]
@@ -1102,7 +1102,7 @@ tracks/12/path = NodePath("AnimationTargets/TorsoTopTarget/LHandTarget/LWristTar
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.5),
+"times": PackedFloat32Array(0, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(160.485, 201.828), Vector2(252.83, 112.148), Vector2(299.744, -172.204)]
@@ -1126,7 +1126,7 @@ tracks/14/path = NodePath("AnimationTargets/HeadTagret:position")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.5),
+"times": PackedFloat32Array(0, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(-194, -548), Vector2(-339, -318), Vector2(82, -22)]
@@ -1150,10 +1150,10 @@ tracks/16/path = NodePath("AnimationTargets/LowerJawTagret:position")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(204, -339), Vector2(203, -299), Vector2(190, -310), Vector2(196, -269), Vector2(209, -244), Vector2(349, -897)]
+"values": [Vector2(209, -240), Vector2(163, -262), Vector2(174, -159), Vector2(442, -822)]
 }
 tracks/17/type = "value"
 tracks/17/imported = false
@@ -2459,25 +2459,25 @@ rest = Transform2D(0.27827, -0.960503, 0.960503, 0.27827, -69, -372)
 
 [node name="TorsoTop" type="Bone2D" parent="Skeleton2D/TorsoMain"]
 position = Vector2(68.0068, 40.6826)
-rotation = 0.244502
+rotation = 0.229676
 scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(0.979417, 0.201843, -0.201843, 0.979417, 68.0068, 40.6826)
 
 [node name="UpperArmR" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop"]
 position = Vector2(14.7319, -42.8132)
-rotation = -1.39652
+rotation = 0.381826
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(-0.619213, 0.785223, -0.785223, -0.619213, 35.0991, -54.9368)
 
 [node name="LowerArmR" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/UpperArmR"]
 position = Vector2(87.0015, -14.133)
-rotation = -1.33037
+rotation = -0.558557
 scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(0.489786, -0.871843, 0.871843, 0.489786, 118.59, 1.53075)
 
 [node name="WristR" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR"]
 position = Vector2(97.3649, 21.8967)
-rotation = 0.824614
+rotation = 0.376447
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.965287, 0.261192, -0.261192, 0.965287, 112.95, 10.1021)
 auto_calculate_length_and_angle = false
@@ -2509,18 +2509,19 @@ texture = ExtResource("9_82aq5")
 
 [node name="UpperArmL" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop"]
 position = Vector2(74.8369, 35.4323)
-rotation = 0.0284007
+rotation = -1.77427
+scale = Vector2(1, 1)
 rest = Transform2D(0.998048, -0.0624427, 0.0624427, 0.998048, 74.8369, 35.4323)
 
 [node name="LowerArmL" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/UpperArmL"]
 position = Vector2(-40.9861, 98.2146)
-rotation = 0.454863
+rotation = 1.13272
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.911628, 0.411016, -0.411016, 0.911628, -40.9861, 98.2146)
 
 [node name="WristL" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL"]
 position = Vector2(43.2869, 47.6577)
-rotation = 0.773578
+rotation = 0.883018
 scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(-0.154783, 0.987948, -0.987948, -0.154783, 43.2869, 47.6577)
 auto_calculate_length_and_angle = false
@@ -2529,13 +2530,13 @@ bone_angle = 0.0
 
 [node name="HeadMain" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop"]
 position = Vector2(122.167, 2.28322)
-rotation = -0.0423201
+rotation = -0.484673
 scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(0.999947, 0.010315, -0.010315, 0.999947, 122.167, 2.28322)
 
 [node name="LowerJaw" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/HeadMain"]
 position = Vector2(-29.8503, -14.7242)
-rotation = 1.41904
+rotation = 1.44959
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.256368, 0.966579, -0.966579, 0.256368, -29.8503, -14.7242)
 auto_calculate_length_and_angle = false
@@ -2564,13 +2565,13 @@ bone_angle = 0.0
 
 [node name="UpperLegR" type="Bone2D" parent="Skeleton2D/TorsoMain"]
 position = Vector2(-63.9228, 23.7249)
-rotation = 1.98915
+rotation = 3.10397
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(-0.809772, 0.586744, -0.586744, -0.809772, -63.9228, 23.7249)
 
 [node name="LowerLegR" type="Bone2D" parent="Skeleton2D/TorsoMain/UpperLegR"]
 position = Vector2(105.268, 2.76837)
-rotation = 1.52313
+rotation = 0.0262924
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.865783, 0.50042, -0.50042, 0.865783, 105.268, 2.76837)
 auto_calculate_length_and_angle = false
@@ -2579,13 +2580,13 @@ bone_angle = 0.0
 
 [node name="UpperLegL" type="Bone2D" parent="Skeleton2D/TorsoMain"]
 position = Vector2(-42.3166, 109.084)
-rotation = 2.43407
+rotation = 3.11483
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(-0.938539, 0.345172, -0.345172, -0.938539, -42.3166, 109.084)
 
 [node name="LowerLegL" type="Bone2D" parent="Skeleton2D/TorsoMain/UpperLegL"]
 position = Vector2(100.597, -4.93311)
-rotation = 0.675528
+rotation = -0.0489992
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.969936, 0.243361, -0.243361, 0.969936, 100.597, -4.93311)
 auto_calculate_length_and_angle = false
@@ -2667,3 +2668,4 @@ parameters/MainStateMachine/JUMP/blend_position = 0.000806452
 parameters/MainStateMachine/JUMP/0/blend_position = -0.993548
 parameters/MainStateMachine/JUMP/1/blend_position = -1.0
 parameters/MainStateMachine/RUN/blend_position = 0
+parameters/TimeScale/scale = 1.0
