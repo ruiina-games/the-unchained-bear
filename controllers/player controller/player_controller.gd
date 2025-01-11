@@ -14,6 +14,7 @@ class_name PlayerController
 @export var jump_force: float = 2000
 
 @export_category("Attack")
+@export var fighting_style: Bear.STYLES_ID
 @export var max_combo_count: int = 3
 @export var sec_to_reset_combo: float = 0.4
 
