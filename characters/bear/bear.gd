@@ -1,6 +1,8 @@
 extends Character
 class_name Bear
 
+@export var character_stats: CharacterData
+
 @export_category("Attack")
 @export var frames_to_activate_attack_for: int = 6
 

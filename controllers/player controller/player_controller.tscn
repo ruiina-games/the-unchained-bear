@@ -1,15 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://cevie0mm3xc4j"]
+[gd_scene load_steps=11 format=3 uid="uid://cevie0mm3xc4j"]
 
 [ext_resource type="Script" path="res://controllers/player controller/player_controller.gd" id="1_jg0g5"]
 [ext_resource type="PackedScene" uid="uid://cjbnosxi4m18l" path="res://characters/bear/bear_new.tscn" id="2_drj5a"]
+[ext_resource type="Script" path="res://controllers/player controller/stats_container.gd" id="2_ogm1v"]
 [ext_resource type="Script" path="res://controllers/player controller/player state machine/player_state_machine.gd" id="3_7xkve"]
+[ext_resource type="Resource" uid="uid://dv3i5h2hu814t" path="res://data/characters data/bear/bear_stats.tres" id="3_60oav"]
 [ext_resource type="Script" path="res://controllers/player controller/player state machine/states/idle.gd" id="4_hhf8t"]
 [ext_resource type="Script" path="res://controllers/player controller/run.gd" id="5_kcgja"]
 [ext_resource type="Script" path="res://controllers/player controller/jump.gd" id="6_ofg5v"]
 [ext_resource type="Script" path="res://controllers/player controller/player state machine/states/attack.gd" id="7_ieqh6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_uxfgu"]
-font_size = 100
+font_size = 50
 
 [node name="PlayerController" type="Node2D"]
 script = ExtResource("1_jg0g5")
@@ -17,65 +19,216 @@ speed = 1200.0
 turn_speed = 0.2
 max_tilt = 10.0
 gravity = 75.0
-fighting_style = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 36.0
+offset_top = 26.0
+offset_right = 137.0
+offset_bottom = 95.0
+text = "rare"
+label_settings = SubResource("LabelSettings_uxfgu")
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+offset_left = 67.0
+offset_top = 42.0
+offset_right = 232.0
+offset_bottom = 308.0
+script = ExtResource("2_ogm1v")
+character_stats = ExtResource("3_60oav")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer/Control/GridContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/GridContainer/HSplitContainer"]
+layout_mode = 2
+text = "strength: "
+
+[node name="strength" type="Label" parent="CanvasLayer/Control/GridContainer/HSplitContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="HSplitContainer2" type="HSplitContainer" parent="CanvasLayer/Control/GridContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/GridContainer/HSplitContainer2"]
+layout_mode = 2
+text = "max health: "
+
+[node name="max health" type="Label" parent="CanvasLayer/Control/GridContainer/HSplitContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="HSplitContainer3" type="HSplitContainer" parent="CanvasLayer/Control/GridContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/GridContainer/HSplitContainer3"]
+layout_mode = 2
+text = "current_health: "
+
+[node name="current health" type="Label" parent="CanvasLayer/Control/GridContainer/HSplitContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="HSplitContainer4" type="HSplitContainer" parent="CanvasLayer/Control/GridContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/GridContainer/HSplitContainer4"]
+layout_mode = 2
+text = "critical chance: "
+
+[node name="critical chance" type="Label" parent="CanvasLayer/Control/GridContainer/HSplitContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="HSplitContainer5" type="HSplitContainer" parent="CanvasLayer/Control/GridContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/GridContainer/HSplitContainer5"]
+layout_mode = 2
+text = "dodge chance: "
+
+[node name="dodge chance" type="Label" parent="CanvasLayer/Control/GridContainer/HSplitContainer5"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="HSplitContainer6" type="HSplitContainer" parent="CanvasLayer/Control/GridContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/GridContainer/HSplitContainer6"]
+layout_mode = 2
+text = "attack speed: "
+
+[node name="attack speed" type="Label" parent="CanvasLayer/Control/GridContainer/HSplitContainer6"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="HSplitContainer7" type="HSplitContainer" parent="CanvasLayer/Control/GridContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/GridContainer/HSplitContainer7"]
+layout_mode = 2
+text = "movement speed: "
+
+[node name="movement speed" type="Label" parent="CanvasLayer/Control/GridContainer/HSplitContainer7"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="HSplitContainer8" type="HSplitContainer" parent="CanvasLayer/Control/GridContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/GridContainer/HSplitContainer8"]
+layout_mode = 2
+text = "attack range: "
+
+[node name="attack range" type="Label" parent="CanvasLayer/Control/GridContainer/HSplitContainer8"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="HSplitContainer9" type="HSplitContainer" parent="CanvasLayer/Control/GridContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/GridContainer/HSplitContainer9"]
+layout_mode = 2
+text = "status resists: "
+
+[node name="status resist" type="Label" parent="CanvasLayer/Control/GridContainer/HSplitContainer9"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="HSplitContainer10" type="HSplitContainer" parent="CanvasLayer/Control/GridContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/GridContainer/HSplitContainer10"]
+layout_mode = 2
+text = "effect power: "
+
+[node name="effect power" type="Label" parent="CanvasLayer/Control/GridContainer/HSplitContainer10"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
 
 [node name="BearNew" parent="." instance=ExtResource("2_drj5a")]
 unique_name_in_owner = true
 
 [node name="TorsoTop" parent="BearNew/Skeleton2D/TorsoMain" index="0"]
-rotation = 0.376489
+rotation = 0.424557
 scale = Vector2(0.999983, 0.999983)
 
 [node name="UpperArmR" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop" index="0"]
-rotation = 1.44351
-scale = Vector2(0.999982, 0.999982)
+rotation = 1.44539
+scale = Vector2(0.99998, 0.99998)
 
 [node name="LowerArmR" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR" index="0"]
-rotation = -1.76402
-scale = Vector2(0.999981, 0.999981)
+rotation = -1.75266
+scale = Vector2(0.99998, 0.99998)
 
 [node name="WristR" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR" index="0"]
-rotation = 1.68156
-scale = Vector2(0.999986, 0.999986)
+rotation = 1.63467
+scale = Vector2(0.999985, 0.999985)
 
 [node name="UpperArmL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop" index="1"]
-rotation = -1.0727
-scale = Vector2(0.999981, 0.999981)
+rotation = -1.15905
+scale = Vector2(0.99998, 0.99998)
 
 [node name="LowerArmL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL" index="0"]
-rotation = -0.387219
+rotation = -0.274886
 scale = Vector2(0.999985, 0.999985)
 
 [node name="WristL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL" index="0"]
-rotation = 2.62039
+rotation = 2.52779
 scale = Vector2(0.99998, 0.99998)
 
 [node name="HeadMain" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop" index="2"]
-rotation = -0.123322
-scale = Vector2(0.999977, 0.999977)
+rotation = -0.152691
+scale = Vector2(0.999976, 0.999976)
 
 [node name="LowerJaw" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="0"]
-rotation = 1.07956
-scale = Vector2(0.999978, 0.999978)
+rotation = 1.04634
+scale = Vector2(0.999977, 0.999977)
 
 [node name="EarL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="2"]
 scale = Vector2(0.443939, 0.778982)
 
 [node name="UpperLegR" parent="BearNew/Skeleton2D/TorsoMain" index="1"]
-rotation = 1.88595
+rotation = 1.84585
 scale = Vector2(0.999989, 0.999989)
 
 [node name="LowerLegR" parent="BearNew/Skeleton2D/TorsoMain/UpperLegR" index="0"]
-rotation = 1.65027
-scale = Vector2(0.999982, 0.999982)
+rotation = 1.68266
+scale = Vector2(0.999981, 0.999981)
 
 [node name="UpperLegL" parent="BearNew/Skeleton2D/TorsoMain" index="2"]
-rotation = 2.7259
+rotation = 2.91128
 scale = Vector2(0.999989, 0.999989)
 
 [node name="LowerLegL" parent="BearNew/Skeleton2D/TorsoMain/UpperLegL" index="0"]
-rotation = 0.284354
-scale = Vector2(0.999985, 0.999985)
+rotation = 0.0532569
+scale = Vector2(0.999984, 0.999984)
 
 [node name="AnimationTree" parent="BearNew" index="7"]
 parameters/MainStateMachine/ATTACK/blend_position = 1.31569
@@ -83,17 +236,15 @@ parameters/MainStateMachine/ATTACK/0/blend_position = -0.108141
 parameters/MainStateMachine/ATTACK/1/blend_position = 1.97445
 parameters/MainStateMachine/BEND/blend_position = 0.0
 parameters/MainStateMachine/DEATH/blend_position = 0.0
-parameters/MainStateMachine/FLY/blend_position = 0
 parameters/MainStateMachine/IDLE/blend_position = 1.00243
 parameters/MainStateMachine/JUMP/blend_position = -0.0486618
-parameters/MainStateMachine/LAND/blend_position = 0
 
 [node name="LimboHSM" type="LimboHSM" parent="." node_paths=PackedStringArray("character", "controller", "debug_label")]
 unique_name_in_owner = true
 script = ExtResource("3_7xkve")
 character = NodePath("../BearNew")
 controller = NodePath("..")
-debug_label = NodePath("../Label")
+debug_label = NodePath("../CanvasLayer/Control/Label")
 
 [node name="Idle" type="LimboState" parent="LimboHSM"]
 unique_name_in_owner = true
@@ -114,14 +265,5 @@ animation_state_name = "jump"
 unique_name_in_owner = true
 script = ExtResource("7_ieqh6")
 animation_state_name = "attack"
-
-[node name="Label" type="Label" parent="."]
-unique_name_in_owner = true
-offset_left = -1372.0
-offset_top = -1616.0
-offset_right = -769.0
-offset_bottom = -1434.0
-text = "rare"
-label_settings = SubResource("LabelSettings_uxfgu")
 
 [editable path="BearNew"]
