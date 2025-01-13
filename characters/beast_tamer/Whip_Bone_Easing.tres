@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SoupySecondOrderEasing" load_steps=2 format=3 uid="uid://psrbu37y7htk"]
+
+[ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Easing/soup_second_order_easing.gd" id="1_cf30s"]
+
+[resource]
+script = ExtResource("1_cf30s")
+frequency = 1.0
+damping = 1.0
+reaction = 1.0

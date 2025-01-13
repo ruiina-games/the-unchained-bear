@@ -15,19 +15,19 @@
 [ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Animatinators/Modifications/soup_jiggle.gd" id="13_oblnx"]
 [ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Easing/soup_second_order_easing.gd" id="14_3r47u"]
 
-[sub_resource type="Resource" id="Resource_2tx1p"]
+[sub_resource type="Resource" id="Resource_wl048"]
 script = ExtResource("11_b2ga3")
 frequency = 2.001
 damping = 2.0
 reaction = 2.0
 
-[sub_resource type="Resource" id="Resource_48old"]
+[sub_resource type="Resource" id="Resource_ndode"]
 script = ExtResource("14_3r47u")
 frequency = 4.201
 damping = 1.065
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_6kwnd"]
+[sub_resource type="Resource" id="Resource_boil2"]
 script = ExtResource("14_3r47u")
 frequency = 4.201
 damping = 1.065
@@ -1590,7 +1590,7 @@ enabled = true
 joint_one_bone_node = NodePath("../../../Torso/UpperArmR")
 joint_two_bone_node = NodePath("../../../Torso/UpperArmR/LowerArmR")
 use_easing_on_first_joint = true
-first_joint_easing = SubResource("Resource_2tx1p")
+first_joint_easing = SubResource("Resource_wl048")
 
 [node name="ArmLStack" type="Node" parent="Skeleton2D/SoupStack"]
 script = ExtResource("9_6uaf3")
@@ -1618,7 +1618,7 @@ target_node = NodePath("../../../../Targets/EarRTarget")
 enabled = true
 bone_node = NodePath("../../../Torso/Head/EarR")
 use_easing = true
-easing = SubResource("Resource_48old")
+easing = SubResource("Resource_ndode")
 
 [node name="EarLJiggle" type="Node" parent="Skeleton2D/SoupStack/HeadStack" node_paths=PackedStringArray("target_node", "bone_node")]
 script = ExtResource("13_oblnx")
@@ -1626,7 +1626,7 @@ target_node = NodePath("../../../../Targets/EarLTarget")
 enabled = true
 bone_node = NodePath("../../../Torso/Head/EarL")
 use_easing = true
-easing = SubResource("Resource_6kwnd")
+easing = SubResource("Resource_boil2")
 
 [node name="Torso" type="Bone2D" parent="Skeleton2D"]
 visible = false
@@ -1683,13 +1683,11 @@ bone_angle = 0.0
 [node name="Head" type="Bone2D" parent="Skeleton2D/Torso"]
 position = Vector2(268.754, -6.00209)
 rotation = 0.458071
-scale = Vector2(1, 1)
 rest = Transform2D(0.903183, 0.429256, -0.429256, 0.903183, 268.754, -6.00209)
 
 [node name="EarR" type="Bone2D" parent="Skeleton2D/Torso/Head"]
 position = Vector2(111.089, -78.8635)
 rotation = -1.11957
-scale = Vector2(1, 1)
 rest = Transform2D(0.57573, -0.81764, 0.81764, 0.57573, 117.052, -67.3271)
 auto_calculate_length_and_angle = false
 length = 19.602
@@ -1698,7 +1696,6 @@ bone_angle = 0.0
 [node name="EarL" type="Bone2D" parent="Skeleton2D/Torso/Head"]
 position = Vector2(162.858, 27.6823)
 rotation = 0.159562
-scale = Vector2(1, 1)
 rest = Transform2D(0.964693, 0.263378, -0.263378, 0.964693, 162.858, 27.6823)
 auto_calculate_length_and_angle = false
 length = 12.398
