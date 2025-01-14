@@ -1,0 +1,35 @@
+[gd_resource type="SkeletonModification2DFABRIK" format=3 uid="uid://575pepwsd12m"]
+
+[resource]
+target_nodepath = NodePath("../TargetNodes/WhipTargetTip")
+fabrik_data_chain_length = 10
+joint_data/0/bone_index = 53
+joint_data/0/bone2d_node = NodePath("TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24")
+joint_data/1/bone_index = 54
+joint_data/1/bone2d_node = NodePath("TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25")
+joint_data/1/magnet_position = Vector2(0, 0)
+joint_data/2/bone_index = 55
+joint_data/2/bone2d_node = NodePath("TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26")
+joint_data/2/magnet_position = Vector2(0, 0)
+joint_data/3/bone_index = 56
+joint_data/3/bone2d_node = NodePath("TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27")
+joint_data/3/magnet_position = Vector2(0, 0)
+joint_data/4/bone_index = 57
+joint_data/4/bone2d_node = NodePath("TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28")
+joint_data/4/magnet_position = Vector2(0, 0)
+joint_data/5/bone_index = 58
+joint_data/5/bone2d_node = NodePath("TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28/Whip_29")
+joint_data/5/magnet_position = Vector2(0, 0)
+joint_data/6/bone_index = 59
+joint_data/6/bone2d_node = NodePath("TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28/Whip_29/Whip_30")
+joint_data/6/magnet_position = Vector2(0, 0)
+joint_data/7/bone_index = 60
+joint_data/7/bone2d_node = NodePath("TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28/Whip_29/Whip_30/Whip_31")
+joint_data/7/magnet_position = Vector2(0, 0)
+joint_data/8/bone_index = 61
+joint_data/8/bone2d_node = NodePath("TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28/Whip_29/Whip_30/Whip_31/Whip_32")
+joint_data/8/magnet_position = Vector2(0, 0)
+joint_data/9/bone_index = 62
+joint_data/9/bone2d_node = NodePath("TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28/Whip_29/Whip_30/Whip_31/Whip_32/Whip_33")
+joint_data/9/magnet_position = Vector2(0, 0)
+joint_data/9/use_target_rotation = false
