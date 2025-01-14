@@ -64,4 +64,8 @@ func switch_state(target_state: String):
 		else:
 			animation_tree.set(condition_path, false)
 	
+		# print(controller.fighting_style)
+	
 	current_state = target_state
+	var attack_animations_path = "parameters/MainStateMachine/" + current_state.to_upper() + "/blend_position"
+	animation_tree.set(attack_animations_path, controller.fighting_style)

@@ -14,6 +14,7 @@ class_name PlayerController
 @export var jump_force: float = 2000
 
 @export_category("Attack")
+@export var fighting_style: Bear.STYLES_ID
 @export var max_combo_count: int = 3
 @export var sec_to_reset_combo: float = 0.4
 
@@ -29,6 +30,8 @@ var tilt: float = 0.0
 var direction: float = 1.0
 var tilt_inertia: float = 0.1
 var combo_count: int
+
+@onready var control: Control = $CanvasLayer/Control
 
 func _ready() -> void:
 	_init_state_machine()

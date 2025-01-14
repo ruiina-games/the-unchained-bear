@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=2 format=3 uid="uid://dv3i5h2hu814t"]
+
+[ext_resource type="Script" path="res://data/characters data/character_data.gd" id="1_1ok4q"]
+
+[resource]
+script = ExtResource("1_1ok4q")
+strength = 1.0
+max_health = 2000
+current_health = null
+critical_chance = 0.05
+critical_damage = 1.2
+dodge_chance = 0.0
+attack_speed = 1.0
+movement_speed = 1.0
+attack_range = 0.0
+status_resist = 0.1
+effect_power = 1.0
