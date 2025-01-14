@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://bsi86oh8bgr5y"]
+[gd_scene load_steps=53 format=3 uid="uid://bsi86oh8bgr5y"]
 
 [ext_resource type="Texture2D" uid="uid://5ytt7il20bi3" path="res://assets/BeastTamer/template.png" id="1_qukjw"]
 [ext_resource type="Texture2D" uid="uid://ce060fahxfwye" path="res://assets/BeastTamer/0.png" id="2_pqhmv"]
@@ -41,19 +41,7 @@
 [sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_75arr"]
 enabled = true
 
-[sub_resource type="Resource" id="Resource_n4hdo"]
-script = ExtResource("31_jx7i7")
-frequency = 7.501
-damping = 1.0
-reaction = 2.395
-
 [sub_resource type="Resource" id="Resource_jvbii"]
-script = ExtResource("32_m8eit")
-frequency = 1.0
-damping = 1.0
-reaction = 1.0
-
-[sub_resource type="Resource" id="Resource_nlmo0"]
 script = ExtResource("32_m8eit")
 frequency = 1.0
 damping = 1.0
@@ -111,7 +99,7 @@ reaction = 1.0
 resource_name = "ATTACK_BASE_BOTTOM"
 length = 1.5
 loop_mode = 1
-step = 0.001
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -463,43 +451,43 @@ tracks/28/keys = {
 tracks/29/type = "value"
 tracks/29/imported = false
 tracks/29/enabled = true
-tracks/29/path = NodePath("TargetNodes/WhipTargets/WhipTarget1:position")
+tracks/29/path = NodePath("WhipSkeleton/Handle:position")
 tracks/29/interp = 1
 tracks/29/loop_wrap = true
 tracks/29/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.8, 0.9, 1, 1.1, 1.2, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-304, -654), Vector2(131, -852)]
+"values": [Vector2(-212, -482), Vector2(-198, -562), Vector2(-167, -653), Vector2(-119, -724), Vector2(-81, -790), Vector2(-67, -841), Vector2(-240, -504), Vector2(-234, -513), Vector2(-145, -753), Vector2(-172, -743), Vector2(-239, -672), Vector2(-252, -608), Vector2(-239, -573)]
 }
 tracks/30/type = "value"
 tracks/30/imported = false
 tracks/30/enabled = true
-tracks/30/path = NodePath("TargetNodes/WhipTargets/WhipTarget1:rotation")
+tracks/30/path = NodePath("WhipSkeleton/Handle:rotation")
 tracks/30/interp = 1
 tracks/30/loop_wrap = true
 tracks/30/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0]
+"values": [-3.11353, -3.00291, -2.0778, -1.1971, -1.03846, -1.03461, -3.85315, -3.58647, -3.32195, -1.21805, -1.32774, -2.16786, -2.50283, -2.80989, -3.08145]
 }
 tracks/31/type = "value"
 tracks/31/imported = false
 tracks/31/enabled = true
-tracks/31/path = NodePath("TargetNodes/WhipTargets/WhipTarget2:position")
-tracks/31/interp = 1
+tracks/31/path = NodePath("TargetNodes/WhipTargets/WhipTarget1:position")
+tracks/31/interp = 2
 tracks/31/loop_wrap = true
 tracks/31/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 1, 1.05, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-228, -758), Vector2(251, -827)]
+"values": [Vector2(-241.132, -413.242), Vector2(-309.789, -487.65), Vector2(-312.64, -635.815), Vector2(-265.69, -771.898), Vector2(-266.13, -822.146), Vector2(-274.066, -798.95), Vector2(-359.544, -619.442), Vector2(-224.909, -169.964), Vector2(-173.423, -131.308), Vector2(-246.641, -160.758), Vector2(-195.342, -157.088), Vector2(-251.445, -225.218), Vector2(-297.078, -740.516), Vector2(-350.043, -670.773), Vector2(-336.657, -701.201)]
 }
 tracks/32/type = "value"
 tracks/32/imported = false
 tracks/32/enabled = true
-tracks/32/path = NodePath("TargetNodes/WhipTargets/WhipTarget2:rotation")
+tracks/32/path = NodePath("TargetNodes/WhipTargets/WhipTarget1:rotation")
 tracks/32/interp = 1
 tracks/32/loop_wrap = true
 tracks/32/keys = {
@@ -511,19 +499,19 @@ tracks/32/keys = {
 tracks/33/type = "value"
 tracks/33/imported = false
 tracks/33/enabled = true
-tracks/33/path = NodePath("TargetNodes/WhipTargets/WhipTarget3:position")
-tracks/33/interp = 1
+tracks/33/path = NodePath("TargetNodes/WhipTargets/WhipTarget2:position")
+tracks/33/interp = 2
 tracks/33/loop_wrap = true
 tracks/33/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 1, 1.05, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-110, -756), Vector2(360, -756)]
+"values": [Vector2(-242.488, -538.433), Vector2(-312.164, -611.121), Vector2(-281.299, -804.4), Vector2(-183.757, -876.782), Vector2(-154.248, -906.953), Vector2(-165.622, -917.183), Vector2(-392.639, -714.622), Vector2(-336.468, -121.003), Vector2(-196.664, -19.5346), Vector2(-242.926, -43.4691), Vector2(-180.572, -25.1089), Vector2(-277.555, -104.682), Vector2(-270.65, -865.512), Vector2(-265.238, -815.805), Vector2(-291.209, -797.487)]
 }
 tracks/34/type = "value"
 tracks/34/imported = false
 tracks/34/enabled = true
-tracks/34/path = NodePath("TargetNodes/WhipTargets/WhipTarget3:rotation")
+tracks/34/path = NodePath("TargetNodes/WhipTargets/WhipTarget2:rotation")
 tracks/34/interp = 1
 tracks/34/loop_wrap = true
 tracks/34/keys = {
@@ -535,19 +523,19 @@ tracks/34/keys = {
 tracks/35/type = "value"
 tracks/35/imported = false
 tracks/35/enabled = true
-tracks/35/path = NodePath("TargetNodes/WhipTargets/WhipTarget4:position")
-tracks/35/interp = 1
+tracks/35/path = NodePath("TargetNodes/WhipTargets/WhipTarget3:position")
+tracks/35/interp = 2
 tracks/35/loop_wrap = true
 tracks/35/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 1, 1.05, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(15, -677), Vector2(339, -638)]
+"values": [Vector2(-170.365, -681.682), Vector2(-221.369, -758.414), Vector2(-200.678, -865.887), Vector2(-69.2013, -942.567), Vector2(-35.7728, -977.389), Vector2(-44.8229, -969.966), Vector2(-331.19, -865.36), Vector2(-477.66, -65.1947), Vector2(-235.486, 96.9531), Vector2(-285.287, 84.8712), Vector2(-200.053, 84.2436), Vector2(-283.209, 24.4906), Vector2(-271.052, -972.7), Vector2(-221.515, -881.725), Vector2(-232.764, -868.631)]
 }
 tracks/36/type = "value"
 tracks/36/imported = false
 tracks/36/enabled = true
-tracks/36/path = NodePath("TargetNodes/WhipTargets/WhipTarget4:rotation")
+tracks/36/path = NodePath("TargetNodes/WhipTargets/WhipTarget3:rotation")
 tracks/36/interp = 1
 tracks/36/loop_wrap = true
 tracks/36/keys = {
@@ -559,19 +547,19 @@ tracks/36/keys = {
 tracks/37/type = "value"
 tracks/37/imported = false
 tracks/37/enabled = true
-tracks/37/path = NodePath("TargetNodes/WhipTargets/WhipTarget5:position")
-tracks/37/interp = 1
+tracks/37/path = NodePath("TargetNodes/WhipTargets/WhipTarget4:position")
+tracks/37/interp = 2
 tracks/37/loop_wrap = true
 tracks/37/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.5375, 0.5875, 0.6375, 0.7, 0.75, 0.8, 1, 1.05, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(112, -538), Vector2(250, -514)]
+"values": [Vector2(-25.6308, -780.728), Vector2(-115.953, -865.654), Vector2(-66.9085, -930.745), Vector2(65.9657, -970.559), Vector2(92.3215, -1013.06), Vector2(87.5068, -983.366), Vector2(-233.551, -951.634), Vector2(-648.888, -109.727), Vector2(-350.909, 224.998), Vector2(-347.624, 197.883), Vector2(-189.047, 250.029), Vector2(-265.127, 166.571), Vector2(-378.898, -1063.36), Vector2(-182.883, -1001.81), Vector2(-129.52, -932.983)]
 }
 tracks/38/type = "value"
 tracks/38/imported = false
 tracks/38/enabled = true
-tracks/38/path = NodePath("TargetNodes/WhipTargets/WhipTarget5:rotation")
+tracks/38/path = NodePath("TargetNodes/WhipTargets/WhipTarget4:rotation")
 tracks/38/interp = 1
 tracks/38/loop_wrap = true
 tracks/38/keys = {
@@ -583,19 +571,19 @@ tracks/38/keys = {
 tracks/39/type = "value"
 tracks/39/imported = false
 tracks/39/enabled = true
-tracks/39/path = NodePath("TargetNodes/WhipTargets/WhipTarget6:position")
-tracks/39/interp = 1
+tracks/39/path = NodePath("TargetNodes/WhipTargets/WhipTarget5:position")
+tracks/39/interp = 2
 tracks/39/loop_wrap = true
 tracks/39/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.5375, 0.5875, 0.6375, 0.7, 0.75, 0.8, 1, 1.05, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(171, -400), Vector2(201, -388)]
+"values": [Vector2(132.961, -854.123), Vector2(10.0977, -866.5), Vector2(92.1788, -879.459), Vector2(231.88, -989.626), Vector2(226.618, -947.408), Vector2(233.819, -947.79), Vector2(-50.8063, -1030.48), Vector2(-660.213, -271.052), Vector2(-506.847, 217.429), Vector2(-450.237, 316.084), Vector2(-172.72, 416.644), Vector2(-179.525, 298.686), Vector2(-491.679, -922.127), Vector2(-232.541, -1147.5), Vector2(6.63611, -968.527)]
 }
 tracks/40/type = "value"
 tracks/40/imported = false
 tracks/40/enabled = true
-tracks/40/path = NodePath("TargetNodes/WhipTargets/WhipTarget6:rotation")
+tracks/40/path = NodePath("TargetNodes/WhipTargets/WhipTarget5:rotation")
 tracks/40/interp = 1
 tracks/40/loop_wrap = true
 tracks/40/keys = {
@@ -607,19 +595,19 @@ tracks/40/keys = {
 tracks/41/type = "value"
 tracks/41/imported = false
 tracks/41/enabled = true
-tracks/41/path = NodePath("TargetNodes/WhipTargets/WhipTarget7:position")
-tracks/41/interp = 1
+tracks/41/path = NodePath("TargetNodes/WhipTargets/WhipTarget6:position")
+tracks/41/interp = 2
 tracks/41/loop_wrap = true
 tracks/41/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.5375, 0.5875, 0.6375, 0.7, 0.75, 0.8, 1, 1.05, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(217, -268)]
+"values": [Vector2(258.689, -819.123), Vector2(152.712, -816.841), Vector2(198.943, -798.737), Vector2(337.073, -817.999), Vector2(337.135, -806.337), Vector2(325.952, -812.966), Vector2(84.0345, -991.236), Vector2(-614.665, -412.615), Vector2(-547.046, 108.739), Vector2(-567.218, 409.494), Vector2(-125.133, 559.939), Vector2(-132.226, 452.272), Vector2(-546.624, -805.896), Vector2(-275.963, -1217.41), Vector2(140.947, -1028.41)]
 }
 tracks/42/type = "value"
 tracks/42/imported = false
 tracks/42/enabled = true
-tracks/42/path = NodePath("TargetNodes/WhipTargets/WhipTarget7:rotation")
+tracks/42/path = NodePath("TargetNodes/WhipTargets/WhipTarget6:rotation")
 tracks/42/interp = 1
 tracks/42/loop_wrap = true
 tracks/42/keys = {
@@ -631,19 +619,19 @@ tracks/42/keys = {
 tracks/43/type = "value"
 tracks/43/imported = false
 tracks/43/enabled = true
-tracks/43/path = NodePath("TargetNodes/WhipTargets/WhipTarget8:position")
-tracks/43/interp = 1
+tracks/43/path = NodePath("TargetNodes/WhipTargets/WhipTarget7:position")
+tracks/43/interp = 2
 tracks/43/loop_wrap = true
 tracks/43/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.55, 0.5875, 0.6375, 0.7, 0.75, 0.8, 1, 1.05, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(294, -127)]
+"values": [Vector2(316.794, -697.494), Vector2(259.854, -697.533), Vector2(273.331, -679.082), Vector2(330.908, -687.966), Vector2(333.17, -681.975), Vector2(341.741, -682.707), Vector2(126.554, -833.508), Vector2(-492.04, -541.042), Vector2(-511.755, -58.6666), Vector2(-681.222, 386.093), Vector2(-165.811, 746.238), Vector2(-155.852, 588.23), Vector2(-547.693, -653.08), Vector2(-457.697, -1334.43), Vector2(261.143, -1097.83)]
 }
 tracks/44/type = "value"
 tracks/44/imported = false
 tracks/44/enabled = true
-tracks/44/path = NodePath("TargetNodes/WhipTargets/WhipTarget8:rotation")
+tracks/44/path = NodePath("TargetNodes/WhipTargets/WhipTarget7:rotation")
 tracks/44/interp = 1
 tracks/44/loop_wrap = true
 tracks/44/keys = {
@@ -655,19 +643,19 @@ tracks/44/keys = {
 tracks/45/type = "value"
 tracks/45/imported = false
 tracks/45/enabled = true
-tracks/45/path = NodePath("TargetNodes/WhipTargets/WhipTarget9:position")
-tracks/45/interp = 1
+tracks/45/path = NodePath("TargetNodes/WhipTargets/WhipTarget8:position")
+tracks/45/interp = 2
 tracks/45/loop_wrap = true
 tracks/45/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 1, 1.05, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(424, -59)]
+"values": [Vector2(409.503, -583.254), Vector2(381.819, -628.726), Vector2(407.054, -624.231), Vector2(432.893, -603.102), Vector2(438.374, -604.504), Vector2(439.744, -604.854), Vector2(200.528, -726.885), Vector2(-370.439, -636.363), Vector2(-499.374, -212.915), Vector2(-805.931, 349.373), Vector2(-279.261, 890.566), Vector2(-204.071, 679.385), Vector2(-527.092, -521.132), Vector2(-555.842, -1278.68), Vector2(370.797, -1214.18)]
 }
 tracks/46/type = "value"
 tracks/46/imported = false
 tracks/46/enabled = true
-tracks/46/path = NodePath("TargetNodes/WhipTargets/WhipTarget9:rotation")
+tracks/46/path = NodePath("TargetNodes/WhipTargets/WhipTarget8:rotation")
 tracks/46/interp = 1
 tracks/46/loop_wrap = true
 tracks/46/keys = {
@@ -679,22 +667,46 @@ tracks/46/keys = {
 tracks/47/type = "value"
 tracks/47/imported = false
 tracks/47/enabled = true
-tracks/47/path = NodePath("TargetNodes/WhipTargets/WhipTipTarget:position")
-tracks/47/interp = 1
+tracks/47/path = NodePath("TargetNodes/WhipTargets/WhipTarget9:position")
+tracks/47/interp = 2
 tracks/47/loop_wrap = true
 tracks/47/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 1, 1.05, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1030, -14)]
+"values": [Vector2(570.568, -547.071), Vector2(578.761, -586.389), Vector2(577.776, -610.223), Vector2(597.85, -608.787), Vector2(595.748, -617.008), Vector2(599.06, -606.907), Vector2(327.238, -636.666), Vector2(-317.603, -698.044), Vector2(-478.523, -322.618), Vector2(-921.804, 233.027), Vector2(-367.947, 983.31), Vector2(-277.786, 813.553), Vector2(-498.437, -326.284), Vector2(-702.077, -594.628), Vector2(455.345, -1343.09)]
 }
 tracks/48/type = "value"
 tracks/48/imported = false
 tracks/48/enabled = true
-tracks/48/path = NodePath("TargetNodes/WhipTargets/WhipTipTarget:rotation")
+tracks/48/path = NodePath("TargetNodes/WhipTargets/WhipTarget9:rotation")
 tracks/48/interp = 1
 tracks/48/loop_wrap = true
 tracks/48/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/49/type = "value"
+tracks/49/imported = false
+tracks/49/enabled = true
+tracks/49/path = NodePath("TargetNodes/WhipTargets/WhipTipTarget:position")
+tracks/49/interp = 2
+tracks/49/loop_wrap = true
+tracks/49/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 1, 1.05, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(740.07, -1017.39), Vector2(814.097, -1093.24), Vector2(840.005, -1123.22), Vector2(831.593, -1124.72), Vector2(677.58, -964.914), Vector2(163.151, -1269.84), Vector2(-525.669, -703.963), Vector2(-1012.77, -388.189), Vector2(-643.309, 1542), Vector2(-626.731, 1466.96), Vector2(-403.648, 272.787), Vector2(-824.082, -29.8977), Vector2(640.807, -1779.53)]
+}
+tracks/50/type = "value"
+tracks/50/imported = false
+tracks/50/enabled = true
+tracks/50/path = NodePath("TargetNodes/WhipTargets/WhipTipTarget:rotation")
+tracks/50/interp = 1
+tracks/50/loop_wrap = true
+tracks/50/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -1074,7 +1086,7 @@ tracks/30/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-304, -654)]
+"values": [Vector2(-241.132, -413.242)]
 }
 tracks/31/type = "value"
 tracks/31/imported = false
@@ -1098,7 +1110,7 @@ tracks/32/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-228, -758)]
+"values": [Vector2(-242.488, -538.433)]
 }
 tracks/33/type = "value"
 tracks/33/imported = false
@@ -1122,7 +1134,7 @@ tracks/34/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-110, -756)]
+"values": [Vector2(-170.365, -681.682)]
 }
 tracks/35/type = "value"
 tracks/35/imported = false
@@ -1146,7 +1158,7 @@ tracks/36/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(15, -677)]
+"values": [Vector2(-25.6308, -780.728)]
 }
 tracks/37/type = "value"
 tracks/37/imported = false
@@ -1170,7 +1182,7 @@ tracks/38/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(112, -538)]
+"values": [Vector2(132.961, -854.123)]
 }
 tracks/39/type = "value"
 tracks/39/imported = false
@@ -1194,7 +1206,7 @@ tracks/40/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(171, -400)]
+"values": [Vector2(258.689, -819.123)]
 }
 tracks/41/type = "value"
 tracks/41/imported = false
@@ -1218,7 +1230,7 @@ tracks/42/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(424, -59)]
+"values": [Vector2(570.568, -547.071)]
 }
 tracks/43/type = "value"
 tracks/43/imported = false
@@ -1242,7 +1254,7 @@ tracks/44/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(294, -127)]
+"values": [Vector2(409.503, -583.254)]
 }
 tracks/45/type = "value"
 tracks/45/imported = false
@@ -1266,7 +1278,7 @@ tracks/46/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(217, -268)]
+"values": [Vector2(316.794, -697.494)]
 }
 tracks/47/type = "value"
 tracks/47/imported = false
@@ -1290,7 +1302,7 @@ tracks/48/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1030, -14)]
+"values": [Vector2(740.07, -1017.39)]
 }
 tracks/49/type = "value"
 tracks/49/imported = false
@@ -1304,11 +1316,35 @@ tracks/49/keys = {
 "update": 0,
 "values": [-0.114338]
 }
+tracks/50/type = "value"
+tracks/50/imported = false
+tracks/50/enabled = true
+tracks/50/path = NodePath("WhipSkeleton/Handle:position")
+tracks/50/interp = 1
+tracks/50/loop_wrap = true
+tracks/50/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-218.857, -486.516)]
+}
+tracks/51/type = "value"
+tracks/51/imported = false
+tracks/51/enabled = true
+tracks/51/path = NodePath("WhipSkeleton/Handle:rotation")
+tracks/51/interp = 1
+tracks/51/loop_wrap = true
+tracks/51/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-3.11353]
+}
 
 [sub_resource type="Animation" id="Animation_n5kmy"]
 resource_name = "IDLE"
 loop_mode = 1
-step = 0.05
+step = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1668,6 +1704,270 @@ tracks/29/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("WhipSkeleton/Handle:position")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6125, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-218.857, -486.516), Vector2(-216, -487), Vector2(-215, -488), Vector2(-218.857, -486.516)]
+}
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("WhipSkeleton/Handle:rotation")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-3.11353, -3.11353]
+}
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("TargetNodes/WhipTargets/WhipTarget1:position")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(0, 0.4, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-241.132, -413.242), Vector2(-231.794, -430.957), Vector2(-241.132, -413.242)]
+}
+tracks/33/type = "value"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("TargetNodes/WhipTargets/WhipTarget1:rotation")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("TargetNodes/WhipTargets/WhipTarget2:position")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-242.488, -538.433)]
+}
+tracks/35/type = "value"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("TargetNodes/WhipTargets/WhipTarget2:rotation")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/36/type = "value"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("TargetNodes/WhipTargets/WhipTarget3:position")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-170.365, -681.682)]
+}
+tracks/37/type = "value"
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/path = NodePath("TargetNodes/WhipTargets/WhipTarget3:rotation")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/38/type = "value"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("TargetNodes/WhipTargets/WhipTarget4:position")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-25.6308, -780.728)]
+}
+tracks/39/type = "value"
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/path = NodePath("TargetNodes/WhipTargets/WhipTarget4:rotation")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/40/type = "value"
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/path = NodePath("TargetNodes/WhipTargets/WhipTarget5:position")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(132.961, -854.123)]
+}
+tracks/41/type = "value"
+tracks/41/imported = false
+tracks/41/enabled = true
+tracks/41/path = NodePath("TargetNodes/WhipTargets/WhipTarget5:rotation")
+tracks/41/interp = 1
+tracks/41/loop_wrap = true
+tracks/41/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/42/type = "value"
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/path = NodePath("TargetNodes/WhipTargets/WhipTarget6:position")
+tracks/42/interp = 1
+tracks/42/loop_wrap = true
+tracks/42/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(258.689, -819.123)]
+}
+tracks/43/type = "value"
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/path = NodePath("TargetNodes/WhipTargets/WhipTarget6:rotation")
+tracks/43/interp = 1
+tracks/43/loop_wrap = true
+tracks/43/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/44/type = "value"
+tracks/44/imported = false
+tracks/44/enabled = true
+tracks/44/path = NodePath("TargetNodes/WhipTargets/WhipTarget7:position")
+tracks/44/interp = 1
+tracks/44/loop_wrap = true
+tracks/44/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(316.794, -697.494)]
+}
+tracks/45/type = "value"
+tracks/45/imported = false
+tracks/45/enabled = true
+tracks/45/path = NodePath("TargetNodes/WhipTargets/WhipTarget7:rotation")
+tracks/45/interp = 1
+tracks/45/loop_wrap = true
+tracks/45/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/46/type = "value"
+tracks/46/imported = false
+tracks/46/enabled = true
+tracks/46/path = NodePath("TargetNodes/WhipTargets/WhipTarget8:position")
+tracks/46/interp = 1
+tracks/46/loop_wrap = true
+tracks/46/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(409.503, -583.254)]
+}
+tracks/47/type = "value"
+tracks/47/imported = false
+tracks/47/enabled = true
+tracks/47/path = NodePath("TargetNodes/WhipTargets/WhipTarget8:rotation")
+tracks/47/interp = 1
+tracks/47/loop_wrap = true
+tracks/47/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/48/type = "value"
+tracks/48/imported = false
+tracks/48/enabled = true
+tracks/48/path = NodePath("TargetNodes/WhipTargets/WhipTarget9:position")
+tracks/48/interp = 1
+tracks/48/loop_wrap = true
+tracks/48/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(570.568, -547.071)]
+}
+tracks/49/type = "value"
+tracks/49/imported = false
+tracks/49/enabled = true
+tracks/49/path = NodePath("TargetNodes/WhipTargets/WhipTarget9:rotation")
+tracks/49/interp = 1
+tracks/49/loop_wrap = true
+tracks/49/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/50/type = "value"
+tracks/50/imported = false
+tracks/50/enabled = true
+tracks/50/path = NodePath("TargetNodes/WhipTargets/WhipTipTarget:position")
+tracks/50/interp = 1
+tracks/50/loop_wrap = true
+tracks/50/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(740.07, -1017.39)]
+}
+tracks/51/type = "value"
+tracks/51/imported = false
+tracks/51/enabled = true
+tracks/51/path = NodePath("TargetNodes/WhipTargets/WhipTipTarget:rotation")
+tracks/51/interp = 1
+tracks/51/loop_wrap = true
+tracks/51/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.114338]
 }
 
 [sub_resource type="Animation" id="Animation_jlumc"]
@@ -2272,6 +2572,30 @@ tracks/49/keys = {
 "update": 0,
 "values": [-0.114338]
 }
+tracks/50/type = "value"
+tracks/50/imported = false
+tracks/50/enabled = true
+tracks/50/path = NodePath("WhipSkeleton/Handle:position")
+tracks/50/interp = 1
+tracks/50/loop_wrap = true
+tracks/50/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-218.857, -486.516)]
+}
+tracks/51/type = "value"
+tracks/51/imported = false
+tracks/51/enabled = true
+tracks/51/path = NodePath("WhipSkeleton/Handle:rotation")
+tracks/51/interp = 1
+tracks/51/loop_wrap = true
+tracks/51/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-3.11353]
+}
 
 [sub_resource type="Animation" id="Animation_ksvon"]
 resource_name = "RUN#"
@@ -2641,238 +2965,250 @@ tracks/29/keys = {
 tracks/30/type = "value"
 tracks/30/imported = false
 tracks/30/enabled = true
-tracks/30/path = NodePath("TargetNodes/WhipTargets/WhipTarget1:position")
+tracks/30/path = NodePath("WhipSkeleton/Handle:position")
 tracks/30/interp = 1
 tracks/30/loop_wrap = true
 tracks/30/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-304, -654)]
+"values": [Vector2(-218.857, -486.516), Vector2(-217, -492), Vector2(-212, -501), Vector2(-215, -520), Vector2(-220, -529), Vector2(-223, -533), Vector2(-220, -525)]
 }
 tracks/31/type = "value"
 tracks/31/imported = false
 tracks/31/enabled = true
-tracks/31/path = NodePath("TargetNodes/WhipTargets/WhipTarget1:rotation")
-tracks/31/interp = 1
+tracks/31/path = NodePath("TargetNodes/WhipTargets/WhipTarget1:position")
+tracks/31/interp = 2
 tracks/31/loop_wrap = true
 tracks/31/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [Vector2(-237.757, -419.643)]
 }
 tracks/32/type = "value"
 tracks/32/imported = false
 tracks/32/enabled = true
-tracks/32/path = NodePath("TargetNodes/WhipTargets/WhipTarget2:position")
+tracks/32/path = NodePath("TargetNodes/WhipTargets/WhipTarget1:rotation")
 tracks/32/interp = 1
 tracks/32/loop_wrap = true
 tracks/32/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-228, -758)]
+"values": [0.0]
 }
 tracks/33/type = "value"
 tracks/33/imported = false
 tracks/33/enabled = true
-tracks/33/path = NodePath("TargetNodes/WhipTargets/WhipTarget2:rotation")
-tracks/33/interp = 1
+tracks/33/path = NodePath("TargetNodes/WhipTargets/WhipTarget2:position")
+tracks/33/interp = 2
 tracks/33/loop_wrap = true
 tracks/33/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [Vector2(-242.488, -538.433)]
 }
 tracks/34/type = "value"
 tracks/34/imported = false
 tracks/34/enabled = true
-tracks/34/path = NodePath("TargetNodes/WhipTargets/WhipTarget3:position")
+tracks/34/path = NodePath("TargetNodes/WhipTargets/WhipTarget2:rotation")
 tracks/34/interp = 1
 tracks/34/loop_wrap = true
 tracks/34/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-110, -756)]
+"values": [0.0]
 }
 tracks/35/type = "value"
 tracks/35/imported = false
 tracks/35/enabled = true
-tracks/35/path = NodePath("TargetNodes/WhipTargets/WhipTarget3:rotation")
-tracks/35/interp = 1
+tracks/35/path = NodePath("TargetNodes/WhipTargets/WhipTarget3:position")
+tracks/35/interp = 2
 tracks/35/loop_wrap = true
 tracks/35/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [Vector2(-170.365, -681.682)]
 }
 tracks/36/type = "value"
 tracks/36/imported = false
 tracks/36/enabled = true
-tracks/36/path = NodePath("TargetNodes/WhipTargets/WhipTarget4:position")
+tracks/36/path = NodePath("TargetNodes/WhipTargets/WhipTarget3:rotation")
 tracks/36/interp = 1
 tracks/36/loop_wrap = true
 tracks/36/keys = {
-"times": PackedFloat32Array(0, 0.8),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(15, -677), Vector2(8, -670)]
+"values": [0.0]
 }
 tracks/37/type = "value"
 tracks/37/imported = false
 tracks/37/enabled = true
-tracks/37/path = NodePath("TargetNodes/WhipTargets/WhipTarget4:rotation")
-tracks/37/interp = 1
+tracks/37/path = NodePath("TargetNodes/WhipTargets/WhipTarget4:position")
+tracks/37/interp = 2
 tracks/37/loop_wrap = true
 tracks/37/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [Vector2(-25.6308, -780.728)]
 }
 tracks/38/type = "value"
 tracks/38/imported = false
 tracks/38/enabled = true
-tracks/38/path = NodePath("TargetNodes/WhipTargets/WhipTarget5:position")
+tracks/38/path = NodePath("TargetNodes/WhipTargets/WhipTarget4:rotation")
 tracks/38/interp = 1
 tracks/38/loop_wrap = true
 tracks/38/keys = {
-"times": PackedFloat32Array(0, 0.8),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(112, -538), Vector2(97, -535)]
+"values": [0.0]
 }
 tracks/39/type = "value"
 tracks/39/imported = false
 tracks/39/enabled = true
-tracks/39/path = NodePath("TargetNodes/WhipTargets/WhipTarget5:rotation")
-tracks/39/interp = 1
+tracks/39/path = NodePath("TargetNodes/WhipTargets/WhipTarget5:position")
+tracks/39/interp = 2
 tracks/39/loop_wrap = true
 tracks/39/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [Vector2(132.961, -854.123)]
 }
 tracks/40/type = "value"
 tracks/40/imported = false
 tracks/40/enabled = true
-tracks/40/path = NodePath("TargetNodes/WhipTargets/WhipTarget6:position")
+tracks/40/path = NodePath("TargetNodes/WhipTargets/WhipTarget5:rotation")
 tracks/40/interp = 1
 tracks/40/loop_wrap = true
 tracks/40/keys = {
-"times": PackedFloat32Array(0, 0.8),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(171, -400), Vector2(176, -402)]
+"values": [0.0]
 }
 tracks/41/type = "value"
 tracks/41/imported = false
 tracks/41/enabled = true
-tracks/41/path = NodePath("TargetNodes/WhipTargets/WhipTarget6:rotation")
-tracks/41/interp = 1
+tracks/41/path = NodePath("TargetNodes/WhipTargets/WhipTarget6:position")
+tracks/41/interp = 2
 tracks/41/loop_wrap = true
 tracks/41/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [Vector2(258.689, -819.123)]
 }
 tracks/42/type = "value"
 tracks/42/imported = false
 tracks/42/enabled = true
-tracks/42/path = NodePath("TargetNodes/WhipTargets/WhipTarget8:position")
+tracks/42/path = NodePath("TargetNodes/WhipTargets/WhipTarget6:rotation")
 tracks/42/interp = 1
 tracks/42/loop_wrap = true
 tracks/42/keys = {
-"times": PackedFloat32Array(0, 0.8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(294, -127), Vector2(301, -135)]
-}
-tracks/43/type = "value"
-tracks/43/imported = false
-tracks/43/enabled = true
-tracks/43/path = NodePath("TargetNodes/WhipTargets/WhipTarget8:rotation")
-tracks/43/interp = 1
-tracks/43/loop_wrap = true
-tracks/43/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
 }
+tracks/43/type = "value"
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/path = NodePath("TargetNodes/WhipTargets/WhipTarget7:position")
+tracks/43/interp = 2
+tracks/43/loop_wrap = true
+tracks/43/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(316.794, -697.494)]
+}
 tracks/44/type = "value"
 tracks/44/imported = false
 tracks/44/enabled = true
-tracks/44/path = NodePath("TargetNodes/WhipTargets/WhipTarget9:position")
-tracks/44/interp = 2
+tracks/44/path = NodePath("TargetNodes/WhipTargets/WhipTarget7:rotation")
+tracks/44/interp = 1
 tracks/44/loop_wrap = true
 tracks/44/keys = {
-"times": PackedFloat32Array(0, 0.8),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(424, -59), Vector2(426, -64)]
+"values": [0.0]
 }
 tracks/45/type = "value"
 tracks/45/imported = false
 tracks/45/enabled = true
-tracks/45/path = NodePath("TargetNodes/WhipTargets/WhipTarget9:rotation")
+tracks/45/path = NodePath("TargetNodes/WhipTargets/WhipTarget8:position")
 tracks/45/interp = 2
 tracks/45/loop_wrap = true
 tracks/45/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [Vector2(409.503, -583.254)]
 }
 tracks/46/type = "value"
 tracks/46/imported = false
 tracks/46/enabled = true
-tracks/46/path = NodePath("TargetNodes/WhipTargets/WhipTarget7:position")
+tracks/46/path = NodePath("TargetNodes/WhipTargets/WhipTarget8:rotation")
 tracks/46/interp = 1
 tracks/46/loop_wrap = true
 tracks/46/keys = {
-"times": PackedFloat32Array(0, 0.8),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(208, -266), Vector2(198, -259)]
+"values": [0.0]
 }
 tracks/47/type = "value"
 tracks/47/imported = false
 tracks/47/enabled = true
-tracks/47/path = NodePath("TargetNodes/WhipTargets/WhipTarget7:rotation")
-tracks/47/interp = 1
+tracks/47/path = NodePath("TargetNodes/WhipTargets/WhipTarget9:position")
+tracks/47/interp = 2
 tracks/47/loop_wrap = true
 tracks/47/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(217, -268)]
+"values": [Vector2(570.568, -547.071)]
 }
 tracks/48/type = "value"
 tracks/48/imported = false
 tracks/48/enabled = true
-tracks/48/path = NodePath("TargetNodes/WhipTargets/WhipTipTarget:position")
-tracks/48/interp = 2
+tracks/48/path = NodePath("TargetNodes/WhipTargets/WhipTarget9:rotation")
+tracks/48/interp = 1
 tracks/48/loop_wrap = true
 tracks/48/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1098, -21)]
+"values": [0.0]
 }
 tracks/49/type = "value"
 tracks/49/imported = false
 tracks/49/enabled = true
-tracks/49/path = NodePath("TargetNodes/WhipTargets/WhipTipTarget:rotation")
+tracks/49/path = NodePath("TargetNodes/WhipTargets/WhipTipTarget:position")
 tracks/49/interp = 2
 tracks/49/loop_wrap = true
 tracks/49/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(740.07, -1017.39)]
+}
+tracks/50/type = "value"
+tracks/50/imported = false
+tracks/50/enabled = true
+tracks/50/path = NodePath("TargetNodes/WhipTargets/WhipTipTarget:rotation")
+tracks/50/interp = 1
+tracks/50/loop_wrap = true
+tracks/50/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -2889,7 +3225,6 @@ _data = {
 }
 
 [node name="BeastTamer" type="CharacterBody2D"]
-position = Vector2(635, 731)
 metadata/_edit_vertical_guides_ = [-1443.0, -1720.0]
 
 [node name="Template" type="Sprite2D" parent="."]
@@ -2947,11 +3282,11 @@ bones = ["TorsoMain", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/UpperLegL", Pac
 position = Vector2(-1669, -1800)
 rotation = 0.234698
 texture = ExtResource("6_worl7")
-skeleton = NodePath("../../../Skeleton2D")
+skeleton = NodePath("../../../WhipSkeleton")
 polygon = PackedVector2Array(1654, 919, 1664, 938, 1771, 987, 1784, 962, 1696, 906, 1666, 901, 1569.72, 850.993, 1556.47, 844.109, 1544.56, 837.376, 1455.52, 787.017, 1448, 782, 1436.41, 775.697, 1340.26, 723.671, 1332.82, 719.584, 1323.87, 713.856, 1215.64, 656.797, 1204.48, 650.666, 1194.29, 644.257, 1063.6, 570.817, 1056.44, 567.69, 1048.72, 562.643, 941.736, 506.265, 933.06, 501.497, 925.345, 496.45, 810, 434, 801.686, 429.296, 791.771, 423.847, 678.988, 361.864, 670.592, 358.056, 662.876, 353.009, 565.803, 302.08, 548.452, 292.544, 535.779, 284.772, 506.994, 268.146, 494.88, 262.294, 482.486, 255.483, 451.781, 239.415, 442.826, 233.687, 435.39, 229.6, 399, 211, 393, 208, 387, 205, 346.992, 183.439, 340.516, 179.073, 332, 174, 298.377, 155.914, 290.941, 151.827, 283, 147, 248.523, 127.708, 239, 123, 232, 119, 197, 101, 192, 98, 185, 94, 146, 73, 140, 70, 132, 66, 98, 46, 93, 43, 86, 40, 51, 22, 45, 19, 40, 16, 15, 10, 30, 34, 35, 38, 42, 41, 75, 61, 82, 65, 89, 69, 121, 88, 129, 93, 137, 97, 173, 114, 179, 118, 185, 122, 218, 140, 226, 144, 234, 148, 270, 168, 277.843, 171.255, 284.319, 175.621, 320, 194, 329.618, 198.903, 336.094, 203.269, 374, 224, 381, 228, 390, 232, 423.81, 250.669, 431.246, 254.756, 438.683, 258.843, 468.986, 277.111, 483.3, 283.364, 495.694, 290.175, 522.681, 304.2, 536.593, 312.653, 548.027, 319.743, 650.058, 373.397, 659.973, 378.846, 667.688, 383.893, 778.271, 445.475, 786.389, 448.322, 793.825, 452.409, 908.529, 513.834, 919.962, 520.925, 929.877, 526.374, 1031.79, 583.188, 1040.46, 587.956, 1047.9, 592.042, 1176.23, 660.96, 1191.11, 669.134, 1202.82, 677.185, 1312.01, 733.965, 1320, 739.972, 1328.68, 744.74, 1429, 800, 1435, 802, 1443, 806, 1528.42, 853.599, 1542.81, 861.617, 1559.04, 867.312)
 uv = PackedVector2Array(1654, 919, 1664, 938, 1771, 987, 1784, 962, 1696, 906, 1666, 901, 1569.72, 850.993, 1556.47, 844.109, 1544.56, 837.376, 1455.52, 787.017, 1448, 782, 1436.41, 775.697, 1340.26, 723.671, 1332.82, 719.584, 1323.87, 713.856, 1215.64, 656.797, 1204.48, 650.666, 1194.29, 644.257, 1063.6, 570.817, 1056.44, 567.69, 1048.72, 562.643, 941.736, 506.265, 933.06, 501.497, 925.345, 496.45, 810, 434, 801.686, 429.296, 791.771, 423.847, 678.988, 361.864, 670.592, 358.056, 662.876, 353.009, 565.803, 302.08, 548.452, 292.544, 535.779, 284.772, 506.994, 268.146, 494.88, 262.294, 482.486, 255.483, 451.781, 239.415, 442.826, 233.687, 435.39, 229.6, 399, 211, 393, 208, 387, 205, 346.992, 183.439, 340.516, 179.073, 332, 174, 298.377, 155.914, 290.941, 151.827, 283, 147, 248.523, 127.708, 239, 123, 232, 119, 197, 101, 192, 98, 185, 94, 146, 73, 140, 70, 132, 66, 98, 46, 93, 43, 86, 40, 51, 22, 45, 19, 40, 16, 15, 10, 30, 34, 35, 38, 42, 41, 75, 61, 82, 65, 89, 69, 121, 88, 129, 93, 137, 97, 173, 114, 179, 118, 185, 122, 218, 140, 226, 144, 234, 148, 270, 168, 277.843, 171.255, 284.319, 175.621, 320, 194, 329.618, 198.903, 336.094, 203.269, 374, 224, 381, 228, 390, 232, 423.81, 250.669, 431.246, 254.756, 438.683, 258.843, 468.986, 277.111, 483.3, 283.364, 495.694, 290.175, 522.681, 304.2, 536.593, 312.653, 548.027, 319.743, 650.058, 373.397, 659.973, 378.846, 667.688, 383.893, 778.271, 445.475, 786.389, 448.322, 793.825, 452.409, 908.529, 513.834, 919.962, 520.925, 929.877, 526.374, 1031.79, 583.188, 1040.46, 587.956, 1047.9, 592.042, 1176.23, 660.96, 1191.11, 669.134, 1202.82, 677.185, 1312.01, 733.965, 1320, 739.972, 1328.68, 744.74, 1429, 800, 1435, 802, 1443, 806, 1528.42, 853.599, 1542.81, 861.617, 1559.04, 867.312)
 polygons = [PackedInt32Array(63, 64, 62), PackedInt32Array(62, 61, 65, 64), PackedInt32Array(60, 66, 65, 61), PackedInt32Array(59, 60, 66, 67), PackedInt32Array(59, 58, 68, 67), PackedInt32Array(58, 57, 69, 68), PackedInt32Array(57, 56, 70, 69), PackedInt32Array(56, 55, 71, 70), PackedInt32Array(55, 54, 72, 71), PackedInt32Array(54, 53, 73, 72), PackedInt32Array(53, 52, 74, 73), PackedInt32Array(52, 51, 75, 74), PackedInt32Array(51, 50, 76, 75), PackedInt32Array(50, 49, 77, 76), PackedInt32Array(49, 48, 78, 77), PackedInt32Array(48, 47, 79, 78), PackedInt32Array(47, 46, 80, 79), PackedInt32Array(46, 45, 81, 80), PackedInt32Array(45, 44, 82, 81), PackedInt32Array(44, 43, 83, 82), PackedInt32Array(43, 42, 84, 83), PackedInt32Array(84, 85, 41, 42), PackedInt32Array(85, 86, 40, 41), PackedInt32Array(86, 87, 39, 40), PackedInt32Array(87, 88, 38, 39), PackedInt32Array(88, 89, 37, 38), PackedInt32Array(89, 90, 36, 37), PackedInt32Array(90, 91, 35, 36), PackedInt32Array(91, 92, 34, 35), PackedInt32Array(92, 93, 33, 34), PackedInt32Array(93, 94, 32, 33), PackedInt32Array(94, 95, 31, 32), PackedInt32Array(95, 96, 30, 31), PackedInt32Array(96, 97, 29, 30), PackedInt32Array(29, 28, 98, 97), PackedInt32Array(28, 27, 99, 98), PackedInt32Array(27, 26, 100, 99), PackedInt32Array(26, 25, 101, 100), PackedInt32Array(25, 24, 102, 101), PackedInt32Array(24, 23, 103, 102), PackedInt32Array(23, 22, 104, 103), PackedInt32Array(22, 21, 105, 104), PackedInt32Array(21, 20, 106, 105), PackedInt32Array(20, 19, 107, 106), PackedInt32Array(19, 18, 108, 107), PackedInt32Array(18, 17, 109, 108), PackedInt32Array(17, 16, 110, 109), PackedInt32Array(16, 15, 111, 110), PackedInt32Array(111, 112, 14, 15), PackedInt32Array(14, 13, 113, 112), PackedInt32Array(13, 12, 114, 113), PackedInt32Array(12, 11, 115, 114), PackedInt32Array(11, 10, 116, 115), PackedInt32Array(10, 9, 117, 116), PackedInt32Array(9, 8, 118, 117), PackedInt32Array(118, 119, 7, 8), PackedInt32Array(7, 6, 120, 119), PackedInt32Array(6, 5, 0, 120), PackedInt32Array(5, 4, 1, 0), PackedInt32Array(2, 1, 4, 3)]
-bones = ["TorsoMain", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/UpperLegL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/UpperLegL/LowerLegL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/UpperLegL/LowerLegL/FootL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/UpperLegR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/UpperLegR/LowerLegR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/UpperLegR/LowerLegR/FootR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03/DressL_04", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03/DressL_04/DressL_05", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03/DressL_04/DressL_05/DressL_06", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03/DressR_04", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03/DressR_04/DressR_05", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03/DressR_04/DressR_05/DressR_06", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandL/LowerHandL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandL/LowerHandL/WristL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle", PackedFloat32Array(1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01", PackedFloat32Array(1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/NeckBase", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/NeckBase/NeckTop", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/NeckBase/NeckTop/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/NeckBase/NeckTop/Head/Feather", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+bones = ["Handle", PackedFloat32Array(1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Handle/Whip_01", PackedFloat32Array(1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1), "Handle/Whip_01/Whip_02", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0), "Handle/Whip_01/Whip_02/Whip_03", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0), "Handle/Whip_01/Whip_02/Whip_03/Whip_04", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0), "Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
 
 [node name="Fingers" type="Polygon2D" parent="Polygons/Whip"]
 position = Vector2(-258.636, -521.229)
@@ -3160,6 +3495,255 @@ bones = ["TorsoMain", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/UpperLegL", Pac
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ldxy1")
 
+[node name="WhipSkeleton" type="Skeleton2D" parent="."]
+visible = false
+
+[node name="SoupStack" type="Node" parent="WhipSkeleton"]
+script = ExtResource("28_x3cs0")
+
+[node name="WhipStack" type="Node" parent="WhipSkeleton/SoupStack"]
+script = ExtResource("29_c7tr1")
+
+[node name="TipFABRIK" type="Node" parent="WhipSkeleton/SoupStack/WhipStack" node_paths=PackedStringArray("target_node", "bone_nodes")]
+script = ExtResource("30_bufaw")
+target_node = NodePath("../../../../TargetNodes/WhipTargets/WhipTipTarget")
+enabled = true
+bone_nodes = [NodePath("../../../Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10"), NodePath("../../../Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11"), NodePath("../../../Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12"), NodePath("../../../Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13"), NodePath("../../../Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14"), NodePath("../../../Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15"), NodePath("../../../Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16"), NodePath("../../../Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17"), NodePath("../../../Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18"), NodePath("../../../Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19"), NodePath("../../../Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20")]
+
+[node name="WhipBoneLookAt1" type="Node" parent="WhipSkeleton/SoupStack/WhipStack" node_paths=PackedStringArray("target_node", "bone_node")]
+script = ExtResource("30_toy2m")
+target_node = NodePath("../../../../TargetNodes/WhipTargets/WhipTarget1")
+enabled = true
+bone_node = NodePath("../../../Handle/Whip_01")
+
+[node name="WhipBoneLookAt2" type="Node" parent="WhipSkeleton/SoupStack/WhipStack" node_paths=PackedStringArray("target_node", "bone_node")]
+script = ExtResource("30_toy2m")
+target_node = NodePath("../../../../TargetNodes/WhipTargets/WhipTarget2")
+enabled = true
+bone_node = NodePath("../../../Handle/Whip_01/Whip_02")
+
+[node name="WhipBoneLookAt3" type="Node" parent="WhipSkeleton/SoupStack/WhipStack" node_paths=PackedStringArray("target_node", "bone_node")]
+script = ExtResource("30_toy2m")
+target_node = NodePath("../../../../TargetNodes/WhipTargets/WhipTarget3")
+enabled = true
+bone_node = NodePath("../../../Handle/Whip_01/Whip_02/Whip_03")
+
+[node name="WhipBoneLookAt4" type="Node" parent="WhipSkeleton/SoupStack/WhipStack" node_paths=PackedStringArray("target_node", "bone_node")]
+script = ExtResource("30_toy2m")
+target_node = NodePath("../../../../TargetNodes/WhipTargets/WhipTarget4")
+enabled = true
+bone_node = NodePath("../../../Handle/Whip_01/Whip_02/Whip_03/Whip_04")
+
+[node name="WhipBoneLookAt5" type="Node" parent="WhipSkeleton/SoupStack/WhipStack" node_paths=PackedStringArray("target_node", "bone_node")]
+script = ExtResource("30_toy2m")
+target_node = NodePath("../../../../TargetNodes/WhipTargets/WhipTarget5")
+enabled = true
+bone_node = NodePath("../../../Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05")
+
+[node name="WhipBoneLookAt6" type="Node" parent="WhipSkeleton/SoupStack/WhipStack" node_paths=PackedStringArray("target_node", "bone_node")]
+script = ExtResource("30_toy2m")
+target_node = NodePath("../../../../TargetNodes/WhipTargets/WhipTarget6")
+enabled = true
+bone_node = NodePath("../../../Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06")
+
+[node name="WhipBoneLookAt7" type="Node" parent="WhipSkeleton/SoupStack/WhipStack" node_paths=PackedStringArray("target_node", "bone_node")]
+script = ExtResource("30_toy2m")
+target_node = NodePath("../../../../TargetNodes/WhipTargets/WhipTarget7")
+enabled = true
+bone_node = NodePath("../../../Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07")
+
+[node name="WhipBoneLookAt8" type="Node" parent="WhipSkeleton/SoupStack/WhipStack" node_paths=PackedStringArray("target_node", "bone_node")]
+script = ExtResource("30_toy2m")
+target_node = NodePath("../../../../TargetNodes/WhipTargets/WhipTarget8")
+enabled = true
+bone_node = NodePath("../../../Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08")
+
+[node name="WhipBoneLookAt9" type="Node" parent="WhipSkeleton/SoupStack/WhipStack" node_paths=PackedStringArray("target_node", "bone_node")]
+script = ExtResource("30_toy2m")
+target_node = NodePath("../../../../TargetNodes/WhipTargets/WhipTarget9")
+enabled = true
+bone_node = NodePath("../../../Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09")
+
+[node name="Handle" type="Bone2D" parent="WhipSkeleton"]
+position = Vector2(-218.857, -486.516)
+rotation = -3.11353
+scale = Vector2(0.99973, 0.99973)
+rest = Transform2D(-0.999336, -0.0280505, 0.0280505, -0.999336, -218.857, -486.516)
+
+[node name="Whip_01" type="Bone2D" parent="WhipSkeleton/Handle"]
+position = Vector2(43.5787, 35.7337)
+rotation = 0.929367
+scale = Vector2(1, 1)
+rest = Transform2D(0.999997, -0.00234621, 0.00234621, 0.999997, 43.5787, 35.7337)
+auto_calculate_length_and_angle = false
+length = 50.0
+bone_angle = 39.9903
+
+[node name="Whip_02" type="Bone2D" parent="WhipSkeleton/Handle/Whip_01"]
+position = Vector2(102.225, 88.7442)
+rotation = 0.987036
+scale = Vector2(1, 1)
+rest = Transform2D(0.999987, 0.00508622, -0.00508622, 0.999987, 102.225, 88.7442)
+auto_calculate_length_and_angle = false
+length = 50.0
+bone_angle = 39.9898
+
+[node name="Whip_03" type="Bone2D" parent="WhipSkeleton/Handle/Whip_01/Whip_02"]
+position = Vector2(93.6704, 79.8159)
+rotation = 0.419637
+rest = Transform2D(0.99999, -0.00448672, 0.00448672, 0.99999, 93.6704, 79.8159)
+
+[node name="Whip_04" type="Bone2D" parent="WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03"]
+position = Vector2(100.894, 87.6884)
+rotation = 0.398711
+scale = Vector2(1, 1)
+rest = Transform2D(0.999862, -0.0166205, 0.0166205, 0.999862, 100.894, 87.6884)
+auto_calculate_length_and_angle = false
+length = 50.0
+bone_angle = 41.168
+
+[node name="Whip_05" type="Bone2D" parent="WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04"]
+position = Vector2(107.821, 95.8742)
+rotation = 0.213813
+scale = Vector2(1, 1)
+rest = Transform2D(0.999996, -0.00269526, 0.00269526, 0.999996, 107.821, 95.8742)
+auto_calculate_length_and_angle = false
+length = 50.0
+bone_angle = 41.3039
+
+[node name="Whip_06" type="Bone2D" parent="WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05"]
+position = Vector2(128.485, 112.024)
+rotation = 0.617538
+scale = Vector2(1, 1)
+rest = Transform2D(0.999132, 0.0416638, -0.0416638, 0.999132, 128.485, 112.024)
+auto_calculate_length_and_angle = false
+length = 50.0
+bone_angle = 38.8892
+
+[node name="Whip_07" type="Bone2D" parent="WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06"]
+position = Vector2(106.109, 88.1044)
+rotation = 0.762206
+scale = Vector2(0.999999, 0.999999)
+rest = Transform2D(0.999139, -0.0414602, 0.0414602, 0.999139, 106.109, 88.1044)
+auto_calculate_length_and_angle = false
+length = 50.0
+bone_angle = 41.2343
+
+[node name="Whip_08" type="Bone2D" parent="WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07"]
+position = Vector2(112.855, 100.855)
+rotation = -0.0734927
+scale = Vector2(1, 1)
+rest = Transform2D(0.999996, 0.00274593, -0.00274593, 0.999996, 112.855, 100.855)
+auto_calculate_length_and_angle = false
+length = 50.0
+bone_angle = 41.0441
+
+[node name="Whip_09" type="Bone2D" parent="WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08"]
+position = Vector2(108.962, 97.7845)
+rotation = -0.590444
+scale = Vector2(1, 1)
+rest = Transform2D(0.99983, 0.0184471, -0.0184471, 0.99983, 108.962, 97.7845)
+auto_calculate_length_and_angle = false
+length = 50.0
+bone_angle = 39.9491
+
+[node name="Whip_10" type="Bone2D" parent="WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09"]
+position = Vector2(107.447, 92.0005)
+rotation = -1.15419
+scale = Vector2(1, 1)
+rest = Transform2D(0.999159, -0.0409987, 0.0409987, 0.999159, 107.447, 92.0005)
+auto_calculate_length_and_angle = false
+length = 50.0
+bone_angle = 41.1679
+
+[node name="Whip_11" type="Bone2D" parent="WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10"]
+position = Vector2(44.8097, 41.2443)
+rotation = 0.0334265
+scale = Vector2(1, 1)
+rest = Transform2D(0.999328, 0.0366518, -0.0366518, 0.999328, 44.8097, 41.2443)
+auto_calculate_length_and_angle = false
+length = 43.8293
+bone_angle = 39.0263
+
+[node name="Whip_12" type="Bone2D" parent="WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11"]
+position = Vector2(46.6734, 37.6111)
+rotation = -0.041872
+rest = Transform2D(0.99927, -0.0382022, 0.0382022, 0.99927, 46.6734, 37.6111)
+auto_calculate_length_and_angle = false
+length = 47.0107
+bone_angle = 41.168
+
+[node name="Whip_13" type="Bone2D" parent="WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12"]
+position = Vector2(40.0465, 35.0754)
+rotation = -0.00757033
+scale = Vector2(1, 1)
+rest = Transform2D(0.999756, 0.0221137, -0.0221137, 0.999756, 40.0465, 35.0754)
+auto_calculate_length_and_angle = false
+length = 44.7773
+bone_angle = 41.3042
+
+[node name="Whip_14" type="Bone2D" parent="WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13"]
+position = Vector2(45.4738, 41.0985)
+rotation = -0.00165619
+scale = Vector2(1, 1)
+rest = Transform2D(0.999969, 0.00784562, -0.00784562, 0.999969, 45.4738, 41.0985)
+auto_calculate_length_and_angle = false
+length = 43.4164
+bone_angle = 40.8028
+
+[node name="Whip_15" type="Bone2D" parent="WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14"]
+position = Vector2(43.4342, 38.7102)
+rotation = 0.00843174
+scale = Vector2(1, 1)
+rest = Transform2D(0.999483, 0.0321579, -0.0321579, 0.999483, 43.4342, 38.7102)
+auto_calculate_length_and_angle = false
+length = 57.2451
+bone_angle = 38.8894
+
+[node name="Whip_16" type="Bone2D" parent="WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15"]
+position = Vector2(44.0018, 36.7064)
+rotation = -0.0776838
+scale = Vector2(1, 1)
+rest = Transform2D(0.998006, -0.0631157, 0.0631157, 0.998006, 44.0018, 36.7064)
+auto_calculate_length_and_angle = false
+length = 42.5441
+bone_angle = 41.4545
+
+[node name="Whip_17" type="Bone2D" parent="WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16"]
+position = Vector2(43.6366, 40.5075)
+rotation = -0.0399716
+rest = Transform2D(0.999563, 0.0295609, -0.0295609, 0.999563, 43.6366, 40.5075)
+auto_calculate_length_and_angle = false
+length = 40.7062
+bone_angle = 39.7009
+
+[node name="Whip_18" type="Bone2D" parent="WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17"]
+position = Vector2(39.4065, 32.9854)
+rotation = -0.153847
+scale = Vector2(1, 1)
+rest = Transform2D(0.999918, -0.0127857, 0.0127857, 0.999918, 39.4065, 32.9854)
+auto_calculate_length_and_angle = false
+length = 39.8247
+bone_angle = 40.3723
+
+[node name="Whip_19" type="Bone2D" parent="WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18"]
+position = Vector2(41.4317, 37.0168)
+rotation = -0.331838
+scale = Vector2(1, 1)
+rest = Transform2D(0.999738, -0.0229097, 0.0229097, 0.999738, 41.4317, 37.0168)
+auto_calculate_length_and_angle = false
+length = 40.3111
+bone_angle = 41.621
+
+[node name="Whip_20" type="Bone2D" parent="WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19"]
+position = Vector2(37.1792, 35.0436)
+rotation = -0.35017
+scale = Vector2(0.999999, 0.999999)
+rest = Transform2D(0.99512, 0.0986623, -0.0986623, 0.99512, 37.1792, 35.0436)
+auto_calculate_length_and_angle = false
+length = 32.535
+bone_angle = 40.1773
+
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
 visible = false
 position = Vector2(0, 4)
@@ -3167,70 +3751,6 @@ modification_stack = SubResource("SkeletonModificationStack2D_75arr")
 
 [node name="SoupStack" type="Node" parent="Skeleton2D"]
 script = ExtResource("28_x3cs0")
-
-[node name="WhipStack" type="Node" parent="Skeleton2D/SoupStack"]
-script = ExtResource("29_c7tr1")
-
-[node name="TipFABRIK" type="Node" parent="Skeleton2D/SoupStack/WhipStack" node_paths=PackedStringArray("target_node", "bone_nodes")]
-script = ExtResource("30_bufaw")
-target_node = NodePath("../../../../TargetNodes/WhipTargets/WhipTipTarget")
-enabled = true
-bone_nodes = [NodePath("../../../TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10"), NodePath("../../../TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11"), NodePath("../../../TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12"), NodePath("../../../TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13"), NodePath("../../../TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14"), NodePath("../../../TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15"), NodePath("../../../TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16"), NodePath("../../../TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17"), NodePath("../../../TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18"), NodePath("../../../TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19"), NodePath("../../../TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20")]
-easing = SubResource("Resource_n4hdo")
-
-[node name="WhipBoneLookAt1" type="Node" parent="Skeleton2D/SoupStack/WhipStack" node_paths=PackedStringArray("target_node", "bone_node")]
-script = ExtResource("30_toy2m")
-target_node = NodePath("../../../../TargetNodes/WhipTargets/WhipTarget1")
-enabled = true
-bone_node = NodePath("../../../TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01")
-
-[node name="WhipBoneLookAt2" type="Node" parent="Skeleton2D/SoupStack/WhipStack" node_paths=PackedStringArray("target_node", "bone_node")]
-script = ExtResource("30_toy2m")
-target_node = NodePath("../../../../TargetNodes/WhipTargets/WhipTarget2")
-enabled = true
-bone_node = NodePath("../../../TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02")
-
-[node name="WhipBoneLookAt3" type="Node" parent="Skeleton2D/SoupStack/WhipStack" node_paths=PackedStringArray("target_node", "bone_node")]
-script = ExtResource("30_toy2m")
-target_node = NodePath("../../../../TargetNodes/WhipTargets/WhipTarget3")
-enabled = true
-bone_node = NodePath("../../../TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03")
-
-[node name="WhipBoneLookAt4" type="Node" parent="Skeleton2D/SoupStack/WhipStack" node_paths=PackedStringArray("target_node", "bone_node")]
-script = ExtResource("30_toy2m")
-target_node = NodePath("../../../../TargetNodes/WhipTargets/WhipTarget4")
-enabled = true
-bone_node = NodePath("../../../TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04")
-
-[node name="WhipBoneLookAt5" type="Node" parent="Skeleton2D/SoupStack/WhipStack" node_paths=PackedStringArray("target_node", "bone_node")]
-script = ExtResource("30_toy2m")
-target_node = NodePath("../../../../TargetNodes/WhipTargets/WhipTarget5")
-enabled = true
-bone_node = NodePath("../../../TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05")
-
-[node name="WhipBoneLookAt6" type="Node" parent="Skeleton2D/SoupStack/WhipStack" node_paths=PackedStringArray("target_node", "bone_node")]
-script = ExtResource("30_toy2m")
-target_node = NodePath("../../../../TargetNodes/WhipTargets/WhipTarget6")
-enabled = true
-bone_node = NodePath("../../../TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06")
-
-[node name="WhipBoneLookAt7" type="Node" parent="Skeleton2D/SoupStack/WhipStack" node_paths=PackedStringArray("target_node", "bone_node")]
-script = ExtResource("30_toy2m")
-target_node = NodePath("../../../../TargetNodes/WhipTargets/WhipTarget7")
-enabled = true
-bone_node = NodePath("../../../TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07")
-
-[node name="WhipBoneLookAt8" type="Node" parent="Skeleton2D/SoupStack/WhipStack" node_paths=PackedStringArray("target_node", "bone_node")]
-script = ExtResource("30_toy2m")
-target_node = NodePath("../../../../TargetNodes/WhipTargets/WhipTarget8")
-enabled = true
-bone_node = NodePath("../../../TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08")
-
-[node name="WhipBoneLookAt9" type="Node" parent="Skeleton2D/SoupStack/WhipStack" node_paths=PackedStringArray("target_node", "bone_node")]
-script = ExtResource("30_toy2m")
-target_node = NodePath("../../../../TargetNodes/WhipTargets/WhipTarget9")
-enabled = true
-bone_node = NodePath("../../../TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09")
 
 [node name="HandLStack" type="Node" parent="Skeleton2D/SoupStack"]
 script = ExtResource("29_c7tr1")
@@ -3270,8 +3790,6 @@ softness = 0.4
 joint_one_bone_node = NodePath("../../../TorsoMain/LowerBody/UpperBody/UpperHandR")
 joint_two_bone_node = NodePath("../../../TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR")
 chain_tip = NodePath("../../../TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR")
-use_easing_on_first_joint = true
-first_joint_easing = SubResource("Resource_nlmo0")
 
 [node name="LegRStack" type="Node" parent="Skeleton2D/SoupStack"]
 script = ExtResource("29_c7tr1")
@@ -3365,13 +3883,13 @@ easing = SubResource("Resource_c4s40")
 
 [node name="TorsoMain" type="Bone2D" parent="Skeleton2D"]
 position = Vector2(-20, -464)
-scale = Vector2(0.999825, 0.999825)
+scale = Vector2(0.999826, 0.999826)
 rest = Transform2D(1, 0, 0, 1, -20, -464)
 
 [node name="UpperLegL" type="Bone2D" parent="Skeleton2D/TorsoMain"]
 position = Vector2(47, 33)
-rotation = 0.0338609
-scale = Vector2(0.999816, 0.999816)
+rotation = 0.00743216
+scale = Vector2(0.999832, 0.999832)
 rest = Transform2D(0.999708, 0.0120447, -0.0120447, 0.999708, 47, 33)
 
 [node name="LKneeTarger" type="Marker2D" parent="Skeleton2D/TorsoMain/UpperLegL"]
@@ -3381,14 +3899,14 @@ scale = Vector2(0.999929, 0.999929)
 
 [node name="LowerLegL" type="Bone2D" parent="Skeleton2D/TorsoMain/UpperLegL"]
 position = Vector2(56, 196)
-rotation = -0.444916
-scale = Vector2(0.999849, 0.999849)
+rotation = -0.0697372
+scale = Vector2(0.999851, 0.999851)
 rest = Transform2D(0.997499, -0.0696758, 0.0696758, 0.997499, 56, 196)
 
 [node name="FootL" type="Bone2D" parent="Skeleton2D/TorsoMain/UpperLegL/LowerLegL"]
 position = Vector2(40, 189)
-rotation = 1.83762
-scale = Vector2(0.999822, 0.999822)
+rotation = 1.54242
+scale = Vector2(0.999836, 0.999836)
 rest = Transform2D(0.0285436, 0.999476, -0.999476, 0.0285436, 40, 189)
 auto_calculate_length_and_angle = false
 length = 34.268
@@ -3401,8 +3919,8 @@ scale = Vector2(0.999932, 0.999932)
 
 [node name="UpperLegR" type="Bone2D" parent="Skeleton2D/TorsoMain"]
 position = Vector2(-3, 33)
-rotation = 0.0844378
-scale = Vector2(0.999812, 0.999812)
+rotation = 0.0606818
+scale = Vector2(0.999822, 0.999822)
 rest = Transform2D(0.998165, 0.0591751, -0.0591751, 0.998165, -3, 33)
 
 [node name="RKneeTarger" type="Marker2D" parent="Skeleton2D/TorsoMain/UpperLegR"]
@@ -3412,14 +3930,14 @@ scale = Vector2(1.00007, 1.00007)
 
 [node name="LowerLegR" type="Bone2D" parent="Skeleton2D/TorsoMain/UpperLegR"]
 position = Vector2(-47, 202)
-rotation = -0.21956
-scale = Vector2(0.999827, 0.999827)
+rotation = -0.084692
+scale = Vector2(0.999825, 0.999825)
 rest = Transform2D(0.996423, -0.0837985, 0.0837985, 0.996423, -47, 202)
 
 [node name="FootR" type="Bone2D" parent="Skeleton2D/TorsoMain/UpperLegR/LowerLegR"]
 position = Vector2(18, 177)
-rotation = 1.87046
-scale = Vector2(0.999838, 0.999838)
+rotation = 1.79904
+scale = Vector2(0.999836, 0.999836)
 rest = Transform2D(-0.227082, 0.973797, -0.973797, -0.227082, 18, 177)
 auto_calculate_length_and_angle = false
 length = 34.268
@@ -3433,48 +3951,49 @@ scale = Vector2(1.00021, 1.00021)
 [node name="LowerBody" type="Bone2D" parent="Skeleton2D/TorsoMain"]
 position = Vector2(13, -15)
 rotation = -1.6995
+scale = Vector2(1, 1)
 rest = Transform2D(-0.128349, -0.991729, 0.991729, -0.128349, 13, -15)
 
 [node name="BaseDressL" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody"]
 position = Vector2(17.4542, 36.5425)
-rotation = -0.0183355
-scale = Vector2(0.999827, 0.999827)
+rotation = -0.0699499
+scale = Vector2(0.999839, 0.999839)
 rest = Transform2D(0.99769, -0.0662017, 0.0662017, 0.99769, 17.4542, 36.5425)
 
 [node name="DressL_01" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/BaseDressL"]
 position = Vector2(-75.8616, 17.4072)
-rotation = -0.0110888
-scale = Vector2(0.999668, 0.999668)
+rotation = -0.0138028
+scale = Vector2(0.999687, 0.999687)
 rest = Transform2D(0.999696, -0.0138142, 0.0138142, 0.999696, -75.8616, 17.4072)
 
 [node name="DressL_02" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/BaseDressL/DressL_01"]
 position = Vector2(-113.104, 24.6874)
-rotation = -0.145604
-scale = Vector2(0.999821, 0.999821)
+rotation = -0.0603284
+scale = Vector2(0.999828, 0.999828)
 rest = Transform2D(0.998086, -0.060302, 0.060302, 0.998086, -113.104, 24.6874)
 
 [node name="DressL_03" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02"]
 position = Vector2(-77.6817, 8.09663)
-rotation = -0.140638
-scale = Vector2(0.999833, 0.999833)
+rotation = -0.0138731
+scale = Vector2(0.999819, 0.999819)
 rest = Transform2D(0.99972, -0.0138405, 0.0138405, 0.99972, -77.6817, 8.09663)
 
 [node name="DressL_04" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03"]
 position = Vector2(-60.6589, 1.22465)
-rotation = -0.0823151
-scale = Vector2(0.999838, 0.999838)
+rotation = 0.0581834
+scale = Vector2(0.999832, 0.999832)
 rest = Transform2D(0.998165, 0.0582385, -0.0582385, 0.998165, -60.6589, 1.22465)
 
 [node name="DressL_05" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03/DressL_04"]
 position = Vector2(-46.3896, 0.0463395)
-rotation = -0.150131
-scale = Vector2(0.999832, 0.999832)
+rotation = -0.0231569
+scale = Vector2(0.999829, 0.999829)
 rest = Transform2D(0.99961, -0.0229632, 0.0229632, 0.99961, -46.3896, 0.0463395)
 
 [node name="DressL_06" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03/DressL_04/DressL_05"]
 position = Vector2(-38.8058, -4.01387)
-rotation = -3.0501
-scale = Vector2(0.999811, 0.999811)
+rotation = -2.95611
+scale = Vector2(0.999831, 0.999831)
 rest = Transform2D(-0.982715, -0.184677, 0.184677, -0.982715, -38.8058, -4.01387)
 auto_calculate_length_and_angle = false
 length = 34.268
@@ -3482,44 +4001,44 @@ bone_angle = 0.0
 
 [node name="BaseDressR" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody"]
 position = Vector2(28.6205, -49.738)
-rotation = 0.146105
-scale = Vector2(0.99983, 0.99983)
+rotation = 0.104507
+scale = Vector2(0.999821, 0.999821)
 rest = Transform2D(0.994543, 0.103188, -0.103188, 0.994543, 28.6205, -49.738)
 
 [node name="DressR_01" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/BaseDressR"]
 position = Vector2(-84.8686, -22.0753)
-rotation = -0.00941307
-scale = Vector2(0.999517, 0.999517)
+rotation = -0.00982649
+scale = Vector2(0.999582, 0.999582)
 rest = Transform2D(0.999792, -0.00982714, 0.00982714, 0.999792, -84.8686, -22.0753)
 
 [node name="DressR_02" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/BaseDressR/DressR_01"]
 position = Vector2(-113.979, -30.8844)
-rotation = -0.00983984
+rotation = 0.0134541
 scale = Vector2(0.999683, 0.999683)
 rest = Transform2D(0.999768, 0.0135934, -0.0135934, 0.999768, -113.979, -30.8844)
 
 [node name="DressR_03" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02"]
 position = Vector2(-68.3943, -16.9182)
-rotation = 0.0218822
-scale = Vector2(0.999805, 0.999805)
+rotation = 0.0549008
+scale = Vector2(0.999845, 0.999845)
 rest = Transform2D(0.998335, 0.0550231, -0.0550231, 0.998335, -68.3943, -16.9182)
 
 [node name="DressR_04" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03"]
 position = Vector2(-41.3959, -7.3741)
-rotation = -0.0310677
-scale = Vector2(0.999846, 0.999846)
+rotation = 0.0107004
+scale = Vector2(0.999808, 0.999808)
 rest = Transform2D(0.999778, 0.0108319, -0.0108319, 0.999778, -41.3959, -7.3741)
 
 [node name="DressR_05" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03/DressR_04"]
 position = Vector2(-42.516, -6.51072)
-rotation = -0.0860379
-scale = Vector2(0.999837, 0.999837)
+rotation = -0.0364264
+scale = Vector2(0.999836, 0.999836)
 rest = Transform2D(0.999242, -0.0363304, 0.0363304, 0.999242, -42.516, -6.51072)
 
 [node name="DressR_06" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03/DressR_04/DressR_05"]
 position = Vector2(-45.3628, -7.88749)
-rotation = -3.0355
-scale = Vector2(0.999838, 0.999838)
+rotation = -2.98725
+scale = Vector2(0.999827, 0.999827)
 rest = Transform2D(-0.988011, -0.153719, 0.153719, -0.988011, -45.3628, -7.88749)
 auto_calculate_length_and_angle = false
 length = 40.432
@@ -3528,24 +4047,25 @@ bone_angle = 0.0
 [node name="UpperBody" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody"]
 position = Vector2(48.2798, -6.8601)
 rotation = 0.137362
+scale = Vector2(1, 1)
 rest = Transform2D(0.990581, 0.13693, -0.13693, 0.990581, 48.2798, -6.8601)
 
 [node name="UpperHandL" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/UpperBody"]
 position = Vector2(95.6804, 78.1745)
-rotation = -0.0413297
-scale = Vector2(0.999825, 0.999825)
+rotation = -0.142308
+scale = Vector2(0.999826, 0.999826)
 rest = Transform2D(0.991079, -0.132639, 0.132639, 0.991079, 95.6804, 78.1745)
 
 [node name="LowerHandL" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandL"]
 position = Vector2(-91.6416, 41.795)
-rotation = -0.114224
-scale = Vector2(0.99983, 0.99983)
+rotation = 0.262126
+scale = Vector2(0.999835, 0.999835)
 rest = Transform2D(0.963103, 0.268877, -0.268877, 0.963103, -91.6416, 41.795)
 
 [node name="WristL" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandL/LowerHandL"]
 position = Vector2(-96.4206, -48.167)
-rotation = -2.259
-scale = Vector2(0.999875, 0.999875)
+rotation = -2.565
+scale = Vector2(0.999874, 0.999874)
 rest = Transform2D(-0.838672, -0.544554, 0.544554, -0.838672, -96.4206, -48.167)
 auto_calculate_length_and_angle = false
 length = 46.446
@@ -3553,205 +4073,24 @@ bone_angle = 0.0
 
 [node name="UpperHandR" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/UpperBody"]
 position = Vector2(117.649, -41.0201)
-rotation = 0.299334
-scale = Vector2(0.999846, 0.999846)
+rotation = -0.0796183
+scale = Vector2(0.999839, 0.999839)
 rest = Transform2D(0.997914, -0.0628965, 0.0628965, 0.997914, 117.649, -41.0201)
 
 [node name="LowerHandR" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandR"]
 position = Vector2(-109.264, -30.0551)
-rotation = 1.29163
+rotation = 0.265639
 scale = Vector2(0.999846, 0.999846)
 rest = Transform2D(0.987172, 0.159237, -0.159237, 0.987172, -109.264, -30.0551)
 
 [node name="WristR" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR"]
 position = Vector2(-36.7865, -90.6849)
-rotation = -1.19537
-scale = Vector2(0.999834, 0.999834)
+rotation = -1.68911
+scale = Vector2(0.999835, 0.999835)
 rest = Transform2D(-0.0774945, -0.996895, 0.996895, -0.0774945, -36.7865, -90.6849)
 auto_calculate_length_and_angle = false
 length = 46.481
 bone_angle = 0.0
-
-[node name="Handle" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR"]
-position = Vector2(40.2884, -16.888)
-rest = Transform2D(1, 0, 0, 1, 40.2884, -16.888)
-
-[node name="Whip_01" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle"]
-position = Vector2(43.5787, 35.7337)
-rotation = -0.580472
-scale = Vector2(0.999845, 0.999845)
-rest = Transform2D(0.999997, -0.00234621, 0.00234621, 0.999997, 43.5787, 35.7337)
-auto_calculate_length_and_angle = false
-length = 50.0
-bone_angle = 39.9903
-
-[node name="Whip_02" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01"]
-position = Vector2(102.225, 88.7442)
-rotation = 0.86325
-scale = Vector2(0.999848, 0.999848)
-rest = Transform2D(0.999987, 0.00508622, -0.00508622, 0.999987, 102.225, 88.7442)
-auto_calculate_length_and_angle = false
-length = 50.0
-bone_angle = 39.9898
-
-[node name="Whip_03" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02"]
-position = Vector2(93.6704, 79.8159)
-rotation = 0.584064
-scale = Vector2(0.999847, 0.999847)
-rest = Transform2D(0.99999, -0.00448672, 0.00448672, 0.99999, 93.6704, 79.8159)
-
-[node name="Whip_04" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03"]
-position = Vector2(100.894, 87.6884)
-rotation = 1.07451
-scale = Vector2(0.999853, 0.999853)
-rest = Transform2D(0.999862, -0.0166205, 0.0166205, 0.999862, 100.894, 87.6884)
-auto_calculate_length_and_angle = false
-length = 50.0
-bone_angle = 41.168
-
-[node name="Whip_05" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04"]
-position = Vector2(107.821, 95.8742)
-rotation = 0.135828
-scale = Vector2(0.999847, 0.999847)
-rest = Transform2D(0.999996, -0.00269526, 0.00269526, 0.999996, 107.821, 95.8742)
-auto_calculate_length_and_angle = false
-length = 50.0
-bone_angle = 41.3039
-
-[node name="Whip_06" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05"]
-position = Vector2(128.485, 112.024)
-rotation = -0.551235
-scale = Vector2(0.999845, 0.999845)
-rest = Transform2D(0.999132, 0.0416638, -0.0416638, 0.999132, 128.485, 112.024)
-auto_calculate_length_and_angle = false
-length = 50.0
-bone_angle = 38.8892
-
-[node name="Whip_07" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06"]
-position = Vector2(106.109, 88.1044)
-rotation = 0.810116
-scale = Vector2(0.999846, 0.999846)
-rest = Transform2D(0.999139, -0.0414602, 0.0414602, 0.999139, 106.109, 88.1044)
-auto_calculate_length_and_angle = false
-length = 50.0
-bone_angle = 41.2343
-
-[node name="Whip_08" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07"]
-position = Vector2(112.855, 100.855)
-rotation = -1.78891
-scale = Vector2(0.999836, 0.999836)
-rest = Transform2D(0.999996, 0.00274593, -0.00274593, 0.999996, 112.855, 100.855)
-auto_calculate_length_and_angle = false
-length = 50.0
-bone_angle = 41.0441
-
-[node name="Whip_09" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08"]
-position = Vector2(108.962, 97.7845)
-rotation = 0.27417
-scale = Vector2(0.999857, 0.999857)
-rest = Transform2D(0.99983, 0.0184471, -0.0184471, 0.99983, 108.962, 97.7845)
-auto_calculate_length_and_angle = false
-length = 50.0
-bone_angle = 39.9491
-
-[node name="Whip_10" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09"]
-position = Vector2(107.447, 92.0005)
-rotation = -1.01249
-scale = Vector2(0.999837, 0.999837)
-rest = Transform2D(0.999159, -0.0409987, 0.0409987, 0.999159, 107.447, 92.0005)
-auto_calculate_length_and_angle = false
-length = 50.0
-bone_angle = 41.1679
-
-[node name="Whip_11" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10"]
-position = Vector2(44.8097, 41.2443)
-rotation = 0.0348605
-scale = Vector2(0.999854, 0.999854)
-rest = Transform2D(0.999328, 0.0366518, -0.0366518, 0.999328, 44.8097, 41.2443)
-auto_calculate_length_and_angle = false
-length = 43.8293
-bone_angle = 39.0263
-
-[node name="Whip_12" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11"]
-position = Vector2(46.6734, 37.6111)
-rotation = -0.0422539
-scale = Vector2(0.999874, 0.999874)
-rest = Transform2D(0.99927, -0.0382022, 0.0382022, 0.99927, 46.6734, 37.6111)
-auto_calculate_length_and_angle = false
-length = 47.0107
-bone_angle = 41.168
-
-[node name="Whip_13" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12"]
-position = Vector2(40.0465, 35.0754)
-rotation = -0.00841005
-scale = Vector2(0.999831, 0.999831)
-rest = Transform2D(0.999756, 0.0221137, -0.0221137, 0.999756, 40.0465, 35.0754)
-auto_calculate_length_and_angle = false
-length = 44.7773
-bone_angle = 41.3042
-
-[node name="Whip_14" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13"]
-position = Vector2(45.4738, 41.0985)
-rotation = 0.00154841
-scale = Vector2(0.999827, 0.999827)
-rest = Transform2D(0.999969, 0.00784562, -0.00784562, 0.999969, 45.4738, 41.0985)
-auto_calculate_length_and_angle = false
-length = 43.4164
-bone_angle = 40.8028
-
-[node name="Whip_15" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14"]
-position = Vector2(43.4342, 38.7102)
-rotation = 0.0228016
-scale = Vector2(0.999816, 0.999816)
-rest = Transform2D(0.999483, 0.0321579, -0.0321579, 0.999483, 43.4342, 38.7102)
-auto_calculate_length_and_angle = false
-length = 57.2451
-bone_angle = 38.8894
-
-[node name="Whip_16" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15"]
-position = Vector2(44.0018, 36.7064)
-rotation = -0.0538242
-scale = Vector2(0.999826, 0.999826)
-rest = Transform2D(0.998006, -0.0631157, 0.0631157, 0.998006, 44.0018, 36.7064)
-auto_calculate_length_and_angle = false
-length = 42.5441
-bone_angle = 41.4545
-
-[node name="Whip_17" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16"]
-position = Vector2(43.6366, 40.5075)
-rotation = 0.0208099
-scale = Vector2(0.999824, 0.999824)
-rest = Transform2D(0.999563, 0.0295609, -0.0295609, 0.999563, 43.6366, 40.5075)
-auto_calculate_length_and_angle = false
-length = 40.7062
-bone_angle = 39.7009
-
-[node name="Whip_18" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17"]
-position = Vector2(39.4065, 32.9854)
-rotation = -0.0221812
-scale = Vector2(0.999818, 0.999818)
-rest = Transform2D(0.999918, -0.0127857, 0.0127857, 0.999918, 39.4065, 32.9854)
-auto_calculate_length_and_angle = false
-length = 39.8247
-bone_angle = 40.3723
-
-[node name="Whip_19" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18"]
-position = Vector2(41.4317, 37.0168)
-rotation = -0.0332622
-scale = Vector2(0.99983, 0.99983)
-rest = Transform2D(0.999738, -0.0229097, 0.0229097, 0.999738, 41.4317, 37.0168)
-auto_calculate_length_and_angle = false
-length = 40.3111
-bone_angle = 41.621
-
-[node name="Whip_20" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19"]
-position = Vector2(37.1792, 35.0436)
-rotation = 0.0152132
-scale = Vector2(0.999834, 0.999834)
-rest = Transform2D(0.99512, 0.0986623, -0.0986623, 0.99512, 37.1792, 35.0436)
-auto_calculate_length_and_angle = false
-length = 32.535
-bone_angle = 40.1773
 
 [node name="NeckBase" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/UpperBody"]
 position = Vector2(164.106, 11.5796)
@@ -3763,20 +4102,21 @@ rest = Transform2D(1, 0, 0, 1, 26.9211, -9.23342)
 
 [node name="Head" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/UpperBody/NeckBase/NeckTop"]
 position = Vector2(18.8608, -16.1639)
-rotation = -0.284414
-scale = Vector2(0.999832, 0.999832)
+rotation = -0.0814948
+scale = Vector2(0.999829, 0.999829)
 rest = Transform2D(0.996595, -0.0812782, 0.0812782, 0.996595, 18.8608, -16.1639)
 
 [node name="Feather" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/UpperBody/NeckBase/NeckTop/Head"]
 position = Vector2(97.386, 44.1585)
-rotation = 1.46158
-scale = Vector2(0.999839, 0.999839)
+rotation = 1.29032
+scale = Vector2(0.999833, 0.999833)
 rest = Transform2D(0.271136, 0.962472, -0.962472, 0.271136, 97.386, 44.1585)
 auto_calculate_length_and_angle = false
 length = 101.25
 bone_angle = 0.0
 
 [node name="TargetNodes" type="Node2D" parent="."]
+visible = false
 
 [node name="HandLTarget" type="Marker2D" parent="TargetNodes"]
 position = Vector2(50, -443)
@@ -3818,6 +4158,9 @@ position = Vector2(146, -41)
 gizmo_extents = 85.0
 
 [node name="WhipTargets" type="Node2D" parent="TargetNodes"]
+position = Vector2(-473.527, -224.866)
+rotation = 1.03573
+scale = Vector2(0.999981, 0.999981)
 
 [node name="WhipTarget1" type="Marker2D" parent="TargetNodes/WhipTargets"]
 position = Vector2(-304, -654)
@@ -3847,12 +4190,12 @@ gizmo_extents = 50.0
 position = Vector2(217, -268)
 gizmo_extents = 50.0
 
-[node name="WhipTarget8" type="Marker2D" parent="TargetNodes/WhipTargets"]
-position = Vector2(294, -127)
-gizmo_extents = 50.0
-
 [node name="WhipTarget9" type="Marker2D" parent="TargetNodes/WhipTargets"]
 position = Vector2(371, -19)
+gizmo_extents = 50.0
+
+[node name="WhipTarget8" type="Marker2D" parent="TargetNodes/WhipTargets"]
+position = Vector2(294, -127)
 gizmo_extents = 50.0
 
 [node name="WhipTipTarget" type="Marker2D" parent="TargetNodes/WhipTargets"]
