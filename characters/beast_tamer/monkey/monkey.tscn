@@ -1,0 +1,205 @@
+[gd_scene load_steps=25 format=3 uid="uid://kxynbs1sjf8d"]
+
+[ext_resource type="Texture2D" uid="uid://dbjdjpheknis1" path="res://assets/Monkey/images/template.png" id="1_53jul"]
+[ext_resource type="Texture2D" uid="uid://ufay522sibvi" path="res://assets/Monkey/images/R_Hand_Up.png" id="2_8lu7m"]
+[ext_resource type="Texture2D" uid="uid://ct0rl00en2hfe" path="res://assets/Monkey/images/Tail.png" id="2_mm2tw"]
+[ext_resource type="Texture2D" uid="uid://b6x006j3ikrun" path="res://assets/Monkey/images/R_Hand_Down.png" id="3_07a1q"]
+[ext_resource type="Texture2D" uid="uid://q4ruqy23uxf7" path="res://assets/Monkey/images/R_Fist.png" id="4_eyuyk"]
+[ext_resource type="Texture2D" uid="uid://s1suitkcbkj0" path="res://assets/Monkey/images/Body.png" id="5_3tg1y"]
+[ext_resource type="Texture2D" uid="uid://c70mrihxlvd8f" path="res://assets/Monkey/images/Shmot.png" id="6_as0x8"]
+[ext_resource type="Texture2D" uid="uid://egkktu2bowsm" path="res://assets/Monkey/images/L_Foot copy.png" id="6_l2wy8"]
+[ext_resource type="Texture2D" uid="uid://b6lwm2o4rgjb6" path="res://assets/Monkey/images/Head.png" id="7_27381"]
+[ext_resource type="Texture2D" uid="uid://dqqe4lbhwbdrs" path="res://assets/Monkey/images/L_Leg_Down copy.png" id="7_o74bv"]
+[ext_resource type="Texture2D" uid="uid://dgj75ethikoob" path="res://assets/Monkey/images/L_Leg_Up copy.png" id="8_r4ym8"]
+[ext_resource type="Texture2D" uid="uid://cp8xl6ql6u3n4" path="res://assets/Monkey/images/Eyes_Zombie_1.png" id="8_sv0ml"]
+[ext_resource type="Texture2D" uid="uid://bfup30xxjlbsx" path="res://assets/Monkey/images/Eyes_Zombie_2.png" id="9_1r74s"]
+[ext_resource type="Texture2D" uid="uid://u28f0guu4nek" path="res://assets/Monkey/images/L_Hand_Up.png" id="10_fmk1h"]
+[ext_resource type="Texture2D" uid="uid://cvjdp0v7a1uph" path="res://assets/Monkey/images/L_Foot.png" id="10_oj1ol"]
+[ext_resource type="Texture2D" uid="uid://sh0ewg8coiq2" path="res://assets/Monkey/images/L_Leg_Down.png" id="11_qkjtd"]
+[ext_resource type="Texture2D" uid="uid://x4pr1lbfmpi1" path="res://assets/Monkey/images/Bag.png" id="11_vj0pl"]
+[ext_resource type="Texture2D" uid="uid://dfbslvbe7jrl1" path="res://assets/Monkey/images/L_Hand_Down.png" id="12_0e8jw"]
+[ext_resource type="Texture2D" uid="uid://3cjmkqvtki86" path="res://assets/Monkey/images/L_Leg_Up.png" id="12_2eurc"]
+[ext_resource type="Texture2D" uid="uid://baj1n2pb6163x" path="res://assets/Monkey/images/L_Fist.png" id="13_s3mm3"]
+[ext_resource type="Texture2D" uid="uid://7rb4350d8tmp" path="res://assets/Monkey/images/R_Hand_Down_2.png" id="14_vaigg"]
+[ext_resource type="Texture2D" uid="uid://bwqak1100ow7m" path="res://assets/Monkey/images/R_Fist_2.png" id="15_frfwa"]
+[ext_resource type="Texture2D" uid="uid://c246x2a3yf3p3" path="res://assets/Monkey/images/Bag_1.png" id="16_bg82r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_21cf5"]
+
+[node name="Monkey" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_21cf5")
+
+[node name="Template" type="Sprite2D" parent="."]
+position = Vector2(-339, 143)
+texture = ExtResource("1_53jul")
+metadata/_edit_lock_ = true
+
+[node name="Polygons" type="Node2D" parent="."]
+
+[node name="Tail" type="Polygon2D" parent="Polygons"]
+position = Vector2(30, -208)
+texture = ExtResource("2_mm2tw")
+polygon = PackedVector2Array(73.5009, -7.26835, -20.8728, 136.081, 120.55, 180.379, 147.239, 16.1187)
+uv = PackedVector2Array(73.5009, -7.26835, -20.8728, 136.081, 120.55, 180.379, 147.239, 16.1187)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+
+[node name="RHandBase" type="Node2D" parent="Polygons"]
+
+[node name="UpperRHand" type="Polygon2D" parent="Polygons/RHandBase"]
+position = Vector2(-47, -187)
+texture = ExtResource("2_8lu7m")
+polygon = PackedVector2Array(29.2408, 7.39413, -0.210106, 84.0918, 34.379, 93.6163, 75.3597, 7.64478)
+uv = PackedVector2Array(29.2408, 7.39413, -0.210106, 84.0918, 34.379, 93.6163, 75.3597, 7.64478)
+polygons = [PackedInt32Array(0, 3, 2, 1)]
+
+[node name="HideHandFolder" type="Node2D" parent="Polygons/RHandBase"]
+
+[node name="LowerRHand" type="Polygon2D" parent="Polygons/RHandBase/HideHandFolder"]
+position = Vector2(-80, -136)
+texture = ExtResource("3_07a1q")
+polygon = PackedVector2Array(60.6277, 3.28382, 0.790455, 31.7205, 17.7724, 59.9169, 88.8241, 29.6378)
+uv = PackedVector2Array(60.6277, 3.28382, 0.790455, 31.7205, 17.7724, 59.9169, 88.8241, 29.6378)
+polygons = [PackedInt32Array(1, 2, 3, 0)]
+
+[node name="WristR" type="Polygon2D" parent="Polygons/RHandBase/HideHandFolder"]
+position = Vector2(-98, -118)
+texture = ExtResource("4_eyuyk")
+polygon = PackedVector2Array(-5.48933, 40.1562, 29.4287, 64.0685, 61.3452, 15.0432, 31.1296, 3.43722)
+uv = PackedVector2Array(-5.48933, 40.1562, 29.4287, 64.0685, 61.3452, 15.0432, 31.1296, 3.43722)
+polygons = [PackedInt32Array(3, 2, 1, 0)]
+
+[node name="RLeg" type="Node2D" parent="Polygons"]
+
+[node name="FootR" type="Polygon2D" parent="Polygons/RLeg"]
+position = Vector2(-64, -38)
+texture = ExtResource("6_l2wy8")
+polygon = PackedVector2Array(39.8177, 0.749075, -1.59121, 31.6613, 25.469, 62.7661, 74.4856, 24.2462)
+uv = PackedVector2Array(39.8177, 0.749075, -1.59121, 31.6613, 25.469, 62.7661, 74.4856, 24.2462)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+
+[node name="LowerRLeg" type="Polygon2D" parent="Polygons/RLeg"]
+position = Vector2(-58, -68)
+texture = ExtResource("7_o74bv")
+polygon = PackedVector2Array(2.60936, 13.0908, 27.6481, 64.3105, 55.1468, 54.295, 35.5551, 0.527514)
+uv = PackedVector2Array(2.60936, 13.0908, 27.6481, 64.3105, 55.1468, 54.295, 35.5551, 0.527514)
+polygons = [PackedInt32Array(3, 0, 1, 2)]
+
+[node name="UpperRLeg" type="Polygon2D" parent="Polygons/RLeg"]
+position = Vector2(-60, -115)
+texture = ExtResource("8_r4ym8")
+polygon = PackedVector2Array(41.3332, 1.44422, -8.55566, 57.9998, 33.5463, 87.3068, 98.7801, 17.1927)
+uv = PackedVector2Array(41.3332, 1.44422, -8.55566, 57.9998, 33.5463, 87.3068, 98.7801, 17.1927)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+
+[node name="Body" type="Polygon2D" parent="Polygons"]
+position = Vector2(-36, -218)
+texture = ExtResource("5_3tg1y")
+polygon = PackedVector2Array(-10.9047, 13.931, 24.4132, 173.703, 137.655, 129.415, 81.034, -4.84918)
+uv = PackedVector2Array(-10.9047, 13.931, 24.4132, 173.703, 137.655, 129.415, 81.034, -4.84918)
+polygons = [PackedInt32Array(0, 3, 2, 1)]
+
+[node name="LLeg" type="Node2D" parent="Polygons"]
+
+[node name="FootL" type="Polygon2D" parent="Polygons/LLeg"]
+position = Vector2(-13, -28)
+texture = ExtResource("10_oj1ol")
+polygon = PackedVector2Array(32.1957, -2.64021, -5.11382, 36.6017, 40.5198, 62.4657, 66.9783, 16.0889)
+uv = PackedVector2Array(32.1957, -2.64021, -5.11382, 36.6017, 40.5198, 62.4657, 66.9783, 16.0889)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+
+[node name="LowerLLeg" type="Polygon2D" parent="Polygons/LLeg"]
+position = Vector2(-9, -67)
+texture = ExtResource("11_qkjtd")
+polygon = PackedVector2Array(0.105045, 11.7205, 28.105, 67.7205, 59.0818, 58.6042, 38.0585, 3.16237)
+uv = PackedVector2Array(0.105045, 11.7205, 28.105, 67.7205, 59.0818, 58.6042, 38.0585, 3.16237)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+
+[node name="UpperLLeg" type="Polygon2D" parent="Polygons/LLeg"]
+position = Vector2(-12, -109)
+texture = ExtResource("12_2eurc")
+polygon = PackedVector2Array(35.2786, 1.33742, -8.72139, 70.4072, 54.5926, 90.7444, 88.36, 13.4886)
+uv = PackedVector2Array(35.2786, 1.33742, -8.72139, 70.4072, 54.5926, 90.7444, 88.36, 13.4886)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+
+[node name="Jacket" type="Polygon2D" parent="Polygons"]
+position = Vector2(-38, -213)
+texture = ExtResource("6_as0x8")
+polygon = PackedVector2Array(4.4496, 10.4549, 7.15287, 129.624, 125.872, 127.822, 116.635, -2.83619)
+uv = PackedVector2Array(4.4496, 10.4549, 7.15287, 129.624, 125.872, 127.822, 116.635, -2.83619)
+polygons = [PackedInt32Array(0, 3, 2, 1)]
+
+[node name="Head" type="Node2D" parent="Polygons"]
+
+[node name="Head" type="Polygon2D" parent="Polygons/Head"]
+position = Vector2(-57, -301)
+texture = ExtResource("7_27381")
+polygon = PackedVector2Array(15.0905, 14.1858, 17.8351, 120.766, 139.281, 117.335, 133.563, 10.0689)
+uv = PackedVector2Array(15.0905, 14.1858, 17.8351, 120.766, 139.281, 117.335, 133.563, 10.0689)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+
+[node name="LEye" type="Sprite2D" parent="Polygons/Head/Head"]
+position = Vector2(30, 62)
+texture = ExtResource("8_sv0ml")
+
+[node name="REye" type="Sprite2D" parent="Polygons/Head/Head"]
+position = Vector2(58, 64)
+texture = ExtResource("9_1r74s")
+
+[node name="LHand" type="Node2D" parent="Polygons"]
+
+[node name="UpperLHand" type="Polygon2D" parent="Polygons/LHand"]
+position = Vector2(34, -192)
+texture = ExtResource("10_fmk1h")
+polygon = PackedVector2Array(-0.253807, 9.04312, 19.9953, 101.568, 56.0594, 96.3951, 51.1819, 2.68757)
+uv = PackedVector2Array(-0.253807, 9.04312, 19.9953, 101.568, 56.0594, 96.3951, 51.1819, 2.68757)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+
+[node name="BagBase" type="Polygon2D" parent="Polygons/LHand"]
+position = Vector2(7, -78)
+texture = ExtResource("11_vj0pl")
+polygon = PackedVector2Array(-2.97588, 16.4594, 26.3023, 112.541, 115.58, 78.521, 36.8178, -3.5405)
+uv = PackedVector2Array(-2.97588, 16.4594, 26.3023, 112.541, 115.58, 78.521, 36.8178, -3.5405)
+polygons = [PackedInt32Array(0, 3, 2, 1)]
+
+[node name="LowerLHand" type="Polygon2D" parent="Polygons/LHand"]
+position = Vector2(16, -131)
+texture = ExtResource("12_0e8jw")
+polygon = PackedVector2Array(37.5208, 5.81751, 0.77663, 56.8511, 26.8038, 76.7542, 84.9821, 15.616)
+uv = PackedVector2Array(37.5208, 5.81751, 0.77663, 56.8511, 26.8038, 76.7542, 84.9821, 15.616)
+polygons = [PackedInt32Array(0, 3, 2, 1)]
+
+[node name="WristL" type="Polygon2D" parent="Polygons/LHand"]
+position = Vector2(14, -97)
+texture = ExtResource("13_s3mm3")
+polygon = PackedVector2Array(7.31516, 10.1916, 9.33841, 50.2071, 47.1808, 48.8583, 41.2609, 7.04431)
+uv = PackedVector2Array(7.31516, 10.1916, 9.33841, 50.2071, 47.1808, 48.8583, 41.2609, 7.04431)
+polygons = [PackedInt32Array(0, 3, 2, 1)]
+
+[node name="RHandOver" type="Node2D" parent="Polygons"]
+visible = false
+
+[node name="UpperRHandCover" type="Polygon2D" parent="Polygons/RHandOver"]
+position = Vector2(7, -125)
+rotation = 1.97752
+texture = ExtResource("14_vaigg")
+polygon = PackedVector2Array(24.5514, 0.904727, -2.52357, 34.236, 53.6758, 69.9404, 76.6517, 44.052)
+uv = PackedVector2Array(24.5514, 0.904727, -2.52357, 34.236, 53.6758, 69.9404, 76.6517, 44.052)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+
+[node name="WristRCover" type="Polygon2D" parent="Polygons/RHandOver"]
+position = Vector2(-36, -118)
+rotation = 1.53434
+texture = ExtResource("15_frfwa")
+polygon = PackedVector2Array(23.3758, 6.35657, 3.91843, 22.093, 27.4068, 55.8915, 57.2518, 42.1705, 42.7556, 15.2713)
+uv = PackedVector2Array(23.3758, 6.35657, 3.91843, 22.093, 27.4068, 55.8915, 57.2518, 42.1705, 42.7556, 15.2713)
+polygons = [PackedInt32Array(0, 1, 2, 3, 4)]
+
+[node name="BagCover" type="Polygon2D" parent="Polygons"]
+position = Vector2(8, -69)
+texture = ExtResource("16_bg82r")
+polygon = PackedVector2Array(48.1102, -1.0946, 2.14422, 49.6003, 29.005, 107.105, 106.75, 66.6248)
+uv = PackedVector2Array(48.1102, -1.0946, 2.14422, 49.6003, 29.005, 107.105, 106.75, 66.6248)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
