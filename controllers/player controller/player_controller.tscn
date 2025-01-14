@@ -13,12 +13,13 @@
 [sub_resource type="LabelSettings" id="LabelSettings_uxfgu"]
 font_size = 50
 
-[node name="PlayerController" type="Node2D"]
+[node name="PlayerController" type="Node2D" node_paths=PackedStringArray("actor", "hsm")]
 script = ExtResource("1_jg0g5")
 speed = 1200.0
 turn_speed = 0.2
 max_tilt = 10.0
-gravity = 75.0
+actor = NodePath("BearNew")
+hsm = NodePath("LimboHSM")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -176,58 +177,58 @@ text = "0"
 unique_name_in_owner = true
 
 [node name="TorsoTop" parent="BearNew/Skeleton2D/TorsoMain" index="0"]
-rotation = 0.368183
+rotation = 0.339674
 scale = Vector2(0.999983, 0.999983)
 
 [node name="UpperArmR" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop" index="0"]
-rotation = 1.35177
+rotation = 1.41075
 scale = Vector2(0.99998, 0.99998)
 
 [node name="LowerArmR" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR" index="0"]
-rotation = -1.69373
+rotation = -1.7489
 scale = Vector2(0.99998, 0.99998)
 
 [node name="WristR" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR" index="0"]
-rotation = 1.93592
+rotation = 1.74409
 scale = Vector2(0.999985, 0.999985)
 
 [node name="UpperArmL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop" index="1"]
-rotation = -1.06101
+rotation = -1.00515
 scale = Vector2(0.99998, 0.99998)
 
 [node name="LowerArmL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL" index="0"]
-rotation = -0.406574
+rotation = -0.4746
 scale = Vector2(0.999985, 0.999985)
 
 [node name="WristL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL" index="0"]
-rotation = 2.63725
-scale = Vector2(0.99998, 0.99998)
+rotation = 2.68971
+scale = Vector2(0.999979, 0.999979)
 
 [node name="HeadMain" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop" index="2"]
-rotation = -0.118241
-scale = Vector2(0.999976, 0.999976)
+rotation = -0.100785
+scale = Vector2(0.999975, 0.999975)
 
 [node name="LowerJaw" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="0"]
-rotation = 1.08616
+rotation = 1.10338
 scale = Vector2(0.999977, 0.999977)
 
 [node name="EarL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="2"]
 scale = Vector2(0.443939, 0.778982)
 
 [node name="UpperLegR" parent="BearNew/Skeleton2D/TorsoMain" index="1"]
-rotation = 2.26034
+rotation = 1.96423
 scale = Vector2(0.999989, 0.999989)
 
 [node name="LowerLegR" parent="BearNew/Skeleton2D/TorsoMain/UpperLegR" index="0"]
-rotation = 1.00659
+rotation = 1.55821
 scale = Vector2(0.999981, 0.999981)
 
 [node name="UpperLegL" parent="BearNew/Skeleton2D/TorsoMain" index="2"]
-rotation = 2.66231
+rotation = 2.48709
 scale = Vector2(0.999989, 0.999989)
 
 [node name="LowerLegL" parent="BearNew/Skeleton2D/TorsoMain/UpperLegL" index="0"]
-rotation = 0.391524
+rotation = 0.597921
 scale = Vector2(0.999984, 0.999984)
 
 [node name="AnimationTree" parent="BearNew" index="7"]
@@ -239,12 +240,12 @@ parameters/MainStateMachine/DEATH/blend_position = 0.0
 parameters/MainStateMachine/IDLE/blend_position = 1.00243
 parameters/MainStateMachine/JUMP/blend_position = -0.0486618
 
-[node name="LimboHSM" type="LimboHSM" parent="." node_paths=PackedStringArray("character", "controller", "debug_label")]
+[node name="LimboHSM" type="LimboHSM" parent="." node_paths=PackedStringArray("debug_label", "character", "controller")]
 unique_name_in_owner = true
 script = ExtResource("3_7xkve")
+debug_label = NodePath("../CanvasLayer/Control/Label")
 character = NodePath("../BearNew")
 controller = NodePath("..")
-debug_label = NodePath("../CanvasLayer/Control/Label")
 
 [node name="Idle" type="LimboState" parent="LimboHSM"]
 unique_name_in_owner = true

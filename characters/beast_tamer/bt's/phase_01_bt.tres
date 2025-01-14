@@ -1,0 +1,64 @@
+[gd_resource type="BehaviorTree" load_steps=15 format=3 uid="uid://c2gr4a0ig0ujm"]
+
+[ext_resource type="Script" path="res://ai/tasks/play_tree_anim.gd" id="1_jdqnl"]
+[ext_resource type="Script" path="res://ai/tasks/random_attack.gd" id="2_1gm2q"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_2k351"]
+var/consecutive_hits/name = &"consecutive_hits"
+var/consecutive_hits/type = 2
+var/consecutive_hits/value = 0
+var/consecutive_hits/hint = 0
+var/consecutive_hits/hint_string = ""
+
+[sub_resource type="BTAction" id="BTAction_vm3vn"]
+script = ExtResource("2_1gm2q")
+available_attacks = 3
+
+[sub_resource type="BTCooldown" id="BTCooldown_ufa2x"]
+duration = 5.0
+custom_name = "Attack 1"
+children = [SubResource("BTAction_vm3vn")]
+
+[sub_resource type="BBVariant" id="BBVariant_mckh8"]
+type = 2
+saved_value = 5
+resource_name = "5"
+
+[sub_resource type="BTCheckVar" id="BTCheckVar_73u7d"]
+variable = &"consecutive_hits"
+check_type = 4
+value = SubResource("BBVariant_mckh8")
+
+[sub_resource type="BBVariant" id="BBVariant_kyd3x"]
+type = 2
+saved_value = 0
+resource_name = "0"
+
+[sub_resource type="BTSetVar" id="BTSetVar_hanqm"]
+variable = &"consecutive_hits"
+value = SubResource("BBVariant_kyd3x")
+
+[sub_resource type="BTAction" id="BTAction_3hq8c"]
+custom_name = "Play Kick Animation"
+script = ExtResource("1_jdqnl")
+animation_condition = &"kick"
+
+[sub_resource type="BTSequence" id="BTSequence_wbvid"]
+custom_name = "Kick"
+children = [SubResource("BTCheckVar_73u7d"), SubResource("BTSetVar_hanqm"), SubResource("BTAction_3hq8c")]
+
+[sub_resource type="BTAction" id="BTAction_e6in2"]
+custom_name = "Play Idle Animation"
+script = ExtResource("1_jdqnl")
+animation_condition = &"idle"
+
+[sub_resource type="BTSequence" id="BTSequence_ce3no"]
+custom_name = "Idle"
+children = [SubResource("BTAction_e6in2")]
+
+[sub_resource type="BTSelector" id="BTSelector_3u446"]
+children = [SubResource("BTCooldown_ufa2x"), SubResource("BTSequence_wbvid"), SubResource("BTSequence_ce3no")]
+
+[resource]
+blackboard_plan = SubResource("BlackboardPlan_2k351")
+root_task = SubResource("BTSelector_3u446")
