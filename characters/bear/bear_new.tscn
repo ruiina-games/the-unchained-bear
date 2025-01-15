@@ -2120,6 +2120,7 @@ _data = {
 
 [node name="BearNew" type="CharacterBody2D" node_paths=PackedStringArray("animation_tree")]
 position = Vector2(0, 29)
+collision_layer = 0
 script = ExtResource("1_kcxgq")
 animation_tree = NodePath("AnimationTree")
 
@@ -2474,25 +2475,25 @@ rest = Transform2D(0.27827, -0.960503, 0.960503, 0.27827, -69, -372)
 
 [node name="TorsoTop" type="Bone2D" parent="Skeleton2D/TorsoMain"]
 position = Vector2(68.0068, 40.6826)
-rotation = 0.180547
+rotation = 0.542383
 scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(0.979417, 0.201843, -0.201843, 0.979417, 68.0068, 40.6826)
 
 [node name="UpperArmR" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop"]
 position = Vector2(14.7319, -42.8132)
-rotation = -1.35849
+rotation = 0.588215
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(-0.619213, 0.785223, -0.785223, -0.619213, 35.0991, -54.9368)
 
 [node name="LowerArmR" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/UpperArmR"]
 position = Vector2(87.0015, -14.133)
-rotation = -1.21258
+rotation = -0.906824
 scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(0.489786, -0.871843, 0.871843, 0.489786, 118.59, 1.53075)
 
 [node name="WristR" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR"]
 position = Vector2(97.3649, 21.8967)
-rotation = 0.691311
+rotation = 1.26572
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.965287, 0.261192, -0.261192, 0.965287, 112.95, 10.1021)
 auto_calculate_length_and_angle = false
@@ -2524,18 +2525,19 @@ texture = ExtResource("9_82aq5")
 
 [node name="UpperArmL" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop"]
 position = Vector2(74.8369, 35.4323)
-rotation = 0.103667
+rotation = -2.05216
+scale = Vector2(1, 1)
 rest = Transform2D(0.998048, -0.0624427, 0.0624427, 0.998048, 74.8369, 35.4323)
 
 [node name="LowerArmL" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/UpperArmL"]
 position = Vector2(-40.9861, 98.2146)
-rotation = 0.471711
+rotation = 1.01246
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.911628, 0.411016, -0.411016, 0.911628, -40.9861, 98.2146)
 
 [node name="WristL" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL"]
 position = Vector2(43.2869, 47.6577)
-rotation = 0.756311
+rotation = 2.47651
 scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(-0.154783, 0.987948, -0.987948, -0.154783, 43.2869, 47.6577)
 auto_calculate_length_and_angle = false
@@ -2544,13 +2546,13 @@ bone_angle = 0.0
 
 [node name="HeadMain" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop"]
 position = Vector2(122.167, 2.28322)
-rotation = -0.00284416
+rotation = -0.227312
 scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(0.999947, 0.010315, -0.010315, 0.999947, 122.167, 2.28322)
 
 [node name="LowerJaw" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/HeadMain"]
 position = Vector2(-29.8503, -14.7242)
-rotation = 1.45445
+rotation = 1.33504
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.256368, 0.966579, -0.966579, 0.256368, -29.8503, -14.7242)
 auto_calculate_length_and_angle = false
@@ -2579,13 +2581,13 @@ bone_angle = 0.0
 
 [node name="UpperLegR" type="Bone2D" parent="Skeleton2D/TorsoMain"]
 position = Vector2(-63.9228, 23.7249)
-rotation = 1.90286
+rotation = 1.41428
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(-0.809772, 0.586744, -0.586744, -0.809772, -63.9228, 23.7249)
 
 [node name="LowerLegR" type="Bone2D" parent="Skeleton2D/TorsoMain/UpperLegR"]
 position = Vector2(105.268, 2.76837)
-rotation = 1.63259
+rotation = 0.839718
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.865783, 0.50042, -0.50042, 0.865783, 105.268, 2.76837)
 auto_calculate_length_and_angle = false
@@ -2594,13 +2596,13 @@ bone_angle = 0.0
 
 [node name="UpperLegL" type="Bone2D" parent="Skeleton2D/TorsoMain"]
 position = Vector2(-42.3166, 109.084)
-rotation = 2.66016
+rotation = 1.07089
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(-0.938539, 0.345172, -0.345172, -0.938539, -42.3166, 109.084)
 
 [node name="LowerLegL" type="Bone2D" parent="Skeleton2D/TorsoMain/UpperLegL"]
 position = Vector2(100.597, -4.93311)
-rotation = 0.373495
+rotation = 1.2327
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.969936, 0.243361, -0.243361, 0.969936, 100.597, -4.93311)
 auto_calculate_length_and_angle = false

@@ -3,6 +3,10 @@ class_name AIStateMachine
 
 var current_bb: Blackboard
 
+func _update(delta: float) -> void:
+	if !blackboard:
+		return
+	
 func create_state_conditions():
 	state_conditions["run"] =  path_to_anim_parameters + "run"
 	state_conditions["kick"] =  path_to_anim_parameters + "kick"

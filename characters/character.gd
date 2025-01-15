@@ -11,3 +11,9 @@ func get_anim_tree():
 		
 func attack() -> void:
 	pass
+
+func adjust_scale_for_direction(direction):
+	if direction.x > 0:
+		transform.x.x = -1
+	elif direction.x < 0:
+		transform.x.x = 1

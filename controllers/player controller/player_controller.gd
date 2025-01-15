@@ -25,9 +25,6 @@ var combo_count: int
 
 @onready var control: Control = $CanvasLayer/Control
 
-func _ready() -> void:
-	_init_state_machine()
-
 func _init_state_machine() -> void:
 	hsm.add_transition(idle_state, run_state, hsm.MOVEMENT_STARTED)
 	hsm.add_transition(run_state, idle_state, hsm.MOVEMENT_FINISHED)

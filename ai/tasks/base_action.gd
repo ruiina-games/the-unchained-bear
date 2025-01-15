@@ -1,11 +1,13 @@
 extends BTAction
 class_name BaseAction
 
+var controller: Controller
 var state_machine: StateMachine
 
 func _enter() -> void:
 	if scene_root is Controller:
-		state_machine = scene_root.get_hsm()
+		controller = scene_root
+		state_machine = controller.get_hsm()
 	else:
 		return
 	

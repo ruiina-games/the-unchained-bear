@@ -1,7 +1,9 @@
-[gd_resource type="BehaviorTree" load_steps=15 format=3 uid="uid://c2gr4a0ig0ujm"]
+[gd_resource type="BehaviorTree" load_steps=25 format=3 uid="uid://c2gr4a0ig0ujm"]
 
+[ext_resource type="Script" path="res://ai/tasks/conditions/check_distance.gd" id="1_d83ie"]
 [ext_resource type="Script" path="res://ai/tasks/play_tree_anim.gd" id="1_jdqnl"]
 [ext_resource type="Script" path="res://ai/tasks/random_attack.gd" id="2_1gm2q"]
+[ext_resource type="Script" path="res://ai/tasks/beast tameress/move.gd" id="2_mgrc0"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_2k351"]
 var/consecutive_hits/name = &"consecutive_hits"
@@ -9,15 +11,55 @@ var/consecutive_hits/type = 2
 var/consecutive_hits/value = 0
 var/consecutive_hits/hint = 0
 var/consecutive_hits/hint_string = ""
+var/move_target/name = &"move_target"
+var/move_target/type = 24
+var/move_target/hint = 0
+var/move_target/hint_string = ""
+
+[sub_resource type="BBNode" id="BBNode_3m5xs"]
+value_source = 1
+variable = &"move_target"
+resource_name = "$move_target"
+
+[sub_resource type="BTCondition" id="BTCondition_acvpi"]
+script = ExtResource("1_d83ie")
+target_distance = 1500.0
+target = SubResource("BBNode_3m5xs")
+
+[sub_resource type="BTAction" id="BTAction_ep575"]
+custom_name = "Play Run Animation"
+script = ExtResource("1_jdqnl")
+animation_condition = &"run"
+
+[sub_resource type="BTAction" id="BTAction_e77kh"]
+script = ExtResource("2_mgrc0")
+move_speed = 500.0
+tolerance = 25.0
+
+[sub_resource type="BTSequence" id="BTSequence_pqr4n"]
+custom_name = "Movement Sequence"
+children = [SubResource("BTCondition_acvpi"), SubResource("BTAction_ep575"), SubResource("BTAction_e77kh")]
+
+[sub_resource type="BTTimeLimit" id="BTTimeLimit_vuogw"]
+time_limit = 10.0
+children = [SubResource("BTSequence_pqr4n")]
+
+[sub_resource type="BTCooldown" id="BTCooldown_y2flq"]
+duration = 7.0
+children = [SubResource("BTTimeLimit_vuogw")]
 
 [sub_resource type="BTAction" id="BTAction_vm3vn"]
 script = ExtResource("2_1gm2q")
 available_attacks = 3
 
+[sub_resource type="BTDelay" id="BTDelay_rtibp"]
+children = [SubResource("BTAction_vm3vn")]
+
 [sub_resource type="BTCooldown" id="BTCooldown_ufa2x"]
 duration = 5.0
+start_cooled = true
 custom_name = "Attack 1"
-children = [SubResource("BTAction_vm3vn")]
+children = [SubResource("BTDelay_rtibp")]
 
 [sub_resource type="BBVariant" id="BBVariant_mckh8"]
 type = 2
@@ -57,7 +99,7 @@ custom_name = "Idle"
 children = [SubResource("BTAction_e6in2")]
 
 [sub_resource type="BTSelector" id="BTSelector_3u446"]
-children = [SubResource("BTCooldown_ufa2x"), SubResource("BTSequence_wbvid"), SubResource("BTSequence_ce3no")]
+children = [SubResource("BTCooldown_y2flq"), SubResource("BTCooldown_ufa2x"), SubResource("BTSequence_wbvid"), SubResource("BTSequence_ce3no")]
 
 [resource]
 blackboard_plan = SubResource("BlackboardPlan_2k351")
