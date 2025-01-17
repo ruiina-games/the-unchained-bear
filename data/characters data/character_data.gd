@@ -3,7 +3,6 @@ class_name CharacterStats
 
 @export var attack_power_multiplier: float = 1.0
 @export var max_health: int = 2000
-@export var current_health: int = max_health
 @export var critical_chance: float = 0.05
 @export var critical_damage_multiplier: float = 1.2
 @export var dodge_chance: float = 0.0
@@ -12,6 +11,8 @@ class_name CharacterStats
 @export var attack_range: float = 0.0
 @export var status_resist_multiplier: float = 0.1
 @export var effect_power_multiplier: float = 1.0
+
+var current_health: int
 
 # Methods to handle improvements and updates
 func increase_attack_power_multiplier(amount: float) -> void:

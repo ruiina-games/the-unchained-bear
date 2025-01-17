@@ -1,7 +1,5 @@
-extends Node2D
+extends Controller
 class_name PlayerController
-
-@onready var actor: Bear = %BearNew
 
 @export_category("Actor Movement")
 # Змінні для контролю за рухом
@@ -10,7 +8,6 @@ class_name PlayerController
 @export var max_tilt: float = 20.0
 @export var acceleration: float = 100.0  # Заміна для delta
 @export var deceleration: float = 20.0  # Заміна для delta
-@export var gravity: float = 40.0
 @export var jump_force: float = 2000
 
 @export_category("Attack")
@@ -18,23 +15,15 @@ class_name PlayerController
 @export var max_combo_count: int = 3
 @export var sec_to_reset_combo: float = 0.4
 
-@onready var hsm: LimboHSM = %LimboHSM
 @onready var idle_state: LimboState = %Idle
 @onready var run_state: PlayerState = %Run
 @onready var jump_state: LimboState = %Jump
 @onready var attack_state: LimboState = %Attack
 
-# Змінні для руху
-var current_velocity: Vector2 = Vector2.ZERO
-var tilt: float = 0.0
-var direction: float = 1.0
 var tilt_inertia: float = 0.1
 var combo_count: int
 
 @onready var control: Control = $CanvasLayer/Control
-
-func _ready() -> void:
-	_init_state_machine()
 
 func _init_state_machine() -> void:
 	hsm.add_transition(idle_state, run_state, hsm.MOVEMENT_STARTED)
@@ -50,8 +39,7 @@ func _init_state_machine() -> void:
 	hsm.change_active_state(idle_state)
 
 func _physics_process(delta: float):
-	if !actor.is_on_floor():
-		current_velocity.y += gravity
+	super(delta)
 	
 	# Плавне вирівнювання нахилу
 	if abs(current_velocity.x) < 10:

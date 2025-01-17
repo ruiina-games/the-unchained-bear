@@ -5,9 +5,20 @@ class_name Character
 # @export var movement_stats: MovementStats
 @export var animation_tree :AnimationTree
 
+func _ready() -> void:
+	# Initializing current health with max health considering we create a character with full HP
+	if character_stats:
+		character_stats.current_health = character_stats.max_health
+
 func get_anim_tree():
 	if animation_tree:
 		return animation_tree
 		
 func attack() -> void:
 	pass
+
+func adjust_scale_for_direction(direction):
+	if direction.x > 0:
+		transform.x.x = -1
+	elif direction.x < 0:
+		transform.x.x = 1
