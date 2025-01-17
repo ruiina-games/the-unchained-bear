@@ -3,6 +3,7 @@ class_name MoveAction
 
 @export var move_speed: float = 1000.0
 @export var tolerance: float = 50.0  # Допустима відстань до цілі для завершення
+@export var should_stop_at_enemy: bool = true
 
 var velocity: Vector2 = Vector2.ZERO
 var target_position: Vector2
@@ -23,6 +24,17 @@ func _tick(delta: float) -> Status:
 
 	var actor_global_position = controller.actor.global_position
 	var distance_to_target = actor_global_position.distance_to(target_position)
+	
+	if should_stop_at_enemy and controller.target:
+		var enemy_position: Vector2 = controller.target.global_position
+		var distance_to_enemy: float = actor_global_position.distance_to(enemy_position)
+		
+		if distance_to_enemy < 500:
+			# Коли доходимо до потрібної точки - повертаємось в бік початкового тагрета, навіть якщо йшли в інший бік
+			# Зроблено для того, щоб дивитися на ворога, коли доходимо до точки, а не продовжувати дивитись на точку, до якої йшли
+			var look_at_direction = controller.actor.global_position.direction_to(controller.target.global_position)
+			controller.actor.adjust_scale_for_direction(look_at_direction)
+			return Status.FAILURE
 
 	if distance_to_target <= tolerance:
 		velocity = Vector2.ZERO

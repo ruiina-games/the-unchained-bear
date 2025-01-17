@@ -1,9 +1,6 @@
 extends BTCondition
 class_name CheckDistance
 
-@export var target_distance: float
-@export var target: BBNode
-
 # Enum для вибору типу успішної перевірки
 enum CheckMode {
 	GREATER,  # Дистанція більша за target_distance
@@ -11,6 +8,7 @@ enum CheckMode {
 	EQUAL     # Дистанція дорівнює target_distance
 }
 
+@export var target_distance: float
 @export var check_mode: CheckMode = CheckMode.GREATER
 
 var actor_global_position: Vector2
