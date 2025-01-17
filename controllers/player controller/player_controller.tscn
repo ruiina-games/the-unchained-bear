@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cevie0mm3xc4j"]
+[gd_scene load_steps=12 format=3 uid="uid://cevie0mm3xc4j"]
 
 [ext_resource type="Script" path="res://controllers/player controller/player_controller.gd" id="1_jg0g5"]
 [ext_resource type="PackedScene" uid="uid://cjbnosxi4m18l" path="res://characters/bear/bear_new.tscn" id="2_drj5a"]
@@ -10,20 +10,31 @@
 [ext_resource type="Script" path="res://controllers/player controller/jump.gd" id="6_ofg5v"]
 [ext_resource type="Script" path="res://controllers/player controller/player state machine/states/attack.gd" id="7_ieqh6"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_lpkf7"]
+font_size = 40
+
 [sub_resource type="LabelSettings" id="LabelSettings_uxfgu"]
 font_size = 50
 
-[node name="PlayerController" type="Node2D" node_paths=PackedStringArray("actor", "hsm")]
+[node name="PlayerController" type="Node2D" node_paths=PackedStringArray("actor", "hsm", "hp_label")]
 script = ExtResource("1_jg0g5")
 speed = 1200.0
 turn_speed = 0.2
 max_tilt = 10.0
 actor = NodePath("BearNew")
 hsm = NodePath("LimboHSM")
+hp_label = NodePath("CanvasLayer/HP")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="HP" type="Label" parent="CanvasLayer"]
+offset_right = 241.0
+offset_bottom = 141.0
+label_settings = SubResource("LabelSettings_lpkf7")
+horizontal_alignment = 2
+
 [node name="Control" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -177,58 +188,58 @@ text = "0"
 unique_name_in_owner = true
 
 [node name="TorsoTop" parent="BearNew/Skeleton2D/TorsoMain" index="0"]
-rotation = 0.400751
+rotation = 0.424547
 scale = Vector2(0.999983, 0.999983)
 
 [node name="UpperArmR" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop" index="0"]
-rotation = 1.41027
+rotation = 1.15936
 scale = Vector2(0.999979, 0.999979)
 
 [node name="LowerArmR" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR" index="0"]
-rotation = -1.70063
+rotation = -1.54018
 scale = Vector2(0.99998, 0.99998)
 
 [node name="WristR" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR" index="0"]
-rotation = 1.75113
+rotation = 1.67882
 scale = Vector2(0.999985, 0.999985)
 
 [node name="UpperArmL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop" index="1"]
-rotation = -1.09998
+rotation = -1.14089
 scale = Vector2(0.99998, 0.99998)
 
 [node name="LowerArmL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL" index="0"]
-rotation = -0.331911
+rotation = -0.277128
 scale = Vector2(0.999985, 0.999985)
 
 [node name="WristL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL" index="0"]
-rotation = 2.56928
+rotation = 2.5233
 scale = Vector2(0.999979, 0.999979)
 
 [node name="HeadMain" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop" index="2"]
-rotation = -0.138155
+rotation = -0.152686
 scale = Vector2(0.999975, 0.999975)
 
 [node name="LowerJaw" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="0"]
-rotation = 1.05775
+rotation = 1.04048
 scale = Vector2(0.999977, 0.999977)
 
 [node name="EarL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="2"]
 scale = Vector2(0.443939, 0.778982)
 
 [node name="UpperLegR" parent="BearNew/Skeleton2D/TorsoMain" index="1"]
-rotation = 2.35554
+rotation = 2.2547
 scale = Vector2(0.999989, 0.999989)
 
 [node name="LowerLegR" parent="BearNew/Skeleton2D/TorsoMain/UpperLegR" index="0"]
-rotation = 0.840229
+rotation = 1.05253
 scale = Vector2(0.999981, 0.999981)
 
 [node name="UpperLegL" parent="BearNew/Skeleton2D/TorsoMain" index="2"]
-rotation = 2.27125
+rotation = 2.09889
 scale = Vector2(0.999989, 0.999989)
 
 [node name="LowerLegL" parent="BearNew/Skeleton2D/TorsoMain/UpperLegL" index="0"]
-rotation = 0.971133
+rotation = 1.24814
 scale = Vector2(0.999984, 0.999984)
 
 [node name="AnimationTree" parent="BearNew" index="7"]

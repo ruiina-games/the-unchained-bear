@@ -3,10 +3,12 @@ class_name BeastTameressController
 
 @export var max_consecutive_hits_can_take: int = 4
 @export var animation_tree: AnimationTree
+@export var attack_range: float = 1500
 
-@onready var move_target: Marker2D = $MoveToMarker
 @onready var consecutive_hits_reset_timer: Timer = %"Consecutive Hits Reset Timer"
 @onready var phase_01: BTState = $LimboHSM/Phase_01
+
+@onready var label: Label = %Label
 
 var blackboard: Blackboard
 var consecutive_hits: int:
@@ -29,14 +31,8 @@ func _ready() -> void:
 	hsm.initialize(self)
 	hsm.set_active(true)
 	hsm.change_active_state(phase_01)
-	
-	phase_01.blackboard.set_var("move_target", move_target)
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("jump"):
-		move_target.global_position = get_global_mouse_position()
-		print(move_target.global_position)
-
 	if event.is_action_pressed("attack"):
 		consecutive_hits += 1
 
@@ -44,44 +40,43 @@ func _on_consecutive_hits_reset_timer_timeout():
 	consecutive_hits = 0
 	print("Boss now can get even more punches!!!")
 
-func get_target_move_position(distance: float):
+func get_target_move_position():
 	var viewport = get_viewport_rect()
 	var actor_pos = actor.global_position
 	var target_pos = target.global_position
-	var new_x: float
 
-	# Чітке визначення поточної відстані
-	var current_distance = actor_pos.distance_to(target_pos)
-	var direction = (target_pos - actor_pos).normalized()
+	# Визначення напрямку від боса до гравця
+	var direction_to_target = actor_pos.direction_to(target_pos)
 
-	# Поріг для уникнення "трусіння"
-	var tolerance = 2.0  # Збільшений поріг для точності
+	# Розрахунок цільової позиції, яка знаходиться на відстані attack_range від target
+	var target_position: Vector2 = calculate_target_position(actor_pos, target_pos, direction_to_target)
 
-	# Якщо відстань у межах допустимого порогу, залишаємося на місці
-	if abs(current_distance - distance) <= tolerance:
-		print("На потрібній відстані")
-		return actor_pos
+	# Перевіряємо, чи цільова позиція знаходиться в межах viewport
+	if target_position.x <= -2000 || target_position.x >= 2000:
+		direction_to_target = -direction_to_target
+		target_position = calculate_target_position(actor_pos, target_pos, direction_to_target)
+	
+	return target_position
 
-	# Визначення напряму: рух до цілі або від неї
-	if current_distance > distance:
-		# Якщо занадто далеко, рухаємося ближче
-		new_x = actor_pos.x + direction.x * (current_distance - distance)
-	elif current_distance < distance:
-		# Якщо занадто близько, рухаємося далі
-		new_x = actor_pos.x - direction.x * (distance - current_distance)
+func calculate_target_position(
+	actor_pos: Vector2,
+	target_pos: Vector2,
+	direction_to_target: Vector2
+) -> Vector2:
+	# Нормалізуємо напрямок, щоб отримати одиничний вектор
+	var dir = direction_to_target.normalized()
+	# Віднімаємо від x координати цілі (target_pos.x) 
+	# нормалізований напрямок, помножений на attack_range
+	var new_x = target_pos.x + dir.x * attack_range
+	var new_y = actor_pos.y  # або target_pos.y, залежно від того, чого хочете досягти
+	
+	return Vector2(new_x, new_y)
+	
+func look_at_target(target_position: Vector2):
+	var look_at_direction = actor.global_position.direction_to(target_position)
+	actor.adjust_scale_for_direction(look_at_direction)
 
-	# Перевіряємо, чи є достатньо місця у протилежному напрямку
-	if (new_x < 0 or new_x > viewport.size.x):
-		# Якщо місця немає, коригуємо напрямок до таргету
-		if current_distance > distance:
-			new_x = actor_pos.x + direction.x * (current_distance - distance)
-		else:
-			new_x = actor_pos.x - direction.x * (distance - current_distance)
-
-	# Обмежуємо нову позицію в межах екрану
-	new_x = clamp(new_x, 0, viewport.size.x)
-
-	# Оновлюємо позицію об'єкта
-	move_target.global_position = Vector2(new_x, actor_pos.y)
-	print("Рухаємося до:", move_target.global_position)
-	return move_target.global_position
+func attack_notify():
+	label.text = "BEAST TAMERESS IS GOING TO ATTACK"
+	await get_tree().create_timer(2.0).timeout
+	label.text = ""

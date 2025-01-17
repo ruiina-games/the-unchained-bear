@@ -4,6 +4,7 @@ class_name Controller
 @export var actor: Character
 @export var target: Character
 @export var hsm: LimboHSM
+@export var hp_label: Label
 
 var target_global_position: Vector2
 var actor_global_position: Vector2
@@ -26,6 +27,9 @@ func _init_state_machine() -> void:
 func _process(delta: float) -> void:
 	target_global_position = target.global_position
 	actor_global_position = actor.global_position
+	
+	if hp_label and actor.character_stats:
+		hp_label.text = str(actor.character_stats.current_health)
 
 func _physics_process(delta: float):
 	if !actor.is_on_floor():

@@ -4,9 +4,8 @@ class_name MoveAction
 @export var move_speed: float = 1000.0
 @export var tolerance: float = 50.0  # Допустима відстань до цілі для завершення
 
-var target_global_position: Vector2
 var velocity: Vector2 = Vector2.ZERO
-var direction: Vector2 = Vector2.ZERO
+var target_position: Vector2
 
 func _enter() -> void:
 	controller = scene_root
@@ -14,41 +13,44 @@ func _enter() -> void:
 		print("Error: Controller is not defined!")
 		return
 
+	target_position = controller.get_target_move_position()
+	print("MoveAction entered. Target position set to:", target_position)
+
 func _tick(delta: float) -> Status:
 	if !controller or controller.actor == null:
 		print("Error: Actor is not defined!")
 		return Status.FAILURE
 
 	var actor_global_position = controller.actor.global_position
-	target_global_position = controller.get_target_move_position(1500)
+	var distance_to_target = actor_global_position.distance_to(target_position)
 
-	# Розрахунок напряму (лише по x)
-	direction = actor_global_position.direction_to(target_global_position)
-	direction.y = 0.0  # Ігноруємо вісь 
-	
-	controller.actor.adjust_scale_for_direction(direction)
-
-	# Якщо персонаж досягнув цілі
-	if abs(actor_global_position.x - target_global_position.x) <= tolerance:
+	if distance_to_target <= tolerance:
 		velocity = Vector2.ZERO
 		controller.actor.velocity = velocity
 		controller.actor.move_and_slide()
-		controller.actor.adjust_scale_for_direction(actor_global_position.direction_to(controller.target.global_position))
-		
-		print("distance is " + str(controller.actor.global_position.distance_to(controller.target.global_position)))
 		print("Reached target. Stopping.")
+		
+		# Коли доходимо до потрібної точки - повертаємось в бік початкового тагрета, навіть якщо йшли в інший бік
+		# Зроблено для того, щоб дивитися на ворога, коли доходимо до точки, а не продовжувати дивитись на точку, до якої йшли
+		var look_at_direction = controller.actor.global_position.direction_to(controller.target.global_position)
+		controller.actor.adjust_scale_for_direction(look_at_direction)
+		
 		return Status.SUCCESS
+	
+	# Дивимося на точку, до якої йдемо
+	controller.look_at_target(target_position)
 
-	# Розрахунок швидкості
-	velocity = Vector2(direction.x * move_speed, 0)
+	# Розрахунок нового напрямку і швидкості
+	var direction = actor_global_position.direction_to(target_position)
+	velocity = direction * move_speed
+	velocity.y = 0
 	controller.actor.velocity = velocity
-
-	# Рух персонажа
 	controller.actor.move_and_slide()
 
 	return Status.RUNNING
 
-func _exit():
+func _exit() -> void:
 	if controller and controller.actor:
 		controller.actor.velocity = Vector2.ZERO
 	velocity = Vector2.ZERO
+	print("Exiting move state. Velocity reset.")
