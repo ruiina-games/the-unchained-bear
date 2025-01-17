@@ -76,7 +76,7 @@ func look_at_target(target_position: Vector2):
 	var look_at_direction = actor.global_position.direction_to(target_position)
 	actor.adjust_scale_for_direction(look_at_direction)
 
-func attack_notify():
-	label.text = "BEAST TAMERESS IS GOING TO ATTACK"
-	await get_tree().create_timer(2.0).timeout
+func attack_notify(inform_text: String, inform_duration: float):
+	label.text = inform_text
+	await get_tree().create_timer(inform_duration).timeout
 	label.text = ""
