@@ -4,15 +4,22 @@ class_name HealthComponent
 signal got_hit(enemy: Character)
 
 @export var agent :Character
-@export var max_hp :float = 100.0
 
-@onready var current_hp = max_hp
+func _ready() -> void:
+	if !agent:
+		print(name + " doesn't have an agent")
+		return
 
 func apply_damage(damage_component :DamageComponent):
+	if !agent:
+		print(name + " doesn't have an agent")
+		return
+
 	var damage =  damage_component.get_damage_amount()
 	var damage_causer = damage_component.get_damage_causer()
 	
-	# agent.direction_to_enemy = agent.global_position.direction_to(damage_causer.global_position)
+	var current_hp: float = agent.character_stats.current_health
+	var max_hp: float = agent.character_stats.max_health
 	
 	current_hp = clampf(current_hp - damage, 0, max_hp)
 	
@@ -28,4 +35,9 @@ func apply_damage(damage_component :DamageComponent):
 		return
 
 func heal(heal_amount :float):
+	if !agent:
+		print(name + " doesn't have an agent")
+		return
+	
+	var current_hp: float = agent.character_stats.current_health
 	current_hp = clampf(current_hp + heal_amount, current_hp, heal_amount)

@@ -73,7 +73,7 @@ custom_name = "Close Enemy or Consecutive Hits Selection"
 children = [SubResource("BTSequence_wbvid"), SubResource("BTSequence_5jsth")]
 
 [sub_resource type="BTCooldown" id="BTCooldown_hm7qn"]
-duration = 2.0
+duration = 4.0
 custom_name = "Kick Cooldown"
 children = [SubResource("BTSelector_smtbu")]
 

@@ -1,7 +1,7 @@
 extends Node
 class_name DamageComponent
 
-@export var damage_causer :Node2D
+@export var damage_causer :Character
 @export var damage_amount :float = 20.0
 
 func get_damage_amount():
