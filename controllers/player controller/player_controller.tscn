@@ -242,9 +242,6 @@ scale = Vector2(0.999989, 0.999989)
 rotation = 0.547209
 scale = Vector2(0.999984, 0.999984)
 
-[node name="DustWheelParticles" parent="BearNew/Effects" index="0"]
-emitting = false
-
 [node name="AnimationTree" parent="BearNew" index="8"]
 parameters/MainStateMachine/ATTACK/blend_position = 1.31569
 parameters/MainStateMachine/ATTACK/0/blend_position = -0.108141

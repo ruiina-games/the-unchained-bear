@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://cjbnosxi4m18l"]
+[gd_scene load_steps=63 format=3 uid="uid://cjbnosxi4m18l"]
 
 [ext_resource type="Texture2D" uid="uid://0qm6mhlm33ap" path="res://assets/New_Bear/images/template.png" id="1_8qh4k"]
 [ext_resource type="Script" path="res://characters/bear/bear.gd" id="1_kcxgq"]
@@ -38,6 +38,10 @@
 [ext_resource type="AnimationLibrary" uid="uid://icr8p2j85hny" path="res://characters/bear/animations/BOXING_STYLE.res" id="32_o8u03"]
 [ext_resource type="AnimationLibrary" uid="uid://j7f1i3heuntm" path="res://characters/bear/animations/LUMBERJACK_STYLE.res" id="34_53lbr"]
 [ext_resource type="Texture2D" uid="uid://cpcntmfgym2iw" path="res://assets/Effects/pngwing.com.png" id="34_svw4j"]
+[ext_resource type="Texture2D" uid="uid://dyg6wya8mowjy" path="res://assets/Effects/FX/3.png" id="35_jy20s"]
+[ext_resource type="Shader" path="res://shaders/attack_glitch.gdshader" id="35_vis2c"]
+[ext_resource type="Texture2D" uid="uid://b0hnu8txwpswv" path="res://assets/Effects/FX/1.png" id="37_rb1ci"]
+[ext_resource type="Texture2D" uid="uid://d0aop7y2wpw45" path="res://assets/Effects/FX/7.png" id="38_un8hl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u3g2m"]
 size = Vector2(282, 376)
@@ -102,6 +106,23 @@ scale_min = 0.1
 scale_max = 0.2
 scale_over_velocity_max = 127.34
 color_ramp = SubResource("GradientTexture1D_dkh0u")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5geh4"]
+shader = ExtResource("35_vis2c")
+shader_parameter/shake_power = 0.3
+shader_parameter/shake_rate = 1.0
+shader_parameter/shake_speed = 7.39
+shader_parameter/shake_block_size = 3.105
+shader_parameter/shake_color_rate = 0.749
+
+[sub_resource type="Curve" id="Curve_boy4e"]
+max_value = 4.0
+_data = [Vector2(0, 0.517143), 0.0, 0.0, 0, 0, Vector2(1, 1.23657), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_yd7pf"]
+offsets = PackedFloat32Array(0.657143, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 0)
 
 [sub_resource type="Animation" id="Animation_jt6ck"]
 resource_name = "BEND"
@@ -1995,6 +2016,42 @@ tracks/29/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("Effects/AttackFX/SlashFX/SlashAttackFX_1:emitting")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("Effects/AttackFX/SlashFX/SlashAttackFX_2:emitting")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("Effects/AttackFX/SlashFX/SlashAttackFX_3:emitting")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_3330t"]
 tracks/0/type = "value"
@@ -2656,25 +2713,25 @@ rest = Transform2D(0.27827, -0.960503, 0.960503, 0.27827, -69, -372)
 
 [node name="TorsoTop" type="Bone2D" parent="Skeleton2D/TorsoMain"]
 position = Vector2(68.0068, 40.6826)
-rotation = 0.705196
+rotation = 0.240587
 scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(0.979417, 0.201843, -0.201843, 0.979417, 68.0068, 40.6826)
 
 [node name="UpperArmR" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop"]
 position = Vector2(14.7319, -42.8132)
-rotation = -1.94023
+rotation = -2.86143
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(-0.619213, 0.785223, -0.785223, -0.619213, 35.0991, -54.9368)
 
 [node name="LowerArmR" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/UpperArmR"]
 position = Vector2(87.0015, -14.133)
-rotation = -1.80346
+rotation = -0.685988
 scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(0.489786, -0.871843, 0.871843, 0.489786, 118.59, 1.53075)
 
 [node name="WristR" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR"]
 position = Vector2(97.3649, 21.8967)
-rotation = 1.4258
+rotation = -0.427286
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.965287, 0.261192, -0.261192, 0.965287, 112.95, 10.1021)
 auto_calculate_length_and_angle = false
@@ -2706,20 +2763,20 @@ texture = ExtResource("9_82aq5")
 
 [node name="UpperArmL" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop"]
 position = Vector2(74.8369, 35.4323)
-rotation = -1.37919
+rotation = 0.384993
 scale = Vector2(1, 1)
 rest = Transform2D(0.998048, -0.0624427, 0.0624427, 0.998048, 74.8369, 35.4323)
 
 [node name="LowerArmL" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/UpperArmL"]
 position = Vector2(-40.9861, 98.2146)
-rotation = 0.824465
-scale = Vector2(0.999999, 0.999999)
+rotation = -0.318421
+scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(0.911628, 0.411016, -0.411016, 0.911628, -40.9861, 98.2146)
 
 [node name="WristL" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL"]
 position = Vector2(43.2869, 47.6577)
-rotation = 1.38457
-scale = Vector2(0.999998, 0.999998)
+rotation = 1.98205
+scale = Vector2(0.999997, 0.999997)
 rest = Transform2D(-0.154783, 0.987948, -0.987948, -0.154783, 43.2869, 47.6577)
 auto_calculate_length_and_angle = false
 length = 48.17
@@ -2727,13 +2784,13 @@ bone_angle = 0.0
 
 [node name="HeadMain" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop"]
 position = Vector2(122.167, 2.28322)
-rotation = -0.323201
+rotation = -0.725259
 scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(0.999947, 0.010315, -0.010315, 0.999947, 122.167, 2.28322)
 
 [node name="LowerJaw" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/HeadMain"]
 position = Vector2(-29.8503, -14.7242)
-rotation = 1.12898
+rotation = 1.69476
 scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(0.256368, 0.966579, -0.966579, 0.256368, -29.8503, -14.7242)
 auto_calculate_length_and_angle = false
@@ -2762,13 +2819,13 @@ bone_angle = 0.0
 
 [node name="UpperLegR" type="Bone2D" parent="Skeleton2D/TorsoMain"]
 position = Vector2(-63.9228, 23.7249)
-rotation = 2.4202
+rotation = 2.30738
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(-0.809772, 0.586744, -0.586744, -0.809772, -63.9228, 23.7249)
 
 [node name="LowerLegR" type="Bone2D" parent="Skeleton2D/TorsoMain/UpperLegR"]
 position = Vector2(105.268, 2.76837)
-rotation = 0.696881
+rotation = 0.605072
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.865783, 0.50042, -0.50042, 0.865783, 105.268, 2.76837)
 auto_calculate_length_and_angle = false
@@ -2777,13 +2834,13 @@ bone_angle = 0.0
 
 [node name="UpperLegL" type="Bone2D" parent="Skeleton2D/TorsoMain"]
 position = Vector2(-42.3166, 109.084)
-rotation = 1.95683
+rotation = 2.24466
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(-0.938539, 0.345172, -0.345172, -0.938539, -42.3166, 109.084)
 
 [node name="LowerLegL" type="Bone2D" parent="Skeleton2D/TorsoMain/UpperLegL"]
 position = Vector2(100.597, -4.93311)
-rotation = 1.51067
+rotation = 0.780464
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.969936, 0.243361, -0.243361, 0.969936, 100.597, -4.93311)
 auto_calculate_length_and_angle = false
@@ -2849,8 +2906,71 @@ texture = ExtResource("34_svw4j")
 one_shot = true
 preprocess = 0.5
 
+[node name="AttackFX" type="Node2D" parent="Effects"]
+z_index = 999
+
+[node name="SlashFX" type="Node2D" parent="Effects/AttackFX"]
+
+[node name="SlashAttackFX_1" type="CPUParticles2D" parent="Effects/AttackFX/SlashFX"]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(1, 0, 0, 1)
+material = SubResource("ShaderMaterial_5geh4")
+position = Vector2(344, -421)
+emitting = false
+amount = 1
+lifetime = 0.4
+one_shot = true
+speed_scale = 1.5
+explosiveness = 0.4
+texture = ExtResource("35_jy20s")
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 704.18
+initial_velocity_max = 704.18
+scale_amount_curve = SubResource("Curve_boy4e")
+color_ramp = SubResource("Gradient_yd7pf")
+
+[node name="SlashAttackFX_2" type="CPUParticles2D" parent="Effects/AttackFX/SlashFX"]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(1, 0, 0, 1)
+material = SubResource("ShaderMaterial_5geh4")
+position = Vector2(408, -433)
+emitting = false
+amount = 1
+lifetime = 0.4
+one_shot = true
+speed_scale = 1.5
+explosiveness = 0.4
+local_coords = true
+texture = ExtResource("37_rb1ci")
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 704.18
+initial_velocity_max = 704.18
+scale_amount_curve = SubResource("Curve_boy4e")
+color_ramp = SubResource("Gradient_yd7pf")
+
+[node name="SlashAttackFX_3" type="CPUParticles2D" parent="Effects/AttackFX/SlashFX"]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(1, 0, 0, 1)
+material = SubResource("ShaderMaterial_5geh4")
+position = Vector2(496, -437)
+emitting = false
+amount = 1
+lifetime = 0.4
+one_shot = true
+speed_scale = 1.5
+explosiveness = 0.4
+local_coords = true
+texture = ExtResource("38_un8hl")
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 709.7
+initial_velocity_max = 709.7
+scale_amount_curve = SubResource("Curve_boy4e")
+color_ramp = SubResource("Gradient_yd7pf")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-active = false
 libraries = {
 "": SubResource("AnimationLibrary_4v188"),
 "BOXING_STYLE": ExtResource("32_o8u03"),
