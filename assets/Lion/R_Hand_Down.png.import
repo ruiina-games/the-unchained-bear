@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyg6wya8mowjy"
-path="res://.godot/imported/3.png-19ca6d57992b322ee9bb8e7298b5710e.ctex"
+uid="uid://bgxb8we6br8ln"
+path="res://.godot/imported/R_Hand_Down.png-73541285c7bddca047756ae250edd49f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Effects/FX/3.png"
-dest_files=["res://.godot/imported/3.png-19ca6d57992b322ee9bb8e7298b5710e.ctex"]
+source_file="res://assets/Lion/R_Hand_Down.png"
+dest_files=["res://.godot/imported/R_Hand_Down.png-73541285c7bddca047756ae250edd49f.ctex"]
 
 [params]
 

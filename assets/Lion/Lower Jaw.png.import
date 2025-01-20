@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rk2esec4kjc8"
-path="res://.godot/imported/template.png-57d9241cb47348ed37a093ca584a6ea7.ctex"
+uid="uid://y6csfx3xkx7g"
+path="res://.godot/imported/Lower Jaw.png-eeea185985041bf1646566162ec352bf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Effects/FX/template.png"
-dest_files=["res://.godot/imported/template.png-57d9241cb47348ed37a093ca584a6ea7.ctex"]
+source_file="res://assets/Lion/Lower Jaw.png"
+dest_files=["res://.godot/imported/Lower Jaw.png-eeea185985041bf1646566162ec352bf.ctex"]
 
 [params]
 

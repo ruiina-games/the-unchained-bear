@@ -471,7 +471,6 @@ graph_offset = Vector2(-1003.1, -423.998)
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_8x5ag"]
 
 [resource]
-graph_offset = Vector2(-488.102, -88.4781)
 nodes/HURT/node = SubResource("AnimationNodeAnimation_x2arq")
 nodes/HURT/position = Vector2(-48, -96)
 nodes/HURTShot/node = SubResource("AnimationNodeOneShot_yoxab")

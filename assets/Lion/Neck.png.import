@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddu60483pyjyq"
-path="res://.godot/imported/5.png-78cd7eca1bec90905d87fcff761a0e6d.ctex"
+uid="uid://c2uuxwuhy4jkq"
+path="res://.godot/imported/Neck.png-dda36cae061e467568cbad38f99abca9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Effects/FX/5.png"
-dest_files=["res://.godot/imported/5.png-78cd7eca1bec90905d87fcff761a0e6d.ctex"]
+source_file="res://assets/Lion/Neck.png"
+dest_files=["res://.godot/imported/Neck.png-dda36cae061e467568cbad38f99abca9.ctex"]
 
 [params]
 
