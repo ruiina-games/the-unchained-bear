@@ -37,7 +37,9 @@
 [ext_resource type="AnimationNodeBlendTree" uid="uid://co5jje3igjqpg" path="res://characters/bear/bear_blend_tree.tres" id="32_j7wfx"]
 [ext_resource type="AnimationLibrary" uid="uid://icr8p2j85hny" path="res://characters/bear/animations/BOXING_STYLE.res" id="32_o8u03"]
 [ext_resource type="AnimationLibrary" uid="uid://j7f1i3heuntm" path="res://characters/bear/animations/LUMBERJACK_STYLE.res" id="34_53lbr"]
+[ext_resource type="Texture2D" uid="uid://c8afeqvdur4gg" path="res://assets/FX/dust.png" id="34_ntml8"]
 [ext_resource type="Texture2D" uid="uid://buywgqxwcxkrd" path="res://assets/FX/Palm.png" id="35_ajqr5"]
+[ext_resource type="Material" uid="uid://d2fnu317ybwcc" path="res://characters/beast_tamer/circle_bash_particles_tamer.tres" id="35_ch0a6"]
 [ext_resource type="Shader" path="res://shaders/attack_glitch.gdshader" id="35_vis2c"]
 [ext_resource type="Texture2D" uid="uid://dvhcnkxiqcl2v" path="res://assets/FX/2.png" id="36_88y2h"]
 [ext_resource type="Texture2D" uid="uid://cj43xuh8ub13e" path="res://assets/FX/Jaw_Up.png" id="37_8skpy"]
@@ -46,6 +48,7 @@
 [ext_resource type="Texture2D" uid="uid://cg45ehw7gsylm" path="res://assets/FX/Uppercut.png" id="40_rnudd"]
 [ext_resource type="Texture2D" uid="uid://bruaf5quf77fu" path="res://assets/FX/Axe.png" id="41_jnyu6"]
 [ext_resource type="Texture2D" uid="uid://dts1fn4rr16rj" path="res://assets/FX/Wave.png" id="42_s6im0"]
+[ext_resource type="Material" uid="uid://cdcq7kdq6n2cg" path="res://characters/bear/bash_particels.tres" id="45_eun0t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u3g2m"]
 size = Vector2(282, 376)
@@ -82,34 +85,6 @@ radial_accel_max = 23.92
 scale_min = 0.1
 scale_max = 0.2
 color_ramp = SubResource("GradientTexture1D_ws2oy")
-
-[sub_resource type="Gradient" id="Gradient_mbuc5"]
-interpolation_mode = 2
-colors = PackedColorArray(1, 1, 1, 0.756863, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_dkh0u"]
-gradient = SubResource("Gradient_mbuc5")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l7x10"]
-particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(250, 1, 1)
-angle_min = -91.7
-angle_max = 59.3
-direction = Vector3(0, -0.945, 0)
-spread = 61.745
-radial_velocity_min = 74.91
-radial_velocity_max = 224.72
-gravity = Vector3(0, -500, 0)
-radial_accel_min = -18.02
-radial_accel_max = -2.23517e-06
-tangential_accel_min = -27.03
-tangential_accel_max = -2.23517e-06
-damping_max = 3.371
-scale_min = 0.1
-scale_max = 0.2
-scale_over_velocity_max = 127.34
-color_ramp = SubResource("GradientTexture1D_dkh0u")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5geh4"]
 shader = ExtResource("35_vis2c")
@@ -2194,6 +2169,18 @@ tracks/43/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/44/type = "value"
+tracks/44/imported = false
+tracks/44/enabled = true
+tracks/44/path = NodePath("Effects/AttackFX/LumberjackFX/BashFX:emitting")
+tracks/44/interp = 1
+tracks/44/loop_wrap = true
+tracks/44/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_3330t"]
 tracks/0/type = "value"
@@ -2855,25 +2842,25 @@ rest = Transform2D(0.27827, -0.960503, 0.960503, 0.27827, -69, -372)
 
 [node name="TorsoTop" type="Bone2D" parent="Skeleton2D/TorsoMain"]
 position = Vector2(68.0068, 40.6826)
-rotation = 0.361832
+rotation = 0.361831
 scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(0.979417, 0.201843, -0.201843, 0.979417, 68.0068, 40.6826)
 
 [node name="UpperArmR" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop"]
 position = Vector2(14.7319, -42.8132)
-rotation = 3.03934
+rotation = 0.425211
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(-0.619213, 0.785223, -0.785223, -0.619213, 35.0991, -54.9368)
 
 [node name="LowerArmR" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/UpperArmR"]
 position = Vector2(87.0015, -14.133)
-rotation = -1.79506
+rotation = -0.382251
 scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(0.489786, -0.871843, 0.871843, 0.489786, 118.59, 1.53075)
 
 [node name="WristR" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR"]
 position = Vector2(97.3649, 21.8967)
-rotation = 0.930611
+rotation = 0.230544
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.965287, 0.261192, -0.261192, 0.965287, 112.95, 10.1021)
 auto_calculate_length_and_angle = false
@@ -2905,19 +2892,18 @@ texture = ExtResource("9_82aq5")
 
 [node name="UpperArmL" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop"]
 position = Vector2(74.8369, 35.4323)
-rotation = 0.629352
-scale = Vector2(1, 1)
+rotation = -1.72068
 rest = Transform2D(0.998048, -0.0624427, 0.0624427, 0.998048, 74.8369, 35.4323)
 
 [node name="LowerArmL" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/UpperArmL"]
 position = Vector2(-40.9861, 98.2146)
-rotation = 0.430999
+rotation = 0.649189
 scale = Vector2(0.999997, 0.999997)
 rest = Transform2D(0.911628, 0.411016, -0.411016, 0.911628, -40.9861, 98.2146)
 
 [node name="WristL" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL"]
 position = Vector2(43.2869, 47.6577)
-rotation = 1.86456
+rotation = 1.39083
 scale = Vector2(0.999997, 0.999997)
 rest = Transform2D(-0.154783, 0.987948, -0.987948, -0.154783, 43.2869, 47.6577)
 auto_calculate_length_and_angle = false
@@ -2926,13 +2912,13 @@ bone_angle = 0.0
 
 [node name="HeadMain" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop"]
 position = Vector2(122.167, 2.28322)
-rotation = -0.0235274
+rotation = -0.0235279
 scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(0.999947, 0.010315, -0.010315, 0.999947, 122.167, 2.28322)
 
 [node name="LowerJaw" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/HeadMain"]
 position = Vector2(-29.8503, -14.7242)
-rotation = 1.32918
+rotation = 1.68615
 scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(0.256368, 0.966579, -0.966579, 0.256368, -29.8503, -14.7242)
 auto_calculate_length_and_angle = false
@@ -2982,7 +2968,7 @@ rest = Transform2D(-0.938539, 0.345172, -0.345172, -0.938539, -42.3166, 109.084)
 
 [node name="LowerLegL" type="Bone2D" parent="Skeleton2D/TorsoMain/UpperLegL"]
 position = Vector2(100.597, -4.93311)
-rotation = 0.0680665
+rotation = 0.0680672
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.969936, 0.243361, -0.243361, 0.969936, 100.597, -4.93311)
 auto_calculate_length_and_angle = false
@@ -3032,17 +3018,19 @@ gizmo_extents = 86.0
 [node name="Effects" type="Node2D" parent="."]
 
 [node name="DustWheelParticles" type="GPUParticles2D" parent="Effects"]
-position = Vector2(-2, -48)
+position = Vector2(2, -72)
 emitting = false
 amount = 100
 process_material = SubResource("ParticleProcessMaterial_3034h")
+texture = ExtResource("34_ntml8")
 lifetime = 0.5
 
 [node name="LandParticles" type="GPUParticles2D" parent="Effects"]
 position = Vector2(1, -32)
 emitting = false
 amount = 70
-process_material = SubResource("ParticleProcessMaterial_l7x10")
+process_material = ExtResource("35_ch0a6")
+texture = ExtResource("34_ntml8")
 one_shot = true
 preprocess = 0.5
 
@@ -3299,6 +3287,16 @@ initial_velocity_min = 821.43
 initial_velocity_max = 821.43
 scale_amount_curve = SubResource("Curve_e0807")
 color_ramp = SubResource("Gradient_yd7pf")
+
+[node name="BashFX" type="GPUParticles2D" parent="Effects/AttackFX/LumberjackFX"]
+position = Vector2(328, -47)
+emitting = false
+amount = 100
+process_material = ExtResource("45_eun0t")
+texture = ExtResource("34_ntml8")
+one_shot = true
+preprocess = 0.5
+speed_scale = 1.5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
