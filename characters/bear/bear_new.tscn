@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://cjbnosxi4m18l"]
+[gd_scene load_steps=68 format=3 uid="uid://cjbnosxi4m18l"]
 
 [ext_resource type="Texture2D" uid="uid://0qm6mhlm33ap" path="res://assets/New_Bear/images/template.png" id="1_8qh4k"]
 [ext_resource type="Script" path="res://characters/bear/bear.gd" id="1_kcxgq"]
@@ -37,12 +37,77 @@
 [ext_resource type="AnimationNodeBlendTree" uid="uid://co5jje3igjqpg" path="res://characters/bear/bear_blend_tree.tres" id="32_j7wfx"]
 [ext_resource type="AnimationLibrary" uid="uid://icr8p2j85hny" path="res://characters/bear/animations/BOXING_STYLE.res" id="32_o8u03"]
 [ext_resource type="AnimationLibrary" uid="uid://j7f1i3heuntm" path="res://characters/bear/animations/LUMBERJACK_STYLE.res" id="34_53lbr"]
+[ext_resource type="Texture2D" uid="uid://c8afeqvdur4gg" path="res://assets/FX/dust.png" id="34_ntml8"]
+[ext_resource type="Texture2D" uid="uid://buywgqxwcxkrd" path="res://assets/FX/Palm.png" id="35_ajqr5"]
+[ext_resource type="Material" uid="uid://d2fnu317ybwcc" path="res://characters/beast_tamer/circle_bash_particles_tamer.tres" id="35_ch0a6"]
+[ext_resource type="Shader" path="res://shaders/attack_glitch.gdshader" id="35_vis2c"]
+[ext_resource type="Texture2D" uid="uid://dvhcnkxiqcl2v" path="res://assets/FX/2.png" id="36_88y2h"]
+[ext_resource type="Texture2D" uid="uid://cj43xuh8ub13e" path="res://assets/FX/Jaw_Up.png" id="37_8skpy"]
+[ext_resource type="Texture2D" uid="uid://bspu0r1213mhm" path="res://assets/FX/Jaw_Down.png" id="38_gojjf"]
+[ext_resource type="Texture2D" uid="uid://cr76sfgk5gt0w" path="res://assets/FX/Fist.png" id="39_125pb"]
+[ext_resource type="Texture2D" uid="uid://cg45ehw7gsylm" path="res://assets/FX/Uppercut.png" id="40_rnudd"]
+[ext_resource type="Texture2D" uid="uid://bruaf5quf77fu" path="res://assets/FX/Axe.png" id="41_jnyu6"]
+[ext_resource type="Texture2D" uid="uid://dts1fn4rr16rj" path="res://assets/FX/Wave.png" id="42_s6im0"]
+[ext_resource type="Material" uid="uid://cdcq7kdq6n2cg" path="res://characters/bear/bash_particels.tres" id="45_eun0t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u3g2m"]
 size = Vector2(282, 376)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5sqcp"]
 radius = 89.0505
+
+[sub_resource type="Gradient" id="Gradient_jf1a5"]
+offsets = PackedFloat32Array(0, 0.80344)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ws2oy"]
+gradient = SubResource("Gradient_jf1a5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3034h"]
+lifetime_randomness = 0.4
+particle_flag_disable_z = true
+angle_min = -310.3
+angle_max = 209.6
+inherit_velocity_ratio = 0.403
+velocity_pivot = Vector3(0.06, 0, 0)
+direction = Vector3(-1, -2, 0)
+spread = 30.812
+flatness = 0.445
+initial_velocity_min = 252.53
+initial_velocity_max = 578.68
+radial_velocity_min = -277.15
+radial_velocity_max = -277.15
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -2.97
+linear_accel_max = -2.97
+radial_accel_min = -0.380002
+radial_accel_max = 23.92
+scale_min = 0.1
+scale_max = 0.2
+color_ramp = SubResource("GradientTexture1D_ws2oy")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5geh4"]
+shader = ExtResource("35_vis2c")
+shader_parameter/shake_power = 0.17
+shader_parameter/shake_rate = 1.0
+shader_parameter/shake_speed = 7.39
+shader_parameter/shake_block_size = 3.105
+shader_parameter/shake_color_rate = 0.749
+shader_parameter/reveal = 1.0
+
+[sub_resource type="Gradient" id="Gradient_yd7pf"]
+offsets = PackedFloat32Array(0, 0.533917, 1)
+colors = PackedColorArray(0.99997, 0.721349, 0.6764, 0, 1, 1, 1, 0.745098, 1, 0.846099, 0.820109, 0)
+
+[sub_resource type="Curve" id="Curve_286fp"]
+max_value = 0.4
+_data = [Vector2(0.501031, 0.400461), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_e0807"]
+max_value = 0.6
+_data = [Vector2(0.503093, 0.6), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="Animation" id="Animation_jt6ck"]
 resource_name = "BEND"
@@ -336,6 +401,18 @@ tracks/23/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Effects/DustWheelParticles:emitting")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_e0ryv"]
 resource_name = "DEATH"
@@ -575,6 +652,18 @@ tracks/19/path = NodePath("Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR/Wri
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Effects/DustWheelParticles:emitting")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -850,6 +939,18 @@ tracks/21/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Effects/DustWheelParticles:emitting")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_nlm0c"]
 resource_name = "HURT"
@@ -946,6 +1047,18 @@ tracks/7/path = NodePath("Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR/Wris
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Effects/DustWheelParticles:emitting")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -1220,10 +1333,22 @@ tracks/21/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Effects/DustWheelParticles:emitting")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_8sph3"]
 resource_name = "LAND"
-length = 0.5
+length = 0.3
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1232,10 +1357,10 @@ tracks/0/path = NodePath("Skeleton2D/TorsoMain:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(-65, -415), Vector2(-129, -358), Vector2(-94, -396), Vector2(-65, -415)]
+"values": [Vector2(-65, -415), Vector2(-129, -358), Vector2(-94, -396)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -1488,6 +1613,30 @@ tracks/21/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Effects/DustWheelParticles:emitting")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Effects/LandParticles:emitting")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_utm5s"]
@@ -1828,6 +1977,210 @@ tracks/27/keys = {
 "update": 0,
 "values": [-3.24867]
 }
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("Effects/DustWheelParticles:emitting")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("Effects/LandParticles:emitting")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("Effects/AttackFX/FreestyleFX/PushAttackFX:emitting")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("Effects/AttackFX/FreestyleFX/SlashAttackFX:emitting")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("Effects/AttackFX/FreestyleFX/BiteAttackFX_Up:emitting")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/33/type = "value"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("Effects/AttackFX/FreestyleFX/SlashAttackFX:material:shader_parameter/reveal")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("Effects/AttackFX/FreestyleFX/BiteAttackFX_Down:emitting")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/35/type = "value"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("Effects/AttackFX/BoxingFX/JabFX_01:emitting")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/36/type = "value"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("Effects/AttackFX/BoxingFX/JabFX_02:emitting")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/37/type = "value"
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/path = NodePath("Effects/AttackFX/BoxingFX/JabFX_03:emitting")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/38/type = "value"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("Effects/AttackFX/BoxingFX/JabFX_04:emitting")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/39/type = "value"
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/path = NodePath("Effects/AttackFX/BoxingFX/UppercutFX:emitting")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/40/type = "value"
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/path = NodePath("Effects/AttackFX/LumberjackFX/CutFX_1:emitting")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/41/type = "value"
+tracks/41/imported = false
+tracks/41/enabled = true
+tracks/41/path = NodePath("Effects/AttackFX/LumberjackFX/CutFX_2:emitting")
+tracks/41/interp = 1
+tracks/41/loop_wrap = true
+tracks/41/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/42/type = "value"
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/path = NodePath("Effects/AttackFX/LumberjackFX/WaveFX_Left:emitting")
+tracks/42/interp = 1
+tracks/42/loop_wrap = true
+tracks/42/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/43/type = "value"
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/path = NodePath("Effects/AttackFX/LumberjackFX/WaveFX_Right:emitting")
+tracks/43/interp = 1
+tracks/43/loop_wrap = true
+tracks/43/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/44/type = "value"
+tracks/44/imported = false
+tracks/44/enabled = true
+tracks/44/path = NodePath("Effects/AttackFX/LumberjackFX/BashFX:emitting")
+tracks/44/interp = 1
+tracks/44/loop_wrap = true
+tracks/44/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_3330t"]
 tracks/0/type = "value"
@@ -2101,6 +2454,18 @@ tracks/22/path = NodePath("Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR/Wri
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Effects/DustWheelParticles:emitting")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -2477,25 +2842,25 @@ rest = Transform2D(0.27827, -0.960503, 0.960503, 0.27827, -69, -372)
 
 [node name="TorsoTop" type="Bone2D" parent="Skeleton2D/TorsoMain"]
 position = Vector2(68.0068, 40.6826)
-rotation = 0.135705
+rotation = 0.361831
 scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(0.979417, 0.201843, -0.201843, 0.979417, 68.0068, 40.6826)
 
 [node name="UpperArmR" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop"]
 position = Vector2(14.7319, -42.8132)
-rotation = -1.36381
+rotation = 0.425211
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(-0.619213, 0.785223, -0.785223, -0.619213, 35.0991, -54.9368)
 
 [node name="LowerArmR" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/UpperArmR"]
 position = Vector2(87.0015, -14.133)
-rotation = -1.11709
+rotation = -0.382251
 scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(0.489786, -0.871843, 0.871843, 0.489786, 118.59, 1.53075)
 
 [node name="WristR" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR"]
 position = Vector2(97.3649, 21.8967)
-rotation = 0.593036
+rotation = 0.230544
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.965287, 0.261192, -0.261192, 0.965287, 112.95, 10.1021)
 auto_calculate_length_and_angle = false
@@ -2527,20 +2892,19 @@ texture = ExtResource("9_82aq5")
 
 [node name="UpperArmL" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop"]
 position = Vector2(74.8369, 35.4323)
-rotation = 0.127995
-scale = Vector2(1, 1)
+rotation = -1.72068
 rest = Transform2D(0.998048, -0.0624427, 0.0624427, 0.998048, 74.8369, 35.4323)
 
 [node name="LowerArmL" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/UpperArmL"]
 position = Vector2(-40.9861, 98.2146)
-rotation = 0.493444
-scale = Vector2(0.999999, 0.999999)
+rotation = 0.649189
+scale = Vector2(0.999997, 0.999997)
 rest = Transform2D(0.911628, 0.411016, -0.411016, 0.911628, -40.9861, 98.2146)
 
 [node name="WristL" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL"]
 position = Vector2(43.2869, 47.6577)
-rotation = 0.814286
-scale = Vector2(0.999998, 0.999998)
+rotation = 1.39083
+scale = Vector2(0.999997, 0.999997)
 rest = Transform2D(-0.154783, 0.987948, -0.987948, -0.154783, 43.2869, 47.6577)
 auto_calculate_length_and_angle = false
 length = 48.17
@@ -2548,14 +2912,14 @@ bone_angle = 0.0
 
 [node name="HeadMain" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop"]
 position = Vector2(122.167, 2.28322)
-rotation = 0.0249354
+rotation = -0.0235279
 scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(0.999947, 0.010315, -0.010315, 0.999947, 122.167, 2.28322)
 
 [node name="LowerJaw" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/HeadMain"]
 position = Vector2(-29.8503, -14.7242)
-rotation = 1.48811
-scale = Vector2(0.999999, 0.999999)
+rotation = 1.68615
+scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(0.256368, 0.966579, -0.966579, 0.256368, -29.8503, -14.7242)
 auto_calculate_length_and_angle = false
 length = 99.642
@@ -2583,13 +2947,13 @@ bone_angle = 0.0
 
 [node name="UpperLegR" type="Bone2D" parent="Skeleton2D/TorsoMain"]
 position = Vector2(-63.9228, 23.7249)
-rotation = 1.84677
+rotation = 2.70954
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(-0.809772, 0.586744, -0.586744, -0.809772, -63.9228, 23.7249)
 
 [node name="LowerLegR" type="Bone2D" parent="Skeleton2D/TorsoMain/UpperLegR"]
 position = Vector2(105.268, 2.76837)
-rotation = 1.68617
+rotation = 1.15101
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.865783, 0.50042, -0.50042, 0.865783, 105.268, 2.76837)
 auto_calculate_length_and_angle = false
@@ -2598,13 +2962,13 @@ bone_angle = 0.0
 
 [node name="UpperLegL" type="Bone2D" parent="Skeleton2D/TorsoMain"]
 position = Vector2(-42.3166, 109.084)
-rotation = 2.85516
+rotation = 2.87972
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(-0.938539, 0.345172, -0.345172, -0.938539, -42.3166, 109.084)
 
 [node name="LowerLegL" type="Bone2D" parent="Skeleton2D/TorsoMain/UpperLegL"]
 position = Vector2(100.597, -4.93311)
-rotation = 0.123043
+rotation = 0.0680672
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.969936, 0.243361, -0.243361, 0.969936, 100.597, -4.93311)
 auto_calculate_length_and_angle = false
@@ -2651,8 +3015,290 @@ gizmo_extents = 86.0
 position = Vector2(253, -494)
 gizmo_extents = 86.0
 
+[node name="Effects" type="Node2D" parent="."]
+
+[node name="DustWheelParticles" type="GPUParticles2D" parent="Effects"]
+position = Vector2(2, -72)
+emitting = false
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_3034h")
+texture = ExtResource("34_ntml8")
+lifetime = 0.5
+
+[node name="LandParticles" type="GPUParticles2D" parent="Effects"]
+position = Vector2(1, -32)
+emitting = false
+amount = 70
+process_material = ExtResource("35_ch0a6")
+texture = ExtResource("34_ntml8")
+one_shot = true
+preprocess = 0.5
+
+[node name="AttackFX" type="Node2D" parent="Effects"]
+z_index = 999
+
+[node name="FreestyleFX" type="Node2D" parent="Effects/AttackFX"]
+position = Vector2(7, -82)
+
+[node name="PushAttackFX" type="CPUParticles2D" parent="Effects/AttackFX/FreestyleFX"]
+material = SubResource("ShaderMaterial_5geh4")
+position = Vector2(45, -384)
+emitting = false
+amount = 1
+lifetime = 0.4
+one_shot = true
+speed_scale = 1.5
+explosiveness = 0.4
+local_coords = true
+texture = ExtResource("35_ajqr5")
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 704.18
+initial_velocity_max = 704.18
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+color_ramp = SubResource("Gradient_yd7pf")
+
+[node name="SlashAttackFX" type="CPUParticles2D" parent="Effects/AttackFX/FreestyleFX"]
+material = SubResource("ShaderMaterial_5geh4")
+position = Vector2(298, -390)
+emitting = false
+amount = 1
+lifetime = 0.5
+one_shot = true
+speed_scale = 1.5
+explosiveness = 0.4
+local_coords = true
+texture = ExtResource("36_88y2h")
+spread = 0.0
+gravity = Vector2(0, 0)
+scale_amount_min = 0.8
+scale_amount_max = 0.8
+color_ramp = SubResource("Gradient_yd7pf")
+
+[node name="BiteAttackFX_Up" type="CPUParticles2D" parent="Effects/AttackFX/FreestyleFX"]
+material = SubResource("ShaderMaterial_5geh4")
+position = Vector2(391, -567)
+emitting = false
+amount = 1
+lifetime = 0.3
+one_shot = true
+speed_scale = 1.5
+explosiveness = 0.4
+local_coords = true
+texture = ExtResource("37_8skpy")
+spread = 0.0
+gravity = Vector2(0, 3000)
+angular_velocity_min = -75.0
+angular_velocity_max = -75.0
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+color_ramp = SubResource("Gradient_yd7pf")
+
+[node name="BiteAttackFX_Down" type="CPUParticles2D" parent="Effects/AttackFX/FreestyleFX"]
+material = SubResource("ShaderMaterial_5geh4")
+position = Vector2(394, -155)
+emitting = false
+amount = 1
+lifetime = 0.3
+one_shot = true
+speed_scale = 1.5
+explosiveness = 0.4
+local_coords = true
+texture = ExtResource("38_gojjf")
+spread = 0.0
+gravity = Vector2(0, -3000)
+angular_velocity_min = 75.0
+angular_velocity_max = 75.0
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+color_ramp = SubResource("Gradient_yd7pf")
+
+[node name="BoxingFX" type="Node2D" parent="Effects/AttackFX"]
+
+[node name="JabFX_01" type="CPUParticles2D" parent="Effects/AttackFX/BoxingFX"]
+material = SubResource("ShaderMaterial_5geh4")
+position = Vector2(321, -426)
+emitting = false
+amount = 1
+lifetime = 0.4
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.4
+local_coords = true
+texture = ExtResource("39_125pb")
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 704.18
+initial_velocity_max = 704.18
+scale_amount_curve = SubResource("Curve_286fp")
+color_ramp = SubResource("Gradient_yd7pf")
+
+[node name="JabFX_02" type="CPUParticles2D" parent="Effects/AttackFX/BoxingFX"]
+material = SubResource("ShaderMaterial_5geh4")
+position = Vector2(214, -348)
+emitting = false
+amount = 1
+lifetime = 0.4
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.4
+local_coords = true
+texture = ExtResource("39_125pb")
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 704.18
+initial_velocity_max = 704.18
+scale_amount_curve = SubResource("Curve_286fp")
+color_ramp = SubResource("Gradient_yd7pf")
+
+[node name="JabFX_03" type="CPUParticles2D" parent="Effects/AttackFX/BoxingFX"]
+material = SubResource("ShaderMaterial_5geh4")
+position = Vector2(233, -295)
+emitting = false
+amount = 1
+lifetime = 0.4
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.4
+local_coords = true
+texture = ExtResource("39_125pb")
+direction = Vector2(1, 0.5)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 704.18
+initial_velocity_max = 704.18
+angular_velocity_min = -59.0
+angular_velocity_max = -59.0
+scale_amount_curve = SubResource("Curve_286fp")
+color_ramp = SubResource("Gradient_yd7pf")
+
+[node name="JabFX_04" type="CPUParticles2D" parent="Effects/AttackFX/BoxingFX"]
+material = SubResource("ShaderMaterial_5geh4")
+position = Vector2(225, -413)
+emitting = false
+amount = 1
+lifetime = 0.4
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.4
+local_coords = true
+texture = ExtResource("39_125pb")
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 704.18
+initial_velocity_max = 704.18
+scale_amount_curve = SubResource("Curve_286fp")
+color_ramp = SubResource("Gradient_yd7pf")
+
+[node name="UppercutFX" type="CPUParticles2D" parent="Effects/AttackFX/BoxingFX"]
+material = SubResource("ShaderMaterial_5geh4")
+position = Vector2(287, -382)
+emitting = false
+amount = 1
+lifetime = 0.4
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.4
+local_coords = true
+texture = ExtResource("40_rnudd")
+direction = Vector2(0.5, -1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 704.18
+initial_velocity_max = 704.18
+angular_velocity_min = 45.0
+angular_velocity_max = 45.0
+scale_amount_curve = SubResource("Curve_286fp")
+color_ramp = SubResource("Gradient_yd7pf")
+
+[node name="LumberjackFX" type="Node2D" parent="Effects/AttackFX"]
+
+[node name="CutFX_1" type="CPUParticles2D" parent="Effects/AttackFX/LumberjackFX"]
+material = SubResource("ShaderMaterial_5geh4")
+position = Vector2(286, -410)
+emitting = false
+amount = 1
+lifetime = 0.4
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.4
+local_coords = true
+texture = ExtResource("41_jnyu6")
+spread = 0.0
+gravity = Vector2(0, 4000)
+angular_velocity_min = -200.35
+angular_velocity_max = -200.35
+scale_amount_curve = SubResource("Curve_286fp")
+color_ramp = SubResource("Gradient_yd7pf")
+
+[node name="CutFX_2" type="CPUParticles2D" parent="Effects/AttackFX/LumberjackFX"]
+material = SubResource("ShaderMaterial_5geh4")
+position = Vector2(286, -410)
+scale = Vector2(1, -1)
+emitting = false
+amount = 1
+lifetime = 0.4
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.4
+local_coords = true
+texture = ExtResource("41_jnyu6")
+spread = 0.0
+gravity = Vector2(0, 4000)
+angular_velocity_min = -200.35
+angular_velocity_max = -200.35
+scale_amount_curve = SubResource("Curve_286fp")
+color_ramp = SubResource("Gradient_yd7pf")
+
+[node name="WaveFX_Left" type="CPUParticles2D" parent="Effects/AttackFX/LumberjackFX"]
+material = SubResource("ShaderMaterial_5geh4")
+position = Vector2(246, -242)
+scale = Vector2(-1, 1)
+emitting = false
+amount = 1
+lifetime = 0.6
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.4
+local_coords = true
+texture = ExtResource("42_s6im0")
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 821.43
+initial_velocity_max = 821.43
+scale_amount_curve = SubResource("Curve_e0807")
+color_ramp = SubResource("Gradient_yd7pf")
+
+[node name="WaveFX_Right" type="CPUParticles2D" parent="Effects/AttackFX/LumberjackFX"]
+material = SubResource("ShaderMaterial_5geh4")
+position = Vector2(246, -242)
+emitting = false
+amount = 1
+lifetime = 0.6
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.4
+local_coords = true
+texture = ExtResource("42_s6im0")
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 821.43
+initial_velocity_max = 821.43
+scale_amount_curve = SubResource("Curve_e0807")
+color_ramp = SubResource("Gradient_yd7pf")
+
+[node name="BashFX" type="GPUParticles2D" parent="Effects/AttackFX/LumberjackFX"]
+position = Vector2(328, -47)
+emitting = false
+amount = 100
+process_material = ExtResource("45_eun0t")
+texture = ExtResource("34_ntml8")
+one_shot = true
+preprocess = 0.5
+speed_scale = 1.5
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-active = false
 libraries = {
 "": SubResource("AnimationLibrary_4v188"),
 "BOXING_STYLE": ExtResource("32_o8u03"),
