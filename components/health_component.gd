@@ -99,10 +99,24 @@ func process_knockback_effect(effect: Knockback, multiplier: float):
 	agent.got_knocked.emit(knockback_direction, knockback_force)
 
 func process_slow_effect(effect: SlowEffect, multiplier: float):
+	if agent.effects_dic.has(effect):
+		if agent.effects_dic[effect] == true:
+			print("already slowed")
+			return
+		else:
+			agent.activate_effect(effect)
+	else:
+		agent.activate_effect(effect)
+	
+	print("slowed")
 	var slow_ratio = effect.slow_ratio * multiplier
-	agent.character_stats.movement_speed_multiplier *= (1 - slow_ratio)
+	var original_multiplier: float = agent.character_stats.movement_speed_multiplier
+	
+	agent.character_stats.movement_speed_multiplier = (1 - slow_ratio)
 	await get_tree().create_timer(effect.duration * multiplier).timeout
-	agent.character_stats.movement_speed_multiplier /= (1 - slow_ratio)
+	agent.character_stats.movement_speed_multiplier = original_multiplier
+	
+	agent.deactivate_effect(effect)
 
 func process_stun_effect(effect: StunEffect, multiplier: float):
 	agent.set_stunned(true)
@@ -112,11 +126,7 @@ func process_stun_effect(effect: StunEffect, multiplier: float):
 func handle_death():
 	GlobalSignals.character_died.emit(agent)
 	
-	if !agent.has_signal("died"):
-		return
-
-	agent.died.emit(agent)
-	
+	agent.is_dead = true
 	print(agent.name + " has died.")
 
 func heal(heal_amount: float):

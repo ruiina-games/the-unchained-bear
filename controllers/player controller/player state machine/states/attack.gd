@@ -35,12 +35,11 @@ func start_attack() -> void:
 	
 	attack_animations_path = "parameters/MainStateMachine/ATTACK/" + str(fighting_style.id) + "/blend_position"
 	animation_tree.set(attack_animations_path, fighting_style.combo_count)
-	
-	fighting_style.combo_count += 1
 	state_machine.switch_state(animation_state_name)  # Вмикаємо атаку
 
 func _on_animation_finished(animation_name: String) -> void:
 	dispatch(state_machine.FINISHED_ATTACK)
+	character.character_stats.fighting_style.combo_count += 1
 	combo_timer.start()
 
 func _on_combo_timer_timeout():

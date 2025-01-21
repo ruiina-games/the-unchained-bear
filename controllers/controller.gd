@@ -45,8 +45,12 @@ func _process(delta: float) -> void:
 		hp_label.text = str(actor.character_stats.current_health)
 
 func _physics_process(delta: float):
-	if !actor.is_on_floor():
-		current_velocity.y += gravity
+	if actor.global_position.y >= GlobalVariables.FLOOR_HEIGHT:
+		actor.global_position.y = GlobalVariables.FLOOR_HEIGHT
+		actor.is_on_floor = true
+	else:
+		current_velocity.y += GlobalVariables.GRAVITY
+		actor.is_on_floor = false
 
 func get_hsm():
 	if hsm:

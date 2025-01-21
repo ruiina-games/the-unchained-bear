@@ -17,7 +17,17 @@ signal got_hit()
 @export var health_component: HealthComponent
 @export var hurtbox: Hurtbox
 
+var effects_dic: Dictionary
+
 var can_move: bool = true
+var is_dead: bool = false
+var is_on_floor: bool = false
+
+func activate_effect(effect: Effect):
+	effects_dic[effect] = true
+	
+func deactivate_effect(effect: Effect):
+	effects_dic[effect] = false
 
 func _ready() -> void:
 	apply_shader_to_polygons($Polygons)

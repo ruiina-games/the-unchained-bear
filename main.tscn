@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://nyr1tohq4w76"]
+[gd_scene load_steps=18 format=3 uid="uid://nyr1tohq4w76"]
 
 [ext_resource type="PackedScene" uid="uid://cevie0mm3xc4j" path="res://controllers/player controller/player_controller.tscn" id="1_8hir8"]
 [ext_resource type="Texture2D" uid="uid://b4ooqwqb8bctk" path="res://assets/Background/DALL·E 2025-01-15 12.16.21 - A cartoon-style background inspired by Soviet-era animation, depicting a circus arena with a flat horizontal floor or podium at the bottom of the scre.webp" id="1_u1wd2"]
@@ -7,84 +7,81 @@
 [ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Easing/soup_second_order_easing.gd" id="4_wp3u5"]
 [ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Easing/soup_second_order_easing_no_g.gd" id="5_lmbfr"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8e4fu"]
-size = Vector2(4594, 174)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h68ra"]
 size = Vector2(4318, 174)
 
-[sub_resource type="Resource" id="Resource_dyun0"]
+[sub_resource type="Resource" id="Resource_ht4lb"]
 script = ExtResource("4_wp3u5")
 frequency = 10.001
 damping = 0.485
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_lev1i"]
+[sub_resource type="Resource" id="Resource_ou8ic"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_5sdie"]
+[sub_resource type="Resource" id="Resource_0i3yy"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_pvwp7"]
+[sub_resource type="Resource" id="Resource_qrwtb"]
 script = ExtResource("4_wp3u5")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_dv2sj"]
+[sub_resource type="Resource" id="Resource_7ukom"]
 script = ExtResource("4_wp3u5")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_pit1g"]
+[sub_resource type="Resource" id="Resource_6bhkn"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_el1tb"]
+[sub_resource type="Resource" id="Resource_u7mp1"]
 script = ExtResource("4_wp3u5")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_maafs"]
+[sub_resource type="Resource" id="Resource_dc8rd"]
 script = ExtResource("4_wp3u5")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_glof2"]
+[sub_resource type="Resource" id="Resource_fq46u"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_cknhm"]
+[sub_resource type="Resource" id="Resource_dqbgv"]
 script = ExtResource("4_wp3u5")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
 [node name="main" type="Node2D"]
-position = Vector2(0, -1)
+position = Vector2(72, 6)
 
 [node name="EffectsController" type="Node2D" parent="." node_paths=PackedStringArray("player_controller", "main_camera")]
 script = ExtResource("1_yu2pl")
-player_controller = NodePath("../PlayerController")
-main_camera = NodePath("../Camera2D")
 tilt_duration = 1.0
 target_zoom = Vector2(0.31, 0.31)
 max_tilt_angle = 0.01
 shake_duration = 0.4
 shake_magnitude = 40.0
+player_controller = NodePath("../PlayerController")
+main_camera = NodePath("../Camera2D")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -106,11 +103,6 @@ zoom = Vector2(0.3, 0.3)
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(181, 242)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-317, 300)
-shape = SubResource("RectangleShape2D_8e4fu")
-one_way_collision = true
-
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-2370, 274)
 rotation = 1.5708
@@ -125,59 +117,59 @@ shape = SubResource("RectangleShape2D_h68ra")
 position = Vector2(-1452, 415)
 target = NodePath("../Beast Tameress Controller/BeastTamer")
 
+[node name="TorsoMain" parent="PlayerController/BearNew/Skeleton2D" index="1"]
+scale = Vector2(0.999999, 0.999999)
+
 [node name="TorsoTop" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="0"]
-rotation = 0.432097
+rotation = 0.336735
 scale = Vector2(0.999982, 0.999982)
 
 [node name="UpperArmR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="0"]
-rotation = 1.15385
+rotation = 1.36398
 scale = Vector2(0.999977, 0.999977)
 
 [node name="LowerArmR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR" index="0"]
-rotation = -1.54296
+rotation = -1.69499
 scale = Vector2(0.999979, 0.999979)
 
 [node name="WristR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR" index="0"]
-rotation = 1.68076
+rotation = 2.00464
 scale = Vector2(0.999984, 0.999984)
 
 [node name="UpperArmL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="1"]
-rotation = -1.16878
+rotation = -0.99667
 scale = Vector2(0.999979, 0.999979)
 
 [node name="LowerArmL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL" index="0"]
-rotation = -0.25796
+rotation = -0.48174
 scale = Vector2(0.999984, 0.999984)
 
 [node name="WristL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL" index="0"]
-rotation = 2.51223
+rotation = 2.69408
 scale = Vector2(0.999978, 0.999978)
 
 [node name="HeadMain" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="2"]
-rotation = -0.157293
+rotation = -0.0989807
 scale = Vector2(0.999973, 0.999973)
 
 [node name="LowerJaw" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="0"]
-rotation = 1.03974
+rotation = 1.10424
 scale = Vector2(0.999974, 0.999974)
 
-[node name="EarL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="2"]
-scale = Vector2(0.443939, 0.778982)
-
 [node name="UpperLegR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="1"]
-rotation = 2.32536
+rotation = 2.11398
 scale = Vector2(0.999988, 0.999988)
 
 [node name="LowerLegR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/UpperLegR" index="0"]
-rotation = 0.901283
+rotation = 1.21621
 scale = Vector2(0.99998, 0.99998)
 
 [node name="UpperLegL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="2"]
-rotation = 2.01139
+rotation = 2.63244
 scale = Vector2(0.999988, 0.999988)
 
 [node name="LowerLegL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/UpperLegL" index="0"]
-rotation = 1.40488
+rotation = 0.449363
 scale = Vector2(0.999983, 0.999983)
 
 [node name="Beast Tameress Controller" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_axu01")]
@@ -186,224 +178,221 @@ target = NodePath("../PlayerController/BearNew")
 metadata/_edit_group_ = true
 
 [node name="TipFABRIK" parent="Beast Tameress Controller/BeastTamer/WhipSkeleton/SoupStack/WhipStack" index="0"]
-easing = SubResource("Resource_dyun0")
+easing = SubResource("Resource_ht4lb")
 
 [node name="Whip_01" parent="Beast Tameress Controller/BeastTamer/WhipSkeleton/Handle" index="0"]
-rotation = 1.06878
+rotation = 1.09972
 scale = Vector2(0.999995, 0.999995)
 
 [node name="Whip_02" parent="Beast Tameress Controller/BeastTamer/WhipSkeleton/Handle/Whip_01" index="0"]
-rotation = 0.833297
+rotation = 0.771574
 scale = Vector2(0.999995, 0.999995)
 
 [node name="Whip_03" parent="Beast Tameress Controller/BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02" index="0"]
-rotation = 0.472269
+rotation = 0.519632
 scale = Vector2(0.999994, 0.999994)
 
 [node name="Whip_04" parent="Beast Tameress Controller/BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03" index="0"]
-rotation = 0.429861
+rotation = 0.420879
 scale = Vector2(0.999999, 0.999999)
 
 [node name="Whip_05" parent="Beast Tameress Controller/BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04" index="0"]
-rotation = 0.148573
+rotation = 0.144226
 scale = Vector2(0.999992, 0.999992)
 
 [node name="Whip_06" parent="Beast Tameress Controller/BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05" index="0"]
-rotation = 0.608868
+rotation = 0.614814
 scale = Vector2(0.999996, 0.999996)
 
 [node name="Whip_07" parent="Beast Tameress Controller/BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06" index="0"]
-rotation = 0.821967
-scale = Vector2(0.999999, 0.999999)
+rotation = 0.824539
 
 [node name="Whip_08" parent="Beast Tameress Controller/BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07" index="0"]
-rotation = -0.072248
-scale = Vector2(0.999986, 0.999986)
+rotation = -0.084825
+scale = Vector2(0.999985, 0.999985)
 
 [node name="Whip_09" parent="Beast Tameress Controller/BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08" index="0"]
-rotation = -0.650803
+rotation = -0.654298
 scale = Vector2(0.999999, 0.999999)
 
 [node name="Whip_10" parent="Beast Tameress Controller/BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09" index="0"]
-rotation = -1.2867
+rotation = -1.28503
 scale = Vector2(0.999999, 0.999999)
 
 [node name="Whip_11" parent="Beast Tameress Controller/BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10" index="0"]
-rotation = 0.034719
+rotation = 0.0347812
 scale = Vector2(0.999982, 0.999982)
 
 [node name="Whip_12" parent="Beast Tameress Controller/BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11" index="0"]
-rotation = -0.0424074
-scale = Vector2(0.999983, 0.999983)
+rotation = -0.0422704
+scale = Vector2(0.999982, 0.999982)
 
 [node name="Whip_13" parent="Beast Tameress Controller/BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12" index="0"]
-rotation = -0.0104982
-scale = Vector2(0.99999, 0.99999)
+rotation = -0.0102747
+scale = Vector2(0.999989, 0.999989)
 
 [node name="Whip_14" parent="Beast Tameress Controller/BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13" index="0"]
-rotation = -0.00419555
-scale = Vector2(0.99999, 0.99999)
+rotation = -0.00389178
+scale = Vector2(0.999989, 0.999989)
 
 [node name="Whip_15" parent="Beast Tameress Controller/BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14" index="0"]
-rotation = 0.0106531
-scale = Vector2(0.999983, 0.999983)
+rotation = 0.0110844
+scale = Vector2(0.999982, 0.999982)
 
 [node name="Whip_16" parent="Beast Tameress Controller/BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15" index="0"]
-rotation = -0.0807982
+rotation = -0.0803973
 scale = Vector2(0.999991, 0.999991)
 
 [node name="Whip_17" parent="Beast Tameress Controller/BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16" index="0"]
-rotation = -0.0233012
+rotation = -0.0230612
 scale = Vector2(0.999985, 0.999985)
 
 [node name="Whip_18" parent="Beast Tameress Controller/BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17" index="0"]
-rotation = -0.0898213
-scale = Vector2(0.999992, 0.999992)
+rotation = -0.0900325
 
 [node name="Whip_19" parent="Beast Tameress Controller/BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18" index="0"]
-rotation = -0.126197
-scale = Vector2(0.999996, 0.999996)
+rotation = -0.127245
 
 [node name="Whip_20" parent="Beast Tameress Controller/BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19" index="0"]
-rotation = -0.0586566
-scale = Vector2(0.999983, 0.999983)
+rotation = -0.0596208
 
 [node name="HandLTwoBoneIK" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/SoupStack/HandLStack" index="1"]
-first_joint_easing = SubResource("Resource_lev1i")
+first_joint_easing = SubResource("Resource_ou8ic")
 
 [node name="LegRTwoBoneIK" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/SoupStack/LegRStack" index="1"]
-first_joint_easing = SubResource("Resource_5sdie")
+first_joint_easing = SubResource("Resource_0i3yy")
 
 [node name="DressFABRIK" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/SoupStack/LegRStack" index="2"]
-easing = SubResource("Resource_pvwp7")
+easing = SubResource("Resource_qrwtb")
 
 [node name="KneeFABRIK" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/SoupStack/LegRStack" index="3"]
-easing = SubResource("Resource_dv2sj")
+easing = SubResource("Resource_7ukom")
 
 [node name="LegLTwoBoneIK" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/SoupStack/LegLStack" index="1"]
-first_joint_easing = SubResource("Resource_pit1g")
+first_joint_easing = SubResource("Resource_6bhkn")
 
 [node name="DressFABRIK" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/SoupStack/LegLStack" index="2"]
-easing = SubResource("Resource_el1tb")
+easing = SubResource("Resource_u7mp1")
 
 [node name="KneeFABRIK" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/SoupStack/LegLStack" index="3"]
-easing = SubResource("Resource_maafs")
+easing = SubResource("Resource_dc8rd")
 
 [node name="HeadLookAt" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/SoupStack/HeadStack" index="0"]
-easing = SubResource("Resource_glof2")
+easing = SubResource("Resource_fq46u")
 
 [node name="FeatherJiggle" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/SoupStack/HeadStack" index="1"]
-easing = SubResource("Resource_cknhm")
+easing = SubResource("Resource_dqbgv")
 
 [node name="UpperLegL" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/TorsoMain" index="0"]
-rotation = 0.1455
-scale = Vector2(0.999822, 0.999822)
+rotation = 0.138973
+scale = Vector2(0.999823, 0.999823)
 
 [node name="LowerLegL" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/TorsoMain/UpperLegL" index="1"]
-rotation = -0.454146
-scale = Vector2(0.999848, 0.999848)
+rotation = -0.503458
+scale = Vector2(0.999845, 0.999845)
 
 [node name="FootL" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/TorsoMain/UpperLegL/LowerLegL" index="0"]
-rotation = 1.9168
-scale = Vector2(0.999844, 0.999844)
+rotation = 1.98203
+scale = Vector2(0.999838, 0.999838)
 
 [node name="UpperLegR" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/TorsoMain" index="1"]
-rotation = 0.152608
-scale = Vector2(0.999827, 0.999827)
+rotation = 0.152798
+scale = Vector2(0.999833, 0.999833)
 
 [node name="LowerLegR" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/TorsoMain/UpperLegR" index="1"]
-rotation = -0.331093
+rotation = -0.37693
 scale = Vector2(0.999838, 0.999838)
 
 [node name="FootR" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/TorsoMain/UpperLegR/LowerLegR" index="0"]
-rotation = 1.9336
-scale = Vector2(0.99984, 0.99984)
+rotation = 2.02174
+scale = Vector2(0.999842, 0.999842)
 
 [node name="BaseDressL" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/TorsoMain/LowerBody" index="0"]
-rotation = 0.0221246
-scale = Vector2(0.999823, 0.999823)
+rotation = 0.00774467
+scale = Vector2(0.999812, 0.999812)
 
 [node name="DressL_01" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/TorsoMain/LowerBody/BaseDressL" index="0"]
-rotation = -0.0100616
-scale = Vector2(0.999538, 0.999538)
+rotation = -0.010311
+scale = Vector2(0.999536, 0.999536)
 
 [node name="DressL_02" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/TorsoMain/LowerBody/BaseDressL/DressL_01" index="0"]
-rotation = -0.115986
-scale = Vector2(0.999827, 0.999827)
+rotation = -0.109554
+scale = Vector2(0.99983, 0.99983)
 
 [node name="DressL_03" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02" index="0"]
-rotation = -0.0930655
-scale = Vector2(0.999827, 0.999827)
+rotation = -0.0835172
+scale = Vector2(0.999834, 0.999834)
 
 [node name="DressL_04" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03" index="0"]
-rotation = -0.0321753
-scale = Vector2(0.999821, 0.999821)
+rotation = -0.0217845
+scale = Vector2(0.99981, 0.99981)
 
 [node name="DressL_05" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03/DressL_04" index="0"]
-rotation = -0.118892
-scale = Vector2(0.999824, 0.999824)
+rotation = -0.109851
+scale = Vector2(0.999829, 0.999829)
 
 [node name="DressL_06" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03/DressL_04/DressL_05" index="0"]
-rotation = -3.05287
-scale = Vector2(0.999839, 0.999839)
+rotation = -3.04774
+scale = Vector2(0.999826, 0.999826)
 
 [node name="BaseDressR" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/TorsoMain/LowerBody" index="1"]
-rotation = 0.165023
-scale = Vector2(0.999834, 0.999834)
+rotation = 0.153333
+scale = Vector2(0.999835, 0.999835)
 
 [node name="DressR_01" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/TorsoMain/LowerBody/BaseDressR" index="0"]
-rotation = -0.00629598
-scale = Vector2(0.999323, 0.999323)
+rotation = -0.0068062
+scale = Vector2(0.999317, 0.999317)
 
 [node name="DressR_02" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/TorsoMain/LowerBody/BaseDressR/DressR_01" index="0"]
-rotation = -0.0249761
-scale = Vector2(0.999803, 0.999803)
+rotation = -0.0198949
+scale = Vector2(0.999833, 0.999833)
 
 [node name="DressR_03" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02" index="0"]
-rotation = 0.00556534
-scale = Vector2(0.99979, 0.99979)
+rotation = 0.011739
+scale = Vector2(0.999811, 0.999811)
 
 [node name="DressR_04" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03" index="0"]
-rotation = -0.0491865
-scale = Vector2(0.9997, 0.9997)
+rotation = -0.0423463
+scale = Vector2(0.999705, 0.999705)
 
 [node name="DressR_05" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03/DressR_04" index="0"]
-rotation = -0.107647
-scale = Vector2(0.999833, 0.999833)
+rotation = -0.101171
+scale = Vector2(0.999836, 0.999836)
 
 [node name="DressR_06" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03/DressR_04/DressR_05" index="0"]
-rotation = -3.0626
-scale = Vector2(0.999823, 0.999823)
+rotation = -3.05928
+scale = Vector2(0.999826, 0.999826)
 
 [node name="UpperHandL" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/TorsoMain/LowerBody/UpperBody" index="0"]
-rotation = -0.29113
-scale = Vector2(0.999833, 0.999833)
-
-[node name="LowerHandL" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandL" index="0"]
-rotation = 0.457562
-scale = Vector2(0.999843, 0.999843)
-
-[node name="WristL" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandL/LowerHandL" index="0"]
-rotation = -2.59504
-scale = Vector2(0.999876, 0.999876)
-
-[node name="UpperHandR" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/TorsoMain/LowerBody/UpperBody" index="1"]
-rotation = -0.128176
-
-[node name="LowerHandR" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandR" index="0"]
-rotation = 0.314274
-scale = Vector2(0.999837, 0.999837)
-
-[node name="WristR" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR" index="0"]
-rotation = -1.73082
-scale = Vector2(0.999831, 0.999831)
-
-[node name="Head" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/TorsoMain/LowerBody/UpperBody/NeckBase/NeckTop" index="0"]
-rotation = -0.0344544
+rotation = -0.288081
 scale = Vector2(0.999834, 0.999834)
 
+[node name="LowerHandL" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandL" index="0"]
+rotation = 0.444502
+scale = Vector2(0.999847, 0.999847)
+
+[node name="WristL" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandL/LowerHandL" index="0"]
+rotation = -2.57413
+scale = Vector2(0.999877, 0.999877)
+
+[node name="UpperHandR" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/TorsoMain/LowerBody/UpperBody" index="1"]
+rotation = -0.164608
+scale = Vector2(0.999834, 0.999834)
+
+[node name="LowerHandR" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandR" index="0"]
+rotation = 0.400493
+scale = Vector2(0.999838, 0.999838)
+
+[node name="WristR" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR" index="0"]
+rotation = -1.75972
+scale = Vector2(0.999829, 0.999829)
+
+[node name="Head" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/TorsoMain/LowerBody/UpperBody/NeckBase/NeckTop" index="0"]
+rotation = -0.0355542
+scale = Vector2(0.999841, 0.999841)
+
 [node name="Feather" parent="Beast Tameress Controller/BeastTamer/Skeleton2D/TorsoMain/LowerBody/UpperBody/NeckBase/NeckTop/Head" index="0"]
-rotation = 1.19872
+rotation = 1.18588
 scale = Vector2(0.999843, 0.999843)
 
 [node name="MoveToMarker" parent="Beast Tameress Controller" index="4"]
