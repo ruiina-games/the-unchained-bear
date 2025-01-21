@@ -101,14 +101,9 @@ func process_knockback_effect(effect: Knockback, multiplier: float):
 func process_slow_effect(effect: SlowEffect, multiplier: float):
 	if agent.effects_dic.has(effect):
 		if agent.effects_dic[effect] == true:
-			print("already slowed")
 			return
-		else:
-			agent.activate_effect(effect)
-	else:
-		agent.activate_effect(effect)
+	agent.activate_effect(effect)
 	
-	print("slowed")
 	var slow_ratio = effect.slow_ratio * multiplier
 	var original_multiplier: float = agent.character_stats.movement_speed_multiplier
 	

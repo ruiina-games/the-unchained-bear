@@ -7208,7 +7208,7 @@ rest = Transform2D(-0.999336, -0.0280505, 0.0280505, -0.999336, -218.857, -486.5
 
 [node name="Whip_01" type="Bone2D" parent="WhipSkeleton/Handle"]
 position = Vector2(43.5787, 35.7337)
-rotation = 0.785283
+rotation = 0.953542
 scale = Vector2(0.999997, 0.999997)
 rest = Transform2D(0.999997, -0.00234621, 0.00234621, 0.999997, 43.5787, 35.7337)
 auto_calculate_length_and_angle = false
@@ -7217,7 +7217,7 @@ bone_angle = 39.9903
 
 [node name="Whip_02" type="Bone2D" parent="WhipSkeleton/Handle/Whip_01"]
 position = Vector2(102.225, 88.7442)
-rotation = 0.313232
+rotation = 0.975395
 scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(0.999987, 0.00508622, -0.00508622, 0.999987, 102.225, 88.7442)
 auto_calculate_length_and_angle = false
@@ -7226,13 +7226,13 @@ bone_angle = 39.9898
 
 [node name="Whip_03" type="Bone2D" parent="WhipSkeleton/Handle/Whip_01/Whip_02"]
 position = Vector2(93.6704, 79.8159)
-rotation = 0.141849
+rotation = 0.410173
 scale = Vector2(0.999997, 0.999997)
 rest = Transform2D(0.99999, -0.00448672, 0.00448672, 0.99999, 93.6704, 79.8159)
 
 [node name="Whip_04" type="Bone2D" parent="WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03"]
 position = Vector2(100.894, 87.6884)
-rotation = 0.656949
+rotation = 0.440092
 scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(0.999862, -0.0166205, 0.0166205, 0.999862, 100.894, 87.6884)
 auto_calculate_length_and_angle = false
@@ -7241,7 +7241,7 @@ bone_angle = 41.168
 
 [node name="Whip_05" type="Bone2D" parent="WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04"]
 position = Vector2(107.821, 95.8742)
-rotation = 1.11728
+rotation = 0.153167
 scale = Vector2(0.999995, 0.999995)
 rest = Transform2D(0.999996, -0.00269526, 0.00269526, 0.999996, 107.821, 95.8742)
 auto_calculate_length_and_angle = false
@@ -7250,7 +7250,7 @@ bone_angle = 41.3039
 
 [node name="Whip_06" type="Bone2D" parent="WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05"]
 position = Vector2(128.485, 112.024)
-rotation = -0.623035
+rotation = 0.608515
 scale = Vector2(0.999997, 0.999997)
 rest = Transform2D(0.999132, 0.0416638, -0.0416638, 0.999132, 128.485, 112.024)
 auto_calculate_length_and_angle = false
@@ -7259,7 +7259,7 @@ bone_angle = 38.8892
 
 [node name="Whip_07" type="Bone2D" parent="WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06"]
 position = Vector2(106.109, 88.1044)
-rotation = 1.23441
+rotation = 0.808881
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.999139, -0.0414602, 0.0414602, 0.999139, 106.109, 88.1044)
 auto_calculate_length_and_angle = false
@@ -7268,7 +7268,7 @@ bone_angle = 41.2343
 
 [node name="Whip_08" type="Bone2D" parent="WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07"]
 position = Vector2(112.855, 100.855)
-rotation = -0.638394
+rotation = -0.0577019
 scale = Vector2(0.999992, 0.999992)
 rest = Transform2D(0.999996, 0.00274593, -0.00274593, 0.999996, 112.855, 100.855)
 auto_calculate_length_and_angle = false
@@ -7277,7 +7277,7 @@ bone_angle = 41.0441
 
 [node name="Whip_09" type="Bone2D" parent="WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08"]
 position = Vector2(108.962, 97.7845)
-rotation = -0.61038
+rotation = -0.624326
 scale = Vector2(1, 1)
 rest = Transform2D(0.99983, 0.0184471, -0.0184471, 0.99983, 108.962, 97.7845)
 auto_calculate_length_and_angle = false
@@ -7286,8 +7286,8 @@ bone_angle = 39.9491
 
 [node name="Whip_10" type="Bone2D" parent="WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09"]
 position = Vector2(107.447, 92.0005)
-rotation = -1.22885
-scale = Vector2(0.999998, 0.999998)
+rotation = -1.29154
+scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.999159, -0.0409987, 0.0409987, 0.999159, 107.447, 92.0005)
 auto_calculate_length_and_angle = false
 length = 50.0
@@ -7295,7 +7295,7 @@ bone_angle = 41.1679
 
 [node name="Whip_11" type="Bone2D" parent="WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10"]
 position = Vector2(44.8097, 41.2443)
-rotation = 0.0347523
+rotation = 0.0349209
 scale = Vector2(0.999992, 0.999992)
 rest = Transform2D(0.999328, 0.0366518, -0.0366518, 0.999328, 44.8097, 41.2443)
 auto_calculate_length_and_angle = false
@@ -7304,7 +7304,7 @@ bone_angle = 39.0263
 
 [node name="Whip_12" type="Bone2D" parent="WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11"]
 position = Vector2(46.6734, 37.6111)
-rotation = -0.0422836
+rotation = -0.0420461
 scale = Vector2(0.999988, 0.999988)
 rest = Transform2D(0.99927, -0.0382022, 0.0382022, 0.99927, 46.6734, 37.6111)
 auto_calculate_length_and_angle = false
@@ -7313,7 +7313,7 @@ bone_angle = 41.168
 
 [node name="Whip_13" type="Bone2D" parent="WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12"]
 position = Vector2(40.0465, 35.0754)
-rotation = -0.0103181
+rotation = -0.00985285
 scale = Vector2(0.999997, 0.999997)
 rest = Transform2D(0.999756, 0.0221137, -0.0221137, 0.999756, 40.0465, 35.0754)
 auto_calculate_length_and_angle = false
@@ -7322,7 +7322,7 @@ bone_angle = 41.3042
 
 [node name="Whip_14" type="Bone2D" parent="WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13"]
 position = Vector2(45.4738, 41.0985)
-rotation = -0.00413281
+rotation = -0.00296056
 scale = Vector2(0.999997, 0.999997)
 rest = Transform2D(0.999969, 0.00784562, -0.00784562, 0.999969, 45.4738, 41.0985)
 auto_calculate_length_and_angle = false
@@ -7331,7 +7331,7 @@ bone_angle = 40.8028
 
 [node name="Whip_15" type="Bone2D" parent="WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14"]
 position = Vector2(43.4342, 38.7102)
-rotation = 0.0103901
+rotation = 0.0131021
 scale = Vector2(0.999989, 0.999989)
 rest = Transform2D(0.999483, 0.0321579, -0.0321579, 0.999483, 43.4342, 38.7102)
 auto_calculate_length_and_angle = false
@@ -7340,7 +7340,7 @@ bone_angle = 38.8894
 
 [node name="Whip_16" type="Bone2D" parent="WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15"]
 position = Vector2(44.0018, 36.7064)
-rotation = -0.0825286
+rotation = -0.0757805
 scale = Vector2(0.99999, 0.99999)
 rest = Transform2D(0.998006, -0.0631157, 0.0631157, 0.998006, 44.0018, 36.7064)
 auto_calculate_length_and_angle = false
@@ -7349,7 +7349,7 @@ bone_angle = 41.4545
 
 [node name="Whip_17" type="Bone2D" parent="WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16"]
 position = Vector2(43.6366, 40.5075)
-rotation = -0.0277478
+rotation = -0.0142815
 scale = Vector2(0.999993, 0.999993)
 rest = Transform2D(0.999563, 0.0295609, -0.0295609, 0.999563, 43.6366, 40.5075)
 auto_calculate_length_and_angle = false
@@ -7358,7 +7358,7 @@ bone_angle = 39.7009
 
 [node name="Whip_18" type="Bone2D" parent="WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17"]
 position = Vector2(39.4065, 32.9854)
-rotation = -0.0992653
+rotation = -0.0743891
 scale = Vector2(0.999992, 0.999992)
 rest = Transform2D(0.999918, -0.0127857, 0.0127857, 0.999918, 39.4065, 32.9854)
 auto_calculate_length_and_angle = false
@@ -7367,7 +7367,7 @@ bone_angle = 40.3723
 
 [node name="Whip_19" type="Bone2D" parent="WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18"]
 position = Vector2(41.4317, 37.0168)
-rotation = -0.142317
+rotation = -0.103027
 scale = Vector2(0.999995, 0.999995)
 rest = Transform2D(0.999738, -0.0229097, 0.0229097, 0.999738, 41.4317, 37.0168)
 auto_calculate_length_and_angle = false
@@ -7376,7 +7376,7 @@ bone_angle = 41.621
 
 [node name="Whip_20" type="Bone2D" parent="WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19"]
 position = Vector2(37.1792, 35.0436)
-rotation = -0.0716943
+rotation = -0.0404211
 scale = Vector2(0.999988, 0.999988)
 rest = Transform2D(0.99512, 0.0986623, -0.0986623, 0.99512, 37.1792, 35.0436)
 auto_calculate_length_and_angle = false
@@ -7527,8 +7527,8 @@ rest = Transform2D(1, 0, 0, 1, -20, -464)
 
 [node name="UpperLegL" type="Bone2D" parent="Skeleton2D/TorsoMain"]
 position = Vector2(47, 33)
-rotation = -0.213225
-scale = Vector2(0.999817, 0.999817)
+rotation = 0.0120459
+scale = Vector2(0.999818, 0.999818)
 rest = Transform2D(0.999708, 0.0120447, -0.0120447, 0.999708, 47, 33)
 
 [node name="LKneeTarger" type="Marker2D" parent="Skeleton2D/TorsoMain/UpperLegL"]
@@ -7538,14 +7538,14 @@ scale = Vector2(0.999929, 0.999929)
 
 [node name="LowerLegL" type="Bone2D" parent="Skeleton2D/TorsoMain/UpperLegL"]
 position = Vector2(56, 196)
-rotation = -0.0697372
+rotation = -0.0697665
 scale = Vector2(0.999841, 0.999841)
 rest = Transform2D(0.997499, -0.0696758, 0.0696758, 0.997499, 56, 196)
 
 [node name="FootL" type="Bone2D" parent="Skeleton2D/TorsoMain/UpperLegL/LowerLegL"]
 position = Vector2(40, 189)
-rotation = 1.4076
-scale = Vector2(0.999809, 0.999809)
+rotation = 1.5415
+scale = Vector2(0.999805, 0.999805)
 rest = Transform2D(0.0285436, 0.999476, -0.999476, 0.0285436, 40, 189)
 auto_calculate_length_and_angle = false
 length = 34.268
@@ -7558,8 +7558,8 @@ scale = Vector2(0.999932, 0.999932)
 
 [node name="UpperLegR" type="Bone2D" parent="Skeleton2D/TorsoMain"]
 position = Vector2(-3, 33)
-rotation = 1.11156
-scale = Vector2(0.999835, 0.999835)
+rotation = 0.0586393
+scale = Vector2(0.999837, 0.999837)
 rest = Transform2D(0.998165, 0.0591751, -0.0591751, 0.998165, -3, 33)
 
 [node name="RKneeTarger" type="Marker2D" parent="Skeleton2D/TorsoMain/UpperLegR"]
@@ -7569,13 +7569,13 @@ scale = Vector2(1.00007, 1.00007)
 
 [node name="LowerLegR" type="Bone2D" parent="Skeleton2D/TorsoMain/UpperLegR"]
 position = Vector2(-47, 202)
-rotation = 0.329952
-scale = Vector2(0.999836, 0.999836)
+rotation = -0.0826864
+scale = Vector2(0.999834, 0.999834)
 rest = Transform2D(0.996423, -0.0837985, 0.0837985, 0.996423, -47, 202)
 
 [node name="FootR" type="Bone2D" parent="Skeleton2D/TorsoMain/UpperLegR/LowerLegR"]
 position = Vector2(18, 177)
-rotation = 1.86497
+rotation = 1.79899
 scale = Vector2(0.99984, 0.99984)
 rest = Transform2D(-0.227082, 0.973797, -0.973797, -0.227082, 18, 177)
 auto_calculate_length_and_angle = false
@@ -7594,43 +7594,43 @@ rest = Transform2D(-0.128349, -0.991729, 0.991729, -0.128349, 13, -15)
 
 [node name="BaseDressL" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody"]
 position = Vector2(17.4542, 36.5425)
-rotation = -0.247825
-scale = Vector2(0.999823, 0.999823)
+rotation = -0.0662732
+scale = Vector2(0.999824, 0.999824)
 rest = Transform2D(0.99769, -0.0662017, 0.0662017, 0.99769, 17.4542, 36.5425)
 
 [node name="DressL_01" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/BaseDressL"]
 position = Vector2(-75.8616, 17.4072)
-rotation = -0.0130438
+rotation = -0.0138208
 scale = Vector2(0.99948, 0.99948)
 rest = Transform2D(0.999696, -0.0138142, 0.0138142, 0.999696, -75.8616, 17.4072)
 
 [node name="DressL_02" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/BaseDressL/DressL_01"]
 position = Vector2(-113.104, 24.6874)
-rotation = -0.0638552
-scale = Vector2(0.99982, 0.99982)
+rotation = -0.0602014
+scale = Vector2(0.999819, 0.999819)
 rest = Transform2D(0.998086, -0.060302, 0.060302, 0.998086, -113.104, 24.6874)
 
 [node name="DressL_03" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02"]
 position = Vector2(-77.6817, 8.09663)
-rotation = -0.0176008
-scale = Vector2(0.999803, 0.999803)
+rotation = -0.0137625
+scale = Vector2(0.999796, 0.999796)
 rest = Transform2D(0.99972, -0.0138405, 0.0138405, 0.99972, -77.6817, 8.09663)
 
 [node name="DressL_04" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03"]
 position = Vector2(-60.6589, 1.22465)
-rotation = 0.0550574
-scale = Vector2(0.99981, 0.99981)
+rotation = 0.0582334
+scale = Vector2(0.999807, 0.999807)
 rest = Transform2D(0.998165, 0.0582385, -0.0582385, 0.998165, -60.6589, 1.22465)
 
 [node name="DressL_05" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03/DressL_04"]
 position = Vector2(-46.3896, 0.0463395)
-rotation = -0.0257581
-scale = Vector2(0.999839, 0.999839)
+rotation = -0.0231765
+scale = Vector2(0.999841, 0.999841)
 rest = Transform2D(0.99961, -0.0229632, 0.0229632, 0.99961, -46.3896, 0.0463395)
 
 [node name="DressL_06" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03/DressL_04/DressL_05"]
 position = Vector2(-38.8058, -4.01387)
-rotation = -2.95826
+rotation = -2.9562
 scale = Vector2(0.999831, 0.999831)
 rest = Transform2D(-0.982715, -0.184677, 0.184677, -0.982715, -38.8058, -4.01387)
 auto_calculate_length_and_angle = false
@@ -7639,44 +7639,44 @@ bone_angle = 0.0
 
 [node name="BaseDressR" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody"]
 position = Vector2(28.6205, -49.738)
-rotation = 0.227236
-scale = Vector2(0.999834, 0.999834)
+rotation = 0.102889
+scale = Vector2(0.999837, 0.999837)
 rest = Transform2D(0.994543, 0.103188, -0.103188, 0.994543, 28.6205, -49.738)
 
 [node name="DressR_01" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/BaseDressR"]
 position = Vector2(-84.8686, -22.0753)
-rotation = -0.464055
-scale = Vector2(0.999292, 0.999292)
+rotation = -0.00983268
+scale = Vector2(0.999296, 0.999296)
 rest = Transform2D(0.999792, -0.00982714, 0.00982714, 0.999792, -84.8686, -22.0753)
 
 [node name="DressR_02" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/BaseDressR/DressR_01"]
 position = Vector2(-113.979, -30.8844)
-rotation = 0.16528
+rotation = 0.0137245
 scale = Vector2(0.99981, 0.99981)
 rest = Transform2D(0.999768, 0.0135934, -0.0135934, 0.999768, -113.979, -30.8844)
 
 [node name="DressR_03" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02"]
 position = Vector2(-68.3943, -16.9182)
-rotation = 0.169154
-scale = Vector2(0.999793, 0.999793)
+rotation = 0.0552666
+scale = Vector2(0.999791, 0.999791)
 rest = Transform2D(0.998335, 0.0550231, -0.0550231, 0.998335, -68.3943, -16.9182)
 
 [node name="DressR_04" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03"]
 position = Vector2(-41.3959, -7.3741)
-rotation = 0.128997
+rotation = 0.011151
 scale = Vector2(0.99969, 0.99969)
 rest = Transform2D(0.999778, 0.0108319, -0.0108319, 0.999778, -41.3959, -7.3741)
 
 [node name="DressR_05" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03/DressR_04"]
 position = Vector2(-42.516, -6.51072)
-rotation = 0.0882933
-scale = Vector2(0.99985, 0.99985)
+rotation = -0.0358656
+scale = Vector2(0.999851, 0.999851)
 rest = Transform2D(0.999242, -0.0363304, 0.0363304, 0.999242, -42.516, -6.51072)
 
 [node name="DressR_06" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03/DressR_04/DressR_05"]
 position = Vector2(-45.3628, -7.88749)
-rotation = -2.87491
-scale = Vector2(0.999822, 0.999822)
+rotation = -2.98661
+scale = Vector2(0.999824, 0.999824)
 rest = Transform2D(-0.988011, -0.153719, 0.153719, -0.988011, -45.3628, -7.88749)
 auto_calculate_length_and_angle = false
 length = 40.432
@@ -7689,19 +7689,19 @@ rest = Transform2D(0.990581, 0.13693, -0.13693, 0.990581, 48.2798, -6.8601)
 
 [node name="UpperHandL" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/UpperBody"]
 position = Vector2(95.6804, 78.1745)
-rotation = -0.541415
-scale = Vector2(0.999836, 0.999836)
+rotation = -0.132856
+scale = Vector2(0.999834, 0.999834)
 rest = Transform2D(0.991079, -0.132639, 0.132639, 0.991079, 95.6804, 78.1745)
 
 [node name="LowerHandL" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandL"]
 position = Vector2(-91.6416, 41.795)
-rotation = 0.291465
+rotation = 0.271813
 scale = Vector2(0.999848, 0.999848)
 rest = Transform2D(0.963103, 0.268877, -0.268877, 0.963103, -91.6416, 41.795)
 
 [node name="WristL" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandL/LowerHandL"]
 position = Vector2(-96.4206, -48.167)
-rotation = -2.75136
+rotation = -2.56546
 scale = Vector2(0.999871, 0.999871)
 rest = Transform2D(-0.838672, -0.544554, 0.544554, -0.838672, -96.4206, -48.167)
 auto_calculate_length_and_angle = false
@@ -7710,19 +7710,19 @@ bone_angle = 0.0
 
 [node name="UpperHandR" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/UpperBody"]
 position = Vector2(117.649, -41.0201)
-rotation = 0.0572426
+rotation = -0.062599
 scale = Vector2(0.999835, 0.999835)
 rest = Transform2D(0.997914, -0.0628965, 0.0628965, 0.997914, 117.649, -41.0201)
 
 [node name="LowerHandR" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandR"]
 position = Vector2(-109.264, -30.0551)
-rotation = 0.842935
+rotation = 0.15949
 scale = Vector2(0.999841, 0.999841)
 rest = Transform2D(0.987172, 0.159237, -0.159237, 0.987172, -109.264, -30.0551)
 
 [node name="WristR" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR"]
 position = Vector2(-36.7865, -90.6849)
-rotation = -1.37701
+rotation = -1.64834
 scale = Vector2(0.999831, 0.999831)
 rest = Transform2D(-0.0774945, -0.996895, 0.996895, -0.0774945, -36.7865, -90.6849)
 auto_calculate_length_and_angle = false
@@ -7739,14 +7739,14 @@ rest = Transform2D(1, 0, 0, 1, 26.9211, -9.23342)
 
 [node name="Head" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/UpperBody/NeckBase/NeckTop"]
 position = Vector2(18.8608, -16.1639)
-rotation = -0.342459
-scale = Vector2(0.999836, 0.999836)
+rotation = -0.0814695
+scale = Vector2(0.999837, 0.999837)
 rest = Transform2D(0.996595, -0.0812782, 0.0812782, 0.996595, 18.8608, -16.1639)
 
 [node name="Feather" type="Bone2D" parent="Skeleton2D/TorsoMain/LowerBody/UpperBody/NeckBase/NeckTop/Head"]
 position = Vector2(97.386, 44.1585)
-rotation = 1.19644
-scale = Vector2(0.999841, 0.999841)
+rotation = 1.29593
+scale = Vector2(0.99984, 0.99984)
 rest = Transform2D(0.271136, 0.962472, -0.962472, 0.271136, 97.386, 44.1585)
 auto_calculate_length_and_angle = false
 length = 101.25

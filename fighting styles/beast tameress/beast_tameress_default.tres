@@ -10,7 +10,7 @@ script = ExtResource("3_cwhas")
 slow_ratio = 0.6
 base_damage = 25.0
 base_proc_chance = 1.0
-duration = 2.0
+duration = 5.0
 
 [sub_resource type="Resource" id="Resource_oywds"]
 script = ExtResource("2_2tj1g")

@@ -83,7 +83,7 @@ animation_condition = &"idle"
 
 [sub_resource type="BTCondition" id="BTCondition_acvpi"]
 script = ExtResource("1_d83ie")
-target_distance = 800.0
+target_distance = 1200.0
 check_mode = 2
 
 [sub_resource type="BTInvert" id="BTInvert_rsoop"]
@@ -115,14 +115,14 @@ custom_name = "Movement Sequence"
 children = [SubResource("BTAction_agp5m"), SubResource("BTDelay_2qism"), SubResource("BTAction_ep575"), SubResource("BTAction_e77kh"), SubResource("BTAction_ympc1")]
 
 [sub_resource type="BTCooldown" id="BTCooldown_h1fli"]
-duration = 3.0
+duration = 2.0
 custom_name = "Movement Cooldown"
 children = [SubResource("BTSequence_7r6ke")]
 
 [sub_resource type="BTCondition" id="BTCondition_31app"]
 custom_name = "Is enemy far enough to hit him?"
 script = ExtResource("1_d83ie")
-target_distance = 800.0
+target_distance = 700.0
 check_mode = 0
 
 [sub_resource type="BTAction" id="BTAction_vm3vn"]
@@ -141,7 +141,7 @@ custom_name = "Attack 1 Sequence"
 children = [SubResource("BTCondition_31app"), SubResource("BTDelay_txoqq")]
 
 [sub_resource type="BTCooldown" id="BTCooldown_ufa2x"]
-duration = 4.0
+duration = 3.0
 custom_name = "Attack 1 Cooldown"
 children = [SubResource("BTSequence_qiqji")]
 
