@@ -10,9 +10,6 @@ class_name PlayerController
 @export var deceleration: float = 20.0  # Заміна для delta
 @export var jump_force: float = 2000
 
-@export_category("Attack")
-@export var fighting_style: Bear.STYLES_ID
-@export var max_combo_count: int = 3
 @export var sec_to_reset_combo: float = 0.4
 
 @onready var idle_state: LimboState = %Idle
@@ -50,4 +47,10 @@ func _physics_process(delta: float):
 
 func reset_combo():
 	print("Combo has been reset")
-	combo_count = 0
+	fighting_style.combo_count = 0
+
+func apply_knockback(direction, force):
+	hsm.dispatch(hsm.MOVEMENT_FINISHED)
+	super(direction, force)
+	tilt = clamp(tilt, -max_tilt, max_tilt)
+	actor.rotate(deg_to_rad(tilt))

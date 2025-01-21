@@ -1,4 +1,4 @@
-extends Resource
+extends NegativeEffect
 class_name SlowEffect
 
 # Уповільнення у відсотках

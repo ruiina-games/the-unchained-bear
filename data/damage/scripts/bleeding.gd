@@ -6,3 +6,4 @@ class_name BleedingEffect
 
 func calculate_damage(targets_max_hp: float):
 	base_damage = targets_max_hp * bleeding_damage_percent
+	return base_damage

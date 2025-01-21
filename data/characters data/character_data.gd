@@ -11,6 +11,7 @@ class_name CharacterStats
 @export var attack_range: float = 0.0
 @export var status_resist_multiplier: float = 0.1
 @export var effect_power_multiplier: float = 1.0
+@export var fighting_style: FightingStyle
 
 var current_health: int
 

@@ -16,6 +16,11 @@ var/move_target/name = &"move_target"
 var/move_target/type = 24
 var/move_target/hint = 0
 var/move_target/hint_string = ""
+var/can_move/name = &"can_move"
+var/can_move/type = 1
+var/can_move/value = false
+var/can_move/hint = 0
+var/can_move/hint_string = ""
 
 [sub_resource type="BTCondition" id="BTCondition_y8bbx"]
 custom_name = "Is enemy close enough to kick?"

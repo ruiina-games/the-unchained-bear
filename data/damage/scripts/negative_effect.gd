@@ -5,3 +5,4 @@ signal negative_effect_enabled(target: Character, dealer: Character, effect: Neg
 signal effect_reset(target: Character, effect: NegativeEffect)
 
 @export var base_damage: float
+@export var base_proc_chance: float

@@ -1,6 +1,7 @@
 extends PlayerState
 class_name PlayerAttackState
 
+var fighting_style: FightingStyle
 var attack_animations_path: String
 var combo_timer: Timer
 
@@ -13,6 +14,11 @@ func initialize_state():
 	add_child(combo_timer)
 
 func _enter() -> void:
+	fighting_style = controller.fighting_style
+	
+	if !fighting_style:
+		return
+	
 	if state_machine.debug_label:
 			state_machine.debug_label.text = animation_state_name
 			
@@ -22,15 +28,15 @@ func _enter() -> void:
 		combo_timer.stop()
 
 func start_attack() -> void:
-	if controller.combo_count >= controller.max_combo_count:
-		controller.combo_count = 0  # Скидаємо комбо після досягнення максимуму
+	if fighting_style.combo_count >= fighting_style.max_combo_count:
+		fighting_style.combo_count = 0  # Скидаємо комбо після досягнення максимуму
 	
-	print("Combo count: " + str(controller.combo_count))
+	# print("Combo count: " + str(fighting_style.combo_count))
 	
-	attack_animations_path = "parameters/MainStateMachine/ATTACK/" + str(controller.fighting_style) + "/blend_position"
-	animation_tree.set(attack_animations_path, controller.combo_count)
+	attack_animations_path = "parameters/MainStateMachine/ATTACK/" + str(fighting_style.id) + "/blend_position"
+	animation_tree.set(attack_animations_path, fighting_style.combo_count)
 	
-	controller.combo_count += 1
+	fighting_style.combo_count += 1
 	state_machine.switch_state(animation_state_name)  # Вмикаємо атаку
 
 func _on_animation_finished(animation_name: String) -> void:

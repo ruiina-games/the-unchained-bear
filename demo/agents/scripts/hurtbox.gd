@@ -8,7 +8,7 @@
 #* https://opensource.org/licenses/MIT.
 #* =============================================================================
 #*
-class_name Hurtbox
+# class_name Hurtbox
 extends Area2D
 ## Area that registers damage.
 

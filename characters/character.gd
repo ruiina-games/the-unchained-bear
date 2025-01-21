@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Character
 
+signal got_knocked()
+
 @export var character_stats: CharacterStats
 # @export var movement_stats: MovementStats
 @export var animation_tree :AnimationTree
@@ -12,6 +14,8 @@ class_name Character
 @export_category("Health")
 @export var health_component: HealthComponent
 @export var hurtbox: Hurtbox
+
+var can_move: bool = true
 
 func _ready() -> void:
 	# Initializing current health with max health considering we create a character with full HP
@@ -51,3 +55,19 @@ func adjust_scale_for_direction(direction):
 		transform.x.x = -1
 	elif direction.x < 0:
 		transform.x.x = 1
+	
+func set_stunned(stunned: bool):
+	if animation_tree:
+		# animation_tree.set("parameters/stunned", stunned)
+		if stunned:
+			print(name + " is stunned!")
+		else:
+			print(name + " is no longer stunned!")
+
+func apply_knockback(direction: Vector2, force: float):
+	got_knocked.emit(direction, force)
+
+func reset_scale(original_scale, original_rotation):
+	scale = original_scale
+	rotation = original_rotation
+	rotation = 0  # Скидаємо будь-який попередній нахил

@@ -21,8 +21,9 @@ func handle_movement():
 		controller.direction = dir
 
 	# Обмеження максимальної швидкості
-	controller.current_velocity.x = clamp(controller.current_velocity.x, -controller.speed, controller.speed)
-
+	controller.current_velocity.x = clamp(controller.current_velocity.x, -controller.speed, controller.speed * character.character_stats.movement_speed_multiplier)
+	controller.current_velocity.y = 0
+	
 	# Нахил моноциклу
 	if dir != 0:
 		controller.tilt = lerp(controller.tilt, dir * controller.max_tilt, controller.tilt_inertia)
