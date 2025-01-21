@@ -19,6 +19,8 @@ func _enter() -> void:
 			state_machine.debug_label.text = animation_state_name
 
 func _update(delta: float) -> void:
+	if !character.can_move:
+		return
 	handle_movement()
 
 func state_input():
@@ -55,11 +57,8 @@ func handle_movement():
 	character.move_and_slide()
 
 	# Відновлення масштабу та ротації
-	character.scale = original_scale
-	character.rotation = original_rotation
-	
+	character.reset_scale(original_scale, original_rotation)
 	controller.tilt = clamp(controller.tilt, -controller.max_tilt, controller.max_tilt)
-	controller.actor.rotation = 0  # Скидаємо будь-який попередній нахил
 	controller.actor.rotate(deg_to_rad(controller.tilt))
 
 func _on_animation_finished(anim_name: String):

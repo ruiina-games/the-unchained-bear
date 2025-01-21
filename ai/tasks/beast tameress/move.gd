@@ -15,11 +15,14 @@ func _enter() -> void:
 		return
 
 	target_position = controller.get_target_move_position()
-	print("MoveAction entered. Target position set to:", target_position)
+	# print("MoveAction entered. Target position set to:", target_position)
 
 func _tick(delta: float) -> Status:
 	if !controller or controller.actor == null:
 		print("Error: Actor is not defined!")
+		return Status.FAILURE
+		
+	if !controller.actor.can_move:
 		return Status.FAILURE
 
 	var actor_global_position = controller.actor.global_position
@@ -40,7 +43,7 @@ func _tick(delta: float) -> Status:
 		velocity = Vector2.ZERO
 		controller.actor.velocity = velocity
 		controller.actor.move_and_slide()
-		print("Reached target. Stopping.")
+		# print("Reached target. Stopping.")
 		
 		# Коли доходимо до потрібної точки - повертаємось в бік початкового тагрета, навіть якщо йшли в інший бік
 		# Зроблено для того, щоб дивитися на ворога, коли доходимо до точки, а не продовжувати дивитись на точку, до якої йшли
@@ -65,4 +68,4 @@ func _exit() -> void:
 	if controller and controller.actor:
 		controller.actor.velocity = Vector2.ZERO
 	velocity = Vector2.ZERO
-	print("Exiting move state. Velocity reset.")
+	# print("Exiting move state. Velocity reset.")

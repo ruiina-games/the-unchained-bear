@@ -18,6 +18,9 @@ func _enter() -> void:
 	var controller: Controller = scene_root
 	if !controller:
 		return
+		
+	if !controller.actor.can_move:
+		return
 
 	actor_global_position = controller.actor_global_position
 	target_global_position = controller.target.global_position

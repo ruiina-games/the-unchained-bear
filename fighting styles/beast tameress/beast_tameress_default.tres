@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="FightingStyle" load_steps=11 format=3 uid="uid://c6l7jwpahuvjx"]
+
+[ext_resource type="Script" path="res://fighting styles/figting_style.gd" id="1_evf5a"]
+[ext_resource type="Resource" uid="uid://w5nt8my5aw56" path="res://characters/beast_tamer/attacks/kick.tres" id="1_vknsf"]
+[ext_resource type="Script" path="res://data/damage/scripts/damage.gd" id="2_2tj1g"]
+[ext_resource type="Script" path="res://data/damage/scripts/slow.gd" id="3_cwhas"]
+
+[sub_resource type="Resource" id="Resource_5d4ju"]
+script = ExtResource("3_cwhas")
+slow_ratio = 0.1
+base_damage = 25.0
+base_proc_chance = 0.5
+duration = 2.0
+
+[sub_resource type="Resource" id="Resource_oywds"]
+script = ExtResource("2_2tj1g")
+damage_amount = 20.0
+multiplier = 1.0
+effect = SubResource("Resource_5d4ju")
+
+[sub_resource type="Resource" id="Resource_gix1r"]
+script = ExtResource("3_cwhas")
+slow_ratio = 0.1
+base_damage = 20.0
+base_proc_chance = 0.5
+duration = 2.0
+
+[sub_resource type="Resource" id="Resource_2fkhf"]
+script = ExtResource("2_2tj1g")
+damage_amount = 20.0
+multiplier = 1.0
+effect = SubResource("Resource_gix1r")
+
+[sub_resource type="Resource" id="Resource_4hjs6"]
+script = ExtResource("3_cwhas")
+slow_ratio = 0.1
+base_damage = 20.0
+base_proc_chance = 1.0
+duration = 2.0
+
+[sub_resource type="Resource" id="Resource_jyc8r"]
+script = ExtResource("2_2tj1g")
+damage_amount = 20.0
+multiplier = 1.0
+effect = SubResource("Resource_4hjs6")
+
+[resource]
+script = ExtResource("1_evf5a")
+id = 0
+name = "Beast Tameress Default"
+description = ""
+max_combo_count = 3
+damage_variations = {
+-1: ExtResource("1_vknsf"),
+0: SubResource("Resource_oywds"),
+1: SubResource("Resource_2fkhf"),
+2: SubResource("Resource_jyc8r")
+}

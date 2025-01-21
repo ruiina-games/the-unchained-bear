@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FireEffect" load_steps=2 format=3 uid="uid://cv3fvrod7f4pe"]
+
+[ext_resource type="Script" path="res://data/damage/scripts/fire.gd" id="1_k7whc"]
+
+[resource]
+script = ExtResource("1_k7whc")
+tick_interval = 0.5
+base_damage = 20.0
+base_proc_chance = 0.05
+duration = 5.0

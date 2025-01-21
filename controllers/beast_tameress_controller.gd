@@ -17,7 +17,7 @@ var consecutive_hits: int:
 		if active_bb.has_var("consecutive_hits"):
 			consecutive_hits = new_value
 			active_bb.set_var("consecutive_hits", consecutive_hits)
-			print(active_bb.get_var("consecutive_hits"))
+			# print(active_bb.get_var("consecutive_hits"))
 			
 			if active_bb.get_var("consecutive_hits") > max_consecutive_hits_can_take:
 				consecutive_hits = 0
@@ -26,6 +26,7 @@ var consecutive_hits: int:
 					consecutive_hits_reset_timer.start()
 
 func _ready() -> void:
+	super()
 	consecutive_hits_reset_timer.timeout.connect(_on_consecutive_hits_reset_timer_timeout)
 	
 	hsm.initialize(self)
@@ -80,3 +81,19 @@ func attack_notify(inform_text: String, inform_duration: float):
 	label.text = inform_text
 	await get_tree().create_timer(inform_duration).timeout
 	label.text = ""
+	
+func apply_knockback(direction, force):
+	direction = direction.normalized()
+	var knockback_duration: float = 0.3  # Duration of the knockback effect
+	var elapsed_time: float = 0.0
+	var initial_velocity = actor.velocity
+
+	while elapsed_time < knockback_duration:
+		var knockback_force = lerp(force, 0.0, elapsed_time / knockback_duration)
+		actor.velocity = direction * knockback_force
+		elapsed_time += get_physics_process_delta_time()
+		await get_tree().process_frame
+		actor.move_and_slide()
+
+	actor.velocity = initial_velocity
+	print(name + " is knocked back with force: " + str(force))

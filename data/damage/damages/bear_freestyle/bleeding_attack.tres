@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Damage" load_steps=4 format=3 uid="uid://0dak1sd5qsvf"]
+
+[ext_resource type="Script" path="res://data/damage/scripts/bleeding.gd" id="1_o4xn3"]
+[ext_resource type="Script" path="res://data/damage/scripts/damage.gd" id="2_cdvrq"]
+
+[sub_resource type="Resource" id="Resource_ui36c"]
+script = ExtResource("1_o4xn3")
+bleeding_damage_percent = 0.03
+tick_interval = 2.0
+base_damage = 0.0
+base_proc_chance = 0.05
+duration = 0.0
+
+[resource]
+script = ExtResource("2_cdvrq")
+damage_amount = 20.0
+multiplier = 1.0
+effect = SubResource("Resource_ui36c")

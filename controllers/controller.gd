@@ -6,6 +6,10 @@ class_name Controller
 @export var hsm: LimboHSM
 @export var hp_label: Label
 
+# @export_category("Attack")
+
+var fighting_style: FightingStyle
+
 var target_global_position: Vector2
 var actor_global_position: Vector2
 
@@ -19,6 +23,15 @@ func _ready() -> void:
 	if !target:
 		print("Target in " + name + " is missing. Unable to initialize character")
 		get_tree().quit()
+	if !actor:
+		print("No actor in " + name)
+		get_tree().quit()
+		
+	actor.got_knocked.connect(func(direction: Vector2, force: float):
+		apply_knockback(direction, force)
+	)
+		
+	fighting_style = actor.character_stats.fighting_style
 	_init_state_machine()
 
 func _init_state_machine() -> void:
@@ -41,3 +54,24 @@ func get_hsm():
 	else:
 		print("error")
 		return
+
+func apply_knockback(direction, force):
+	var initial_velocity = actor.velocity
+
+	var original_scale = actor.scale  # Збереження початкового напрямку
+	var original_rotation = actor.rotation
+	actor.can_move = false
+	var knockback_duration: float = 0.3  # Duration of the knockback effect
+	var elapsed_time: float = 0.0
+	
+	while elapsed_time < knockback_duration:
+		var knockback_force = lerp(force, 0.0, elapsed_time / knockback_duration)
+		current_velocity = knockback_force * direction
+		elapsed_time += get_physics_process_delta_time()
+		await get_tree().process_frame
+		actor.velocity = current_velocity
+		actor.move_and_slide()
+
+	actor.velocity = initial_velocity
+	actor.reset_scale(original_scale, original_rotation)
+	actor.can_move = true

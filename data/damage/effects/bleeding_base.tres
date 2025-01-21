@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BleedingEffect" load_steps=2 format=3 uid="uid://cqpf7f18je2h6"]
+
+[ext_resource type="Script" path="res://data/damage/scripts/bleeding.gd" id="1_5jhpp"]
+
+[resource]
+script = ExtResource("1_5jhpp")
+bleeding_damage_percent = 0.03
+tick_interval = 0.5
+base_damage = 0.0
+base_proc_chance = 0.03
+duration = 0.0

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Knockback" load_steps=2 format=3 uid="uid://cekdge5cw8twb"]
+
+[ext_resource type="Script" path="res://data/damage/scripts/knockback.gd" id="1_rff0r"]
+
+[resource]
+script = ExtResource("1_rff0r")
+knockback_force = 500.0
+base_damage = 40.0
+base_proc_chance = 0.5
+duration = 0.0
