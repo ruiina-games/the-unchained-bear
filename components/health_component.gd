@@ -110,10 +110,13 @@ func process_stun_effect(effect: StunEffect, multiplier: float):
 	agent.set_stunned(false)
 
 func handle_death():
+	GlobalSignals.character_died.emit(agent)
+	
 	if !agent.has_signal("died"):
 		return
 
 	agent.died.emit(agent)
+	
 	print(agent.name + " has died.")
 
 func heal(heal_amount: float):

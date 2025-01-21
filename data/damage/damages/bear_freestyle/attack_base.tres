@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_7yqgp")
-damage_amount = 20.0
+damage_amount = 600.0
 multiplier = 1.0
