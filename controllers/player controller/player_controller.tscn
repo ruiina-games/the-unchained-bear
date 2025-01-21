@@ -250,9 +250,6 @@ parameters/MainStateMachine/BEND/blend_position = 0.0
 parameters/MainStateMachine/DEATH/blend_position = 0.0
 parameters/MainStateMachine/IDLE/blend_position = 1.00243
 parameters/MainStateMachine/JUMP/blend_position = -0.0486618
-parameters/OneShot/active = false
-parameters/OneShot/internal_active = false
-parameters/OneShot/request = 0
 
 [node name="LimboHSM" type="LimboHSM" parent="." node_paths=PackedStringArray("debug_label", "character", "controller")]
 unique_name_in_owner = true

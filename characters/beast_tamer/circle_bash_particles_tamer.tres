@@ -9,10 +9,10 @@ gradient = SubResource("Gradient_mbuc5")
 
 [resource]
 particle_flag_disable_z = true
-emission_shape = 1
-emission_sphere_radius = 1.0
+emission_shape = 3
+emission_box_extents = Vector3(350, 1, 1)
 direction = Vector3(0, -1, 0)
-spread = 180.0
+spread = 40.0
 initial_velocity_min = 257.14
 initial_velocity_max = 257.14
 radial_velocity_min = 135.8

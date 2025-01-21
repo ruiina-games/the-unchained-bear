@@ -22,18 +22,13 @@ var original_offset: Vector2
 func _ready():
 	default_camera_zoom = main_camera.zoom
 	original_offset = main_camera.offset
+	
+	GlobalSignals.hurt_triggered.connect(func(causer): if causer.name != "BearNew": shake_camera(shake_duration, shake_magnitude))
+	GlobalSignals.character_died.connect(func(agent): slow_motion(slowmotion_duration, slowmotion_strength))
 
 func _process(delta):
 	tilt_camera(player_controller.direction)
 	
-	#TODO: Замінити на HURT SIGNAL
-	if Input.is_action_just_pressed("ui_down"):
-		shake_camera(shake_duration, shake_magnitude)
-	
-	#TODO: Змінити на BOSS DEATH SIGNAL
-	if Input.is_action_just_pressed("ui_accept"):
-		slow_motion(slowmotion_duration, slowmotion_strength)
-		
 func tilt_camera(direction: float):
 	if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
 		var target_rotation = -direction * max_tilt_angle
