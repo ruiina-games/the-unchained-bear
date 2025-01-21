@@ -9,6 +9,7 @@ var JUMPED: StringName = "jumped"
 var LANDED: StringName = "landed"
 var STARTED_ATTACK: StringName = "started_attack"
 var FINISHED_ATTACK: StringName = "finished_attack"
+var DIED: StringName = "death"
 
 func init_state_machine():
 	super()
@@ -30,6 +31,7 @@ func create_state_conditions():
 	state_conditions["run"] =  path_to_anim_parameters + "run"
 	state_conditions["land"] =  path_to_anim_parameters + "land"
 	state_conditions["fly"] =  path_to_anim_parameters + "fly"
+	state_conditions["death"] = path_to_anim_parameters + "death"
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump"):

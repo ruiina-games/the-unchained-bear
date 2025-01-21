@@ -6,8 +6,6 @@ class_name Controller
 @export var hsm: LimboHSM
 @export var hp_label: Label
 
-# @export_category("Attack")
-
 var fighting_style: FightingStyle
 
 var target_global_position: Vector2
@@ -30,14 +28,29 @@ func _ready() -> void:
 	actor.got_knocked.connect(func(direction: Vector2, force: float):
 		apply_knockback(direction, force)
 	)
-		
+	actor.died.connect(func():
+		kill_actor()
+	)
+	
 	fighting_style = actor.character_stats.fighting_style
 	_init_state_machine()
+	
+	GlobalSignals.character_died.connect(func(character: Character):
+		if character == target:
+			target = null
+			hsm.set_active(false)
+		)
+
+func kill_actor():
+	pass
 
 func _init_state_machine() -> void:
 	pass
 
 func _process(delta: float) -> void:
+	if !target:
+		return
+	
 	target_global_position = target.global_position
 	actor_global_position = actor.global_position
 	

@@ -3,6 +3,7 @@ class_name Character
 
 signal got_knocked()
 signal got_hit()
+signal died()
 
 @export var character_stats: CharacterStats
 # @export var movement_stats: MovementStats
