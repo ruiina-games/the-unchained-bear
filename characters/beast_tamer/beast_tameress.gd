@@ -6,3 +6,4 @@ func perform_kick():
 		return
 	
 	character_stats.fighting_style.combo_count = -1
+	attack()

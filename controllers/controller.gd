@@ -57,7 +57,6 @@ func get_hsm():
 
 func apply_knockback(direction, force):
 	var initial_velocity = actor.velocity
-	initial_velocity.y = 0
 
 	var original_scale = actor.scale  # Збереження початкового напрямку
 	var original_rotation = actor.rotation

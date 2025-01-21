@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cjbnosxi4m18l" path="res://characters/bear/bear_new.tscn" id="2_drj5a"]
 [ext_resource type="Script" path="res://controllers/player controller/stats_container.gd" id="2_ogm1v"]
 [ext_resource type="Script" path="res://controllers/player controller/player state machine/player_state_machine.gd" id="3_7xkve"]
-[ext_resource type="Resource" uid="uid://dv3i5h2hu814t" path="res://data/characters data/bear/bear_stats.tres" id="3_60oav"]
+[ext_resource type="Resource" uid="uid://c40i2hba3vmid" path="res://data/characters data/bear/bear_stats.tres" id="3_60oav"]
 [ext_resource type="Script" path="res://controllers/player controller/player state machine/states/idle.gd" id="4_hhf8t"]
 [ext_resource type="Script" path="res://controllers/player controller/run.gd" id="5_kcgja"]
 [ext_resource type="Script" path="res://controllers/player controller/jump.gd" id="6_ofg5v"]
@@ -188,61 +188,61 @@ text = "0"
 unique_name_in_owner = true
 
 [node name="TorsoTop" parent="BearNew/Skeleton2D/TorsoMain" index="0"]
-rotation = 0.349014
+rotation = 0.429188
 scale = Vector2(0.999983, 0.999983)
 
 [node name="UpperArmR" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop" index="0"]
-rotation = 1.37458
+rotation = 1.16223
 scale = Vector2(0.999979, 0.999979)
 
 [node name="LowerArmR" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR" index="0"]
-rotation = -1.70441
+rotation = -1.54918
 scale = Vector2(0.99998, 0.99998)
 
 [node name="WristR" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR" index="0"]
-rotation = 1.96379
+rotation = 1.68518
 scale = Vector2(0.999985, 0.999985)
 
 [node name="UpperArmL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop" index="1"]
-rotation = -1.02849
+rotation = -1.16421
 scale = Vector2(0.99998, 0.99998)
 
 [node name="LowerArmL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL" index="0"]
-rotation = -0.451983
+rotation = -0.264589
 scale = Vector2(0.999985, 0.999985)
 
 [node name="WristL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL" index="0"]
-rotation = 2.67435
+rotation = 2.51804
 scale = Vector2(0.999979, 0.999979)
 
 [node name="HeadMain" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop" index="2"]
-rotation = -0.106506
+rotation = -0.155519
 scale = Vector2(0.999975, 0.999975)
 
 [node name="LowerJaw" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="0"]
-rotation = 1.09942
+rotation = 1.04203
 scale = Vector2(0.999977, 0.999977)
 
 [node name="EarL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="2"]
 scale = Vector2(0.443939, 0.778982)
 
 [node name="UpperLegR" parent="BearNew/Skeleton2D/TorsoMain" index="1"]
-rotation = 1.99591
+rotation = 2.3392
 scale = Vector2(0.999989, 0.999989)
 
 [node name="LowerLegR" parent="BearNew/Skeleton2D/TorsoMain/UpperLegR" index="0"]
-rotation = 1.38945
+rotation = 0.870855
 scale = Vector2(0.999981, 0.999981)
 
 [node name="UpperLegL" parent="BearNew/Skeleton2D/TorsoMain" index="2"]
-rotation = 2.66166
+rotation = 1.99459
 scale = Vector2(0.999989, 0.999989)
 
 [node name="LowerLegL" parent="BearNew/Skeleton2D/TorsoMain/UpperLegL" index="0"]
-rotation = 0.411165
+rotation = 1.43494
 scale = Vector2(0.999984, 0.999984)
 
-[node name="AnimationTree" parent="BearNew" index="8"]
+[node name="AnimationTree" parent="BearNew" index="10"]
 parameters/MainStateMachine/ATTACK/blend_position = 1.31569
 parameters/MainStateMachine/ATTACK/0/blend_position = -0.108141
 parameters/MainStateMachine/ATTACK/1/blend_position = 1.97445
@@ -250,6 +250,9 @@ parameters/MainStateMachine/BEND/blend_position = 0.0
 parameters/MainStateMachine/DEATH/blend_position = 0.0
 parameters/MainStateMachine/IDLE/blend_position = 1.00243
 parameters/MainStateMachine/JUMP/blend_position = -0.0486618
+parameters/OneShot/active = false
+parameters/OneShot/internal_active = false
+parameters/OneShot/request = 0
 
 [node name="LimboHSM" type="LimboHSM" parent="." node_paths=PackedStringArray("debug_label", "character", "controller")]
 unique_name_in_owner = true

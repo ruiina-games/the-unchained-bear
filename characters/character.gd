@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name Character
 
 signal got_knocked()
+signal got_hit()
 
 @export var character_stats: CharacterStats
 # @export var movement_stats: MovementStats
@@ -24,6 +25,13 @@ func _ready() -> void:
 	if character_stats:
 		character_stats.current_health = character_stats.max_health
 		#health_component.character_stats = character_stats
+		
+	if !health_component:
+		return
+		
+	health_component.got_hit.connect(func(enemy):
+		get_hurt()
+		)
 
 func get_anim_tree():
 	if animation_tree:
@@ -78,11 +86,6 @@ func get_hurt():
 	if !animation_tree:
 		return
 	animation_tree.set("parameters/OneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
-
-
-func _unhandled_input(event):
-	if event.is_action_pressed("attack"):
-		get_hurt()
 
 func apply_shader_to_polygons(node: Node):
 	if !shader_material:
