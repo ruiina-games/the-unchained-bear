@@ -254,9 +254,19 @@ loop_mode = 0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_elsmw"]
 animation = &"LAND"
+use_custom_timeline = true
+timeline_length = 0.1
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8nc4r"]
 animation = &"LUMBERJACK_STYLE/LAND"
+use_custom_timeline = true
+timeline_length = 0.1
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 0
 
 [sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_aa2xn"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_gndwm")

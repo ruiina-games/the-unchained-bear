@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://cnkxwgp6biyjw"]
+[gd_scene load_steps=54 format=3 uid="uid://cnkxwgp6biyjw"]
 
 [ext_resource type="Texture2D" uid="uid://blknwm4c7xlvc" path="res://assets/Tiger/R_Leg_Down.png" id="2_nvyb7"]
 [ext_resource type="Texture2D" uid="uid://bvrwck24d0ij6" path="res://assets/Tiger/R_Leg_Up.png" id="3_fn7px"]
@@ -25,35 +25,39 @@
 [ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Easing/soup_second_order_easing_no_g.gd" id="24_myemy"]
 [ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Animatinators/Modifications/soup_jiggle.gd" id="25_y17le"]
 [ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Animatinators/Modifications/soup_two_bone_ik.gd" id="26_dvt26"]
+[ext_resource type="AnimationNodeBlendTree" uid="uid://6dp1fbwl2lw4" path="res://characters/animals/tiger/TIGER_ANIM_TREE.res" id="27_qpo7s"]
 [ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Easing/soup_second_order_easing.gd" id="27_wvv0r"]
+[ext_resource type="Shader" path="res://shaders/attack_glitch.gdshader" id="28_nn8hx"]
+[ext_resource type="Texture2D" uid="uid://cj43xuh8ub13e" path="res://assets/FX/Jaw_Up.png" id="29_oxkqo"]
+[ext_resource type="Texture2D" uid="uid://bspu0r1213mhm" path="res://assets/FX/Jaw_Down.png" id="30_o5e6o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yu2mn"]
 
-[sub_resource type="Resource" id="Resource_ajfna"]
+[sub_resource type="Resource" id="Resource_62did"]
 script = ExtResource("24_myemy")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_1ys67"]
+[sub_resource type="Resource" id="Resource_pads6"]
 script = ExtResource("24_myemy")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_a8wco"]
+[sub_resource type="Resource" id="Resource_4h53a"]
 script = ExtResource("24_myemy")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_38lpd"]
+[sub_resource type="Resource" id="Resource_2ids0"]
 script = ExtResource("24_myemy")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_28qd0"]
+[sub_resource type="Resource" id="Resource_j2taf"]
 script = ExtResource("27_wvv0r")
 frequency = 1.0
 damping = 1.0
@@ -594,6 +598,30 @@ tracks/21/keys = {
 "transitions": PackedFloat32Array(),
 "update": 0,
 "values": []
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("FX/BiteAttackFX_Up:emitting")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("FX/BiteAttackFX_Down:emitting")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_gxrj8"]
@@ -3313,6 +3341,30 @@ tracks/21/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("FX/BiteAttackFX_Up:emitting")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("FX/BiteAttackFX_Down:emitting")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_i2kcn"]
 resource_name = "RUN"
@@ -3602,187 +3654,18 @@ _data = {
 "RUN": SubResource("Animation_i2kcn")
 }
 
-[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_yn8vf"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qrifh"]
+shader = ExtResource("28_nn8hx")
+shader_parameter/shake_power = 0.17
+shader_parameter/shake_rate = 1.0
+shader_parameter/shake_speed = 7.39
+shader_parameter/shake_block_size = 3.105
+shader_parameter/shake_color_rate = 0.749
+shader_parameter/reveal = 1.0
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xsq7t"]
-animation = &"HURT"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e6w4q"]
-animation = &"CATCH_BITE"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8l68m"]
-animation = &"CATCH_IDLE"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l26cs"]
-animation = &"CATCH_OFF"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_syvp0"]
-animation = &"DEATH"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_63fmm"]
-animation = &"FLY_CATCH"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4aeix"]
-animation = &"FLY_DOWN"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6k6ks"]
-animation = &"FLY_LAND"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uqjss"]
-animation = &"FLY_UP"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mmohd"]
-animation = &"IDLE"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3eopg"]
-animation = &"JUMP"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_owcfg"]
-animation = &"RUN"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_121r5"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o6aq5"]
-advance_mode = 2
-advance_condition = &"idle"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6o31b"]
-advance_mode = 2
-advance_condition = &"fly_up"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3japr"]
-xfade_time = 0.3
-advance_mode = 2
-advance_condition = &"fly_down"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7bj1s"]
-advance_mode = 2
-advance_condition = &"fly_catch"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_buobd"]
-advance_mode = 2
-advance_condition = &"catch_idle"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c3k57"]
-advance_mode = 2
-advance_condition = &"catch_bite"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7mmqe"]
-advance_mode = 2
-advance_condition = &"catch_idle"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yw1g5"]
-advance_mode = 2
-advance_condition = &"catch_off"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6cyut"]
-advance_mode = 2
-advance_condition = &"catch_off"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ubd7s"]
-advance_mode = 2
-advance_condition = &"run"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cwpc7"]
-advance_mode = 2
-advance_condition = &"idle"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7evuv"]
-advance_mode = 2
-advance_condition = &"fly_land"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uwm4i"]
-advance_mode = 2
-advance_condition = &"idle"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6lkc3"]
-advance_mode = 2
-advance_condition = &"idle"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d7scl"]
-advance_mode = 2
-advance_condition = &"death"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ldcci"]
-xfade_time = 0.1
-advance_mode = 2
-advance_condition = &"death"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ji4ff"]
-xfade_time = 0.2
-advance_mode = 2
-advance_condition = &"death"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nb3vb"]
-xfade_time = 0.2
-advance_mode = 2
-advance_condition = &"death"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ccr3k"]
-xfade_time = 0.2
-advance_mode = 2
-advance_condition = &"death"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kx45j"]
-xfade_time = 0.2
-advance_mode = 2
-advance_condition = &"death"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tf5xj"]
-xfade_time = 0.2
-advance_mode = 2
-advance_condition = &"death"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ld7th"]
-advance_mode = 2
-advance_condition = &"run"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lico5"]
-advance_mode = 2
-advance_condition = &"idle"
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_gvlpe"]
-states/CATCH_BITE/node = SubResource("AnimationNodeAnimation_e6w4q")
-states/CATCH_BITE/position = Vector2(787, -202)
-states/CATCH_IDLE/node = SubResource("AnimationNodeAnimation_8l68m")
-states/CATCH_IDLE/position = Vector2(628, -202)
-states/CATCH_OFF/node = SubResource("AnimationNodeAnimation_l26cs")
-states/CATCH_OFF/position = Vector2(628, -49)
-states/DEATH/node = SubResource("AnimationNodeAnimation_syvp0")
-states/DEATH/position = Vector2(99, -49)
-states/FLY_CATCH/node = SubResource("AnimationNodeAnimation_63fmm")
-states/FLY_CATCH/position = Vector2(485, -202)
-states/FLY_DOWN/node = SubResource("AnimationNodeAnimation_4aeix")
-states/FLY_DOWN/position = Vector2(336, -127)
-states/FLY_LAND/node = SubResource("AnimationNodeAnimation_6k6ks")
-states/FLY_LAND/position = Vector2(485, -49)
-states/FLY_UP/node = SubResource("AnimationNodeAnimation_uqjss")
-states/FLY_UP/position = Vector2(336, -49)
-states/IDLE/node = SubResource("AnimationNodeAnimation_mmohd")
-states/IDLE/position = Vector2(336, 156)
-states/JUMP/node = SubResource("AnimationNodeAnimation_3eopg")
-states/JUMP/position = Vector2(336, 40)
-states/RUN/node = SubResource("AnimationNodeAnimation_owcfg")
-states/RUN/position = Vector2(547, 156)
-states/Start/position = Vector2(114, 156)
-transitions = ["Start", "IDLE", SubResource("AnimationNodeStateMachineTransition_121r5"), "IDLE", "JUMP", SubResource("AnimationNodeStateMachineTransition_o6aq5"), "JUMP", "FLY_UP", SubResource("AnimationNodeStateMachineTransition_6o31b"), "FLY_UP", "FLY_DOWN", SubResource("AnimationNodeStateMachineTransition_3japr"), "FLY_DOWN", "FLY_CATCH", SubResource("AnimationNodeStateMachineTransition_7bj1s"), "FLY_CATCH", "CATCH_IDLE", SubResource("AnimationNodeStateMachineTransition_buobd"), "CATCH_IDLE", "CATCH_BITE", SubResource("AnimationNodeStateMachineTransition_c3k57"), "CATCH_BITE", "CATCH_IDLE", SubResource("AnimationNodeStateMachineTransition_7mmqe"), "CATCH_IDLE", "CATCH_OFF", SubResource("AnimationNodeStateMachineTransition_yw1g5"), "CATCH_BITE", "CATCH_OFF", SubResource("AnimationNodeStateMachineTransition_6cyut"), "CATCH_OFF", "RUN", SubResource("AnimationNodeStateMachineTransition_ubd7s"), "CATCH_OFF", "IDLE", SubResource("AnimationNodeStateMachineTransition_cwpc7"), "FLY_DOWN", "FLY_LAND", SubResource("AnimationNodeStateMachineTransition_7evuv"), "FLY_LAND", "IDLE", SubResource("AnimationNodeStateMachineTransition_uwm4i"), "FLY_LAND", "RUN", SubResource("AnimationNodeStateMachineTransition_6lkc3"), "IDLE", "DEATH", SubResource("AnimationNodeStateMachineTransition_d7scl"), "RUN", "DEATH", SubResource("AnimationNodeStateMachineTransition_ldcci"), "CATCH_IDLE", "DEATH", SubResource("AnimationNodeStateMachineTransition_ji4ff"), "CATCH_BITE", "DEATH", SubResource("AnimationNodeStateMachineTransition_nb3vb"), "FLY_CATCH", "DEATH", SubResource("AnimationNodeStateMachineTransition_ccr3k"), "CATCH_OFF", "DEATH", SubResource("AnimationNodeStateMachineTransition_kx45j"), "JUMP", "DEATH", SubResource("AnimationNodeStateMachineTransition_tf5xj"), "IDLE", "RUN", SubResource("AnimationNodeStateMachineTransition_ld7th"), "RUN", "IDLE", SubResource("AnimationNodeStateMachineTransition_lico5")]
-graph_offset = Vector2(-27, 0)
-
-[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_1gh4j"]
-
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_8gsy1"]
-graph_offset = Vector2(-415.628, 50.5327)
-nodes/Add2/node = SubResource("AnimationNodeAdd2_yn8vf")
-nodes/Add2/position = Vector2(-40, 60)
-nodes/Animation/node = SubResource("AnimationNodeAnimation_xsq7t")
-nodes/Animation/position = Vector2(-240, 320)
-nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_gvlpe")
-nodes/StateMachine/position = Vector2(-500, 40)
-nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_1gh4j")
-nodes/TimeScale/position = Vector2(260, 80)
-nodes/output/position = Vector2(500, 100)
-node_connections = [&"Add2", 0, &"StateMachine", &"Add2", 1, &"Animation", &"TimeScale", 0, &"Add2", &"output", 0, &"TimeScale"]
+[sub_resource type="Gradient" id="Gradient_xxypr"]
+offsets = PackedFloat32Array(0.562264, 1)
+colors = PackedColorArray(0.466667, 0, 0, 1, 0.552941, 0, 0, 0)
 
 [node name="Tiger" type="CharacterBody2D"]
 
@@ -3989,7 +3872,7 @@ script = ExtResource("23_4wu75")
 target_node = NodePath("../../../../TargetNodes/NeckTarget/HeadTarget")
 enabled = true
 bone_node = NodePath("../../../Main/BodyBack/BodyMid/BodyFront/Neck/Head")
-easing = SubResource("Resource_ajfna")
+easing = SubResource("Resource_62did")
 
 [node name="NeckLookAt" type="Node" parent="Skeleton2D/SoupStack/HeadStack" node_paths=PackedStringArray("target_node", "bone_node")]
 script = ExtResource("23_4wu75")
@@ -3997,7 +3880,7 @@ target_node = NodePath("../../../../TargetNodes/NeckTarget")
 enabled = true
 bone_node = NodePath("../../../Main/BodyBack/BodyMid/BodyFront/Neck")
 use_easing = true
-easing = SubResource("Resource_1ys67")
+easing = SubResource("Resource_pads6")
 
 [node name="JawLookAt" type="Node" parent="Skeleton2D/SoupStack/HeadStack" node_paths=PackedStringArray("target_node", "bone_node")]
 script = ExtResource("23_4wu75")
@@ -4017,7 +3900,7 @@ joint_one_bone_node = NodePath("../../../Main/BodyBack/BodyMid/BodyFront/UpperRH
 joint_two_bone_node = NodePath("../../../Main/BodyBack/BodyMid/BodyFront/UpperRHand/LowerRHand")
 chain_tip = NodePath("../../../Main/BodyBack/BodyMid/BodyFront/UpperRHand/LowerRHand/WristR")
 use_easing_on_first_joint = true
-first_joint_easing = SubResource("Resource_a8wco")
+first_joint_easing = SubResource("Resource_4h53a")
 
 [node name="RWristLookAt" type="Node" parent="Skeleton2D/SoupStack/RHandStack" node_paths=PackedStringArray("target_node", "bone_node")]
 script = ExtResource("23_4wu75")
@@ -4037,7 +3920,7 @@ joint_one_bone_node = NodePath("../../../Main/BodyBack/BodyMid/BodyFront/UpperLH
 joint_two_bone_node = NodePath("../../../Main/BodyBack/BodyMid/BodyFront/UpperLHand/LowerLHand")
 chain_tip = NodePath("../../../Main/BodyBack/BodyMid/BodyFront/UpperLHand/LowerLHand/WristL")
 use_easing_on_first_joint = true
-first_joint_easing = SubResource("Resource_38lpd")
+first_joint_easing = SubResource("Resource_2ids0")
 
 [node name="LWristLookAt" type="Node" parent="Skeleton2D/SoupStack/LHandStack" node_paths=PackedStringArray("target_node", "bone_node")]
 script = ExtResource("23_4wu75")
@@ -4070,7 +3953,7 @@ target_node = NodePath("../../../../TargetNodes/TailTarget")
 enabled = true
 bone_node = NodePath("../../../Main/BodyBack/Tail")
 use_easing = true
-easing = SubResource("Resource_28qd0")
+easing = SubResource("Resource_j2taf")
 
 [node name="Main" type="Bone2D" parent="Skeleton2D"]
 position = Vector2(56, -325)
@@ -4092,19 +3975,19 @@ rest = Transform2D(0.453436, 0.891289, -0.891289, 0.453436, 105.465, 42.6388)
 
 [node name="Neck" type="Bone2D" parent="Skeleton2D/Main/BodyBack/BodyMid/BodyFront"]
 position = Vector2(122.319, -0.280571)
-rotation = 0.182401
-scale = Vector2(1, 1)
+rotation = 0.176789
 rest = Transform2D(0.933375, 0.358903, -0.358903, 0.933375, 122.319, -0.280571)
 
 [node name="Head" type="Bone2D" parent="Skeleton2D/Main/BodyBack/BodyMid/BodyFront/Neck"]
 position = Vector2(124.509, -27.34)
-rotation = 0.154602
+rotation = -0.0804389
 scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 124.509, -27.34)
 
 [node name="Jaw" type="Bone2D" parent="Skeleton2D/Main/BodyBack/BodyMid/BodyFront/Neck/Head"]
 position = Vector2(-65.4841, -31.762)
-rotation = -2.14868
+rotation = -2.12524
+scale = Vector2(1, 1)
 rest = Transform2D(-0.493417, -0.869793, 0.869793, -0.493417, -65.4841, -31.762)
 auto_calculate_length_and_angle = false
 length = 91.523
@@ -4112,19 +3995,18 @@ bone_angle = 0.0
 
 [node name="UpperRHand" type="Bone2D" parent="Skeleton2D/Main/BodyBack/BodyMid/BodyFront"]
 position = Vector2(4.42056, -90.1025)
-rotation = -0.14338
+rotation = 1.56255
 scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 4.42056, -90.1025)
 
 [node name="LowerRHand" type="Bone2D" parent="Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperRHand"]
 position = Vector2(-154.547, -85.7156)
-rotation = 0.365493
-scale = Vector2(1, 1)
+rotation = 0.652492
 rest = Transform2D(1, 0, 0, 1, -154.547, -85.7156)
 
 [node name="WristR" type="Bone2D" parent="Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperRHand/LowerRHand"]
 position = Vector2(-74.9961, -80.0036)
-rotation = -1.57206
+rotation = -2.4219
 scale = Vector2(1, 1)
 rest = Transform2D(-0.0129681, -0.999916, 0.999916, -0.0129681, -74.9961, -80.0036)
 auto_calculate_length_and_angle = false
@@ -4133,19 +4015,17 @@ bone_angle = 0.0
 
 [node name="UpperLHand" type="Bone2D" parent="Skeleton2D/Main/BodyBack/BodyMid/BodyFront"]
 position = Vector2(-66.2865, -0.322116)
-rotation = -2.67647
-scale = Vector2(1, 1)
+rotation = -1.3433
 rest = Transform2D(-0.846017, -0.533156, 0.533156, -0.846017, -66.2865, -0.322116)
 
 [node name="LowerLHand" type="Bone2D" parent="Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperLHand"]
 position = Vector2(182.307, -5.67508)
-rotation = 0.371298
-scale = Vector2(1, 1)
+rotation = 0.448957
 rest = Transform2D(1, 0, 0, 1, 182.307, -5.67508)
 
 [node name="WristL" type="Bone2D" parent="Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperLHand/LowerLHand"]
 position = Vector2(115.958, 32.0445)
-rotation = 0.704188
+rotation = 0.486025
 scale = Vector2(1, 1)
 rest = Transform2D(0.645283, 0.763944, -0.763944, 0.645283, 115.958, 32.0445)
 auto_calculate_length_and_angle = false
@@ -4154,13 +4034,13 @@ bone_angle = 0.0
 
 [node name="UpperRLeg" type="Bone2D" parent="Skeleton2D/Main/BodyBack"]
 position = Vector2(109.239, -42.5654)
-rotation = 0.0298201
-scale = Vector2(1, 1)
+rotation = -0.108933
 rest = Transform2D(1, 0, 0, 1, 109.239, -42.5654)
 
 [node name="LowerRLeg" type="Bone2D" parent="Skeleton2D/Main/BodyBack/UpperRLeg"]
 position = Vector2(-38.1187, -160.084)
-rotation = -1.1506
+rotation = -0.202772
+scale = Vector2(1, 1)
 rest = Transform2D(0.444579, -0.89574, 0.89574, 0.444579, -38.1187, -160.084)
 auto_calculate_length_and_angle = false
 length = 139.584
@@ -4168,13 +4048,12 @@ bone_angle = 0.0
 
 [node name="UpperLLeg" type="Bone2D" parent="Skeleton2D/Main/BodyBack"]
 position = Vector2(51.6853, -41.8166)
-rotation = 0.000451275
-scale = Vector2(1, 1)
+rotation = -0.0812615
 rest = Transform2D(1, 0, 0, 1, 51.6853, -41.8166)
 
 [node name="LowerLLeg" type="Bone2D" parent="Skeleton2D/Main/BodyBack/UpperLLeg"]
 position = Vector2(-67.2154, -184.952)
-rotation = -1.11315
+rotation = -0.229282
 scale = Vector2(1, 1)
 rest = Transform2D(0.424166, -0.905585, 0.905585, 0.424166, -67.2154, -184.952)
 auto_calculate_length_and_angle = false
@@ -4183,8 +4062,7 @@ bone_angle = 0.0
 
 [node name="Tail" type="Bone2D" parent="Skeleton2D/Main/BodyBack"]
 position = Vector2(-17.6543, 19.933)
-rotation = 1.85304
-scale = Vector2(1, 1)
+rotation = -3.02008
 rest = Transform2D(-0.281249, 0.959635, -0.959635, -0.281249, -17.6543, 19.933)
 auto_calculate_length_and_angle = false
 length = 386.752
@@ -4238,7 +4116,7 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource("AnimationNodeBlendTree_8gsy1")
+tree_root = ExtResource("27_qpo7s")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Add2/add_amount = 0
 parameters/StateMachine/conditions/catch_bite = false
@@ -4256,3 +4134,45 @@ parameters/TimeScale/scale = 1.0
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(6, -458)
 zoom = Vector2(0.78, 0.78)
+
+[node name="FX" type="Node2D" parent="."]
+
+[node name="BiteAttackFX_Up" type="CPUParticles2D" parent="FX"]
+material = SubResource("ShaderMaterial_qrifh")
+position = Vector2(-568, -682)
+scale = Vector2(-1, 1)
+emitting = false
+amount = 1
+lifetime = 0.3
+one_shot = true
+speed_scale = 1.5
+explosiveness = 0.4
+local_coords = true
+texture = ExtResource("29_oxkqo")
+spread = 0.0
+gravity = Vector2(0, 3000)
+angular_velocity_min = -75.0
+angular_velocity_max = -75.0
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+color_ramp = SubResource("Gradient_xxypr")
+
+[node name="BiteAttackFX_Down" type="CPUParticles2D" parent="FX"]
+material = SubResource("ShaderMaterial_qrifh")
+position = Vector2(-565, -270)
+scale = Vector2(-1, 1)
+emitting = false
+amount = 1
+lifetime = 0.3
+one_shot = true
+speed_scale = 1.5
+explosiveness = 0.4
+local_coords = true
+texture = ExtResource("30_o5e6o")
+spread = 0.0
+gravity = Vector2(0, -3000)
+angular_velocity_min = 75.0
+angular_velocity_max = 75.0
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+color_ramp = SubResource("Gradient_xxypr")
