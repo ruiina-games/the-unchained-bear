@@ -38,8 +38,11 @@ func _ready() -> void:
 	GlobalSignals.character_died.connect(func(character: Character):
 		if character == target:
 			target = null
-			hsm.set_active(false)
+			set_controller_inactive()
 		)
+
+func set_controller_inactive():
+	pass
 
 func kill_actor():
 	pass

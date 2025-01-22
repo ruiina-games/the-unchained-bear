@@ -8,7 +8,7 @@ class_name PlayerController
 @export var max_tilt: float = 20.0
 @export var acceleration: float = 100.0  # Заміна для delta
 @export var deceleration: float = 20.0  # Заміна для delta
-@export var jump_force: float = 2000
+@export var jump_force: float = 2400
 
 @export var sec_to_reset_combo: float = 0.4
 

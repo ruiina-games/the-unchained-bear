@@ -100,3 +100,6 @@ func apply_knockback(direction, force):
 
 	actor.velocity = initial_velocity
 	print(name + " is knocked back with force: " + str(force))
+
+func set_controller_inactive():
+	hsm.set_active(false)
