@@ -1,17 +1,17 @@
 [gd_resource type="Resource" script_class="Damage" load_steps=4 format=3 uid="uid://w5nt8my5aw56"]
 
-[ext_resource type="Script" path="res://data/damage/scripts/knockback.gd" id="1_7jf65"]
+[ext_resource type="Script" path="res://data/damage/scripts/stun.gd" id="1_bl21n"]
 [ext_resource type="Script" path="res://data/damage/scripts/damage.gd" id="2_u2vua"]
 
-[sub_resource type="Resource" id="Resource_cj7xt"]
-script = ExtResource("1_7jf65")
-knockback_force = 9000.0
-base_damage = 20.0
+[sub_resource type="Resource" id="Resource_pctt8"]
+script = ExtResource("1_bl21n")
+clicks_to_release = 0
+base_damage = 0.0
 base_proc_chance = 1.0
-duration = 0.0
+duration = 2.0
 
 [resource]
 script = ExtResource("2_u2vua")
 damage_amount = 150.0
 multiplier = 1.0
-effect = SubResource("Resource_cj7xt")
+effect = SubResource("Resource_pctt8")

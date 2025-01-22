@@ -5,7 +5,9 @@ func _update(delta: float):
 	handle_movement()
 
 func handle_movement():
-		# Отримання напряму руху
+	if !character.can_move:
+		return
+
 	var dir = Input.get_axis("move_left", "move_right")
 
 	# Прискорення і уповільнення

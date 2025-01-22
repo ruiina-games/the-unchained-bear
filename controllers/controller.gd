@@ -31,6 +31,9 @@ func _ready() -> void:
 	actor.died.connect(func():
 		kill_actor()
 	)
+	actor.got_stunned.connect(func(was_stunned: bool):
+		set_stunned(was_stunned)
+	)
 	
 	fighting_style = actor.character_stats.fighting_style
 	_init_state_machine()
@@ -49,6 +52,9 @@ func kill_actor():
 
 func _init_state_machine() -> void:
 	pass
+
+func set_stunned(stunned: bool):
+	actor.can_move = !stunned
 
 func _process(delta: float) -> void:
 	if !target:

@@ -3,6 +3,7 @@ class_name Character
 
 signal got_knocked()
 signal got_hit()
+signal got_stunned(was_stunned: bool)
 signal died()
 
 @export var character_stats: CharacterStats
@@ -24,12 +25,6 @@ var can_move: bool = true
 var is_dead: bool = false
 var is_on_floor: bool = false
 
-func activate_effect(effect: Effect):
-	effects_dic[effect] = true
-	
-func deactivate_effect(effect: Effect):
-	effects_dic[effect] = false
-
 func _ready() -> void:
 	apply_shader_to_polygons($Polygons)
 	# Initializing current health with max health considering we create a character with full HP
@@ -44,10 +39,16 @@ func _ready() -> void:
 		get_hurt()
 		)
 
+func activate_effect(effect: Effect):
+	effects_dic[effect] = true
+	
+func deactivate_effect(effect: Effect):
+	effects_dic[effect] = false
+
 func get_anim_tree():
 	if animation_tree:
 		return animation_tree
-		
+
 func attack() -> void:
 	if !hitbox:
 		print(name + " doesn't have hitbox assigned attack won't infict any damage")
@@ -77,14 +78,6 @@ func adjust_scale_for_direction(direction):
 	elif direction.x < 0:
 		transform.x.x = 1
 	
-func set_stunned(stunned: bool):
-	if animation_tree:
-		# animation_tree.set("parameters/stunned", stunned)
-		if stunned:
-			print(name + " is stunned!")
-		else:
-			print(name + " is no longer stunned!")
-
 func apply_knockback(direction: Vector2, force: float):
 	got_knocked.emit(direction, force)
 

@@ -57,7 +57,11 @@ func apply_negative_effects(enemy_stats: CharacterStats, negative_effect: Negati
 	if !negative_effect or randf() >= negative_effect.base_proc_chance:
 		return
 
+	var agent_stats: CharacterStats = agent.character_stats
 	var effect_multiplier: float = enemy_stats.effect_power_multiplier
+	var agent_effect_resistance: float = agent_stats.status_resist_multiplier
+
+	effect_multiplier = clampf(effect_multiplier - agent_effect_resistance, 0, effect_multiplier)
 
 	if negative_effect is TickingNegativeEffect:
 		process_ticking_effects(negative_effect, effect_multiplier)
@@ -90,14 +94,8 @@ func process_ticking_effects(effect: TickingNegativeEffect, multiplier: float):
 			bleeding_damage *= (1 - agent.character_stats.status_resist_multiplier)
 			agent.character_stats.take_damage(bleeding_damage)
 
-func process_knockback_effect(effect: Knockback, multiplier: float):
-	var knockback_force = effect.knockback_force * multiplier
-	knockback_force *= (1 - agent.character_stats.status_resist_multiplier)
-	var knockback_direction: Vector2 = enemy.global_position.direction_to(agent.global_position).normalized()
-	print(knockback_direction.normalized())
-	knockback_direction.y = 0
-	agent.got_knocked.emit(knockback_direction, knockback_force)
 
+# DONE
 func process_slow_effect(effect: SlowEffect, multiplier: float):
 	if agent.effects_dic.has(effect):
 		if agent.effects_dic[effect] == true:
@@ -114,9 +112,26 @@ func process_slow_effect(effect: SlowEffect, multiplier: float):
 	agent.deactivate_effect(effect)
 
 func process_stun_effect(effect: StunEffect, multiplier: float):
-	agent.set_stunned(true)
+	if agent.effects_dic.has(effect):
+		if agent.effects_dic[effect] == true:
+			return
+	agent.activate_effect(effect)
+	
+	print("stun multi " + str(multiplier))
+	print("stun duration: " + str(effect.duration * multiplier))
+	agent.got_stunned.emit(true)
 	await get_tree().create_timer(effect.duration * multiplier).timeout
-	agent.set_stunned(false)
+	agent.got_stunned.emit(false)
+	
+	agent.deactivate_effect(effect)
+
+func process_knockback_effect(effect: Knockback, multiplier: float):
+	var knockback_force = effect.knockback_force * multiplier
+	knockback_force *= (1 - agent.character_stats.status_resist_multiplier)
+	var knockback_direction: Vector2 = enemy.global_position.direction_to(agent.global_position).normalized()
+	print(knockback_direction.normalized())
+	knockback_direction.y = 0
+	agent.got_knocked.emit(knockback_direction, knockback_force)
 
 func handle_death():
 	GlobalSignals.character_died.emit(agent)
