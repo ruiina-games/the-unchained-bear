@@ -12,7 +12,7 @@ name = "Freestyle"
 description = ""
 max_combo_count = 3
 damage_variations = {
-0: ExtResource("1_cckga"),
-1: ExtResource("2_w53nb"),
+0: ExtResource("2_w53nb"),
+1: ExtResource("1_cckga"),
 2: ExtResource("3_sghtk")
 }

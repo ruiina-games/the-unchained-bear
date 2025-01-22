@@ -22,6 +22,9 @@ func _enter() -> void:
 	if !controller.actor.can_move:
 		return
 
+	if !controller.target:
+		return
+
 	actor_global_position = controller.actor_global_position
 	target_global_position = controller.target.global_position
 

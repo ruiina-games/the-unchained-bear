@@ -23,12 +23,15 @@ func _enter() -> void:
 
 
 func _update(delta: float) -> void:
-	was_on_floor = character.is_on_floor()
-	
+	character.is_on_floor = is_equal_approx(character.global_position.y, GlobalVariables.FLOOR_HEIGHT)
 	super(delta)
 	
-	if !was_on_floor and character.is_on_floor():
+	if !was_on_floor and character.is_on_floor:
 		is_falling = true
 		controller.current_velocity = Vector2.ZERO
 		character.velocity = Vector2.ZERO
 		state_machine.switch_state("land")
+	
+	was_on_floor = character.is_on_floor
+	
+	

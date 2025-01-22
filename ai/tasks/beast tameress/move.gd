@@ -24,6 +24,9 @@ func _tick(delta: float) -> Status:
 		
 	if !controller.actor.can_move:
 		return Status.FAILURE
+		
+	if controller.actor.is_dead:
+		return Status.FAILURE
 
 	var actor_global_position = controller.actor.global_position
 	var distance_to_target = actor_global_position.distance_to(target_position)

@@ -1,4 +1,4 @@
-[gd_resource type="BehaviorTree" load_steps=36 format=3 uid="uid://c2gr4a0ig0ujm"]
+[gd_resource type="BehaviorTree" load_steps=34 format=3 uid="uid://c2gr4a0ig0ujm"]
 
 [ext_resource type="Script" path="res://ai/tasks/conditions/check_distance.gd" id="1_d83ie"]
 [ext_resource type="Script" path="res://ai/tasks/play_tree_anim.gd" id="1_jdqnl"]
@@ -21,11 +21,34 @@ var/can_move/type = 1
 var/can_move/value = false
 var/can_move/hint = 0
 var/can_move/hint_string = ""
+var/is_dead/name = &"is_dead"
+var/is_dead/type = 1
+var/is_dead/value = false
+var/is_dead/hint = 0
+var/is_dead/hint_string = ""
+
+[sub_resource type="BBVariant" id="BBVariant_ad8bv"]
+type = 1
+saved_value = true
+resource_name = "true"
+
+[sub_resource type="BTCheckVar" id="BTCheckVar_3obbr"]
+variable = &"is_dead"
+value = SubResource("BBVariant_ad8bv")
+
+[sub_resource type="BTAction" id="BTAction_cfxoc"]
+custom_name = "Die"
+script = ExtResource("1_jdqnl")
+animation_condition = &"death"
+
+[sub_resource type="BTSequence" id="BTSequence_7y3pg"]
+custom_name = "Death"
+children = [SubResource("BTCheckVar_3obbr"), SubResource("BTAction_cfxoc")]
 
 [sub_resource type="BTCondition" id="BTCondition_y8bbx"]
 custom_name = "Is enemy close enough to kick?"
 script = ExtResource("1_d83ie")
-target_distance = 500.0
+target_distance = 600.0
 check_mode = 1
 
 [sub_resource type="BTAction" id="BTAction_3hq8c"]
@@ -34,6 +57,7 @@ script = ExtResource("1_jdqnl")
 animation_condition = &"kick"
 
 [sub_resource type="BTDelay" id="BTDelay_7e5dn"]
+seconds = 0.4
 custom_name = "Attack Inform"
 children = [SubResource("BTAction_3hq8c")]
 script = ExtResource("4_qpdct")
@@ -43,42 +67,12 @@ inform_text = "BEAST TAMERESS IS GOING TO KICK"
 custom_name = "Kick"
 children = [SubResource("BTCondition_y8bbx"), SubResource("BTDelay_7e5dn")]
 
-[sub_resource type="BBVariant" id="BBVariant_mckh8"]
-type = 2
-saved_value = 5
-resource_name = "5"
-
-[sub_resource type="BTCheckVar" id="BTCheckVar_73u7d"]
-variable = &"consecutive_hits"
-check_type = 4
-value = SubResource("BBVariant_mckh8")
-custom_name = "Is consecutive hits enough to pefrorm kick?"
-
-[sub_resource type="BBVariant" id="BBVariant_kyd3x"]
-type = 2
-saved_value = 0
-resource_name = "0"
-
-[sub_resource type="BTSetVar" id="BTSetVar_hanqm"]
-variable = &"consecutive_hits"
-value = SubResource("BBVariant_kyd3x")
-custom_name = "Resetting consectuive hits to 0"
-
-[sub_resource type="BTAction" id="BTAction_weerq"]
-custom_name = "Perform kick"
-script = ExtResource("1_jdqnl")
-animation_condition = &"kick"
-
-[sub_resource type="BTSequence" id="BTSequence_5jsth"]
-custom_name = "Kick"
-children = [SubResource("BTCheckVar_73u7d"), SubResource("BTSetVar_hanqm"), SubResource("BTAction_weerq")]
-
 [sub_resource type="BTSelector" id="BTSelector_smtbu"]
 custom_name = "Close Enemy or Consecutive Hits Selection"
-children = [SubResource("BTSequence_wbvid"), SubResource("BTSequence_5jsth")]
+children = [SubResource("BTSequence_wbvid")]
 
 [sub_resource type="BTCooldown" id="BTCooldown_hm7qn"]
-duration = 4.0
+duration = 2.0
 custom_name = "Kick Cooldown"
 children = [SubResource("BTSelector_smtbu")]
 
@@ -89,13 +83,14 @@ animation_condition = &"idle"
 
 [sub_resource type="BTCondition" id="BTCondition_acvpi"]
 script = ExtResource("1_d83ie")
-target_distance = 1000.0
+target_distance = 1200.0
 check_mode = 2
 
 [sub_resource type="BTInvert" id="BTInvert_rsoop"]
 children = [SubResource("BTCondition_acvpi")]
 
 [sub_resource type="BTDelay" id="BTDelay_2qism"]
+seconds = 0.5
 custom_name = "Anti-sliding delay (without it boss is starting moving too early after attack)"
 children = [SubResource("BTInvert_rsoop")]
 
@@ -106,7 +101,7 @@ animation_condition = &"run"
 
 [sub_resource type="BTAction" id="BTAction_e77kh"]
 script = ExtResource("2_mgrc0")
-move_speed = 500.0
+move_speed = 650.0
 tolerance = 25.0
 should_stop_at_enemy = true
 
@@ -120,14 +115,14 @@ custom_name = "Movement Sequence"
 children = [SubResource("BTAction_agp5m"), SubResource("BTDelay_2qism"), SubResource("BTAction_ep575"), SubResource("BTAction_e77kh"), SubResource("BTAction_ympc1")]
 
 [sub_resource type="BTCooldown" id="BTCooldown_h1fli"]
-duration = 5.0
+duration = 2.0
 custom_name = "Movement Cooldown"
 children = [SubResource("BTSequence_7r6ke")]
 
 [sub_resource type="BTCondition" id="BTCondition_31app"]
 custom_name = "Is enemy far enough to hit him?"
 script = ExtResource("1_d83ie")
-target_distance = 1000.0
+target_distance = 700.0
 check_mode = 0
 
 [sub_resource type="BTAction" id="BTAction_vm3vn"]
@@ -135,7 +130,7 @@ script = ExtResource("2_1gm2q")
 available_attacks = 3
 
 [sub_resource type="BTDelay" id="BTDelay_txoqq"]
-seconds = 2.0
+seconds = 0.4
 custom_name = "Delay for attack inform to display"
 children = [SubResource("BTAction_vm3vn")]
 script = ExtResource("4_qpdct")
@@ -146,7 +141,7 @@ custom_name = "Attack 1 Sequence"
 children = [SubResource("BTCondition_31app"), SubResource("BTDelay_txoqq")]
 
 [sub_resource type="BTCooldown" id="BTCooldown_ufa2x"]
-duration = 5.0
+duration = 3.0
 custom_name = "Attack 1 Cooldown"
 children = [SubResource("BTSequence_qiqji")]
 
@@ -160,7 +155,7 @@ custom_name = "Idle"
 children = [SubResource("BTAction_e6in2")]
 
 [sub_resource type="BTSelector" id="BTSelector_3u446"]
-children = [SubResource("BTCooldown_hm7qn"), SubResource("BTCooldown_h1fli"), SubResource("BTCooldown_ufa2x"), SubResource("BTSequence_ce3no")]
+children = [SubResource("BTSequence_7y3pg"), SubResource("BTCooldown_hm7qn"), SubResource("BTCooldown_h1fli"), SubResource("BTCooldown_ufa2x"), SubResource("BTSequence_ce3no")]
 
 [resource]
 blackboard_plan = SubResource("BlackboardPlan_2k351")

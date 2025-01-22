@@ -5,7 +5,7 @@ class_name PlayerState
 
 var animation_tree: AnimationTree
 var state_machine :PlayerStateMachine
-var character :CharacterBody2D
+var character :Character
 var controller: PlayerController
 var playback :AnimationNodeStateMachinePlayback
 

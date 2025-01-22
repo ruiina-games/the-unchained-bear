@@ -42,6 +42,9 @@ func _on_consecutive_hits_reset_timer_timeout():
 	print("Boss now can get even more punches!!!")
 
 func get_target_move_position():
+	if !target:
+		return Vector2.ZERO
+	
 	var viewport = get_viewport_rect()
 	var actor_pos = actor.global_position
 	var target_pos = target.global_position
@@ -97,3 +100,6 @@ func apply_knockback(direction, force):
 
 	actor.velocity = initial_velocity
 	print(name + " is knocked back with force: " + str(force))
+
+func set_controller_inactive():
+	hsm.set_active(false)

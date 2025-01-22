@@ -12,3 +12,4 @@ func create_state_conditions():
 	state_conditions["kick"] =  path_to_anim_parameters + "kick"
 	state_conditions["idle"] =  path_to_anim_parameters + "idle"
 	state_conditions["attack"] =  path_to_anim_parameters + "attack"
+	state_conditions["death"] =  path_to_anim_parameters + "death"

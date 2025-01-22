@@ -6,8 +6,6 @@ class_name Controller
 @export var hsm: LimboHSM
 @export var hp_label: Label
 
-# @export_category("Attack")
-
 var fighting_style: FightingStyle
 
 var target_global_position: Vector2
@@ -30,14 +28,32 @@ func _ready() -> void:
 	actor.got_knocked.connect(func(direction: Vector2, force: float):
 		apply_knockback(direction, force)
 	)
-		
+	actor.died.connect(func():
+		kill_actor()
+	)
+	
 	fighting_style = actor.character_stats.fighting_style
 	_init_state_machine()
+	
+	GlobalSignals.character_died.connect(func(character: Character):
+		if character == target:
+			target = null
+			set_controller_inactive()
+		)
+
+func set_controller_inactive():
+	pass
+
+func kill_actor():
+	pass
 
 func _init_state_machine() -> void:
 	pass
 
 func _process(delta: float) -> void:
+	if !target:
+		return
+	
 	target_global_position = target.global_position
 	actor_global_position = actor.global_position
 	
@@ -45,8 +61,12 @@ func _process(delta: float) -> void:
 		hp_label.text = str(actor.character_stats.current_health)
 
 func _physics_process(delta: float):
-	if !actor.is_on_floor():
-		current_velocity.y += gravity
+	if actor.global_position.y >= GlobalVariables.FLOOR_HEIGHT:
+		actor.global_position.y = GlobalVariables.FLOOR_HEIGHT
+		actor.is_on_floor = true
+	else:
+		current_velocity.y += GlobalVariables.GRAVITY
+		actor.is_on_floor = false
 
 func get_hsm():
 	if hsm:
