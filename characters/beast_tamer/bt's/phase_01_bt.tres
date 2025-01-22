@@ -1,4 +1,4 @@
-[gd_resource type="BehaviorTree" load_steps=34 format=3 uid="uid://c2gr4a0ig0ujm"]
+[gd_resource type="BehaviorTree" load_steps=38 format=3 uid="uid://c2gr4a0ig0ujm"]
 
 [ext_resource type="Script" path="res://ai/tasks/conditions/check_distance.gd" id="1_d83ie"]
 [ext_resource type="Script" path="res://ai/tasks/play_tree_anim.gd" id="1_jdqnl"]
@@ -26,6 +26,24 @@ var/is_dead/type = 1
 var/is_dead/value = false
 var/is_dead/hint = 0
 var/is_dead/hint_string = ""
+
+[sub_resource type="BBVariant" id="BBVariant_a3yx3"]
+type = 1
+saved_value = false
+resource_name = "false"
+
+[sub_resource type="BTCheckVar" id="BTCheckVar_p03q8"]
+variable = &"can_move"
+value = SubResource("BBVariant_a3yx3")
+
+[sub_resource type="BTAction" id="BTAction_liinw"]
+custom_name = "Stun"
+script = ExtResource("1_jdqnl")
+animation_condition = &"idle"
+
+[sub_resource type="BTSequence" id="BTSequence_nnnfv"]
+custom_name = "Stunned"
+children = [SubResource("BTCheckVar_p03q8"), SubResource("BTAction_liinw")]
 
 [sub_resource type="BBVariant" id="BBVariant_ad8bv"]
 type = 1
@@ -155,7 +173,7 @@ custom_name = "Idle"
 children = [SubResource("BTAction_e6in2")]
 
 [sub_resource type="BTSelector" id="BTSelector_3u446"]
-children = [SubResource("BTSequence_7y3pg"), SubResource("BTCooldown_hm7qn"), SubResource("BTCooldown_h1fli"), SubResource("BTCooldown_ufa2x"), SubResource("BTSequence_ce3no")]
+children = [SubResource("BTSequence_nnnfv"), SubResource("BTSequence_7y3pg"), SubResource("BTCooldown_hm7qn"), SubResource("BTCooldown_h1fli"), SubResource("BTCooldown_ufa2x"), SubResource("BTSequence_ce3no")]
 
 [resource]
 blackboard_plan = SubResource("BlackboardPlan_2k351")

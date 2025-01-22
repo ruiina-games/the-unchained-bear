@@ -56,8 +56,19 @@ func apply_direct_damage(enemy_stats: CharacterStats, damage: Damage):
 func apply_negative_effects(enemy_stats: CharacterStats, negative_effect: NegativeEffect):
 	if !negative_effect or randf() >= negative_effect.base_proc_chance:
 		return
+	
+	# considering that negative effect will never be reset
+	# if victim is already suffering from negative effect it won't take it once more
+	if agent.effects_dic.has(negative_effect):
+		if agent.effects_dic[negative_effect] == true:
+			return
+	agent.activate_effect(negative_effect)
 
+	var agent_stats: CharacterStats = agent.character_stats
 	var effect_multiplier: float = enemy_stats.effect_power_multiplier
+	var agent_effect_resistance: float = agent_stats.status_resist_multiplier
+
+	effect_multiplier = clampf(effect_multiplier - agent_effect_resistance, 0, effect_multiplier)
 
 	if negative_effect is TickingNegativeEffect:
 		process_ticking_effects(negative_effect, effect_multiplier)
@@ -70,6 +81,8 @@ func apply_negative_effects(enemy_stats: CharacterStats, negative_effect: Negati
 
 	elif negative_effect is StunEffect:
 		process_stun_effect(negative_effect, effect_multiplier)
+		
+	agent.deactivate_effect(negative_effect)
 
 func process_ticking_effects(effect: TickingNegativeEffect, multiplier: float):
 	var tick_count: int = int(effect.get_ticks_amount() * multiplier)
@@ -79,16 +92,35 @@ func process_ticking_effects(effect: TickingNegativeEffect, multiplier: float):
 		for i in range(tick_count):
 			await get_tree().create_timer(tick_interval).timeout
 			var adjusted_damage = effect.base_damage * multiplier
-			adjusted_damage *= (1 - agent.character_stats.status_resist_multiplier)
 			agent.character_stats.take_damage(adjusted_damage)
+			if agent.character_stats.current_health <= 0:
+				handle_death()
+				break
 
 	elif effect is BleedingEffect:
-		for i in range(tick_count):
+		for i in range(999999):
 			await get_tree().create_timer(tick_interval).timeout
 			var bleeding_damage = effect.calculate_damage(agent.character_stats.max_health)
 			bleeding_damage *= multiplier
-			bleeding_damage *= (1 - agent.character_stats.status_resist_multiplier)
+			print(bleeding_damage)
 			agent.character_stats.take_damage(bleeding_damage)
+			if agent.character_stats.current_health <= 0:
+				handle_death()
+				break
+
+# DONE
+func process_slow_effect(effect: SlowEffect, multiplier: float):	
+	var slow_ratio = effect.slow_ratio * multiplier
+	var original_multiplier: float = agent.character_stats.movement_speed_multiplier
+	
+	agent.character_stats.movement_speed_multiplier = (1 - slow_ratio)
+	await get_tree().create_timer(effect.duration * multiplier).timeout
+	agent.character_stats.movement_speed_multiplier = original_multiplier
+
+func process_stun_effect(effect: StunEffect, multiplier: float):	
+	agent.got_stunned.emit(true)
+	await get_tree().create_timer(effect.duration * multiplier).timeout
+	agent.got_stunned.emit(false)
 
 func process_knockback_effect(effect: Knockback, multiplier: float):
 	var knockback_force = effect.knockback_force * multiplier
@@ -97,26 +129,6 @@ func process_knockback_effect(effect: Knockback, multiplier: float):
 	print(knockback_direction.normalized())
 	knockback_direction.y = 0
 	agent.got_knocked.emit(knockback_direction, knockback_force)
-
-func process_slow_effect(effect: SlowEffect, multiplier: float):
-	if agent.effects_dic.has(effect):
-		if agent.effects_dic[effect] == true:
-			return
-	agent.activate_effect(effect)
-	
-	var slow_ratio = effect.slow_ratio * multiplier
-	var original_multiplier: float = agent.character_stats.movement_speed_multiplier
-	
-	agent.character_stats.movement_speed_multiplier = (1 - slow_ratio)
-	await get_tree().create_timer(effect.duration * multiplier).timeout
-	agent.character_stats.movement_speed_multiplier = original_multiplier
-	
-	agent.deactivate_effect(effect)
-
-func process_stun_effect(effect: StunEffect, multiplier: float):
-	agent.set_stunned(true)
-	await get_tree().create_timer(effect.duration * multiplier).timeout
-	agent.set_stunned(false)
 
 func handle_death():
 	GlobalSignals.character_died.emit(agent)

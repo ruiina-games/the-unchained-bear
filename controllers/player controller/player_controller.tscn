@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cevie0mm3xc4j"]
+[gd_scene load_steps=14 format=3 uid="uid://cevie0mm3xc4j"]
 
 [ext_resource type="Script" path="res://controllers/player controller/player_controller.gd" id="1_jg0g5"]
 [ext_resource type="PackedScene" uid="uid://cjbnosxi4m18l" path="res://characters/bear/bear_new.tscn" id="2_drj5a"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://controllers/player controller/jump.gd" id="6_ofg5v"]
 [ext_resource type="Script" path="res://controllers/player controller/player state machine/states/attack.gd" id="7_ieqh6"]
 [ext_resource type="Script" path="res://controllers/player controller/death.gd" id="10_ggmk1"]
+[ext_resource type="Script" path="res://controllers/player controller/stunned.gd" id="11_1g1x7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lpkf7"]
 font_size = 40
@@ -188,63 +189,60 @@ text = "0"
 [node name="BearNew" parent="." instance=ExtResource("2_drj5a")]
 unique_name_in_owner = true
 
-[node name="TorsoMain" parent="BearNew/Skeleton2D" index="1"]
-scale = Vector2(0.999999, 0.999999)
-
 [node name="TorsoTop" parent="BearNew/Skeleton2D/TorsoMain" index="0"]
-rotation = 0.408906
-scale = Vector2(0.999982, 0.999982)
+rotation = 0.371834
+scale = Vector2(0.999981, 0.999981)
 
 [node name="UpperArmR" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop" index="0"]
-rotation = 1.44789
-scale = Vector2(0.999977, 0.999977)
+rotation = 1.47835
+scale = Vector2(0.999976, 0.999976)
 
 [node name="LowerArmR" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR" index="0"]
-rotation = -1.75843
-scale = Vector2(0.999978, 0.999978)
+rotation = -1.76984
+scale = Vector2(0.999977, 0.999977)
 
 [node name="WristR" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR" index="0"]
-rotation = 1.63131
-scale = Vector2(0.999984, 0.999984)
+rotation = 1.82342
+scale = Vector2(0.999983, 0.999983)
 
 [node name="UpperArmL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop" index="1"]
-rotation = -1.13087
-scale = Vector2(0.999978, 0.999978)
+rotation = -1.04398
+scale = Vector2(0.999977, 0.999977)
 
 [node name="LowerArmL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL" index="0"]
-rotation = -0.311238
-scale = Vector2(0.999984, 0.999984)
+rotation = -0.399633
+scale = Vector2(0.999983, 0.999983)
 
 [node name="WristL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL" index="0"]
-rotation = 2.55808
-scale = Vector2(0.999978, 0.999978)
+rotation = 2.62273
+scale = Vector2(0.999977, 0.999977)
 
 [node name="HeadMain" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop" index="2"]
-rotation = -0.143137
-scale = Vector2(0.999974, 0.999974)
+rotation = -0.120475
+scale = Vector2(0.999973, 0.999973)
 
 [node name="LowerJaw" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="0"]
-rotation = 1.05733
+rotation = 1.07613
 scale = Vector2(0.999976, 0.999976)
 
 [node name="EarL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="2"]
 scale = Vector2(0.443939, 0.778982)
 
 [node name="UpperLegR" parent="BearNew/Skeleton2D/TorsoMain" index="1"]
-rotation = 1.84981
+rotation = 2.0568
 scale = Vector2(0.999988, 0.999988)
 
 [node name="LowerLegR" parent="BearNew/Skeleton2D/TorsoMain/UpperLegR" index="0"]
-rotation = 1.68407
-scale = Vector2(0.999979, 0.999979)
+rotation = 1.34204
+scale = Vector2(0.999978, 0.999978)
 
 [node name="UpperLegL" parent="BearNew/Skeleton2D/TorsoMain" index="2"]
-rotation = 2.86483
-scale = Vector2(0.999987, 0.999987)
+rotation = 2.85416
+scale = Vector2(0.999986, 0.999986)
 
 [node name="LowerLegL" parent="BearNew/Skeleton2D/TorsoMain/UpperLegL" index="0"]
-rotation = 0.110454
-scale = Vector2(0.999982, 0.999982)
+rotation = 0.13358
+scale = Vector2(0.999981, 0.999981)
 
 [node name="AnimationTree" parent="BearNew" index="10"]
 parameters/MainStateMachine/ATTACK/blend_position = 1.31569
@@ -286,5 +284,9 @@ animation_state_name = "attack"
 unique_name_in_owner = true
 script = ExtResource("10_ggmk1")
 animation_state_name = "death"
+
+[node name="Stunned" type="LimboState" parent="LimboHSM"]
+unique_name_in_owner = true
+script = ExtResource("11_1g1x7")
 
 [editable path="BearNew"]
