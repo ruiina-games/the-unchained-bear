@@ -4,10 +4,10 @@ class_name Character
 signal got_knocked()
 signal got_hit()
 signal got_stunned(was_stunned: bool)
+signal effect_changes(effect: Effect)
 signal died()
 
 @export var character_stats: CharacterStats
-# @export var movement_stats: MovementStats
 @export var animation_tree :AnimationTree
 @export var shader_material: ShaderMaterial
 
@@ -41,9 +41,11 @@ func _ready() -> void:
 
 func activate_effect(effect: Effect):
 	effects_dic[effect] = true
-	
+	effect_changes.emit(effect)
+
 func deactivate_effect(effect: Effect):
 	effects_dic[effect] = false
+	effect_changes.emit(effect)
 
 func get_anim_tree():
 	if animation_tree:
