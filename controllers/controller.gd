@@ -25,11 +25,10 @@ func _ready() -> void:
 		print("No actor in " + name)
 		get_tree().quit()
 		
-
 	connect_signals()
 	
 	fighting_style = actor.character_stats.fighting_style
-	_init_state_machine()
+	init_state_machine()
 	
 	GlobalSignals.character_died.connect(func(character: Character):
 		if character == target:
@@ -57,7 +56,7 @@ func set_controller_inactive():
 func kill_actor():
 	pass
 
-func _init_state_machine() -> void:
+func init_state_machine() -> void:
 	pass
 
 # TODO: Тут викликаєш візуальні ефекти/партікли на кожен з Effect.
