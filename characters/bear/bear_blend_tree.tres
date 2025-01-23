@@ -1,4 +1,9 @@
-[gd_resource type="AnimationNodeBlendTree" load_steps=80 format=3 uid="uid://co5jje3igjqpg"]
+[gd_resource type="AnimationNodeBlendTree" load_steps=82 format=3 uid="uid://co5jje3igjqpg"]
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_axlxd"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fhsjn"]
+animation = &"EYES_SPIN"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x2arq"]
 animation = &"HURT"
@@ -472,7 +477,11 @@ mix_mode = 1
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_8x5ag"]
 
 [resource]
-graph_offset = Vector2(-351.66, -71.2488)
+graph_offset = Vector2(-178.174, -205.38)
+nodes/Add2/node = SubResource("AnimationNodeAdd2_axlxd")
+nodes/Add2/position = Vector2(620, -200)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_fhsjn")
+nodes/Animation/position = Vector2(458.38, 50.36)
 nodes/HURT/node = SubResource("AnimationNodeAnimation_x2arq")
 nodes/HURT/position = Vector2(-64, -48)
 nodes/MainStateMachine/node = SubResource("AnimationNodeStateMachine_plt3u")
@@ -481,5 +490,5 @@ nodes/OneShot/node = SubResource("AnimationNodeOneShot_yoxab")
 nodes/OneShot/position = Vector2(144, -208)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_8x5ag")
 nodes/TimeScale/position = Vector2(416, -240)
-nodes/output/position = Vector2(608, -224)
-node_connections = [&"OneShot", 0, &"MainStateMachine", &"OneShot", 1, &"HURT", &"TimeScale", 0, &"OneShot", &"output", 0, &"TimeScale"]
+nodes/output/position = Vector2(780, -220)
+node_connections = [&"Add2", 0, &"TimeScale", &"Add2", 1, &"Animation", &"OneShot", 0, &"MainStateMachine", &"OneShot", 1, &"HURT", &"TimeScale", 0, &"OneShot", &"output", 0, &"Add2"]
