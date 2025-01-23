@@ -33,8 +33,10 @@ func _ready():
 func _unhandled_input(event):
 	if tutorial_started:
 		if event.is_action_pressed("move_left"):
+			await get_tree().create_timer(0.7).timeout
 			a_was_pressed = true
 		if event.is_action_pressed("move_right"):
+			await get_tree().create_timer(0.7).timeout
 			d_was_pressed = true
 	
 	if tutorial_second_stage_started:
@@ -66,16 +68,25 @@ func second_stage():
 		return
 	
 	if a_was_pressed and d_was_pressed:
-		beast_tamer.animation_tree["parameters/MainStateMachine/conditions/attack"] = true
-		beast_tamer.animation_tree.animation_finished.connect(func(anim_name): beast_tamer.animation_tree["parameters/MainStateMachine/conditions/attack"] = false)
+		tutorial_second_stage_started = true
+		animation_player.play("tamer_zoom")
+
 		$TextPopup/TutorialSubtitle2.text = "Now jump!"
 		$TextPopup.visible = true
-		await get_tree().create_timer(1).timeout
+		
+		
+		await get_tree().create_timer(1.5).timeout
+		beast_tamer.animation_tree["parameters/MainStateMachine/conditions/attack"] = true
 		$TextPopup.visible = false
+		await get_tree().create_timer(0.1).timeout
+		beast_tamer.animation_tree["parameters/MainStateMachine/conditions/attack"] = false
+		
+		
+		
 		
 		annoyance_timer.stop()
 		annoyance_timer.start()
-		tutorial_second_stage_started = true
+		
 		player_controller.hsm.allowed_advance_movement = true
 		tutorial_subtitle.text = "Press [SPACE] to jump and [S] to bend"
 

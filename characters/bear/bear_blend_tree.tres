@@ -477,7 +477,7 @@ mix_mode = 1
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_8x5ag"]
 
 [resource]
-graph_offset = Vector2(-178.174, -205.38)
+graph_offset = Vector2(-317.197, -128.681)
 nodes/Add2/node = SubResource("AnimationNodeAdd2_axlxd")
 nodes/Add2/position = Vector2(620, -200)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_fhsjn")
@@ -490,5 +490,5 @@ nodes/OneShot/node = SubResource("AnimationNodeOneShot_yoxab")
 nodes/OneShot/position = Vector2(144, -208)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_8x5ag")
 nodes/TimeScale/position = Vector2(416, -240)
-nodes/output/position = Vector2(780, -220)
+nodes/output/position = Vector2(840, -180)
 node_connections = [&"Add2", 0, &"TimeScale", &"Add2", 1, &"Animation", &"OneShot", 0, &"MainStateMachine", &"OneShot", 1, &"HURT", &"TimeScale", 0, &"OneShot", &"output", 0, &"Add2"]
