@@ -14,7 +14,7 @@ var actor_global_position: Vector2
 # Змінні для руху
 var current_velocity: Vector2 = Vector2.ZERO
 var tilt: float = 0.0
-var direction: float = 1.0
+var direction: Vector2 = Vector2.RIGHT
 var gravity: float = 75.0
 
 func _ready() -> void:

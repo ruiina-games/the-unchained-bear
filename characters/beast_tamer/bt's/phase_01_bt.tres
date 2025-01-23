@@ -1,4 +1,4 @@
-[gd_resource type="BehaviorTree" load_steps=38 format=3 uid="uid://c2gr4a0ig0ujm"]
+[gd_resource type="BehaviorTree" load_steps=43 format=3 uid="uid://c2gr4a0ig0ujm"]
 
 [ext_resource type="Script" path="res://ai/tasks/conditions/check_distance.gd" id="1_d83ie"]
 [ext_resource type="Script" path="res://ai/tasks/play_tree_anim.gd" id="1_jdqnl"]
@@ -26,6 +26,29 @@ var/is_dead/type = 1
 var/is_dead/value = false
 var/is_dead/hint = 0
 var/is_dead/hint_string = ""
+
+[sub_resource type="BBNode" id="BBNode_t30hl"]
+saved_value = NodePath("BeastTamer/Skeleton2D/TorsoMain/Monkey")
+resource_name = "BeastTamer/Skeleton2D/TorsoMain/Monkey"
+
+[sub_resource type="BTCallMethod" id="BTCallMethod_gcf0e"]
+node = SubResource("BBNode_t30hl")
+method = &"get_ready_to_throw"
+
+[sub_resource type="BTSequence" id="BTSequence_rvyxd"]
+children = [SubResource("BTCallMethod_gcf0e")]
+
+[sub_resource type="BTDelay" id="BTDelay_xafoe"]
+seconds = 0.4
+children = [SubResource("BTSequence_rvyxd")]
+script = ExtResource("4_qpdct")
+inform_text = "Monkey throwing an object!"
+
+[sub_resource type="BTCooldown" id="BTCooldown_5tthl"]
+duration = 8.0
+start_cooled = true
+custom_name = "Monkey Throwing Objects"
+children = [SubResource("BTDelay_xafoe")]
 
 [sub_resource type="BBVariant" id="BBVariant_a3yx3"]
 type = 1
@@ -173,7 +196,7 @@ custom_name = "Idle"
 children = [SubResource("BTAction_e6in2")]
 
 [sub_resource type="BTSelector" id="BTSelector_3u446"]
-children = [SubResource("BTSequence_nnnfv"), SubResource("BTSequence_7y3pg"), SubResource("BTCooldown_hm7qn"), SubResource("BTCooldown_h1fli"), SubResource("BTCooldown_ufa2x"), SubResource("BTSequence_ce3no")]
+children = [SubResource("BTCooldown_5tthl"), SubResource("BTSequence_nnnfv"), SubResource("BTSequence_7y3pg"), SubResource("BTCooldown_hm7qn"), SubResource("BTCooldown_h1fli"), SubResource("BTCooldown_ufa2x"), SubResource("BTSequence_ce3no")]
 
 [resource]
 blackboard_plan = SubResource("BlackboardPlan_2k351")

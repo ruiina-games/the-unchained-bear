@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c673cctwkscwk"]
+
+[ext_resource type="PackedScene" uid="uid://kxynbs1sjf8d" path="res://characters/beast_tamer/monkey/monkey.tscn" id="1_07mww"]
+[ext_resource type="PackedScene" uid="uid://degtmg5qnxbr" path="res://objects/box/box.tscn" id="1_tmknl"]
+
+[node name="test" type="Node2D"]
+
+[node name="Monkey" parent="." instance=ExtResource("1_07mww")]
+position = Vector2(854, 641)
+object_to_throw_scene = ExtResource("1_tmknl")

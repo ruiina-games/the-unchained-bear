@@ -63,12 +63,6 @@ func _tick(delta: float) -> Status:
 	velocity = direction * move_speed
 	velocity.y = 0
 	controller.actor.velocity = velocity
+	
 	controller.actor.move_and_slide()
-
 	return Status.RUNNING
-
-func _exit() -> void:
-	if controller and controller.actor:
-		controller.actor.velocity = Vector2.ZERO
-	velocity = Vector2.ZERO
-	# print("Exiting move state. Velocity reset.")

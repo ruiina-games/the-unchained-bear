@@ -4,6 +4,8 @@ class_name BeastTameressController
 @export var max_consecutive_hits_can_take: int = 4
 @export var animation_tree: AnimationTree
 @export var attack_range: float = 1500
+@export var monkey: Monkey
+@export var objects_container: Node2D
 
 @onready var consecutive_hits_reset_timer: Timer = %"Consecutive Hits Reset Timer"
 @onready var phase_01: BTState = $LimboHSM/Phase_01
@@ -15,9 +17,22 @@ var blackboard: Blackboard
 func _ready() -> void:
 	super()
 	
+	if monkey:
+		setup_monkey()
+	
 	hsm.initialize(self)
 	hsm.set_active(true)
 	hsm.change_active_state(phase_01)
+
+func setup_monkey():
+	monkey.objects_container = objects_container
+	monkey.ready_to_throw_object.connect(func():
+		if !target:
+			return
+		var throw_direction: Vector2 = actor.global_position.direction_to(target.global_position)
+		actor.adjust_scale_for_direction(throw_direction)
+		monkey.throw_object(throw_direction.normalized())
+	)
 
 func get_target_move_position():
 	if !target:

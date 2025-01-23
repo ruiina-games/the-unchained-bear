@@ -27,7 +27,7 @@ func _ready():
 	GlobalSignals.character_died.connect(func(agent): slow_motion(slowmotion_duration, slowmotion_strength))
 
 func _process(delta):
-	tilt_camera(player_controller.direction)
+	tilt_camera(player_controller.direction.x)
 	
 func tilt_camera(direction: float):
 	if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
