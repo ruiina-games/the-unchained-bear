@@ -27,7 +27,7 @@ var combo_count: int
 func kill_actor():
 	hsm.dispatch(hsm.DIED)
 
-func _init_state_machine() -> void:
+func init_state_machine() -> void:
 	hsm.add_transition(idle_state, run_state, hsm.MOVEMENT_STARTED)
 	hsm.add_transition(run_state, idle_state, hsm.MOVEMENT_FINISHED)
 	hsm.add_transition(hsm.ANYSTATE, jump_state, hsm.JUMPED)

@@ -35,7 +35,7 @@ func _tick(delta: float) -> Status:
 		var enemy_position: Vector2 = controller.target.global_position
 		var distance_to_enemy: float = actor_global_position.distance_to(enemy_position)
 		
-		if distance_to_enemy < 500:
+		if distance_to_enemy < tolerance:
 			# Коли доходимо до потрібної точки - повертаємось в бік початкового тагрета, навіть якщо йшли в інший бік
 			# Зроблено для того, щоб дивитися на ворога, коли доходимо до точки, а не продовжувати дивитись на точку, до якої йшли
 			var look_at_direction = controller.actor.global_position.direction_to(controller.target.global_position)
@@ -63,12 +63,6 @@ func _tick(delta: float) -> Status:
 	velocity = direction * move_speed
 	velocity.y = 0
 	controller.actor.velocity = velocity
+	
 	controller.actor.move_and_slide()
-
 	return Status.RUNNING
-
-func _exit() -> void:
-	if controller and controller.actor:
-		controller.actor.velocity = Vector2.ZERO
-	velocity = Vector2.ZERO
-	# print("Exiting move state. Velocity reset.")

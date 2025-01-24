@@ -18,12 +18,13 @@ func handle_movement():
 
 		controller.current_velocity.x += dir * (controller.acceleration * character.character_stats.movement_speed_multiplier)
 
-		if dir != controller.direction:
+		if dir != controller.direction.x:
 			controller.actor.scale.x *= -1
-		controller.direction = dir
+		controller.direction.x = dir
 
 	# Обмеження максимальної швидкості
 	controller.current_velocity.x = clamp(controller.current_velocity.x, -controller.speed, controller.speed * character.character_stats.movement_speed_multiplier)
+	controller.direction.y = controller.actor.global_position.direction_to(controller.current_velocity).normalized().y
 	controller.current_velocity.y = 0
 	
 	# Нахил моноциклу

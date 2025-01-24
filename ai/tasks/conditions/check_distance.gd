@@ -25,7 +25,7 @@ func _enter() -> void:
 	if !controller.target:
 		return
 
-	actor_global_position = controller.actor_global_position
+	actor_global_position = controller.actor.global_position
 	target_global_position = controller.target.global_position
 
 func _tick(delta: float) -> Status:

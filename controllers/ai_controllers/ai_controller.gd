@@ -1,50 +1,29 @@
 extends Controller
-class_name BeastTameressController
+class_name AIController
 
-@export var max_consecutive_hits_can_take: int = 4
-@export var animation_tree: AnimationTree
-@export var attack_range: float = 1500
-
-@onready var consecutive_hits_reset_timer: Timer = %"Consecutive Hits Reset Timer"
-@onready var phase_01: BTState = $LimboHSM/Phase_01
-
-@onready var label: Label = %Label
+@export var attack_range: float = 1600
 
 var blackboard: Blackboard
 
-func _ready() -> void:
-	super()
-	
+func init_state_machine():
+	if !hsm:
+		return
 	hsm.initialize(self)
 	hsm.set_active(true)
-	hsm.change_active_state(phase_01)
+	
+	var first_state = hsm.get_child(0)
+	
+	if first_state:
+		hsm.change_active_state(first_state)
+	else:
+		print("No states to play in - ", name)
+		return
 
 func get_target_move_position():
 	if !target:
 		return Vector2.ZERO
-	
-	var viewport = get_viewport_rect()
-	var actor_pos = actor.global_position
-	var target_pos = target.global_position
 
-	# Визначення напрямку від боса до гравця
-	var direction_to_target = actor_pos.direction_to(target_pos)
-
-	# Розрахунок цільової позиції, яка знаходиться на відстані attack_range від target
-	var target_position: Vector2 = calculate_target_position(actor_pos, target_pos, direction_to_target)
-
-	# Перевіряємо, чи цільова позиція знаходиться в межах viewport
-	if target_position.x <= -2000 || target_position.x >= 2000:
-		direction_to_target = -direction_to_target
-		target_position = calculate_target_position(actor_pos, target_pos, direction_to_target)
-	
-	return target_position
-
-func calculate_target_position(
-	actor_pos: Vector2,
-	target_pos: Vector2,
-	direction_to_target: Vector2
-) -> Vector2:
+func calculate_target_position(actor_pos: Vector2, target_pos: Vector2, direction_to_target: Vector2) -> Vector2:
 	# Нормалізуємо напрямок, щоб отримати одиничний вектор
 	var dir = direction_to_target.normalized()
 	# Віднімаємо від x координати цілі (target_pos.x) 
@@ -59,9 +38,7 @@ func look_at_target(target_position: Vector2):
 	actor.adjust_scale_for_direction(look_at_direction)
 
 func attack_notify(inform_text: String, inform_duration: float):
-	label.text = inform_text
-	await get_tree().create_timer(inform_duration).timeout
-	label.text = ""
+	pass
 	
 func apply_knockback(direction, force):
 	direction = direction.normalized()
