@@ -62,7 +62,7 @@ size = Vector2(364.5, 922)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ldxy1"]
 size = Vector2(194, 116)
 
-[sub_resource type="Resource" id="Resource_lpvom"]
+[sub_resource type="Resource" id="Resource_te7ua"]
 script = ExtResource("32_e8p82")
 frequency = 10.001
 damping = 0.485
@@ -71,49 +71,49 @@ reaction = 1.0
 [sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_75arr"]
 enabled = true
 
-[sub_resource type="Resource" id="Resource_c4iq2"]
+[sub_resource type="Resource" id="Resource_3c3jg"]
 script = ExtResource("35_nmcsk")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_xt28f"]
+[sub_resource type="Resource" id="Resource_mj3er"]
 script = ExtResource("32_e8p82")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_i0s4i"]
+[sub_resource type="Resource" id="Resource_jgsxc"]
 script = ExtResource("32_e8p82")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_phlcm"]
+[sub_resource type="Resource" id="Resource_22cvl"]
 script = ExtResource("35_nmcsk")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_ucj5e"]
+[sub_resource type="Resource" id="Resource_8b30k"]
 script = ExtResource("32_e8p82")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_uc1nn"]
+[sub_resource type="Resource" id="Resource_6ph3o"]
 script = ExtResource("32_e8p82")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_xvjd6"]
+[sub_resource type="Resource" id="Resource_rvuul"]
 script = ExtResource("35_nmcsk")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_6h3le"]
+[sub_resource type="Resource" id="Resource_ncq1j"]
 script = ExtResource("32_e8p82")
 frequency = 1.0
 damping = 1.0
@@ -7766,7 +7766,7 @@ enabled = true
 bone_nodes = [NodePath("../../../Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10"), NodePath("../../../Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11"), NodePath("../../../Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12"), NodePath("../../../Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13"), NodePath("../../../Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14"), NodePath("../../../Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15"), NodePath("../../../Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16"), NodePath("../../../Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17"), NodePath("../../../Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18"), NodePath("../../../Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19"), NodePath("../../../Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20")]
 iterations = 3
 use_easing = true
-easing = SubResource("Resource_lpvom")
+easing = SubResource("Resource_te7ua")
 
 [node name="WhipBoneLookAt1" type="Node" parent="WhipSkeleton/SoupStack/WhipStack" node_paths=PackedStringArray("target_node", "bone_node")]
 script = ExtResource("33_wudob")
@@ -8067,7 +8067,7 @@ joint_one_bone_node = NodePath("../../../TorsoMain/UpperLegR")
 joint_two_bone_node = NodePath("../../../TorsoMain/UpperLegR/LowerLegR")
 chain_tip = NodePath("../../../TorsoMain/UpperLegR/LowerLegR/FootR")
 use_easing_on_first_joint = true
-first_joint_easing = SubResource("Resource_c4iq2")
+first_joint_easing = SubResource("Resource_3c3jg")
 
 [node name="DressFABRIK" type="Node" parent="Skeleton2D/SoupStack/LegRStack" node_paths=PackedStringArray("target_node", "bone_nodes")]
 script = ExtResource("31_a8nl5")
@@ -8075,7 +8075,7 @@ target_node = NodePath("../../../TorsoMain/UpperLegR/LowerLegR/DressRTarget")
 enabled = true
 bone_nodes = [NodePath("../../../TorsoMain/LowerBody/BaseDressR"), NodePath("../../../TorsoMain/LowerBody/BaseDressR/DressR_01"), NodePath("../../../TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02"), NodePath("../../../TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03"), NodePath("../../../TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03/DressR_04"), NodePath("../../../TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03/DressR_04/DressR_05"), NodePath("../../../TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03/DressR_04/DressR_05/DressR_06")]
 use_easing = true
-easing = SubResource("Resource_xt28f")
+easing = SubResource("Resource_mj3er")
 
 [node name="KneeFABRIK" type="Node" parent="Skeleton2D/SoupStack/LegRStack" node_paths=PackedStringArray("target_node", "bone_nodes")]
 script = ExtResource("31_a8nl5")
@@ -8083,7 +8083,7 @@ target_node = NodePath("../../../TorsoMain/UpperLegR/RKneeTarger")
 enabled = true
 bone_nodes = [NodePath("../../../TorsoMain/LowerBody/BaseDressR"), NodePath("../../../TorsoMain/LowerBody/BaseDressR/DressR_01")]
 use_easing = true
-easing = SubResource("Resource_i0s4i")
+easing = SubResource("Resource_jgsxc")
 
 [node name="LegLStack" type="Node" parent="Skeleton2D/SoupStack"]
 script = ExtResource("30_ifoyq")
@@ -8102,7 +8102,7 @@ joint_one_bone_node = NodePath("../../../TorsoMain/UpperLegL")
 joint_two_bone_node = NodePath("../../../TorsoMain/UpperLegL/LowerLegL")
 chain_tip = NodePath("../../../TorsoMain/UpperLegL/LowerLegL/FootL")
 use_easing_on_first_joint = true
-first_joint_easing = SubResource("Resource_phlcm")
+first_joint_easing = SubResource("Resource_22cvl")
 
 [node name="DressFABRIK" type="Node" parent="Skeleton2D/SoupStack/LegLStack" node_paths=PackedStringArray("target_node", "bone_nodes")]
 script = ExtResource("31_a8nl5")
@@ -8110,7 +8110,7 @@ target_node = NodePath("../../../TorsoMain/UpperLegL/LowerLegL/DressLTarget")
 enabled = true
 bone_nodes = [NodePath("../../../TorsoMain/LowerBody/BaseDressL"), NodePath("../../../TorsoMain/LowerBody/BaseDressL/DressL_01"), NodePath("../../../TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02"), NodePath("../../../TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03"), NodePath("../../../TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03/DressL_04"), NodePath("../../../TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03/DressL_04/DressL_05"), NodePath("../../../TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03/DressL_04/DressL_05/DressL_06")]
 use_easing = true
-easing = SubResource("Resource_ucj5e")
+easing = SubResource("Resource_8b30k")
 
 [node name="KneeFABRIK" type="Node" parent="Skeleton2D/SoupStack/LegLStack" node_paths=PackedStringArray("target_node", "bone_nodes")]
 script = ExtResource("31_a8nl5")
@@ -8118,7 +8118,7 @@ target_node = NodePath("../../../TorsoMain/UpperLegL/LKneeTarger")
 enabled = true
 bone_nodes = [NodePath("../../../TorsoMain/LowerBody/BaseDressL"), NodePath("../../../TorsoMain/LowerBody/BaseDressL/DressL_01")]
 use_easing = true
-easing = SubResource("Resource_uc1nn")
+easing = SubResource("Resource_6ph3o")
 
 [node name="HeadStack" type="Node" parent="Skeleton2D/SoupStack"]
 script = ExtResource("30_ifoyq")
@@ -8129,7 +8129,7 @@ target_node = NodePath("../../../../TargetNodes/HeadTarget")
 enabled = true
 bone_node = NodePath("../../../TorsoMain/LowerBody/UpperBody/NeckBase/NeckTop/Head")
 use_easing = true
-easing = SubResource("Resource_xvjd6")
+easing = SubResource("Resource_rvuul")
 
 [node name="FeatherJiggle" type="Node" parent="Skeleton2D/SoupStack/HeadStack" node_paths=PackedStringArray("target_node", "bone_node")]
 script = ExtResource("36_tceg1")
@@ -8137,7 +8137,7 @@ target_node = NodePath("../../../../TargetNodes/HeadTarget/FeatherTarget")
 enabled = true
 bone_node = NodePath("../../../TorsoMain/LowerBody/UpperBody/NeckBase/NeckTop/Head/Feather")
 use_easing = true
-easing = SubResource("Resource_6h3le")
+easing = SubResource("Resource_ncq1j")
 
 [node name="TorsoMain" type="Bone2D" parent="Skeleton2D"]
 position = Vector2(-20, -464)

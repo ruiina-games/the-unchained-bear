@@ -7,6 +7,7 @@ signal tutorial_ended
 @export var beast_tamer: BeastTameress
 
 @export var bear_scene: PackedScene
+@export var next_stage: PackedScene
 
 @onready var curtain = $Curtain
 @onready var animation_player = $AnimationPlayer
@@ -27,6 +28,7 @@ var s_was_pressed: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	animation_player.play("fade_out")
+	player_controller.actor.spin_eyes.visible = true
 	
 	tutorial_ended.connect(func(): animation_player.play("fade_in"))
 
@@ -135,3 +137,6 @@ func change_label_text():
 	$TextPopup/TutorialSubtitle2.text = "Faster! \n Piece of crap!"
 	$TextPopup/TutorialSubtitle2.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	$TextPopup.visible = true
+
+func change_scene():
+	get_tree().change_scene_to_packed(next_stage)
