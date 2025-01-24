@@ -135,31 +135,31 @@ status_resist_multiplier = 0.1
 effect_power_multiplier = 1.0
 fighting_style = ExtResource("6_63enc")
 
-[sub_resource type="Resource" id="Resource_af4pl"]
+[sub_resource type="Resource" id="Resource_3onf5"]
 script = ExtResource("6_ascop")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_h1mr8"]
+[sub_resource type="Resource" id="Resource_2b5mk"]
 script = ExtResource("6_ascop")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_pge0t"]
+[sub_resource type="Resource" id="Resource_dcm50"]
 script = ExtResource("6_ascop")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_v43bv"]
+[sub_resource type="Resource" id="Resource_mmank"]
 script = ExtResource("6_ascop")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_6wfvv"]
+[sub_resource type="Resource" id="Resource_yjsf3"]
 script = ExtResource("7_2jlgf")
 frequency = 1.0
 damping = 1.0
@@ -203,73 +203,71 @@ script = ExtResource("5_uy7m7")
 character_stats = SubResource("Resource_0tlgv")
 
 [node name="HeadLookAt" parent="Lion/Skeleton2D/SoupStack/HeadStack" index="0"]
-easing = SubResource("Resource_af4pl")
+easing = SubResource("Resource_3onf5")
 
 [node name="NeckLookAt" parent="Lion/Skeleton2D/SoupStack/HeadStack" index="1"]
-easing = SubResource("Resource_h1mr8")
+easing = SubResource("Resource_2b5mk")
 
 [node name="RHandTwoBoneIK" parent="Lion/Skeleton2D/SoupStack/RHandStack" index="0"]
-first_joint_easing = SubResource("Resource_pge0t")
+first_joint_easing = SubResource("Resource_dcm50")
 
 [node name="LHandTwoBoneIK" parent="Lion/Skeleton2D/SoupStack/LHandStack" index="0"]
-first_joint_easing = SubResource("Resource_v43bv")
+first_joint_easing = SubResource("Resource_mmank")
 
 [node name="TailJiggle" parent="Lion/Skeleton2D/SoupStack/SoupSubStack" index="2"]
-easing = SubResource("Resource_6wfvv")
+easing = SubResource("Resource_yjsf3")
 
 [node name="Neck" parent="Lion/Skeleton2D/Main/BodyBack/BodyMid/BodyFront" index="0"]
-rotation = 0.215912
-scale = Vector2(0.999998, 0.999998)
+rotation = 0.196662
 
 [node name="Head" parent="Lion/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/Neck" index="0"]
-rotation = -0.0732296
+rotation = 0.0545985
 scale = Vector2(0.999991, 0.999991)
 
 [node name="Jaw" parent="Lion/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/Neck/Head" index="0"]
-rotation = -2.15051
+rotation = -2.14855
 
 [node name="UpperRHand" parent="Lion/Skeleton2D/Main/BodyBack/BodyMid/BodyFront" index="1"]
-rotation = -0.221552
+rotation = -0.177586
 scale = Vector2(0.999994, 0.999994)
 
 [node name="LowerRHand" parent="Lion/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperRHand" index="0"]
-rotation = 0.621702
-scale = Vector2(0.999997, 0.999997)
+rotation = 0.466941
 
 [node name="WristR" parent="Lion/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperRHand/LowerRHand" index="0"]
-rotation = -1.71592
+rotation = -1.62888
 scale = Vector2(0.999993, 0.999993)
 
 [node name="UpperLHand" parent="Lion/Skeleton2D/Main/BodyBack/BodyMid/BodyFront" index="2"]
-rotation = -2.75081
+rotation = -2.7092
 scale = Vector2(0.999998, 0.999998)
 
 [node name="LowerLHand" parent="Lion/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperLHand" index="0"]
-rotation = 0.615831
+rotation = 0.468301
 scale = Vector2(0.999996, 0.999996)
 
 [node name="WristL" parent="Lion/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperLHand/LowerLHand" index="0"]
-rotation = 0.54401
+rotation = 0.64355
 scale = Vector2(0.999997, 0.999997)
 
 [node name="UpperRLeg" parent="Lion/Skeleton2D/Main/BodyBack" index="1"]
-rotation = -0.124766
+rotation = -0.0292476
 scale = Vector2(0.999992, 0.999992)
 
 [node name="LowerRLeg" parent="Lion/Skeleton2D/Main/BodyBack/UpperRLeg" index="0"]
-rotation = -0.82083
+rotation = -1.0244
 scale = Vector2(0.999997, 0.999997)
 
 [node name="UpperLLeg" parent="Lion/Skeleton2D/Main/BodyBack" index="2"]
-rotation = -0.117571
+rotation = -0.0426585
 scale = Vector2(0.999991, 0.999991)
 
 [node name="LowerLLeg" parent="Lion/Skeleton2D/Main/BodyBack/UpperLLeg" index="0"]
-rotation = -0.860244
+rotation = -1.02034
 scale = Vector2(0.999996, 0.999996)
 
 [node name="Tail" parent="Lion/Skeleton2D/Main/BodyBack" index="3"]
-rotation = 2.19356
+rotation = 2.0382
 scale = Vector2(0.999997, 0.999997)
 
 [editable path="Lion"]

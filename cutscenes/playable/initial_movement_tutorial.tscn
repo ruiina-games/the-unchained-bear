@@ -1,0 +1,715 @@
+[gd_scene load_steps=28 format=3 uid="uid://bocr0ec142ndl"]
+
+[ext_resource type="Script" path="res://cutscenes/playable/initial_movement_tutorial.gd" id="1_qhntq"]
+[ext_resource type="Script" path="res://controllers/Effects/effects_controller.gd" id="1_s1fpk"]
+[ext_resource type="Texture2D" uid="uid://b4ooqwqb8bctk" path="res://assets/Background/DALL·E 2025-01-15 12.16.21 - A cartoon-style background inspired by Soviet-era animation, depicting a circus arena with a flat horizontal floor or podium at the bottom of the scre.webp" id="2_c5hoj"]
+[ext_resource type="PackedScene" uid="uid://cevie0mm3xc4j" path="res://controllers/player controller/player_controller.tscn" id="2_diqro"]
+[ext_resource type="PackedScene" uid="uid://cjbnosxi4m18l" path="res://characters/bear/bear_new.tscn" id="2_y7547"]
+[ext_resource type="PackedScene" uid="uid://bsi86oh8bgr5y" path="res://characters/beast_tamer/beast_tameress.tscn" id="3_7inw2"]
+[ext_resource type="PackedScene" uid="uid://bnv0o4pvq2ads" path="res://cutscenes/playable/cage_attack_tutorial.tscn" id="3_af3wt"]
+[ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Easing/soup_second_order_easing.gd" id="6_aejtu"]
+[ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Easing/soup_second_order_easing_no_g.gd" id="7_5esqf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pkswt"]
+size = Vector2(4594, 174)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_deebq"]
+size = Vector2(4318, 174)
+
+[sub_resource type="Resource" id="Resource_jf8de"]
+script = ExtResource("6_aejtu")
+frequency = 10.001
+damping = 0.485
+reaction = 1.0
+
+[sub_resource type="Resource" id="Resource_40cul"]
+script = ExtResource("7_5esqf")
+frequency = 1.0
+damping = 1.0
+reaction = 1.0
+
+[sub_resource type="Resource" id="Resource_k8dyi"]
+script = ExtResource("7_5esqf")
+frequency = 1.0
+damping = 1.0
+reaction = 1.0
+
+[sub_resource type="Resource" id="Resource_v8mic"]
+script = ExtResource("6_aejtu")
+frequency = 1.0
+damping = 1.0
+reaction = 1.0
+
+[sub_resource type="Resource" id="Resource_bmpms"]
+script = ExtResource("6_aejtu")
+frequency = 1.0
+damping = 1.0
+reaction = 1.0
+
+[sub_resource type="Resource" id="Resource_jrsr6"]
+script = ExtResource("7_5esqf")
+frequency = 1.0
+damping = 1.0
+reaction = 1.0
+
+[sub_resource type="Resource" id="Resource_1squ2"]
+script = ExtResource("6_aejtu")
+frequency = 1.0
+damping = 1.0
+reaction = 1.0
+
+[sub_resource type="Resource" id="Resource_6ihvr"]
+script = ExtResource("6_aejtu")
+frequency = 1.0
+damping = 1.0
+reaction = 1.0
+
+[sub_resource type="Resource" id="Resource_0serf"]
+script = ExtResource("7_5esqf")
+frequency = 1.0
+damping = 1.0
+reaction = 1.0
+
+[sub_resource type="Resource" id="Resource_ppj4n"]
+script = ExtResource("6_aejtu")
+frequency = 1.0
+damping = 1.0
+reaction = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_la1ik"]
+font_size = 120
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 12
+shadow_color = Color(0, 0, 0, 0.584314)
+
+[sub_resource type="Animation" id="Animation_mdpru"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Curtain:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:zoom")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.45, 0.45)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("EffectsController:process_mode")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TextPopup:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SubtitleControl:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_cpf2u"]
+resource_name = "fade_out_2"
+length = 8.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Curtain:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(6, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 3.5, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.45, 0.45), Vector2(0.83, 0.83), Vector2(0.83, 0.83), Vector2(0.9, 0.9)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1248, -385), Vector2(1248, -385), Vector2(-455, 212)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.5, 3.5, 8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"change_label_text"
+}, {
+"args": [],
+"method": &"start_transition"
+}, {
+"args": [],
+"method": &"change_scene"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TextPopup:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("EffectsController:process_mode")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 3]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SubtitleControl:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_4a8l0"]
+resource_name = "fade_out"
+length = 13.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Curtain:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5, 13),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"start_initial_animation_with_dialogue"
+}, {
+"args": [],
+"method": &"init_tutorial"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 8.5, 11.5, 13),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1487, -323), Vector2(1487, -323), Vector2(-186, 9), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera2D:zoom")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 11.5, 12.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.82, 0.82), Vector2(0.85, 0.85), Vector2(0.45, 0.45)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("EffectsController:process_mode")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 13),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 0]
+}
+
+[sub_resource type="Animation" id="Animation_mafv5"]
+resource_name = "tamer_zoom"
+length = 2.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 1.2, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.45, 0.45), Vector2(0.93, 0.93), Vector2(0.93, 0.93), Vector2(0.45, 0.45)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 1.2, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1241, -303), Vector2(1241, -303), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_urpbj"]
+_data = {
+"RESET": SubResource("Animation_mdpru"),
+"fade_in": SubResource("Animation_cpf2u"),
+"fade_out": SubResource("Animation_4a8l0"),
+"tamer_zoom": SubResource("Animation_mafv5")
+}
+
+[node name="InitialMovementTutorial" type="Node2D" node_paths=PackedStringArray("player_controller", "beast_tamer")]
+script = ExtResource("1_qhntq")
+player_controller = NodePath("PlayerController")
+beast_tamer = NodePath("BeastTamer")
+bear_scene = ExtResource("2_y7547")
+next_stage = ExtResource("3_af3wt")
+
+[node name="EffectsController" type="Node2D" parent="." node_paths=PackedStringArray("player_controller", "main_camera")]
+script = ExtResource("1_s1fpk")
+player_controller = NodePath("../PlayerController")
+main_camera = NodePath("../Camera2D")
+tilt_duration = 1.0
+target_zoom = Vector2(0.46, 0.46)
+max_tilt_angle = 0.01
+shake_duration = 0.4
+shake_magnitude = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -100
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2171.0
+offset_top = -1241.0
+offset_right = 2137.0
+offset_bottom = 1235.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_c5hoj")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+ignore_rotation = false
+zoom = Vector2(0.45, 0.45)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(181, 242)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-317, 300)
+shape = SubResource("RectangleShape2D_pkswt")
+one_way_collision = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-2370, 274)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_deebq")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1938, 216)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_deebq")
+
+[node name="PlayerController" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_diqro")]
+position = Vector2(-242, 448)
+target = NodePath("../BeastTamer")
+
+[node name="BeastTamer" parent="." instance=ExtResource("3_7inw2")]
+position = Vector2(1534, 449)
+
+[node name="TipFABRIK" parent="BeastTamer/WhipSkeleton/SoupStack/WhipStack" index="0"]
+easing = SubResource("Resource_jf8de")
+
+[node name="Whip_01" parent="BeastTamer/WhipSkeleton/Handle" index="0"]
+rotation = 1.04803
+scale = Vector2(0.999996, 0.999996)
+
+[node name="Whip_02" parent="BeastTamer/WhipSkeleton/Handle/Whip_01" index="0"]
+rotation = 0.873112
+scale = Vector2(0.999996, 0.999996)
+
+[node name="Whip_03" parent="BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02" index="0"]
+rotation = 0.43768
+scale = Vector2(0.999993, 0.999993)
+
+[node name="Whip_04" parent="BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03" index="0"]
+rotation = 0.43577
+scale = Vector2(0.999995, 0.999995)
+
+[node name="Whip_05" parent="BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04" index="0"]
+rotation = 0.153931
+scale = Vector2(0.999992, 0.999992)
+
+[node name="Whip_06" parent="BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05" index="0"]
+rotation = 0.601708
+scale = Vector2(0.999996, 0.999996)
+
+[node name="Whip_07" parent="BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06" index="0"]
+rotation = 0.818601
+
+[node name="Whip_08" parent="BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07" index="0"]
+rotation = -0.0567249
+scale = Vector2(0.999989, 0.999989)
+
+[node name="Whip_09" parent="BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08" index="0"]
+rotation = -0.646188
+scale = Vector2(0.999999, 0.999999)
+
+[node name="Whip_10" parent="BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09" index="0"]
+rotation = -1.2928
+scale = Vector2(0.999999, 0.999999)
+
+[node name="Whip_11" parent="BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10" index="0"]
+rotation = 0.0348029
+scale = Vector2(0.999985, 0.999985)
+
+[node name="Whip_12" parent="BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11" index="0"]
+rotation = -0.0422023
+scale = Vector2(0.999981, 0.999981)
+
+[node name="Whip_13" parent="BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12" index="0"]
+rotation = -0.0101259
+scale = Vector2(0.999993, 0.999993)
+
+[node name="Whip_14" parent="BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13" index="0"]
+rotation = -0.00363294
+scale = Vector2(0.999994, 0.999994)
+
+[node name="Whip_15" parent="BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14" index="0"]
+rotation = 0.0115586
+scale = Vector2(0.999985, 0.999985)
+
+[node name="Whip_16" parent="BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15" index="0"]
+rotation = -0.079713
+scale = Vector2(0.99999, 0.99999)
+
+[node name="Whip_17" parent="BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16" index="0"]
+rotation = -0.0222451
+scale = Vector2(0.999988, 0.999988)
+
+[node name="Whip_18" parent="BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17" index="0"]
+rotation = -0.0893232
+scale = Vector2(0.999992, 0.999992)
+
+[node name="Whip_19" parent="BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18" index="0"]
+rotation = -0.127166
+scale = Vector2(0.999991, 0.999991)
+
+[node name="Whip_20" parent="BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19" index="0"]
+rotation = -0.0597414
+scale = Vector2(0.999983, 0.999983)
+
+[node name="HandLTwoBoneIK" parent="BeastTamer/Skeleton2D/SoupStack/HandLStack" index="1"]
+first_joint_easing = SubResource("Resource_40cul")
+
+[node name="LegRTwoBoneIK" parent="BeastTamer/Skeleton2D/SoupStack/LegRStack" index="1"]
+first_joint_easing = SubResource("Resource_k8dyi")
+
+[node name="DressFABRIK" parent="BeastTamer/Skeleton2D/SoupStack/LegRStack" index="2"]
+easing = SubResource("Resource_v8mic")
+
+[node name="KneeFABRIK" parent="BeastTamer/Skeleton2D/SoupStack/LegRStack" index="3"]
+easing = SubResource("Resource_bmpms")
+
+[node name="LegLTwoBoneIK" parent="BeastTamer/Skeleton2D/SoupStack/LegLStack" index="1"]
+first_joint_easing = SubResource("Resource_jrsr6")
+
+[node name="DressFABRIK" parent="BeastTamer/Skeleton2D/SoupStack/LegLStack" index="2"]
+easing = SubResource("Resource_1squ2")
+
+[node name="KneeFABRIK" parent="BeastTamer/Skeleton2D/SoupStack/LegLStack" index="3"]
+easing = SubResource("Resource_6ihvr")
+
+[node name="HeadLookAt" parent="BeastTamer/Skeleton2D/SoupStack/HeadStack" index="0"]
+easing = SubResource("Resource_0serf")
+
+[node name="FeatherJiggle" parent="BeastTamer/Skeleton2D/SoupStack/HeadStack" index="1"]
+easing = SubResource("Resource_ppj4n")
+
+[node name="UpperLegL" parent="BeastTamer/Skeleton2D/TorsoMain" index="0"]
+rotation = 0.0457199
+scale = Vector2(0.999827, 0.999827)
+
+[node name="LowerLegL" parent="BeastTamer/Skeleton2D/TorsoMain/UpperLegL" index="1"]
+rotation = -0.166907
+scale = Vector2(0.999845, 0.999845)
+
+[node name="FootL" parent="BeastTamer/Skeleton2D/TorsoMain/UpperLegL/LowerLegL" index="0"]
+rotation = 1.57164
+scale = Vector2(0.999843, 0.999843)
+
+[node name="UpperLegR" parent="BeastTamer/Skeleton2D/TorsoMain" index="1"]
+rotation = 0.0891578
+scale = Vector2(0.999833, 0.999833)
+
+[node name="LowerLegR" parent="BeastTamer/Skeleton2D/TorsoMain/UpperLegR" index="1"]
+rotation = -0.154779
+scale = Vector2(0.999831, 0.999831)
+
+[node name="FootR" parent="BeastTamer/Skeleton2D/TorsoMain/UpperLegR/LowerLegR" index="0"]
+rotation = 1.76442
+scale = Vector2(0.999843, 0.999843)
+
+[node name="BaseDressL" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody" index="0"]
+rotation = -0.00268209
+scale = Vector2(0.999814, 0.999814)
+
+[node name="DressL_01" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/BaseDressL" index="0"]
+rotation = -0.012942
+scale = Vector2(0.999482, 0.999482)
+
+[node name="DressL_02" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/BaseDressL/DressL_01" index="0"]
+rotation = -0.0991764
+scale = Vector2(0.999823, 0.999823)
+
+[node name="DressL_03" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02" index="0"]
+rotation = -0.0609115
+scale = Vector2(0.999826, 0.999826)
+
+[node name="DressL_04" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03" index="0"]
+rotation = 0.0146788
+scale = Vector2(0.999821, 0.999821)
+
+[node name="DressL_05" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03/DressL_04" index="0"]
+rotation = -0.0597709
+scale = Vector2(0.999829, 0.999829)
+
+[node name="DressL_06" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03/DressL_04/DressL_05" index="0"]
+rotation = -2.98478
+scale = Vector2(0.999826, 0.999826)
+
+[node name="BaseDressR" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody" index="1"]
+rotation = 0.148331
+scale = Vector2(0.999832, 0.999832)
+
+[node name="DressR_01" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/BaseDressR" index="0"]
+rotation = -0.0115045
+scale = Vector2(0.999279, 0.999279)
+
+[node name="DressR_02" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/BaseDressR/DressR_01" index="0"]
+rotation = -0.014387
+scale = Vector2(0.999823, 0.999823)
+
+[node name="DressR_03" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02" index="0"]
+rotation = 0.0237071
+scale = Vector2(0.999808, 0.999808)
+
+[node name="DressR_04" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03" index="0"]
+rotation = -0.0220268
+scale = Vector2(0.999703, 0.999703)
+
+[node name="DressR_05" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03/DressR_04" index="0"]
+rotation = -0.0673936
+scale = Vector2(0.999823, 0.999823)
+
+[node name="DressR_06" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03/DressR_04/DressR_05" index="0"]
+rotation = -3.0099
+scale = Vector2(0.999826, 0.999826)
+
+[node name="UpperHandL" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/UpperBody" index="0"]
+rotation = -0.174387
+scale = Vector2(0.999834, 0.999834)
+
+[node name="LowerHandL" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandL" index="0"]
+rotation = 0.324516
+scale = Vector2(0.999846, 0.999846)
+
+[node name="WristL" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandL/LowerHandL" index="0"]
+rotation = -2.58694
+scale = Vector2(0.999879, 0.999879)
+
+[node name="UpperHandR" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/UpperBody" index="1"]
+rotation = -0.0736612
+scale = Vector2(0.999833, 0.999833)
+
+[node name="LowerHandR" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandR" index="0"]
+rotation = 0.185499
+scale = Vector2(0.999837, 0.999837)
+
+[node name="WristR" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR" index="0"]
+rotation = -1.63908
+scale = Vector2(0.999828, 0.999828)
+
+[node name="Head" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/UpperBody/NeckBase/NeckTop" index="0"]
+rotation = -0.0688871
+scale = Vector2(0.999839, 0.999839)
+
+[node name="Feather" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/UpperBody/NeckBase/NeckTop/Head" index="0"]
+rotation = 1.27259
+scale = Vector2(0.999841, 0.999841)
+
+[node name="SubtitleControl" type="Control" parent="."]
+z_index = 999
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2102.0
+offset_top = 316.0
+offset_right = 2150.0
+offset_bottom = 782.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="TutorialSubtitle" type="Label" parent="SubtitleControl"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -243.0
+offset_top = -55.0
+offset_right = 243.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_la1ik")
+
+[node name="TextPopup" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TutorialSubtitle2" type="Label" parent="TextPopup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 749.0
+offset_top = -626.0
+offset_right = 1468.0
+offset_bottom = -293.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Let's start
+the SHOW!"
+label_settings = SubResource("LabelSettings_la1ik")
+
+[node name="Curtain" type="ColorRect" parent="."]
+z_index = 999
+offset_left = -2730.0
+offset_top = -1620.0
+offset_right = -2398.0
+offset_bottom = -1296.0
+scale = Vector2(15.8383, 9.65236)
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_urpbj")
+}
+
+[node name="AnnoyanceTimer" type="Timer" parent="."]
+wait_time = 10.0
+
+[editable path="BeastTamer"]

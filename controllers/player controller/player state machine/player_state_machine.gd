@@ -3,6 +3,8 @@ class_name PlayerStateMachine
 
 @export var debug_label: Label
 
+@export var allowed_advance_movement: bool = false
+
 var MOVEMENT_STARTED: StringName = "movement_started"
 var MOVEMENT_FINISHED: StringName = "movement_finished"
 var JUMPED: StringName = "jumped"
@@ -35,13 +37,14 @@ func create_state_conditions():
 	state_conditions["death"] = path_to_anim_parameters + "death"
 	
 func _unhandled_input(event: InputEvent) -> void:
+	if allowed_advance_movement:
+		if event.is_action_pressed("jump"):
+			dispatch(JUMPED)
+		if event.is_action_pressed("attack"):
+			dispatch(STARTED_ATTACK)
+
 	if !character.can_move:
 		return
-	
-	if event.is_action_pressed("jump"):
-		dispatch(JUMPED)
-	if event.is_action_pressed("attack"):
-		dispatch(STARTED_ATTACK)
 		
 	if get_active_state():
 		get_active_state().state_input()
