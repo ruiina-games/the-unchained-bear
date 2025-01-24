@@ -63,6 +63,11 @@ bend={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_2="bear_hitbox"
+2d_physics/layer_3="bosses_hitbox"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

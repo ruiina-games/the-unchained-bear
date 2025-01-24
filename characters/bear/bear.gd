@@ -10,3 +10,11 @@ enum STYLES_ID {
 	LUMBERJACK = 2,
 	LEGHAND = 3
 }
+
+func _ready() -> void:
+	super()
+	
+	$HealthComponent.got_hit.connect(func(enemy):
+		if enemy is Monkey:
+			enemy.break_object()
+		)

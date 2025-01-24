@@ -14,7 +14,7 @@ var actor_global_position: Vector2
 # Змінні для руху
 var current_velocity: Vector2 = Vector2.ZERO
 var tilt: float = 0.0
-var direction: float = 1.0
+var direction: Vector2 = Vector2.RIGHT
 var gravity: float = 75.0
 
 func _ready() -> void:
@@ -25,15 +25,10 @@ func _ready() -> void:
 		print("No actor in " + name)
 		get_tree().quit()
 		
-	actor.got_knocked.connect(func(direction: Vector2, force: float):
-		apply_knockback(direction, force)
-	)
-	actor.died.connect(func():
-		kill_actor()
-	)
+	connect_signals()
 	
 	fighting_style = actor.character_stats.fighting_style
-	_init_state_machine()
+	init_state_machine()
 	
 	GlobalSignals.character_died.connect(func(character: Character):
 		if character == target:
@@ -41,14 +36,47 @@ func _ready() -> void:
 			set_controller_inactive()
 		)
 
+func connect_signals():
+	actor.got_knocked.connect(func(direction: Vector2, force: float):
+		apply_knockback(direction, force)
+	)
+	actor.died.connect(func():
+		kill_actor()
+	)
+	actor.got_stunned.connect(func(was_stunned: bool):
+		set_stunned(was_stunned)
+	)
+	actor.effect_changes.connect(func(effect: Effect):
+		process_effects(effect)
+	)
+
 func set_controller_inactive():
 	pass
 
 func kill_actor():
 	pass
 
-func _init_state_machine() -> void:
+func init_state_machine() -> void:
 	pass
+
+# TODO: Тут викликаєш візуальні ефекти/партікли на кожен з Effect.
+# Ця функція викликається лише коли ефект вмикається або вимикається.
+# Тому треба придумати якийсь переключатель.
+
+func process_effects(effect: Effect):
+	if effect is FireEffect:
+		pass
+	elif effect is BleedingEffect:
+		pass
+	elif effect is SlowEffect:
+		pass
+	elif effect is StunEffect:
+		pass
+	elif effect is Knockback:
+		pass
+
+func set_stunned(stunned: bool):
+	actor.can_move = !stunned
 
 func _process(delta: float) -> void:
 	if !target:

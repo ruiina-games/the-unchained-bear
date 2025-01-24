@@ -17,6 +17,7 @@ class_name PlayerController
 @onready var jump_state: LimboState = %Jump
 @onready var attack_state: LimboState = %Attack
 @onready var death_state: LimboState = %Death
+@onready var stunned_state: StunnedPlayer = %Stunned
 
 var tilt_inertia: float = 0.1
 var combo_count: int
@@ -26,7 +27,7 @@ var combo_count: int
 func kill_actor():
 	hsm.dispatch(hsm.DIED)
 
-func _init_state_machine() -> void:
+func init_state_machine() -> void:
 	hsm.add_transition(idle_state, run_state, hsm.MOVEMENT_STARTED)
 	hsm.add_transition(run_state, idle_state, hsm.MOVEMENT_FINISHED)
 	hsm.add_transition(hsm.ANYSTATE, jump_state, hsm.JUMPED)
@@ -35,6 +36,8 @@ func _init_state_machine() -> void:
 	hsm.add_transition(idle_state, attack_state, hsm.STARTED_ATTACK)
 	hsm.add_transition(attack_state, idle_state, hsm.FINISHED_ATTACK)
 	hsm.add_transition(hsm.ANYSTATE, death_state, hsm.DIED)
+	hsm.add_transition(hsm.ANYSTATE, stunned_state, hsm.STUNNED)
+	hsm.add_transition(stunned_state, idle_state, stunned_state.EVENT_FINISHED)
 
 	hsm.initialize(self)
 	hsm.set_active(true)

@@ -15,8 +15,6 @@ var playback :AnimationNodeStateMachinePlayback
 func _enter() -> void:
 	if state_machine:
 		state_machine.switch_state(animation_state_name)
-		if state_machine.debug_label:
-			state_machine.debug_label.text = animation_state_name
 
 func _update(delta: float) -> void:
 	if !character.can_move:
