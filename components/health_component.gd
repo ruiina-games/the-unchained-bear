@@ -51,6 +51,7 @@ func apply_direct_damage(enemy_stats: CharacterStats, damage: Damage):
 	var base_damage: float = damage.get_damage_amount() * critical_multiplier
 	base_damage *= (1 - agent_stats.status_resist_multiplier)
 
+	print("final damage is: " + str(base_damage))
 	agent_stats.take_damage(base_damage)
 
 func apply_negative_effects(enemy_stats: CharacterStats, negative_effect: NegativeEffect):
