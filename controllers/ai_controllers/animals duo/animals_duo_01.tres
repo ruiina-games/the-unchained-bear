@@ -29,7 +29,7 @@ animation_condition = &"run"
 
 [sub_resource type="BTAction" id="BTAction_rvy7m"]
 script = ExtResource("3_847qd")
-move_speed = 300.0
+move_speed = 500.0
 tolerance = 600.0
 should_stop_at_enemy = true
 

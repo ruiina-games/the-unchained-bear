@@ -83,9 +83,6 @@ func second_stage():
 		await get_tree().create_timer(0.1).timeout
 		beast_tamer.animation_tree["parameters/MainStateMachine/conditions/attack"] = false
 		
-		
-		
-		
 		annoyance_timer.stop()
 		annoyance_timer.start()
 		
