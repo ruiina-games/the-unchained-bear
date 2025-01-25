@@ -1,0 +1,16 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=3 format=3 uid="uid://bocosgt3beuki"]
+
+[sub_resource type="Gradient" id="Gradient_rrheh"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_pu07o"]
+gradient = SubResource("Gradient_rrheh")
+
+[resource]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 63.46
+gravity = Vector3(0, -100, 0)
+scale_min = 0.1
+scale_max = 0.15
+color_ramp = SubResource("GradientTexture1D_pu07o")

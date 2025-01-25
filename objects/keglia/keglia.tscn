@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://cmrlhmw5fn5ki"]
+
+[ext_resource type="Texture2D" uid="uid://h0khkm73jio8" path="res://assets/Acrobat/Keglya.png" id="2_w3abn"]
+[ext_resource type="Material" uid="uid://bocosgt3beuki" path="res://objects/keglia/fire_on_keglia.tres" id="3_ff745"]
+[ext_resource type="Texture2D" uid="uid://c8afeqvdur4gg" path="res://assets/FX/dust.png" id="3_gvthn"]
+[ext_resource type="Script" path="res://components/hit_box.gd" id="7_sqi0t"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_au42o"]
+radius = 30.9548
+height = 390.045
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6t2nn"]
+radius = 32.3665
+height = 389.77
+
+[node name="RigidBody2D" type="RigidBody2D"]
+z_index = -15
+collision_layer = 0
+collision_mask = 0
+gravity_scale = 1.5
+linear_damp_mode = 1
+linear_damp = 1.0
+constant_force = Vector2(0, 200)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -75)
+texture = ExtResource("2_w3abn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, -81)
+rotation = 1.33935
+shape = SubResource("CapsuleShape2D_au42o")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("7_sqi0t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(4, -80)
+rotation = 1.34983
+shape = SubResource("CapsuleShape2D_6t2nn")
+debug_color = Color(0.915946, 0.237705, 0.42187, 0.42)
+
+[node name="FireOnKeglia" type="GPUParticles2D" parent="."]
+z_index = 1
+position = Vector2(-98, -44)
+rotation = -2.72959
+scale = Vector2(1, 1)
+emitting = false
+amount = 80
+process_material = ExtResource("3_ff745")
+texture = ExtResource("3_gvthn")
