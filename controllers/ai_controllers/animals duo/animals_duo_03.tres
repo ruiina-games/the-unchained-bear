@@ -1,4 +1,4 @@
-[gd_resource type="BehaviorTree" load_steps=32 format=3 uid="uid://dp30f3tlgh77f"]
+[gd_resource type="BehaviorTree" load_steps=28 format=3 uid="uid://dp30f3tlgh77f"]
 
 [ext_resource type="Script" path="res://ai/tasks/play_tree_anim.gd" id="1_33btb"]
 [ext_resource type="Script" path="res://ai/tasks/conditions/check_if_dead.gd" id="1_fyoi6"]
@@ -29,18 +29,8 @@ custom_name = "Lion Death"
 script = ExtResource("1_33btb")
 animation_condition = &"death"
 
-[sub_resource type="BBNode" id="BBNode_eqk3i"]
-saved_value = NodePath("TigerHSM")
-resource_name = "TigerHSM"
-
-[sub_resource type="BTAction" id="BTAction_trark"]
-custom_name = "Tiger Death"
-script = ExtResource("1_33btb")
-animation_condition = &"death"
-bb_state_machine = SubResource("BBNode_eqk3i")
-
 [sub_resource type="BTSequence" id="BTSequence_xxs17"]
-children = [SubResource("BTCondition_wkg7q"), SubResource("BTConsolePrint_feo3v"), SubResource("BTAction_hhosj"), SubResource("BTAction_trark")]
+children = [SubResource("BTCondition_wkg7q"), SubResource("BTConsolePrint_feo3v"), SubResource("BTAction_hhosj")]
 
 [sub_resource type="BTAction" id="BTAction_fudo8"]
 custom_name = "Idling"
@@ -54,17 +44,10 @@ animation_condition = &"roar"
 
 [sub_resource type="BTWait" id="BTWait_nvoek"]
 
-[sub_resource type="BTSequence" id="BTSequence_0f1x1"]
-children = [SubResource("BTAction_adcod"), SubResource("BTWait_nvoek")]
-
-[sub_resource type="BTCooldown" id="BTCooldown_ukixe"]
-children = [SubResource("BTSequence_0f1x1")]
-
 [sub_resource type="BTSequence" id="BTSequence_w33px"]
-children = [SubResource("BTAction_fudo8"), SubResource("BTCooldown_ukixe")]
+children = [SubResource("BTAction_fudo8"), SubResource("BTAction_adcod"), SubResource("BTWait_nvoek")]
 
 [sub_resource type="BTCooldown" id="BTCooldown_r3i81"]
-duration = 25.0
 custom_name = "Roar"
 children = [SubResource("BTSequence_w33px")]
 
@@ -79,7 +62,7 @@ animation_condition = &"run"
 
 [sub_resource type="BTAction" id="BTAction_rvy7m"]
 script = ExtResource("3_j2iuk")
-move_speed = 300.0
+move_speed = 500.0
 tolerance = 600.0
 should_stop_at_enemy = true
 
@@ -104,7 +87,7 @@ available_attacks = 3
 children = [SubResource("BTCondition_f3bbe"), SubResource("BTAction_h3c24")]
 
 [sub_resource type="BTCooldown" id="BTCooldown_pvtgr"]
-duration = 2.0
+duration = 1.0
 custom_name = "Attack"
 children = [SubResource("BTSequence_w8rld")]
 

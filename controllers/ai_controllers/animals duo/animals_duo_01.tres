@@ -13,12 +13,13 @@ target_distance = 400.0
 check_mode = 0
 
 [sub_resource type="BTAction" id="BTAction_kmvwf"]
+custom_name = "Run"
 script = ExtResource("2_5qkip")
 animation_condition = &"run"
 
 [sub_resource type="BTAction" id="BTAction_rvy7m"]
 script = ExtResource("3_847qd")
-move_speed = 500.0
+move_speed = 300.0
 tolerance = 600.0
 should_stop_at_enemy = true
 
@@ -30,7 +31,7 @@ animation_condition = &"idle"
 children = [SubResource("BTCondition_di873"), SubResource("BTAction_kmvwf"), SubResource("BTAction_rvy7m"), SubResource("BTAction_mpxb1")]
 
 [sub_resource type="BTCooldown" id="BTCooldown_u4eis"]
-duration = 4.0
+duration = 3.0
 custom_name = "Movement"
 children = [SubResource("BTSequence_vhhrt")]
 
@@ -52,7 +53,7 @@ bb_state_machine = SubResource("BBNode_evfll")
 children = [SubResource("BTCondition_f3bbe"), SubResource("BTAction_h3c24")]
 
 [sub_resource type="BTCooldown" id="BTCooldown_pvtgr"]
-duration = 2.0
+duration = 3.0
 custom_name = "Attack"
 children = [SubResource("BTSequence_w8rld")]
 

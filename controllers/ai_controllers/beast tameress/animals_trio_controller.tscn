@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://b4l6ok0dqcdyv"]
+[gd_scene load_steps=48 format=3 uid="uid://b4l6ok0dqcdyv"]
 
 [ext_resource type="PackedScene" uid="uid://dq2wgiu3t6ygp" path="res://controllers/ai_controllers/beast tameress/ai_controller.tscn" id="1_h4mdo"]
 [ext_resource type="Script" path="res://controllers/ai_controllers/beast tameress/animals_duo_controller.gd" id="2_7lm3h"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" path="res://controllers/ai_controllers/beast tameress/lion_hsm.gd" id="3_kqkgx"]
 [ext_resource type="BehaviorTree" uid="uid://cq2i46lwdpibv" path="res://controllers/ai_controllers/animals duo/animals_duo_02.tres" id="4_edt7u"]
 [ext_resource type="Script" path="res://state machines/Boss States/Beast Tameress/boss_state.gd" id="5_uy7m7"]
-[ext_resource type="Resource" uid="uid://dhmuofq5ev26f" path="res://characters/animals/lion/lion_fs.tres" id="6_63enc"]
 [ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Easing/soup_second_order_easing_no_g.gd" id="6_ascop"]
 [ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Easing/soup_second_order_easing.gd" id="7_2jlgf"]
 [ext_resource type="BehaviorTree" uid="uid://dp30f3tlgh77f" path="res://controllers/ai_controllers/animals duo/animals_duo_03.tres" id="7_dqcuw"]
@@ -16,7 +15,7 @@
 [ext_resource type="Script" path="res://ai/tasks/conditions/check_if_dead.gd" id="9_ceej8"]
 [ext_resource type="Script" path="res://state machines/Tiger/tiger_phase.gd" id="9_pq7pm"]
 [ext_resource type="Script" path="res://ai/tasks/tiger/bite.gd" id="10_6ut80"]
-[ext_resource type="Script" path="res://data/characters data/character_data.gd" id="10_lpcnr"]
+[ext_resource type="Script" path="res://ai/tasks/tiger/switch_place.gd" id="13_14q3y"]
 [ext_resource type="PackedScene" uid="uid://cnkxwgp6biyjw" path="res://characters/animals/tiger/tiger.tscn" id="13_bo0q5"]
 [ext_resource type="Script" path="res://state machines/Tiger/tiger_hsm.gd" id="14_kl1sl"]
 
@@ -70,6 +69,22 @@ children = [SubResource("BTCondition_j0k50"), SubResource("BTAction_ffj2x")]
 duration = 5.0
 children = [SubResource("BTSequence_um48y")]
 
+[sub_resource type="BBNode" id="BBNode_5c3cs"]
+saved_value = NodePath("TigerHSM")
+resource_name = "TigerHSM"
+
+[sub_resource type="BTAction" id="BTAction_3hegn"]
+script = ExtResource("13_14q3y")
+bb_state_machine = SubResource("BBNode_5c3cs")
+
+[sub_resource type="BTSequence" id="BTSequence_2voyc"]
+children = [SubResource("BTAction_3hegn")]
+
+[sub_resource type="BTCooldown" id="BTCooldown_4wo2m"]
+duration = 4.0
+start_cooled = true
+children = [SubResource("BTSequence_2voyc")]
+
 [sub_resource type="BBNode" id="BBNode_2kkaj"]
 saved_value = NodePath("TigerHSM")
 resource_name = "TigerHSM"
@@ -83,7 +98,7 @@ bb_state_machine = SubResource("BBNode_2kkaj")
 children = [SubResource("BTAction_xtdxv")]
 
 [sub_resource type="BTSelector" id="BTSelector_qut7k"]
-children = [SubResource("BTSequence_lo0ok"), SubResource("BTCooldown_24vqs"), SubResource("BTSequence_xpf0s")]
+children = [SubResource("BTSequence_lo0ok"), SubResource("BTCooldown_24vqs"), SubResource("BTCooldown_4wo2m"), SubResource("BTSequence_xpf0s")]
 
 [sub_resource type="BehaviorTree" id="BehaviorTree_eyl5p"]
 blackboard_plan = SubResource("BlackboardPlan_3omxu")
@@ -91,75 +106,31 @@ root_task = SubResource("BTSelector_qut7k")
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_ybi6c"]
 
-[sub_resource type="Resource" id="Resource_0tlgv"]
-script = ExtResource("10_lpcnr")
-attack_power_multiplier = 1.0
-max_health = 2000
-critical_chance = 0.05
-critical_damage_multiplier = 1.2
-dodge_chance = 0.0
-attack_speed_multiplier = 1.0
-movement_speed_multiplier = 1.0
-attack_range = 0.0
-status_resist_multiplier = 0.1
-effect_power_multiplier = 1.0
-fighting_style = ExtResource("6_63enc")
-
-[sub_resource type="Resource" id="Resource_4o6o4"]
+[sub_resource type="Resource" id="Resource_4gxqk"]
 script = ExtResource("6_ascop")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_vqn2i"]
+[sub_resource type="Resource" id="Resource_5xsmn"]
 script = ExtResource("6_ascop")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_swge8"]
+[sub_resource type="Resource" id="Resource_axpwo"]
 script = ExtResource("6_ascop")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_xofay"]
+[sub_resource type="Resource" id="Resource_wwwk1"]
 script = ExtResource("6_ascop")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_8fe5h"]
-script = ExtResource("7_2jlgf")
-frequency = 1.0
-damping = 1.0
-reaction = 1.0
-
-[sub_resource type="Resource" id="Resource_ifxkf"]
-script = ExtResource("6_ascop")
-frequency = 1.0
-damping = 1.0
-reaction = 1.0
-
-[sub_resource type="Resource" id="Resource_10brx"]
-script = ExtResource("6_ascop")
-frequency = 1.0
-damping = 1.0
-reaction = 1.0
-
-[sub_resource type="Resource" id="Resource_3o4jf"]
-script = ExtResource("6_ascop")
-frequency = 1.0
-damping = 1.0
-reaction = 1.0
-
-[sub_resource type="Resource" id="Resource_7nkp6"]
-script = ExtResource("6_ascop")
-frequency = 1.0
-damping = 1.0
-reaction = 1.0
-
-[sub_resource type="Resource" id="Resource_bai3k"]
+[sub_resource type="Resource" id="Resource_nwr32"]
 script = ExtResource("7_2jlgf")
 frequency = 1.0
 damping = 1.0
@@ -213,152 +184,79 @@ blackboard_plan = SubResource("BlackboardPlan_ybi6c")
 script = ExtResource("9_pq7pm")
 
 [node name="Lion" parent="." index="3" instance=ExtResource("2_am1t5")]
-character_stats = SubResource("Resource_0tlgv")
-
-[node name="HeadLookAt" parent="Lion/Skeleton2D/SoupStack/HeadStack" index="0"]
-easing = SubResource("Resource_4o6o4")
-
-[node name="NeckLookAt" parent="Lion/Skeleton2D/SoupStack/HeadStack" index="1"]
-easing = SubResource("Resource_vqn2i")
-
-[node name="RHandTwoBoneIK" parent="Lion/Skeleton2D/SoupStack/RHandStack" index="0"]
-first_joint_easing = SubResource("Resource_swge8")
-
-[node name="LHandTwoBoneIK" parent="Lion/Skeleton2D/SoupStack/LHandStack" index="0"]
-first_joint_easing = SubResource("Resource_xofay")
-
-[node name="TailJiggle" parent="Lion/Skeleton2D/SoupStack/SoupSubStack" index="2"]
-easing = SubResource("Resource_8fe5h")
-
-[node name="Neck" parent="Lion/Skeleton2D/Main/BodyBack/BodyMid/BodyFront" index="0"]
-rotation = 0.227017
-scale = Vector2(0.999992, 0.999992)
-
-[node name="Head" parent="Lion/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/Neck" index="0"]
-rotation = 0.0106942
-scale = Vector2(0.999979, 0.999979)
-
-[node name="Jaw" parent="Lion/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/Neck/Head" index="0"]
-rotation = -2.15523
-scale = Vector2(0.999999, 0.999999)
-
-[node name="UpperRHand" parent="Lion/Skeleton2D/Main/BodyBack/BodyMid/BodyFront" index="1"]
-rotation = -0.246273
-scale = Vector2(0.999983, 0.999983)
-
-[node name="LowerRHand" parent="Lion/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperRHand" index="0"]
-rotation = 0.621997
-scale = Vector2(0.999992, 0.999992)
-
-[node name="WristR" parent="Lion/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperRHand/LowerRHand" index="0"]
-rotation = -1.74363
-scale = Vector2(0.999983, 0.999983)
-
-[node name="UpperLHand" parent="Lion/Skeleton2D/Main/BodyBack/BodyMid/BodyFront" index="2"]
-rotation = -2.77419
-scale = Vector2(0.99999, 0.99999)
-
-[node name="LowerLHand" parent="Lion/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperLHand" index="0"]
-rotation = 0.613031
-scale = Vector2(0.999989, 0.999989)
-
-[node name="WristL" parent="Lion/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperLHand/LowerLHand" index="0"]
-rotation = 0.554358
-scale = Vector2(0.999992, 0.999992)
-
-[node name="UpperRLeg" parent="Lion/Skeleton2D/Main/BodyBack" index="1"]
-rotation = -0.0552988
-scale = Vector2(0.99998, 0.99998)
-
-[node name="LowerRLeg" parent="Lion/Skeleton2D/Main/BodyBack/UpperRLeg" index="0"]
-rotation = -0.968826
-scale = Vector2(0.99999, 0.99999)
-
-[node name="UpperLLeg" parent="Lion/Skeleton2D/Main/BodyBack" index="2"]
-rotation = -0.062539
-scale = Vector2(0.999979, 0.999979)
-
-[node name="LowerLLeg" parent="Lion/Skeleton2D/Main/BodyBack/UpperLLeg" index="0"]
-rotation = -0.977705
-scale = Vector2(0.999991, 0.999991)
-
-[node name="Tail" parent="Lion/Skeleton2D/Main/BodyBack" index="3"]
-rotation = 2.30693
-scale = Vector2(0.999989, 0.999989)
 
 [node name="Tiger" parent="." index="4" instance=ExtResource("13_bo0q5")]
 position = Vector2(708, 12)
 
 [node name="HeadLookAt" parent="Tiger/Skeleton2D/SoupStack/HeadStack" index="0"]
-easing = SubResource("Resource_ifxkf")
+easing = SubResource("Resource_4gxqk")
 
 [node name="NeckLookAt" parent="Tiger/Skeleton2D/SoupStack/HeadStack" index="1"]
-easing = SubResource("Resource_10brx")
+easing = SubResource("Resource_5xsmn")
 
 [node name="RHandTwoBoneIK" parent="Tiger/Skeleton2D/SoupStack/RHandStack" index="0"]
-first_joint_easing = SubResource("Resource_3o4jf")
+first_joint_easing = SubResource("Resource_axpwo")
 
 [node name="LHandTwoBoneIK" parent="Tiger/Skeleton2D/SoupStack/LHandStack" index="0"]
-first_joint_easing = SubResource("Resource_7nkp6")
+first_joint_easing = SubResource("Resource_wwwk1")
 
 [node name="TailJiggle" parent="Tiger/Skeleton2D/SoupStack/SoupSubStack" index="2"]
-easing = SubResource("Resource_bai3k")
+easing = SubResource("Resource_nwr32")
 
 [node name="Neck" parent="Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront" index="0"]
-rotation = 0.218279
-scale = Vector2(0.999998, 0.999998)
+rotation = 0.208312
+scale = Vector2(0.999995, 0.999995)
 
 [node name="Head" parent="Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/Neck" index="0"]
-rotation = 0.0540301
-scale = Vector2(0.999991, 0.999991)
+rotation = -0.0218566
+scale = Vector2(0.999989, 0.999989)
 
 [node name="Jaw" parent="Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/Neck/Head" index="0"]
-rotation = -2.15673
+rotation = -2.14593
 scale = Vector2(1, 1)
 
 [node name="UpperRHand" parent="Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront" index="1"]
-rotation = -0.227624
+rotation = -0.205161
 scale = Vector2(0.999993, 0.999993)
 
 [node name="LowerRHand" parent="Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperRHand" index="0"]
-rotation = 0.564194
-scale = Vector2(0.999997, 0.999997)
-
-[node name="WristR" parent="Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperRHand/LowerRHand" index="0"]
-rotation = -1.71251
-scale = Vector2(0.999993, 0.999993)
-
-[node name="UpperLHand" parent="Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront" index="2"]
-rotation = -2.75655
-scale = Vector2(0.999995, 0.999995)
-
-[node name="LowerLHand" parent="Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperLHand" index="0"]
-rotation = 0.557633
-scale = Vector2(0.999997, 0.999997)
-
-[node name="WristL" parent="Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperLHand/LowerLHand" index="0"]
-rotation = 0.588971
-scale = Vector2(0.999997, 0.999997)
-
-[node name="UpperRLeg" parent="Tiger/Skeleton2D/Main/BodyBack" index="1"]
-rotation = -0.0164565
-scale = Vector2(0.999992, 0.999992)
-
-[node name="LowerRLeg" parent="Tiger/Skeleton2D/Main/BodyBack/UpperRLeg" index="0"]
-rotation = -1.05171
+rotation = 0.565742
 scale = Vector2(0.999996, 0.999996)
 
-[node name="UpperLLeg" parent="Tiger/Skeleton2D/Main/BodyBack" index="2"]
-rotation = -0.0330809
+[node name="WristR" parent="Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperRHand/LowerRHand" index="0"]
+rotation = -1.68125
+scale = Vector2(0.999991, 0.999991)
+
+[node name="UpperLHand" parent="Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront" index="2"]
+rotation = -2.7353
 scale = Vector2(0.999993, 0.999993)
 
+[node name="LowerLHand" parent="Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperLHand" index="0"]
+rotation = 0.56274
+scale = Vector2(0.999996, 0.999996)
+
+[node name="WristL" parent="Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperLHand/LowerLHand" index="0"]
+rotation = 0.580824
+scale = Vector2(0.999996, 0.999996)
+
+[node name="UpperRLeg" parent="Tiger/Skeleton2D/Main/BodyBack" index="1"]
+rotation = -0.0954867
+scale = Vector2(0.99999, 0.99999)
+
+[node name="LowerRLeg" parent="Tiger/Skeleton2D/Main/BodyBack/UpperRLeg" index="0"]
+rotation = -0.883174
+scale = Vector2(0.999995, 0.999995)
+
+[node name="UpperLLeg" parent="Tiger/Skeleton2D/Main/BodyBack" index="2"]
+rotation = -0.094058
+scale = Vector2(0.999992, 0.999992)
+
 [node name="LowerLLeg" parent="Tiger/Skeleton2D/Main/BodyBack/UpperLLeg" index="0"]
-rotation = -1.04091
-scale = Vector2(0.999997, 0.999997)
+rotation = -0.910327
+scale = Vector2(0.999996, 0.999996)
 
 [node name="Tail" parent="Tiger/Skeleton2D/Main/BodyBack" index="3"]
-rotation = 2.23461
+rotation = 2.13101
 scale = Vector2(0.999997, 0.999997)
 
-[editable path="Lion"]
 [editable path="Tiger"]
