@@ -10,61 +10,61 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h68ra"]
 size = Vector2(4318, 174)
 
-[sub_resource type="Resource" id="Resource_n5ykg"]
+[sub_resource type="Resource" id="Resource_cphb8"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_664oh"]
+[sub_resource type="Resource" id="Resource_bw0fx"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_ojxqo"]
+[sub_resource type="Resource" id="Resource_ht3ol"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_3gibn"]
+[sub_resource type="Resource" id="Resource_xyvfy"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_itxo7"]
+[sub_resource type="Resource" id="Resource_h4u3b"]
 script = ExtResource("4_wp3u5")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_1wdxf"]
+[sub_resource type="Resource" id="Resource_vxy11"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_1iwu4"]
+[sub_resource type="Resource" id="Resource_vm0dn"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_fg4w7"]
+[sub_resource type="Resource" id="Resource_a6yly"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_1gy18"]
+[sub_resource type="Resource" id="Resource_x0wng"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_4vt6c"]
+[sub_resource type="Resource" id="Resource_ab51u"]
 script = ExtResource("4_wp3u5")
 frequency = 1.0
 damping = 1.0
@@ -103,6 +103,8 @@ zoom = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(181, 242)
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-2370, 274)
@@ -122,207 +124,203 @@ target = NodePath("../Animals Duo Controller/Lion")
 position = Vector2(3, 25)
 
 [node name="TorsoTop" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="0"]
-rotation = 0.425612
-scale = Vector2(0.99998, 0.99998)
+rotation = 0.351812
+scale = Vector2(0.999979, 0.999979)
 
 [node name="UpperArmR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="0"]
-rotation = 1.35545
-scale = Vector2(0.999975, 0.999975)
+rotation = 1.40271
+scale = Vector2(0.999974, 0.999974)
 
 [node name="LowerArmR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR" index="0"]
-rotation = -1.66936
-scale = Vector2(0.999979, 0.999979)
+rotation = -1.73138
+scale = Vector2(0.999978, 0.999978)
 
 [node name="WristR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR" index="0"]
-rotation = 1.79352
-scale = Vector2(0.999981, 0.999981)
+rotation = 1.93026
+scale = Vector2(0.99998, 0.99998)
 
 [node name="UpperArmL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="1"]
-rotation = -1.15876
-scale = Vector2(0.999979, 0.999979)
+rotation = -1.02827
+scale = Vector2(0.999978, 0.999978)
 
 [node name="LowerArmL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL" index="0"]
-rotation = -0.272708
-scale = Vector2(0.999982, 0.999982)
+rotation = -0.445613
+scale = Vector2(0.999981, 0.999981)
 
 [node name="WristL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL" index="0"]
-rotation = 2.52519
-scale = Vector2(0.999977, 0.999977)
+rotation = 2.66725
+scale = Vector2(0.999976, 0.999976)
 
 [node name="HeadMain" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="2"]
-rotation = -0.153334
-scale = Vector2(0.999972, 0.999972)
+rotation = -0.108218
+scale = Vector2(0.999971, 0.999971)
 
 [node name="LowerJaw" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="0"]
-rotation = 1.04488
-scale = Vector2(0.999974, 0.999974)
+rotation = 1.0959
+scale = Vector2(0.999973, 0.999973)
 
 [node name="EarL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="2"]
 scale = Vector2(0.443939, 0.778982)
 
 [node name="UpperLegR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="1"]
-rotation = 2.13105
-scale = Vector2(0.999988, 0.999988)
+rotation = 2.218
+scale = Vector2(0.999987, 0.999987)
 
 [node name="LowerLegR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/UpperLegR" index="0"]
-rotation = 1.20374
-scale = Vector2(0.999979, 0.999979)
+rotation = 1.07679
 
 [node name="UpperLegL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="2"]
-rotation = 2.47327
-scale = Vector2(0.999988, 0.999988)
+rotation = 2.70729
+scale = Vector2(0.999987, 0.999987)
 
 [node name="LowerLegL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/UpperLegL" index="0"]
-rotation = 0.615869
-scale = Vector2(0.999981, 0.999981)
+rotation = 0.329964
+scale = Vector2(0.99998, 0.99998)
 
 [node name="Animals Duo Controller" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_vqxku")]
 position = Vector2(1436, 419)
 target = NodePath("../PlayerController/BearNew")
 
 [node name="HeadLookAt" parent="Animals Duo Controller/Lion/Skeleton2D/SoupStack/HeadStack" index="0"]
-easing = SubResource("Resource_n5ykg")
+easing = SubResource("Resource_cphb8")
 
 [node name="NeckLookAt" parent="Animals Duo Controller/Lion/Skeleton2D/SoupStack/HeadStack" index="1"]
-easing = SubResource("Resource_664oh")
+easing = SubResource("Resource_bw0fx")
 
 [node name="RHandTwoBoneIK" parent="Animals Duo Controller/Lion/Skeleton2D/SoupStack/RHandStack" index="0"]
-first_joint_easing = SubResource("Resource_ojxqo")
+first_joint_easing = SubResource("Resource_ht3ol")
 
 [node name="LHandTwoBoneIK" parent="Animals Duo Controller/Lion/Skeleton2D/SoupStack/LHandStack" index="0"]
-first_joint_easing = SubResource("Resource_3gibn")
+first_joint_easing = SubResource("Resource_xyvfy")
 
 [node name="TailJiggle" parent="Animals Duo Controller/Lion/Skeleton2D/SoupStack/SoupSubStack" index="2"]
-easing = SubResource("Resource_itxo7")
+easing = SubResource("Resource_h4u3b")
 
 [node name="Neck" parent="Animals Duo Controller/Lion/Skeleton2D/Main/BodyBack/BodyMid/BodyFront" index="0"]
-rotation = 0.214292
-scale = Vector2(0.999991, 0.999991)
+rotation = 0.205137
+scale = Vector2(0.99999, 0.99999)
 
 [node name="Head" parent="Animals Duo Controller/Lion/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/Neck" index="0"]
-rotation = -0.0647677
-scale = Vector2(0.999978, 0.999978)
+rotation = -0.0151699
+scale = Vector2(0.999976, 0.999976)
 
 [node name="Jaw" parent="Animals Duo Controller/Lion/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/Neck/Head" index="0"]
-rotation = -2.14904
-scale = Vector2(0.999999, 0.999999)
+rotation = -2.14512
 
 [node name="UpperRHand" parent="Animals Duo Controller/Lion/Skeleton2D/Main/BodyBack/BodyMid/BodyFront" index="1"]
-rotation = -0.218007
-scale = Vector2(0.999983, 0.999983)
+rotation = -0.197676
+scale = Vector2(0.999982, 0.999982)
 
 [node name="LowerRHand" parent="Animals Duo Controller/Lion/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperRHand" index="0"]
-rotation = 0.611714
+rotation = 0.547192
 scale = Vector2(0.999992, 0.999992)
 
 [node name="WristR" parent="Animals Duo Controller/Lion/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperRHand/LowerRHand" index="0"]
-rotation = -1.70885
-scale = Vector2(0.999983, 0.999983)
+rotation = -1.66716
+scale = Vector2(0.999982, 0.999982)
 
 [node name="UpperLHand" parent="Animals Duo Controller/Lion/Skeleton2D/Main/BodyBack/BodyMid/BodyFront" index="2"]
-rotation = -2.74747
-scale = Vector2(0.999997, 0.999997)
+rotation = -2.72824
+scale = Vector2(0.999996, 0.999996)
 
 [node name="LowerLHand" parent="Animals Duo Controller/Lion/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperLHand" index="0"]
-rotation = 0.606492
+rotation = 0.54551
 scale = Vector2(0.999988, 0.999988)
 
 [node name="WristL" parent="Animals Duo Controller/Lion/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperLHand/LowerLHand" index="0"]
-rotation = 0.550323
-scale = Vector2(0.999992, 0.999992)
+rotation = 0.592121
+scale = Vector2(0.999991, 0.999991)
 
 [node name="UpperRLeg" parent="Animals Duo Controller/Lion/Skeleton2D/Main/BodyBack" index="1"]
-rotation = -0.121318
-scale = Vector2(0.99998, 0.99998)
+rotation = -0.0915034
+scale = Vector2(0.999978, 0.999978)
 
 [node name="LowerRLeg" parent="Animals Duo Controller/Lion/Skeleton2D/Main/BodyBack/UpperRLeg" index="0"]
-rotation = -0.828167
+rotation = -0.89166
 scale = Vector2(0.999989, 0.999989)
 
 [node name="UpperLLeg" parent="Animals Duo Controller/Lion/Skeleton2D/Main/BodyBack" index="2"]
-rotation = -0.11478
-scale = Vector2(0.999979, 0.999979)
+rotation = -0.0908888
+scale = Vector2(0.999978, 0.999978)
 
 [node name="LowerLLeg" parent="Animals Duo Controller/Lion/Skeleton2D/Main/BodyBack/UpperLLeg" index="0"]
-rotation = -0.866184
+rotation = -0.917094
 scale = Vector2(0.999991, 0.999991)
 
 [node name="Tail" parent="Animals Duo Controller/Lion/Skeleton2D/Main/BodyBack" index="3"]
-rotation = 2.17937
-scale = Vector2(0.999989, 0.999989)
+rotation = 2.1056
+scale = Vector2(0.999988, 0.999988)
 
 [node name="Tiger" parent="Animals Duo Controller" index="4"]
 position = Vector2(695, 12)
 
 [node name="HeadLookAt" parent="Animals Duo Controller/Tiger/Skeleton2D/SoupStack/HeadStack" index="0"]
-easing = SubResource("Resource_1wdxf")
+easing = SubResource("Resource_vxy11")
 
 [node name="NeckLookAt" parent="Animals Duo Controller/Tiger/Skeleton2D/SoupStack/HeadStack" index="1"]
-easing = SubResource("Resource_1iwu4")
+easing = SubResource("Resource_vm0dn")
 
 [node name="RHandTwoBoneIK" parent="Animals Duo Controller/Tiger/Skeleton2D/SoupStack/RHandStack" index="0"]
-first_joint_easing = SubResource("Resource_fg4w7")
+first_joint_easing = SubResource("Resource_a6yly")
 
 [node name="LHandTwoBoneIK" parent="Animals Duo Controller/Tiger/Skeleton2D/SoupStack/LHandStack" index="0"]
-first_joint_easing = SubResource("Resource_1gy18")
+first_joint_easing = SubResource("Resource_x0wng")
 
 [node name="TailJiggle" parent="Animals Duo Controller/Tiger/Skeleton2D/SoupStack/SoupSubStack" index="2"]
-easing = SubResource("Resource_4vt6c")
+easing = SubResource("Resource_ab51u")
 
 [node name="Neck" parent="Animals Duo Controller/Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront" index="0"]
-rotation = 0.234428
-scale = Vector2(0.999998, 0.999998)
-
-[node name="Head" parent="Animals Duo Controller/Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/Neck" index="0"]
-rotation = -0.0654595
-scale = Vector2(0.99999, 0.99999)
-
-[node name="Jaw" parent="Animals Duo Controller/Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/Neck/Head" index="0"]
-rotation = -2.15424
-scale = Vector2(1, 1)
-
-[node name="UpperRHand" parent="Animals Duo Controller/Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront" index="1"]
-rotation = -0.261679
-scale = Vector2(0.999992, 0.999992)
-
-[node name="LowerRHand" parent="Animals Duo Controller/Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperRHand" index="0"]
-rotation = 0.692587
-scale = Vector2(0.999996, 0.999996)
-
-[node name="WristR" parent="Animals Duo Controller/Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperRHand/LowerRHand" index="0"]
-rotation = -1.7782
-scale = Vector2(0.999992, 0.999992)
-
-[node name="UpperLHand" parent="Animals Duo Controller/Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront" index="2"]
-rotation = -2.78875
-scale = Vector2(0.999995, 0.999995)
-
-[node name="LowerLHand" parent="Animals Duo Controller/Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperLHand" index="0"]
-rotation = 0.681218
+rotation = 0.195688
 scale = Vector2(0.999997, 0.999997)
 
+[node name="Head" parent="Animals Duo Controller/Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/Neck" index="0"]
+rotation = 0.0424911
+scale = Vector2(0.999988, 0.999988)
+
+[node name="Jaw" parent="Animals Duo Controller/Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/Neck/Head" index="0"]
+rotation = -2.14683
+
+[node name="UpperRHand" parent="Animals Duo Controller/Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront" index="1"]
+rotation = -0.175863
+scale = Vector2(0.999991, 0.999991)
+
+[node name="LowerRHand" parent="Animals Duo Controller/Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperRHand" index="0"]
+rotation = 0.469988
+scale = Vector2(0.999995, 0.999995)
+
+[node name="WristR" parent="Animals Duo Controller/Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperRHand/LowerRHand" index="0"]
+rotation = -1.62526
+scale = Vector2(0.999991, 0.999991)
+
+[node name="UpperLHand" parent="Animals Duo Controller/Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront" index="2"]
+rotation = -2.70757
+scale = Vector2(0.999994, 0.999994)
+
+[node name="LowerLHand" parent="Animals Duo Controller/Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperLHand" index="0"]
+rotation = 0.471798
+scale = Vector2(0.999996, 0.999996)
+
 [node name="WristL" parent="Animals Duo Controller/Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperLHand/LowerLHand" index="0"]
-rotation = 0.507212
+rotation = 0.641351
+scale = Vector2(0.999996, 0.999996)
 
 [node name="UpperRLeg" parent="Animals Duo Controller/Tiger/Skeleton2D/Main/BodyBack" index="1"]
-rotation = -0.115545
-scale = Vector2(0.999991, 0.999991)
+rotation = -0.0422013
+scale = Vector2(0.999989, 0.999989)
 
 [node name="LowerRLeg" parent="Animals Duo Controller/Tiger/Skeleton2D/Main/BodyBack/UpperRLeg" index="0"]
-rotation = -0.840458
-scale = Vector2(0.999996, 0.999996)
+rotation = -0.996761
+scale = Vector2(0.999995, 0.999995)
 
 [node name="UpperLLeg" parent="Animals Duo Controller/Tiger/Skeleton2D/Main/BodyBack" index="2"]
-rotation = -0.11012
-scale = Vector2(0.999991, 0.999991)
+rotation = -0.0524849
 
 [node name="LowerLLeg" parent="Animals Duo Controller/Tiger/Skeleton2D/Main/BodyBack/UpperLLeg" index="0"]
-rotation = -0.876099
-scale = Vector2(0.999996, 0.999996)
+rotation = -0.999248
 
 [node name="Tail" parent="Animals Duo Controller/Tiger/Skeleton2D/Main/BodyBack" index="3"]
-rotation = 2.37792
-scale = Vector2(0.999996, 0.999996)
+rotation = 2.03001
+scale = Vector2(0.999994, 0.999994)
 
 [node name="AnimationTree" parent="Animals Duo Controller/Tiger" index="6"]
 parameters/MainStateMachine/RUN/blend_position = 0
