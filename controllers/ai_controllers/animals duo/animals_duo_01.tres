@@ -1,26 +1,15 @@
-[gd_resource type="BehaviorTree" load_steps=18 format=3 uid="uid://ry8xjdw5jlbp"]
+[gd_resource type="BehaviorTree" load_steps=20 format=3 uid="uid://ry8xjdw5jlbp"]
 
 [ext_resource type="Script" path="res://ai/tasks/conditions/check_distance.gd" id="1_gton5"]
 [ext_resource type="Script" path="res://ai/tasks/play_tree_anim.gd" id="2_5qkip"]
 [ext_resource type="Script" path="res://ai/tasks/beast tameress/move.gd" id="3_847qd"]
 [ext_resource type="Script" path="res://ai/tasks/random_attack.gd" id="4_kd3fy"]
 
-[sub_resource type="BlackboardPlan" id="BlackboardPlan_lcdwp"]
-prefetch_nodepath_vars = false
-var/can_move/name = &"can_move"
-var/can_move/type = 1
-var/can_move/value = false
-var/can_move/hint = 0
-var/can_move/hint_string = ""
-var/is_dead/name = &"is_dead"
-var/is_dead/type = 1
-var/is_dead/value = false
-var/is_dead/hint = 0
-var/is_dead/hint_string = ""
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_u2slx"]
 
 [sub_resource type="BTCondition" id="BTCondition_di873"]
 script = ExtResource("1_gton5")
-target_distance = 600.0
+target_distance = 400.0
 check_mode = 0
 
 [sub_resource type="BTAction" id="BTAction_kmvwf"]
@@ -33,8 +22,12 @@ move_speed = 500.0
 tolerance = 600.0
 should_stop_at_enemy = true
 
+[sub_resource type="BTAction" id="BTAction_mpxb1"]
+script = ExtResource("2_5qkip")
+animation_condition = &"idle"
+
 [sub_resource type="BTSequence" id="BTSequence_vhhrt"]
-children = [SubResource("BTCondition_di873"), SubResource("BTAction_kmvwf"), SubResource("BTAction_rvy7m")]
+children = [SubResource("BTCondition_di873"), SubResource("BTAction_kmvwf"), SubResource("BTAction_rvy7m"), SubResource("BTAction_mpxb1")]
 
 [sub_resource type="BTCooldown" id="BTCooldown_u4eis"]
 duration = 4.0
@@ -46,9 +39,14 @@ script = ExtResource("1_gton5")
 target_distance = 700.0
 check_mode = 1
 
+[sub_resource type="BBNode" id="BBNode_evfll"]
+saved_value = NodePath("LimboHSM")
+resource_name = "LimboHSM"
+
 [sub_resource type="BTAction" id="BTAction_h3c24"]
 script = ExtResource("4_kd3fy")
 available_attacks = 3
+bb_state_machine = SubResource("BBNode_evfll")
 
 [sub_resource type="BTSequence" id="BTSequence_w8rld"]
 children = [SubResource("BTCondition_f3bbe"), SubResource("BTAction_h3c24")]
@@ -69,5 +67,5 @@ children = [SubResource("BTAction_w06f3")]
 children = [SubResource("BTCooldown_u4eis"), SubResource("BTCooldown_pvtgr"), SubResource("BTSequence_lrpqx")]
 
 [resource]
-blackboard_plan = SubResource("BlackboardPlan_lcdwp")
+blackboard_plan = SubResource("BlackboardPlan_u2slx")
 root_task = SubResource("BTSelector_jek1f")

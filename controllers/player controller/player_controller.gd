@@ -53,6 +53,10 @@ func _physics_process(delta: float):
 	if abs(tilt) < 0.5 and abs(current_velocity.x) < 5:
 		tilt = 0.0
 
+func set_stunned(was_stunned: bool):
+	super(was_stunned)
+	hsm.dispatch(hsm.MOVEMENT_FINISHED)
+
 func reset_combo():
 	print("Combo has been reset")
 	fighting_style.combo_count = 0

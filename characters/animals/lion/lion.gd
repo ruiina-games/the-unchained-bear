@@ -5,10 +5,10 @@ func roar():
 	if !character_stats:
 		return
 	
-	character_stats.attack_power_multiplier += 0.5
-	character_stats.status_resist_multiplier += 0.5
-	character_stats.critical_chance += 0.2
-	character_stats.effect_power_multiplier += 0.5
+	character_stats.attack_power_multiplier += 0.2
+	character_stats.status_resist_multiplier += 0.2
+	character_stats.critical_chance += 0.1
+	character_stats.effect_power_multiplier += 0.2
 	
 	character_stats.fighting_style.combo_count = -1
 	frames_to_activate_attack_for = 20

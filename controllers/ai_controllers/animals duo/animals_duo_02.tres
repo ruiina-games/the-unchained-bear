@@ -1,26 +1,11 @@
-[gd_resource type="BehaviorTree" load_steps=26 format=3 uid="uid://cq2i46lwdpibv"]
+[gd_resource type="BehaviorTree" load_steps=25 format=3 uid="uid://cq2i46lwdpibv"]
 
 [ext_resource type="Script" path="res://ai/tasks/conditions/check_distance.gd" id="1_p5ddy"]
 [ext_resource type="Script" path="res://ai/tasks/play_tree_anim.gd" id="2_n520j"]
 [ext_resource type="Script" path="res://ai/tasks/beast tameress/move.gd" id="3_fujyr"]
 [ext_resource type="Script" path="res://ai/tasks/random_attack.gd" id="4_k4u01"]
 
-[sub_resource type="BlackboardPlan" id="BlackboardPlan_lcdwp"]
-prefetch_nodepath_vars = false
-var/can_move/name = &"can_move"
-var/can_move/type = 1
-var/can_move/value = false
-var/can_move/hint = 0
-var/can_move/hint_string = ""
-var/is_dead/name = &"is_dead"
-var/is_dead/type = 1
-var/is_dead/value = false
-var/is_dead/hint = 0
-var/is_dead/hint_string = ""
-
-[sub_resource type="BTConsolePrint" id="BTConsolePrint_vvm5c"]
-text = "roar
-"
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_jvx60"]
 
 [sub_resource type="BTAction" id="BTAction_fudo8"]
 custom_name = "Idling"
@@ -32,25 +17,26 @@ custom_name = "Perform Roar"
 script = ExtResource("2_n520j")
 animation_condition = &"roar"
 
-[sub_resource type="BTWait" id="BTWait_nvoek"]
+[sub_resource type="BTWait" id="BTWait_v0jqx"]
+duration = 3.0
 
 [sub_resource type="BTSequence" id="BTSequence_0f1x1"]
-children = [SubResource("BTAction_adcod"), SubResource("BTWait_nvoek")]
-
-[sub_resource type="BTRunLimit" id="BTRunLimit_u3443"]
-children = [SubResource("BTSequence_0f1x1")]
+children = [SubResource("BTAction_adcod"), SubResource("BTWait_v0jqx")]
 
 [sub_resource type="BTSequence" id="BTSequence_w33px"]
-children = [SubResource("BTConsolePrint_vvm5c"), SubResource("BTAction_fudo8"), SubResource("BTRunLimit_u3443")]
+children = [SubResource("BTAction_fudo8"), SubResource("BTSequence_0f1x1")]
+
+[sub_resource type="BTRunLimit" id="BTRunLimit_u3443"]
+children = [SubResource("BTSequence_w33px")]
 
 [sub_resource type="BTCooldown" id="BTCooldown_r3i81"]
 duration = 25.0
 custom_name = "Roar"
-children = [SubResource("BTSequence_w33px")]
+children = [SubResource("BTRunLimit_u3443")]
 
 [sub_resource type="BTCondition" id="BTCondition_di873"]
 script = ExtResource("1_p5ddy")
-target_distance = 600.0
+target_distance = 500.0
 check_mode = 0
 
 [sub_resource type="BTAction" id="BTAction_kmvwf"]
@@ -67,7 +53,7 @@ should_stop_at_enemy = true
 children = [SubResource("BTCondition_di873"), SubResource("BTAction_kmvwf"), SubResource("BTAction_rvy7m")]
 
 [sub_resource type="BTCooldown" id="BTCooldown_u4eis"]
-duration = 4.0
+duration = 3.0
 custom_name = "Movement"
 children = [SubResource("BTSequence_vhhrt")]
 
@@ -99,5 +85,5 @@ children = [SubResource("BTAction_w06f3")]
 children = [SubResource("BTCooldown_r3i81"), SubResource("BTCooldown_u4eis"), SubResource("BTCooldown_pvtgr"), SubResource("BTSequence_lrpqx")]
 
 [resource]
-blackboard_plan = SubResource("BlackboardPlan_lcdwp")
+blackboard_plan = SubResource("BlackboardPlan_jvx60")
 root_task = SubResource("BTSelector_jek1f")
