@@ -34,7 +34,7 @@ func _tick(delta: float) -> Status:
 	unique_actor.velocity = direction * speed
 
 	# Перевірка, чи досягнуто цільову позицію (вихід за екран)
-	if unique_actor.global_position.distance_to(target_position) < 100.0:
+	if unique_actor.global_position.distance_to(target_position) < 150.0:
 		if moving_out:
 			# Встановлюємо нову позицію для повернення на екран
 			unique_actor.global_position.x = -target_position.x  # Перемістити на протилежний бік
