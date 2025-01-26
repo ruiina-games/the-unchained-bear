@@ -1,172 +1,201 @@
-[gd_scene load_steps=47 format=3 uid="uid://b4l6ok0dqcdyv"]
+[gd_scene load_steps=60 format=3 uid="uid://b4l6ok0dqcdyv"]
 
 [ext_resource type="PackedScene" uid="uid://dq2wgiu3t6ygp" path="res://controllers/ai_controllers/beast tameress/ai_controller.tscn" id="1_h4mdo"]
 [ext_resource type="Script" path="res://controllers/ai_controllers/beast tameress/animals_duo_controller.gd" id="2_7lm3h"]
 [ext_resource type="PackedScene" uid="uid://sbtvcqcbhi8s" path="res://characters/animals/lion/lion.tscn" id="2_am1t5"]
 [ext_resource type="BehaviorTree" uid="uid://ry8xjdw5jlbp" path="res://controllers/ai_controllers/animals duo/animals_duo_01.tres" id="3_38an7"]
-[ext_resource type="Script" path="res://controllers/ai_controllers/beast tameress/LionStateMachine.gd" id="3_kqkgx"]
+[ext_resource type="Script" path="res://controllers/ai_controllers/beast tameress/lion_hsm.gd" id="3_kqkgx"]
 [ext_resource type="BehaviorTree" uid="uid://cq2i46lwdpibv" path="res://controllers/ai_controllers/animals duo/animals_duo_02.tres" id="4_edt7u"]
-[ext_resource type="Script" path="res://state machines/Boss States/Beast Tameress/phase_01.gd" id="5_uy7m7"]
-[ext_resource type="Resource" uid="uid://dhmuofq5ev26f" path="res://characters/animals/lion/lion_fs.tres" id="6_63enc"]
+[ext_resource type="Script" path="res://state machines/Boss States/Beast Tameress/boss_state.gd" id="5_uy7m7"]
 [ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Easing/soup_second_order_easing_no_g.gd" id="6_ascop"]
 [ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Easing/soup_second_order_easing.gd" id="7_2jlgf"]
+[ext_resource type="BehaviorTree" uid="uid://dp30f3tlgh77f" path="res://controllers/ai_controllers/animals duo/animals_duo_03.tres" id="7_dqcuw"]
 [ext_resource type="Script" path="res://ai/tasks/play_tree_anim.gd" id="7_gubby"]
 [ext_resource type="Script" path="res://ai/tasks/conditions/check_distance.gd" id="8_n5nqd"]
-[ext_resource type="Script" path="res://ai/tasks/beast tameress/move.gd" id="9_0tyny"]
-[ext_resource type="Script" path="res://ai/tasks/random_attack.gd" id="10_ethpt"]
-[ext_resource type="Script" path="res://data/characters data/character_data.gd" id="10_lpcnr"]
+[ext_resource type="Script" path="res://ai/tasks/conditions/check_if_dead.gd" id="9_ceej8"]
+[ext_resource type="Script" path="res://state machines/Tiger/tiger_phase.gd" id="9_pq7pm"]
+[ext_resource type="Script" path="res://ai/tasks/tiger/bite.gd" id="10_6ut80"]
+[ext_resource type="Script" path="res://ai/tasks/tiger/switch_place.gd" id="13_14q3y"]
+[ext_resource type="PackedScene" uid="uid://cnkxwgp6biyjw" path="res://characters/animals/tiger/tiger.tscn" id="13_bo0q5"]
+[ext_resource type="Script" path="res://state machines/Tiger/tiger_hsm.gd" id="14_kl1sl"]
+[ext_resource type="Script" path="res://ai/tasks/tiger/jump_on_enemy.gd" id="14_whav7"]
 
-[sub_resource type="BlackboardPlan" id="BlackboardPlan_ymdl6"]
-prefetch_nodepath_vars = false
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_dv2eh"]
 
-[sub_resource type="BlackboardPlan" id="BlackboardPlan_06qoo"]
-prefetch_nodepath_vars = false
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_nsct8"]
 
-[sub_resource type="BlackboardPlan" id="BlackboardPlan_lcdwp"]
-prefetch_nodepath_vars = false
-var/can_move/name = &"can_move"
-var/can_move/type = 1
-var/can_move/value = false
-var/can_move/hint = 0
-var/can_move/hint_string = ""
-var/is_dead/name = &"is_dead"
-var/is_dead/type = 1
-var/is_dead/value = false
-var/is_dead/hint = 0
-var/is_dead/hint_string = ""
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_qp2rd"]
 
-[sub_resource type="BTConsolePrint" id="BTConsolePrint_vvm5c"]
-text = "FINAL ROAR"
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_3omxu"]
 
-[sub_resource type="BTAction" id="BTAction_fudo8"]
-custom_name = "Idling"
+[sub_resource type="BTCondition" id="BTCondition_36alv"]
+script = ExtResource("9_ceej8")
+
+[sub_resource type="BBNode" id="BBNode_j25rs"]
+saved_value = NodePath("TigerHSM")
+resource_name = "TigerHSM"
+
+[sub_resource type="BTAction" id="BTAction_4bonr"]
 script = ExtResource("7_gubby")
-animation_condition = &"idle"
+animation_condition = &"death"
+bb_state_machine = SubResource("BBNode_j25rs")
 
-[sub_resource type="BTAction" id="BTAction_adcod"]
-custom_name = "Perform Roar"
-script = ExtResource("7_gubby")
-animation_condition = &"roar"
+[sub_resource type="BTSequence" id="BTSequence_lo0ok"]
+children = [SubResource("BTCondition_36alv"), SubResource("BTAction_4bonr")]
 
-[sub_resource type="BTWait" id="BTWait_nvoek"]
+[sub_resource type="BBNode" id="BBNode_j05yf"]
+saved_value = NodePath("Tiger")
+resource_name = "Tiger"
 
-[sub_resource type="BTSequence" id="BTSequence_0f1x1"]
-children = [SubResource("BTAction_adcod"), SubResource("BTWait_nvoek")]
-
-[sub_resource type="BTCooldown" id="BTCooldown_ukixe"]
-children = [SubResource("BTSequence_0f1x1")]
-
-[sub_resource type="BTSequence" id="BTSequence_w33px"]
-children = [SubResource("BTConsolePrint_vvm5c"), SubResource("BTAction_fudo8"), SubResource("BTCooldown_ukixe")]
-
-[sub_resource type="BTCooldown" id="BTCooldown_r3i81"]
-duration = 25.0
-custom_name = "Roar"
-children = [SubResource("BTSequence_w33px")]
-
-[sub_resource type="BTCondition" id="BTCondition_di873"]
+[sub_resource type="BTCondition" id="BTCondition_j0k50"]
 script = ExtResource("8_n5nqd")
-target_distance = 600.0
-check_mode = 0
-
-[sub_resource type="BTAction" id="BTAction_kmvwf"]
-script = ExtResource("7_gubby")
-animation_condition = &"run"
-
-[sub_resource type="BTAction" id="BTAction_rvy7m"]
-script = ExtResource("9_0tyny")
-move_speed = 300.0
-tolerance = 600.0
-should_stop_at_enemy = true
-
-[sub_resource type="BTSequence" id="BTSequence_vhhrt"]
-children = [SubResource("BTCondition_di873"), SubResource("BTAction_kmvwf"), SubResource("BTAction_rvy7m")]
-
-[sub_resource type="BTCooldown" id="BTCooldown_u4eis"]
-duration = 4.0
-custom_name = "Movement"
-children = [SubResource("BTSequence_vhhrt")]
-
-[sub_resource type="BTCondition" id="BTCondition_f3bbe"]
-script = ExtResource("8_n5nqd")
-target_distance = 700.0
+target_distance = 400.0
 check_mode = 1
+unique_actor = SubResource("BBNode_j05yf")
 
-[sub_resource type="BTAction" id="BTAction_h3c24"]
-script = ExtResource("10_ethpt")
-available_attacks = 3
+[sub_resource type="BBNode" id="BBNode_3js8n"]
+saved_value = NodePath("TigerHSM")
+resource_name = "TigerHSM"
 
-[sub_resource type="BTSequence" id="BTSequence_w8rld"]
-children = [SubResource("BTCondition_f3bbe"), SubResource("BTAction_h3c24")]
+[sub_resource type="BTAction" id="BTAction_ffj2x"]
+script = ExtResource("10_6ut80")
+bite_index = 0
+bite_animation_state_name = "catch_bite"
+bb_state_machine = SubResource("BBNode_3js8n")
 
-[sub_resource type="BTCooldown" id="BTCooldown_pvtgr"]
-duration = 2.0
-custom_name = "Attack"
-children = [SubResource("BTSequence_w8rld")]
+[sub_resource type="BBNode" id="BBNode_ypaah"]
+saved_value = NodePath("TigerHSM")
+resource_name = "TigerHSM"
 
-[sub_resource type="BTAction" id="BTAction_w06f3"]
+[sub_resource type="BTAction" id="BTAction_qmny7"]
+custom_name = "Idle Animation"
 script = ExtResource("7_gubby")
 animation_condition = &"idle"
+bb_state_machine = SubResource("BBNode_ypaah")
 
-[sub_resource type="BTSequence" id="BTSequence_lrpqx"]
-children = [SubResource("BTAction_w06f3")]
+[sub_resource type="BTSequence" id="BTSequence_um48y"]
+custom_name = "Bite  Sequence"
+children = [SubResource("BTCondition_j0k50"), SubResource("BTAction_ffj2x"), SubResource("BTAction_qmny7")]
 
-[sub_resource type="BTSelector" id="BTSelector_jek1f"]
-children = [SubResource("BTCooldown_r3i81"), SubResource("BTCooldown_u4eis"), SubResource("BTCooldown_pvtgr"), SubResource("BTSequence_lrpqx")]
+[sub_resource type="BTCooldown" id="BTCooldown_24vqs"]
+duration = 5.0
+children = [SubResource("BTSequence_um48y")]
 
-[sub_resource type="BehaviorTree" id="BehaviorTree_sgbhu"]
-blackboard_plan = SubResource("BlackboardPlan_lcdwp")
-root_task = SubResource("BTSelector_jek1f")
+[sub_resource type="BBNode" id="BBNode_5c3cs"]
+saved_value = NodePath("TigerHSM")
+resource_name = "TigerHSM"
 
-[sub_resource type="BlackboardPlan" id="BlackboardPlan_em65m"]
-prefetch_nodepath_vars = false
+[sub_resource type="BTAction" id="BTAction_3hegn"]
+custom_name = "Switch Places"
+script = ExtResource("13_14q3y")
+speed = 400
+distance_x = 480
+bb_state_machine = SubResource("BBNode_5c3cs")
 
-[sub_resource type="Resource" id="Resource_0tlgv"]
-script = ExtResource("10_lpcnr")
-attack_power_multiplier = 1.0
-max_health = 2000
-critical_chance = 0.05
-critical_damage_multiplier = 1.2
-dodge_chance = 0.0
-attack_speed_multiplier = 1.0
-movement_speed_multiplier = 1.0
-attack_range = 0.0
-status_resist_multiplier = 0.1
-effect_power_multiplier = 1.0
-fighting_style = ExtResource("6_63enc")
+[sub_resource type="BTTimeLimit" id="BTTimeLimit_j7a74"]
+time_limit = 14.0
+children = [SubResource("BTAction_3hegn")]
 
-[sub_resource type="Resource" id="Resource_3onf5"]
+[sub_resource type="BTSequence" id="BTSequence_2voyc"]
+custom_name = "Switch Sequence"
+children = [SubResource("BTTimeLimit_j7a74")]
+
+[sub_resource type="BTCooldown" id="BTCooldown_4wo2m"]
+duration = 8.0
+start_cooled = true
+children = [SubResource("BTSequence_2voyc")]
+
+[sub_resource type="BBNode" id="BBNode_25g3g"]
+saved_value = NodePath("Tiger")
+resource_name = "Tiger"
+
+[sub_resource type="BTCondition" id="BTCondition_rw00a"]
+script = ExtResource("8_n5nqd")
+target_distance = 1800.0
+check_mode = 1
+unique_actor = SubResource("BBNode_25g3g")
+
+[sub_resource type="BBNode" id="BBNode_1vh20"]
+saved_value = NodePath("TigerHSM")
+resource_name = "TigerHSM"
+
+[sub_resource type="BTAction" id="BTAction_yrjgq"]
+custom_name = "Jump on Bear"
+script = ExtResource("14_whav7")
+bb_state_machine = SubResource("BBNode_1vh20")
+
+[sub_resource type="BBNode" id="BBNode_47wk3"]
+saved_value = NodePath("TigerHSM")
+resource_name = "TigerHSM"
+
+[sub_resource type="BTAction" id="BTAction_vwefx"]
+custom_name = "Idle Anim"
+script = ExtResource("7_gubby")
+animation_condition = &"idle"
+bb_state_machine = SubResource("BBNode_47wk3")
+
+[sub_resource type="BTSequence" id="BTSequence_xkmnf"]
+children = [SubResource("BTCondition_rw00a"), SubResource("BTAction_yrjgq"), SubResource("BTAction_vwefx")]
+
+[sub_resource type="BTCooldown" id="BTCooldown_qa6dc"]
+start_cooled = true
+children = [SubResource("BTSequence_xkmnf")]
+
+[sub_resource type="BBNode" id="BBNode_2kkaj"]
+saved_value = NodePath("TigerHSM")
+resource_name = "TigerHSM"
+
+[sub_resource type="BTAction" id="BTAction_xtdxv"]
+custom_name = "Idle Animation"
+script = ExtResource("7_gubby")
+animation_condition = &"idle"
+bb_state_machine = SubResource("BBNode_2kkaj")
+
+[sub_resource type="BTSequence" id="BTSequence_xpf0s"]
+children = [SubResource("BTAction_xtdxv")]
+
+[sub_resource type="BTSelector" id="BTSelector_qut7k"]
+children = [SubResource("BTSequence_lo0ok"), SubResource("BTCooldown_24vqs"), SubResource("BTCooldown_4wo2m"), SubResource("BTCooldown_qa6dc"), SubResource("BTSequence_xpf0s")]
+
+[sub_resource type="BehaviorTree" id="BehaviorTree_eyl5p"]
+blackboard_plan = SubResource("BlackboardPlan_3omxu")
+root_task = SubResource("BTSelector_qut7k")
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_ybi6c"]
+
+[sub_resource type="Resource" id="Resource_elul3"]
 script = ExtResource("6_ascop")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_2b5mk"]
+[sub_resource type="Resource" id="Resource_hi7mw"]
 script = ExtResource("6_ascop")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_dcm50"]
+[sub_resource type="Resource" id="Resource_ohxpw"]
 script = ExtResource("6_ascop")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_mmank"]
+[sub_resource type="Resource" id="Resource_cwphj"]
 script = ExtResource("6_ascop")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_yjsf3"]
+[sub_resource type="Resource" id="Resource_r50pl"]
 script = ExtResource("7_2jlgf")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[node name="Animals Duo Controller" node_paths=PackedStringArray("actor", "hsm", "hp_label") instance=ExtResource("1_h4mdo")]
+[node name="Animals Duo Controller" node_paths=PackedStringArray("tiger", "actor", "hsm", "hp_label") instance=ExtResource("1_h4mdo")]
 script = ExtResource("2_7lm3h")
+tiger = NodePath("Tiger")
 actor = NodePath("Lion")
 hsm = NodePath("LimboHSM")
 hp_label = NodePath("CanvasLayer/HP")
@@ -180,94 +209,111 @@ state_conditions = {
 "run": "run"
 }
 
-[node name="Phase_01" parent="LimboHSM" index="0"]
+[node name="Phase_01" type="BTState" parent="LimboHSM" index="0"]
 behavior_tree = ExtResource("3_38an7")
-blackboard_plan = SubResource("BlackboardPlan_ymdl6")
+blackboard_plan = SubResource("BlackboardPlan_dv2eh")
 unique_name_in_owner = true
+script = ExtResource("5_uy7m7")
 hp_percentage_threshold = 0.75
 
 [node name="Phase_02" type="BTState" parent="LimboHSM" index="1"]
 behavior_tree = ExtResource("4_edt7u")
-blackboard_plan = SubResource("BlackboardPlan_06qoo")
+blackboard_plan = SubResource("BlackboardPlan_nsct8")
 unique_name_in_owner = true
 script = ExtResource("5_uy7m7")
 hp_percentage_threshold = 0.25
 
 [node name="Phase_03" type="BTState" parent="LimboHSM" index="2"]
-behavior_tree = SubResource("BehaviorTree_sgbhu")
-blackboard_plan = SubResource("BlackboardPlan_em65m")
+behavior_tree = ExtResource("7_dqcuw")
+blackboard_plan = SubResource("BlackboardPlan_qp2rd")
 unique_name_in_owner = true
 script = ExtResource("5_uy7m7")
 
-[node name="Lion" parent="." index="2" instance=ExtResource("2_am1t5")]
-character_stats = SubResource("Resource_0tlgv")
+[node name="TigerHSM" type="LimboHSM" parent="." index="2" node_paths=PackedStringArray("character", "controller")]
+unique_name_in_owner = true
+script = ExtResource("14_kl1sl")
+character = NodePath("../Tiger")
+controller = NodePath("..")
 
-[node name="HeadLookAt" parent="Lion/Skeleton2D/SoupStack/HeadStack" index="0"]
-easing = SubResource("Resource_3onf5")
+[node name="Phase_01" type="BTState" parent="TigerHSM" index="0"]
+behavior_tree = SubResource("BehaviorTree_eyl5p")
+blackboard_plan = SubResource("BlackboardPlan_ybi6c")
+script = ExtResource("9_pq7pm")
 
-[node name="NeckLookAt" parent="Lion/Skeleton2D/SoupStack/HeadStack" index="1"]
-easing = SubResource("Resource_2b5mk")
+[node name="Lion" parent="." index="3" instance=ExtResource("2_am1t5")]
 
-[node name="RHandTwoBoneIK" parent="Lion/Skeleton2D/SoupStack/RHandStack" index="0"]
-first_joint_easing = SubResource("Resource_dcm50")
+[node name="Tiger" parent="." index="4" instance=ExtResource("13_bo0q5")]
+position = Vector2(708, 12)
 
-[node name="LHandTwoBoneIK" parent="Lion/Skeleton2D/SoupStack/LHandStack" index="0"]
-first_joint_easing = SubResource("Resource_mmank")
+[node name="HeadLookAt" parent="Tiger/Skeleton2D/SoupStack/HeadStack" index="0"]
+easing = SubResource("Resource_elul3")
 
-[node name="TailJiggle" parent="Lion/Skeleton2D/SoupStack/SoupSubStack" index="2"]
-easing = SubResource("Resource_yjsf3")
+[node name="NeckLookAt" parent="Tiger/Skeleton2D/SoupStack/HeadStack" index="1"]
+easing = SubResource("Resource_hi7mw")
 
-[node name="Neck" parent="Lion/Skeleton2D/Main/BodyBack/BodyMid/BodyFront" index="0"]
-rotation = 0.196662
+[node name="RHandTwoBoneIK" parent="Tiger/Skeleton2D/SoupStack/RHandStack" index="0"]
+first_joint_easing = SubResource("Resource_ohxpw")
 
-[node name="Head" parent="Lion/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/Neck" index="0"]
-rotation = 0.0545985
+[node name="LHandTwoBoneIK" parent="Tiger/Skeleton2D/SoupStack/LHandStack" index="0"]
+first_joint_easing = SubResource("Resource_cwphj")
+
+[node name="TailJiggle" parent="Tiger/Skeleton2D/SoupStack/SoupSubStack" index="2"]
+easing = SubResource("Resource_r50pl")
+
+[node name="Neck" parent="Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront" index="0"]
+rotation = 0.195131
 scale = Vector2(0.999991, 0.999991)
 
-[node name="Jaw" parent="Lion/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/Neck/Head" index="0"]
-rotation = -2.14855
+[node name="Head" parent="Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/Neck" index="0"]
+rotation = 0.0673601
+scale = Vector2(0.999983, 0.999983)
 
-[node name="UpperRHand" parent="Lion/Skeleton2D/Main/BodyBack/BodyMid/BodyFront" index="1"]
-rotation = -0.177586
-scale = Vector2(0.999994, 0.999994)
+[node name="Jaw" parent="Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/Neck/Head" index="0"]
+rotation = -2.14939
+scale = Vector2(1, 1)
 
-[node name="LowerRHand" parent="Lion/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperRHand" index="0"]
-rotation = 0.466941
+[node name="UpperRHand" parent="Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront" index="1"]
+rotation = -0.173743
+scale = Vector2(0.999988, 0.999988)
 
-[node name="WristR" parent="Lion/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperRHand/LowerRHand" index="0"]
-rotation = -1.62888
-scale = Vector2(0.999993, 0.999993)
+[node name="LowerRHand" parent="Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperRHand" index="0"]
+rotation = 0.452752
+scale = Vector2(0.999991, 0.999991)
 
-[node name="UpperLHand" parent="Lion/Skeleton2D/Main/BodyBack/BodyMid/BodyFront" index="2"]
-rotation = -2.7092
-scale = Vector2(0.999998, 0.999998)
+[node name="WristR" parent="Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperRHand/LowerRHand" index="0"]
+rotation = -1.62253
+scale = Vector2(0.999987, 0.999987)
 
-[node name="LowerLHand" parent="Lion/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperLHand" index="0"]
-rotation = 0.468301
-scale = Vector2(0.999996, 0.999996)
+[node name="UpperLHand" parent="Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront" index="2"]
+rotation = -2.70556
+scale = Vector2(0.99999, 0.99999)
 
-[node name="WristL" parent="Lion/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperLHand/LowerLHand" index="0"]
-rotation = 0.64355
-scale = Vector2(0.999997, 0.999997)
-
-[node name="UpperRLeg" parent="Lion/Skeleton2D/Main/BodyBack" index="1"]
-rotation = -0.0292476
+[node name="LowerLHand" parent="Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperLHand" index="0"]
+rotation = 0.454633
 scale = Vector2(0.999992, 0.999992)
 
-[node name="LowerRLeg" parent="Lion/Skeleton2D/Main/BodyBack/UpperRLeg" index="0"]
-rotation = -1.0244
-scale = Vector2(0.999997, 0.999997)
+[node name="WristL" parent="Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperLHand/LowerLHand" index="0"]
+rotation = 0.652186
+scale = Vector2(0.999993, 0.999993)
 
-[node name="UpperLLeg" parent="Lion/Skeleton2D/Main/BodyBack" index="2"]
-rotation = -0.0426585
-scale = Vector2(0.999991, 0.999991)
+[node name="UpperRLeg" parent="Tiger/Skeleton2D/Main/BodyBack" index="1"]
+rotation = -0.0174481
+scale = Vector2(0.999984, 0.999984)
 
-[node name="LowerLLeg" parent="Lion/Skeleton2D/Main/BodyBack/UpperLLeg" index="0"]
-rotation = -1.02034
-scale = Vector2(0.999996, 0.999996)
+[node name="LowerRLeg" parent="Tiger/Skeleton2D/Main/BodyBack/UpperRLeg" index="0"]
+rotation = -1.04959
+scale = Vector2(0.999993, 0.999993)
 
-[node name="Tail" parent="Lion/Skeleton2D/Main/BodyBack" index="3"]
-rotation = 2.0382
-scale = Vector2(0.999997, 0.999997)
+[node name="UpperLLeg" parent="Tiger/Skeleton2D/Main/BodyBack" index="2"]
+rotation = -0.0338205
+scale = Vector2(0.999987, 0.999987)
 
-[editable path="Lion"]
+[node name="LowerLLeg" parent="Tiger/Skeleton2D/Main/BodyBack/UpperLLeg" index="0"]
+rotation = -1.03932
+scale = Vector2(0.999993, 0.999993)
+
+[node name="Tail" parent="Tiger/Skeleton2D/Main/BodyBack" index="3"]
+rotation = 2.02291
+scale = Vector2(0.999993, 0.999993)
+
+[editable path="Tiger"]

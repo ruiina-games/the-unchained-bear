@@ -76,6 +76,7 @@ func process_effects(effect: Effect):
 		pass
 
 func set_stunned(stunned: bool):
+	current_velocity = Vector2.ZERO
 	actor.can_move = !stunned
 
 func _process(delta: float) -> void:

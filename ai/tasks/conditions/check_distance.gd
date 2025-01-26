@@ -1,4 +1,4 @@
-extends BTCondition
+extends BaseCondition
 class_name CheckDistance
 
 # Enum для вибору типу успішної перевірки
@@ -15,18 +15,18 @@ var actor_global_position: Vector2
 var target_global_position: Vector2
 
 func _enter() -> void:
-	var controller: Controller = scene_root
-	if !controller:
-		return
+	super()
 		
-	if !controller.actor.can_move:
-		return
-
-	if !controller.target:
-		return
-
-	actor_global_position = controller.actor.global_position
-	target_global_position = controller.target.global_position
+	if unique_actor:
+		actor = controller.get_node(unique_actor.saved_value)
+		
+	var target: Node2D = controller.target
+		
+	if actor:
+		actor_global_position = actor.global_position
+	
+	if target:
+		target_global_position = target.global_position
 
 func _tick(delta: float) -> Status:
 	var current_distance: float = actor_global_position.distance_to(target_global_position)

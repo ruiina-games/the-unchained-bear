@@ -1,25 +1,36 @@
-[gd_resource type="BehaviorTree" load_steps=26 format=3 uid="uid://dp30f3tlgh77f"]
+[gd_resource type="BehaviorTree" load_steps=28 format=3 uid="uid://dp30f3tlgh77f"]
 
 [ext_resource type="Script" path="res://ai/tasks/play_tree_anim.gd" id="1_33btb"]
+[ext_resource type="Script" path="res://ai/tasks/conditions/check_if_dead.gd" id="1_fyoi6"]
 [ext_resource type="Script" path="res://ai/tasks/conditions/check_distance.gd" id="2_m41cp"]
 [ext_resource type="Script" path="res://ai/tasks/beast tameress/move.gd" id="3_j2iuk"]
 [ext_resource type="Script" path="res://ai/tasks/random_attack.gd" id="4_gwowb"]
 
-[sub_resource type="BlackboardPlan" id="BlackboardPlan_lcdwp"]
-prefetch_nodepath_vars = false
-var/can_move/name = &"can_move"
-var/can_move/type = 1
-var/can_move/value = false
-var/can_move/hint = 0
-var/can_move/hint_string = ""
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_yrnqr"]
 var/is_dead/name = &"is_dead"
 var/is_dead/type = 1
 var/is_dead/value = false
 var/is_dead/hint = 0
 var/is_dead/hint_string = ""
+var/can_move/name = &"can_move"
+var/can_move/type = 1
+var/can_move/value = false
+var/can_move/hint = 0
+var/can_move/hint_string = ""
 
-[sub_resource type="BTConsolePrint" id="BTConsolePrint_vvm5c"]
-text = "FINAL ROAR"
+[sub_resource type="BTCondition" id="BTCondition_wkg7q"]
+script = ExtResource("1_fyoi6")
+
+[sub_resource type="BTConsolePrint" id="BTConsolePrint_feo3v"]
+text = "dead"
+
+[sub_resource type="BTAction" id="BTAction_hhosj"]
+custom_name = "Lion Death"
+script = ExtResource("1_33btb")
+animation_condition = &"death"
+
+[sub_resource type="BTSequence" id="BTSequence_xxs17"]
+children = [SubResource("BTCondition_wkg7q"), SubResource("BTConsolePrint_feo3v"), SubResource("BTAction_hhosj")]
 
 [sub_resource type="BTAction" id="BTAction_fudo8"]
 custom_name = "Idling"
@@ -33,17 +44,10 @@ animation_condition = &"roar"
 
 [sub_resource type="BTWait" id="BTWait_nvoek"]
 
-[sub_resource type="BTSequence" id="BTSequence_0f1x1"]
-children = [SubResource("BTAction_adcod"), SubResource("BTWait_nvoek")]
-
-[sub_resource type="BTCooldown" id="BTCooldown_ukixe"]
-children = [SubResource("BTSequence_0f1x1")]
-
 [sub_resource type="BTSequence" id="BTSequence_w33px"]
-children = [SubResource("BTConsolePrint_vvm5c"), SubResource("BTAction_fudo8"), SubResource("BTCooldown_ukixe")]
+children = [SubResource("BTAction_fudo8"), SubResource("BTAction_adcod"), SubResource("BTWait_nvoek")]
 
 [sub_resource type="BTCooldown" id="BTCooldown_r3i81"]
-duration = 25.0
 custom_name = "Roar"
 children = [SubResource("BTSequence_w33px")]
 
@@ -58,7 +62,7 @@ animation_condition = &"run"
 
 [sub_resource type="BTAction" id="BTAction_rvy7m"]
 script = ExtResource("3_j2iuk")
-move_speed = 300.0
+move_speed = 500.0
 tolerance = 600.0
 should_stop_at_enemy = true
 
@@ -66,7 +70,7 @@ should_stop_at_enemy = true
 children = [SubResource("BTCondition_di873"), SubResource("BTAction_kmvwf"), SubResource("BTAction_rvy7m")]
 
 [sub_resource type="BTCooldown" id="BTCooldown_u4eis"]
-duration = 4.0
+duration = 1.0
 custom_name = "Movement"
 children = [SubResource("BTSequence_vhhrt")]
 
@@ -83,7 +87,7 @@ available_attacks = 3
 children = [SubResource("BTCondition_f3bbe"), SubResource("BTAction_h3c24")]
 
 [sub_resource type="BTCooldown" id="BTCooldown_pvtgr"]
-duration = 2.0
+duration = 1.0
 custom_name = "Attack"
 children = [SubResource("BTSequence_w8rld")]
 
@@ -95,8 +99,8 @@ animation_condition = &"idle"
 children = [SubResource("BTAction_w06f3")]
 
 [sub_resource type="BTSelector" id="BTSelector_jek1f"]
-children = [SubResource("BTCooldown_r3i81"), SubResource("BTCooldown_u4eis"), SubResource("BTCooldown_pvtgr"), SubResource("BTSequence_lrpqx")]
+children = [SubResource("BTSequence_xxs17"), SubResource("BTCooldown_r3i81"), SubResource("BTCooldown_u4eis"), SubResource("BTCooldown_pvtgr"), SubResource("BTSequence_lrpqx")]
 
 [resource]
-blackboard_plan = SubResource("BlackboardPlan_lcdwp")
+blackboard_plan = SubResource("BlackboardPlan_yrnqr")
 root_task = SubResource("BTSelector_jek1f")

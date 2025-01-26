@@ -2096,7 +2096,7 @@ rest = Transform2D(-0.0270549, -0.999634, 0.999634, -0.0270549, 8, -92)
 
 [node name="Head" type="Bone2D" parent="Skeleton2D/TorsoBase"]
 position = Vector2(118.956, 3.21953)
-rotation = -0.0555234
+rotation = 0.0503868
 scale = Vector2(0.999991, 0.999991)
 rest = Transform2D(0.999964, 0.00854172, -0.00854172, 0.999964, 118.956, 3.21953)
 auto_calculate_length_and_angle = false
@@ -2105,7 +2105,7 @@ bone_angle = 0.0
 
 [node name="Tail" type="Bone2D" parent="Skeleton2D/TorsoBase"]
 position = Vector2(-19.4003, 51.494)
-rotation = 0.931114
+rotation = 0.816756
 rest = Transform2D(0.771296, 0.636476, -0.636476, 0.771296, -19.4003, 51.494)
 auto_calculate_length_and_angle = false
 length = 128.831
@@ -2113,19 +2113,19 @@ bone_angle = 0.0
 
 [node name="LHand" type="Bone2D" parent="Skeleton2D/TorsoBase"]
 position = Vector2(70.5397, 54.9286)
-rotation = 2.96926
+rotation = 2.95334
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(-0.989099, 0.147253, -0.147253, -0.989099, 70.5397, 54.9286)
 
 [node name="LowerLHand" type="Bone2D" parent="Skeleton2D/TorsoBase/LHand"]
 position = Vector2(58.1255, 3.22962)
-rotation = 1.2176
+rotation = 1.18048
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.676927, 0.73605, -0.73605, 0.676927, 58.1255, 3.22962)
 
 [node name="WristL" type="Bone2D" parent="Skeleton2D/TorsoBase/LHand/LowerLHand"]
 position = Vector2(38.9449, 2.88027)
-rotation = -0.872401
+rotation = -0.81936
 scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(0.913649, -0.406505, 0.406505, 0.913649, 38.9449, 2.88027)
 
@@ -2139,20 +2139,20 @@ bone_angle = 0.0
 
 [node name="RHand" type="Bone2D" parent="Skeleton2D/TorsoBase"]
 position = Vector2(66.3276, -11.2096)
-rotation = -2.89382
+rotation = -2.90126
 scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(-0.943909, -0.330205, 0.330205, -0.943909, 66.3276, -11.2096)
 
 [node name="LowerRHand" type="Bone2D" parent="Skeleton2D/TorsoBase/RHand"]
 position = Vector2(49.4697, 5.45376)
-rotation = 1.10703
+rotation = 1.16618
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.747794, 0.663931, -0.663931, 0.747794, 49.4697, 5.45376)
 
 [node name="WristR" type="Bone2D" parent="Skeleton2D/TorsoBase/RHand/LowerRHand"]
 unique_name_in_owner = true
 position = Vector2(39.6879, 3.1421)
-rotation = -0.263387
+rotation = -0.242856
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.959055, -0.283218, 0.283218, 0.959055, 39.6879, 3.1421)
 auto_calculate_length_and_angle = false
@@ -2161,18 +2161,18 @@ bone_angle = 0.0
 
 [node name="RLeg" type="Bone2D" parent="Skeleton2D/TorsoBase"]
 position = Vector2(0.432878, -15.9941)
-rotation = -2.4939
+rotation = -2.48682
 rest = Transform2D(-0.835332, -0.549746, 0.549746, -0.835332, 0.432878, -15.9941)
 
 [node name="RLowerLeg" type="Bone2D" parent="Skeleton2D/TorsoBase/RLeg"]
 position = Vector2(46.5237, 2.92337)
-rotation = -1.02747
+rotation = -1.04404
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.641175, -0.767395, 0.767395, 0.641175, 46.5237, 2.92337)
 
 [node name="RFoot" type="Bone2D" parent="Skeleton2D/TorsoBase/RLeg/RLowerLeg"]
 position = Vector2(36.3693, 1.50898)
-rotation = 1.1552
+rotation = 1.16469
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.481751, 0.876308, -0.876308, 0.481751, 36.3693, 1.50898)
 auto_calculate_length_and_angle = false
@@ -2181,17 +2181,18 @@ bone_angle = 0.0
 
 [node name="LLeg" type="Bone2D" parent="Skeleton2D/TorsoBase"]
 position = Vector2(-14.8877, 32.6092)
-rotation = -2.51116
+rotation = -2.50326
 rest = Transform2D(-0.848358, -0.529422, 0.529422, -0.848358, -14.8877, 32.6092)
 
 [node name="LLowerLeg" type="Bone2D" parent="Skeleton2D/TorsoBase/LLeg"]
 position = Vector2(40.2528, 5.35843)
-rotation = -0.149799
+rotation = -0.166144
+scale = Vector2(1, 1)
 rest = Transform2D(1, 4.17233e-07, -4.17233e-07, 1, 40.2528, 5.35843)
 
 [node name="LFoot" type="Bone2D" parent="Skeleton2D/TorsoBase/LLeg/LLowerLeg"]
 position = Vector2(26.3387, -28.2183)
-rotation = 0.161085
+rotation = 0.169529
 scale = Vector2(0.999994, 0.999994)
 rest = Transform2D(0.996491, 0.0837037, -0.0837037, 0.996491, 26.3387, -28.2183)
 auto_calculate_length_and_angle = false

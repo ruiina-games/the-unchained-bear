@@ -48,7 +48,7 @@ func apply_direct_damage(enemy_stats: CharacterStats, damage: Damage):
 	var is_critical: bool = randf() < enemy_stats.critical_chance
 	var critical_multiplier: float = enemy_stats.critical_damage_multiplier if is_critical else 1.0
 
-	var base_damage: float = damage.get_damage_amount() * critical_multiplier
+	var base_damage: float = damage.get_damage_amount() * critical_multiplier * enemy_stats.attack_power_multiplier
 	base_damage *= (1 - agent_stats.status_resist_multiplier)
 
 	print("final damage is: " + str(base_damage))
