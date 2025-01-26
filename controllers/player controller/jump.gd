@@ -34,4 +34,5 @@ func _update(delta: float) -> void:
 	
 	was_on_floor = character.is_on_floor
 	
-	
+#	if is_equal_approx(character.velocity.y):
+		
