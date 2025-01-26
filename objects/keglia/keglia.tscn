@@ -46,7 +46,6 @@ debug_color = Color(0.915946, 0.237705, 0.42187, 0.42)
 z_index = 1
 position = Vector2(-98, -44)
 rotation = -2.72959
-scale = Vector2(1, 1)
 emitting = false
 amount = 80
 process_material = ExtResource("3_ff745")

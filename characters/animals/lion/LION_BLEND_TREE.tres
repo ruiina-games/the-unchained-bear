@@ -142,7 +142,6 @@ mix_mode = 1
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_0i55w"]
 
 [resource]
-graph_offset = Vector2(-388.608, 199.68)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_xg7do")
 nodes/Animation/position = Vector2(-16, 384)
 nodes/MainStateMachine/node = SubResource("AnimationNodeStateMachine_wnddi")
