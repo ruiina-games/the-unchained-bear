@@ -55,7 +55,13 @@ func _physics_process(delta: float):
 
 func set_stunned(was_stunned: bool):
 	super(was_stunned)
-	hsm.dispatch(hsm.MOVEMENT_FINISHED)
+	if !was_stunned:
+		hsm.allowed_advance_movement = true
+		hsm.dispatch(stunned_state.EVENT_FINISHED)
+	else:
+		hsm.allowed_advance_movement = false
+		hsm.dispatch(hsm.STUNNED)
+
 
 func reset_combo():
 	print("Combo has been reset")

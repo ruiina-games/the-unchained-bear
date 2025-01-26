@@ -32,6 +32,9 @@ func _enter() -> void:
 			if anim_name.to_lower() == "fly_catch" || anim_name.to_lower() == "fly_land" :
 				jumping = false
 				has_finished_jump = true
+				
+				if anim_name.to_lower() == "fly_catch":
+					target.got_stunned.emit(true)
 			)
 			
 		state_machine.switch_state("jump")
@@ -64,7 +67,7 @@ func _tick(delta: float) -> Status:
 			state_machine.switch_state("fly_land")
 
 			# Перевірка, чи ціль достатньо близько
-	if unique_actor.global_position.distance_to(target.global_position) <= distance and target.global_position.y >= unique_actor.global_position.y - 50:
+	if unique_actor.global_position.distance_to(target.global_position) <= distance and target.global_position.y >= unique_actor.global_position.y - 20:
 		target.global_position.x = unique_actor.global_position.x + ((sign(unique_actor.global_position.direction_to(target.global_position).x)) * distance)
 		state_machine.switch_state("fly_catch")
 

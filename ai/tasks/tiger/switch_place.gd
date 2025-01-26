@@ -6,9 +6,11 @@ extends BaseAction
 var target_position = Vector2()  # Цільова позиція актора
 var moving_out = true  # Прапорець для контролю напрямку руху
 var anim_tree: AnimationTree
+var movement_finished: bool = false  # Прапорець для перевірки завершення руху
 
 func _enter() -> void:
 	super()
+	movement_finished = false
 	unique_actor = controller.tiger
 	if unique_actor:
 		# Визначення дальньої позиції (-2300 або 2300) в залежності від поточної позиції актора
@@ -29,12 +31,17 @@ func _tick(delta: float) -> Status:
 	if not unique_actor:
 		return FAILURE
 
+	if movement_finished:
+		# Перевіряємо, чи завершився рух
+		anim_tree.set("parameters/MainStateMachine/RUN/blend_position", 0)
+		return SUCCESS
+
 	# Переміщення до цільової позиції
 	var direction = unique_actor.global_position.direction_to(target_position)
 	unique_actor.velocity = direction * speed
 
 	# Перевірка, чи досягнуто цільову позицію (вихід за екран)
-	if unique_actor.global_position.distance_to(target_position) < 150.0:
+	if unique_actor.global_position.distance_to(target_position) < 200.0:
 		if moving_out:
 			# Встановлюємо нову позицію для повернення на екран
 			unique_actor.global_position.x = -target_position.x  # Перемістити на протилежний бік
@@ -49,18 +56,17 @@ func _tick(delta: float) -> Status:
 		else:
 			# Повернення завершено
 			moving_out = true
+			movement_finished = true
+
 			# Оновлення blend_position для руху передом
 			anim_tree.set("parameters/MainStateMachine/RUN/blend_position", 1)
-
 			return SUCCESS
-			
 
 	# Оновлення blend_position для анімації під час руху
 	if moving_out:
 		anim_tree.set("parameters/MainStateMachine/RUN/blend_position", -1)
 	else:
 		anim_tree.set("parameters/MainStateMachine/RUN/blend_position", 1)
-		
-	unique_actor.move_and_slide()
 
+	unique_actor.move_and_slide()
 	return RUNNING
