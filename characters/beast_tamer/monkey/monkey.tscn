@@ -2162,6 +2162,7 @@ bone_angle = 0.0
 [node name="RLeg" type="Bone2D" parent="Skeleton2D/TorsoBase"]
 position = Vector2(0.432878, -15.9941)
 rotation = -2.48682
+scale = Vector2(1, 1)
 rest = Transform2D(-0.835332, -0.549746, 0.549746, -0.835332, 0.432878, -15.9941)
 
 [node name="RLowerLeg" type="Bone2D" parent="Skeleton2D/TorsoBase/RLeg"]

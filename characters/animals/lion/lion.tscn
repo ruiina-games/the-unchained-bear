@@ -1,6 +1,7 @@
-[gd_scene load_steps=67 format=3 uid="uid://sbtvcqcbhi8s"]
+[gd_scene load_steps=70 format=3 uid="uid://sbtvcqcbhi8s"]
 
 [ext_resource type="Script" path="res://characters/animals/lion/lion.gd" id="1_1ojhu"]
+[ext_resource type="Shader" path="res://shaders/positioned_shockwave.gdshader" id="1_7wct5"]
 [ext_resource type="Texture2D" uid="uid://c30pg6im80iim" path="res://assets/Lion/R_Leg_Down.png" id="1_hqkw1"]
 [ext_resource type="Shader" path="res://shaders/hit_flash.gdshader" id="2_8qmo1"]
 [ext_resource type="Resource" uid="uid://dhmuofq5ev26f" path="res://characters/animals/lion/lion_fs.tres" id="2_p3b0o"]
@@ -38,7 +39,14 @@
 [ext_resource type="Texture2D" uid="uid://cj43xuh8ub13e" path="res://assets/FX/Jaw_Up.png" id="29_nh0fu"]
 [ext_resource type="Texture2D" uid="uid://bspu0r1213mhm" path="res://assets/FX/Jaw_Down.png" id="30_wyfo6"]
 [ext_resource type="Texture2D" uid="uid://dvhcnkxiqcl2v" path="res://assets/FX/2.png" id="34_dhg4p"]
-[ext_resource type="Texture2D" uid="uid://s6jjxqdt0e3h" path="res://assets/FX/1.png" id="35_iirdv"]
+[ext_resource type="Script" path="res://characters/animals/lion/shockwave_fx.gd" id="42_p5lp5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j0oo5"]
+shader = ExtResource("1_7wct5")
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/force = 0.76
+shader_parameter/size = 0.3
+shader_parameter/thickness = 0.3
 
 [sub_resource type="Resource" id="Resource_5h133"]
 script = ExtResource("4_gb6q2")
@@ -67,31 +75,31 @@ size = Vector2(488, 786)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yu2mn"]
 
-[sub_resource type="Resource" id="Resource_p6s2v"]
+[sub_resource type="Resource" id="Resource_4jph6"]
 script = ExtResource("23_qeh74")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_3imsm"]
+[sub_resource type="Resource" id="Resource_2acag"]
 script = ExtResource("23_qeh74")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_6fhm6"]
+[sub_resource type="Resource" id="Resource_wgri2"]
 script = ExtResource("23_qeh74")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_scrbt"]
+[sub_resource type="Resource" id="Resource_tyq6f"]
 script = ExtResource("23_qeh74")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_aixbs"]
+[sub_resource type="Resource" id="Resource_wt4bx"]
 script = ExtResource("26_pbnub")
 frequency = 1.0
 damping = 1.0
@@ -306,38 +314,50 @@ tracks/16/keys = {
 tracks/17/type = "value"
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/path = NodePath("FX/SlashAttackFX_2:emitting")
+tracks/17/path = NodePath("Hitbox/CollisionShape2D:position")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/18/type = "value"
-tracks/18/imported = false
-tracks/18/enabled = true
-tracks/18/path = NodePath("Hitbox/CollisionShape2D:position")
-tracks/18/interp = 1
-tracks/18/loop_wrap = true
-tracks/18/keys = {
 "times": PackedFloat32Array(0, 0.001),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-516.25, -451.125), Vector2(-441, -453)]
 }
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Hitbox/CollisionShape2D:shape:size")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(422.5, 667.75)]
+}
 tracks/19/type = "value"
 tracks/19/imported = false
 tracks/19/enabled = true
-tracks/19/path = NodePath("Hitbox/CollisionShape2D:shape:size")
+tracks/19/path = NodePath("FX/ShockwaveFX:visible")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("FX/ShockwaveFX:material:shader_parameter/size")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(422.5, 667.75)]
+"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gm74e"]
@@ -371,7 +391,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [3.01516, 3.20353, 3.01516]
+"values": [3.01516, 3.32663, 3.01516]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -452,10 +472,10 @@ tracks/8/path = NodePath("TargetNodes/LHandTarget:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.4, 0.55, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-75, -63)]
+"values": [Vector2(-75, -63), Vector2(-81, -63), Vector2(-126, -151), Vector2(-75, -63)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -500,10 +520,10 @@ tracks/12/path = NodePath("TargetNodes/RHandTarget:position")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(0, 0.6, 0.65, 0.7, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.25, 0.6, 0.65, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-166, -85), Vector2(-266, -637), Vector2(-399, -487), Vector2(-418, -313), Vector2(-166, -85)]
+"values": [Vector2(-166, -85), Vector2(-324, -352), Vector2(-266, -637), Vector2(-478, -388), Vector2(-344, -172), Vector2(-166, -85)]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
@@ -524,10 +544,10 @@ tracks/14/path = NodePath("TargetNodes/RWristTarget:position")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
-"times": PackedFloat32Array(0, 0.6, 0.65, 0.7, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.25, 0.6, 0.65, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-285, -38), Vector2(-394, -787), Vector2(-668, -628), Vector2(-701, -316), Vector2(-285, -38)]
+"values": [Vector2(-285, -38), Vector2(-418, -384), Vector2(-394, -787), Vector2(-699, -481), Vector2(-557, -76), Vector2(-285, -38)]
 }
 tracks/15/type = "value"
 tracks/15/imported = false
@@ -613,31 +633,43 @@ tracks/21/keys = {
 "update": 0,
 "values": [0.0]
 }
-tracks/22/type = "value"
+tracks/22/type = "method"
 tracks/22/imported = false
 tracks/22/enabled = true
-tracks/22/path = NodePath("FX/SlashAttackFX_2:emitting")
+tracks/22/path = NodePath(".")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/keys = {
-"times": PackedFloat32Array(0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/23/type = "method"
-tracks/23/imported = false
-tracks/23/enabled = true
-tracks/23/path = NodePath(".")
-tracks/23/interp = 1
-tracks/23/loop_wrap = true
-tracks/23/keys = {
 "times": PackedFloat32Array(0.7),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"attack"
 }]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("FX/SlashAttackFX_1:emitting")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0.5, 0.55),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("FX/SlashAttackFX_1:material:shader_parameter/reveal")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0.5, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
 }
 
 [sub_resource type="Animation" id="Animation_gtqak"]
@@ -747,7 +779,7 @@ tracks/8/path = NodePath("TargetNodes/LHandTarget:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.45, 0.6, 0.7, 0.8),
+"times": PackedFloat32Array(0, 0.15, 0.45, 0.55, 0.65, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(-75, -63), Vector2(-162, -266), Vector2(-92, -684), Vector2(-280, -479), Vector2(-258, -212), Vector2(-75, -63)]
@@ -771,7 +803,7 @@ tracks/10/path = NodePath("TargetNodes/LWristTarget:position")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.45, 0.6, 0.7, 0.8),
+"times": PackedFloat32Array(0, 0.15, 0.45, 0.55, 0.65, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(-168, 17), Vector2(-218, -237), Vector2(-178, -932), Vector2(-570, -435), Vector2(-379, -190), Vector2(-168, 17)]
@@ -795,7 +827,7 @@ tracks/12/path = NodePath("TargetNodes/RHandTarget:position")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.45, 0.6, 0.7, 0.8),
+"times": PackedFloat32Array(0, 0.15, 0.45, 0.55, 0.65, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(-166, -85), Vector2(-377, -350), Vector2(-211, -1003), Vector2(-480, -675), Vector2(-368, -287), Vector2(-166, -85)]
@@ -819,7 +851,7 @@ tracks/14/path = NodePath("TargetNodes/RWristTarget:position")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.45, 0.6, 0.7, 0.8),
+"times": PackedFloat32Array(0, 0.15, 0.45, 0.55, 0.65, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(-285, -38), Vector2(-442, -330), Vector2(-230, -1006), Vector2(-539, -656), Vector2(-476, -276), Vector2(-285, -38)]
@@ -2103,19 +2135,19 @@ tracks/21/keys = {
 
 [sub_resource type="Animation" id="Animation_suhad"]
 resource_name = "IDLE_ROAR"
-length = 2.0
+length = 4.0
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("Skeleton2D/Main:position")
-tracks/0/interp = 2
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1.7, 2.1, 2.6, 3.8, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(56, -325), Vector2(55, -304), Vector2(56, -325), Vector2(55, -304), Vector2(56, -325)]
+"values": [Vector2(56, -325), Vector2(52, -256), Vector2(55, -304), Vector2(56, -325), Vector2(55, -304), Vector2(56, -325)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -2124,10 +2156,10 @@ tracks/1/path = NodePath("Skeleton2D/Main:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [3.01516]
+"values": [3.01516, 3.02118]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -2136,10 +2168,10 @@ tracks/2/path = NodePath("TargetNodes/NeckTarget:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.4, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1.7, 2, 2.6, 3.3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-271, -667), Vector2(-105, -710), Vector2(-194, -692), Vector2(-271, -667)]
+"values": [Vector2(-271, -667), Vector2(-378, -502), Vector2(-201, -687), Vector2(-194, -692), Vector2(-218, -682), Vector2(-271, -667)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -2160,10 +2192,10 @@ tracks/4/path = NodePath("TargetNodes/NeckTarget/HeadTarget:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.4, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1.7, 2, 2.6, 3.3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 286), Vector2(-122, 104), Vector2(-89, 119), Vector2(0, 286)]
+"values": [Vector2(0, 286), Vector2(89, 345), Vector2(-167, 175), Vector2(-89, 119), Vector2(-47, 169), Vector2(0, 286)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -2184,10 +2216,10 @@ tracks/6/path = NodePath("TargetNodes/JawTarget:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.4, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1.7, 1.9, 2, 2.6, 3.3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-390, -370), Vector2(-508, -638), Vector2(-454, -492), Vector2(-390, -370)]
+"values": [Vector2(-390, -370), Vector2(-340, -286), Vector2(-421, -371), Vector2(-494, -417), Vector2(-454, -492), Vector2(-397, -363), Vector2(-390, -370)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -2352,7 +2384,7 @@ tracks/20/path = NodePath("TargetNodes/TailTarget:position")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
-"times": PackedFloat32Array(0, 0.9, 2),
+"times": PackedFloat32Array(0, 2.2, 4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(276, -847), Vector2(543, -696), Vector2(276, -847)]
@@ -2376,7 +2408,7 @@ tracks/22/path = NodePath(".")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/keys = {
-"times": PackedFloat32Array(0.4),
+"times": PackedFloat32Array(2.1),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -2399,13 +2431,37 @@ tracks/24/type = "value"
 tracks/24/imported = false
 tracks/24/enabled = true
 tracks/24/path = NodePath("Hitbox/CollisionShape2D:shape:size")
-tracks/24/interp = 0
+tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/keys = {
-"times": PackedFloat32Array(0, 0.3, 2),
+"times": PackedFloat32Array(0, 2.1, 3.3, 3.4, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(400, 667.75), Vector2(400, 667.75), Vector2(5000, 667.75), Vector2(400, 667.75), Vector2(400, 667.75)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("FX/ShockwaveFX:visible")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0, 2, 3.7),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [Vector2(400, 667.75), Vector2(5000, 667.75), Vector2(468.25, 667.75)]
+"values": [false, true, false]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("FX/ShockwaveFX:material:shader_parameter/size")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(2.1, 3.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 3.0]
 }
 
 [sub_resource type="Animation" id="Animation_6cu6d"]
@@ -3010,7 +3066,15 @@ shader_parameter/reveal = 0.0
 offsets = PackedFloat32Array(0, 0.53352, 1)
 colors = PackedColorArray(0.603922, 0, 0, 0, 0.599057, 1.43189e-06, 4.33177e-07, 1, 0.647059, 0, 0, 0)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fhene"]
+shader = ExtResource("1_7wct5")
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/force = 0.1
+shader_parameter/size = 0.0
+shader_parameter/thickness = 0.01
+
 [node name="Lion" type="CharacterBody2D" node_paths=PackedStringArray("animation_tree", "hitbox", "health_component", "hurtbox")]
+material = SubResource("ShaderMaterial_j0oo5")
 position = Vector2(0, 2)
 collision_layer = 0
 collision_mask = 0
@@ -3253,7 +3317,7 @@ script = ExtResource("22_mouru")
 target_node = NodePath("../../../../TargetNodes/NeckTarget/HeadTarget")
 enabled = true
 bone_node = NodePath("../../../Main/BodyBack/BodyMid/BodyFront/Neck/Head")
-easing = SubResource("Resource_p6s2v")
+easing = SubResource("Resource_4jph6")
 
 [node name="NeckLookAt" type="Node" parent="Skeleton2D/SoupStack/HeadStack" node_paths=PackedStringArray("target_node", "bone_node")]
 script = ExtResource("22_mouru")
@@ -3261,7 +3325,7 @@ target_node = NodePath("../../../../TargetNodes/NeckTarget")
 enabled = true
 bone_node = NodePath("../../../Main/BodyBack/BodyMid/BodyFront/Neck")
 use_easing = true
-easing = SubResource("Resource_3imsm")
+easing = SubResource("Resource_2acag")
 
 [node name="JawLookAt" type="Node" parent="Skeleton2D/SoupStack/HeadStack" node_paths=PackedStringArray("target_node", "bone_node")]
 script = ExtResource("22_mouru")
@@ -3280,8 +3344,7 @@ flip_bend_direction = true
 joint_one_bone_node = NodePath("../../../Main/BodyBack/BodyMid/BodyFront/UpperRHand")
 joint_two_bone_node = NodePath("../../../Main/BodyBack/BodyMid/BodyFront/UpperRHand/LowerRHand")
 chain_tip = NodePath("../../../Main/BodyBack/BodyMid/BodyFront/UpperRHand/LowerRHand/WristR")
-use_easing_on_first_joint = true
-first_joint_easing = SubResource("Resource_6fhm6")
+first_joint_easing = SubResource("Resource_wgri2")
 
 [node name="RWristLookAt" type="Node" parent="Skeleton2D/SoupStack/RHandStack" node_paths=PackedStringArray("target_node", "bone_node")]
 script = ExtResource("22_mouru")
@@ -3300,8 +3363,7 @@ flip_bend_direction = true
 joint_one_bone_node = NodePath("../../../Main/BodyBack/BodyMid/BodyFront/UpperLHand")
 joint_two_bone_node = NodePath("../../../Main/BodyBack/BodyMid/BodyFront/UpperLHand/LowerLHand")
 chain_tip = NodePath("../../../Main/BodyBack/BodyMid/BodyFront/UpperLHand/LowerLHand/WristL")
-use_easing_on_first_joint = true
-first_joint_easing = SubResource("Resource_scrbt")
+first_joint_easing = SubResource("Resource_tyq6f")
 
 [node name="LWristLookAt" type="Node" parent="Skeleton2D/SoupStack/LHandStack" node_paths=PackedStringArray("target_node", "bone_node")]
 script = ExtResource("22_mouru")
@@ -3334,7 +3396,7 @@ target_node = NodePath("../../../../TargetNodes/TailTarget")
 enabled = true
 bone_node = NodePath("../../../Main/BodyBack/Tail")
 use_easing = true
-easing = SubResource("Resource_aixbs")
+easing = SubResource("Resource_wt4bx")
 
 [node name="Main" type="Bone2D" parent="Skeleton2D"]
 position = Vector2(-118, -270)
@@ -3362,7 +3424,7 @@ rest = Transform2D(0.933375, 0.358903, -0.358903, 0.933375, 122.319, -0.280571)
 
 [node name="Head" type="Bone2D" parent="Skeleton2D/Main/BodyBack/BodyMid/BodyFront/Neck"]
 position = Vector2(124.509, -27.34)
-rotation = 0.154479
+rotation = 0.154478
 scale = Vector2(0.999995, 0.999995)
 rest = Transform2D(1, 0, 0, 1, 124.509, -27.34)
 
@@ -3377,19 +3439,19 @@ bone_angle = 0.0
 
 [node name="UpperRHand" type="Bone2D" parent="Skeleton2D/Main/BodyBack/BodyMid/BodyFront"]
 position = Vector2(4.42056, -90.1025)
-rotation = -0.143295
+rotation = -0.143297
 scale = Vector2(0.999997, 0.999997)
 rest = Transform2D(1, 0, 0, 1, 4.42056, -90.1025)
 
 [node name="LowerRHand" type="Bone2D" parent="Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperRHand"]
 position = Vector2(-154.547, -85.7156)
-rotation = 0.365299
+rotation = 0.365302
 scale = Vector2(0.999997, 0.999997)
 rest = Transform2D(1, 0, 0, 1, -154.547, -85.7156)
 
 [node name="WristR" type="Bone2D" parent="Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperRHand/LowerRHand"]
 position = Vector2(-74.9961, -80.0036)
-rotation = -1.5719
+rotation = -1.57191
 scale = Vector2(0.999996, 0.999996)
 rest = Transform2D(-0.0129681, -0.999916, 0.999916, -0.0129681, -74.9961, -80.0036)
 auto_calculate_length_and_angle = false
@@ -3404,13 +3466,13 @@ rest = Transform2D(-0.846017, -0.533156, 0.533156, -0.846017, -66.2865, -0.32211
 
 [node name="LowerLHand" type="Bone2D" parent="Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperLHand"]
 position = Vector2(182.307, -5.67508)
-rotation = 0.371952
+rotation = 0.371956
 scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(1, 0, 0, 1, 182.307, -5.67508)
 
 [node name="WristL" type="Bone2D" parent="Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperLHand/LowerLHand"]
 position = Vector2(115.958, 32.0445)
-rotation = 0.620674
+rotation = 0.62067
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.645283, 0.763944, -0.763944, 0.645283, 115.958, 32.0445)
 auto_calculate_length_and_angle = false
@@ -3434,7 +3496,7 @@ bone_angle = 0.0
 
 [node name="UpperLLeg" type="Bone2D" parent="Skeleton2D/Main/BodyBack"]
 position = Vector2(51.6853, -41.8166)
-rotation = 0.000462784
+rotation = 0.000462796
 scale = Vector2(0.999995, 0.999995)
 rest = Transform2D(1, 0, 0, 1, 51.6853, -41.8166)
 
@@ -3449,7 +3511,7 @@ bone_angle = 0.0
 
 [node name="Tail" type="Bone2D" parent="Skeleton2D/Main/BodyBack"]
 position = Vector2(-17.6543, 19.933)
-rotation = -2.85645
+rotation = 1.85304
 scale = Vector2(0.999997, 0.999997)
 rest = Transform2D(-0.281249, 0.959635, -0.959635, -0.281249, -17.6543, 19.933)
 auto_calculate_length_and_angle = false
@@ -3566,7 +3628,7 @@ color_ramp = SubResource("Gradient_xxypr")
 
 [node name="SlashAttackFX_1" type="CPUParticles2D" parent="FX"]
 material = SubResource("ShaderMaterial_f8fyp")
-position = Vector2(-542, -416)
+position = Vector2(-536, -434)
 scale = Vector2(-1, 1)
 emitting = false
 amount = 1
@@ -3578,24 +3640,15 @@ local_coords = true
 texture = ExtResource("34_dhg4p")
 spread = 0.0
 gravity = Vector2(0, 0)
-scale_amount_min = 0.8
-scale_amount_max = 0.8
 color_ramp = SubResource("Gradient_euhow")
 
-[node name="SlashAttackFX_2" type="CPUParticles2D" parent="FX"]
-material = SubResource("ShaderMaterial_f8fyp")
-position = Vector2(-542, -416)
-scale = Vector2(-1, 1)
-emitting = false
-amount = 1
-lifetime = 0.5
-one_shot = true
-speed_scale = 1.5
-explosiveness = 0.4
-local_coords = true
-texture = ExtResource("35_iirdv")
-spread = 0.0
-gravity = Vector2(0, 0)
-scale_amount_min = 0.8
-scale_amount_max = 0.8
-color_ramp = SubResource("Gradient_euhow")
+[node name="ShockwaveFX" type="ColorRect" parent="FX" node_paths=PackedStringArray("target_object")]
+visible = false
+z_index = 999
+material = SubResource("ShaderMaterial_fhene")
+offset_left = -4687.0
+offset_top = -2588.0
+offset_right = 4972.0
+offset_bottom = 1164.0
+script = ExtResource("42_p5lp5")
+target_object = NodePath("../../Skeleton2D/Main/BodyBack/BodyMid/BodyFront/Neck/Head/Jaw")
