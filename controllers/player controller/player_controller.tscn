@@ -190,58 +190,58 @@ text = "0"
 unique_name_in_owner = true
 
 [node name="TorsoTop" parent="BearNew/Skeleton2D/TorsoMain" index="0"]
-rotation = 0.365028
+rotation = 0.349889
 scale = Vector2(0.99998, 0.99998)
 
 [node name="UpperArmR" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop" index="0"]
-rotation = 1.43672
+rotation = 1.29033
 scale = Vector2(0.999975, 0.999975)
 
 [node name="LowerArmR" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR" index="0"]
-rotation = -1.76405
-scale = Vector2(0.999975, 0.999975)
+rotation = -1.64831
+scale = Vector2(0.999974, 0.999974)
 
 [node name="WristR" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR" index="0"]
-rotation = 1.70088
+rotation = 1.75015
 scale = Vector2(0.999983, 0.999983)
 
 [node name="UpperArmL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop" index="1"]
-rotation = -1.05522
+rotation = -1.00992
 scale = Vector2(0.999976, 0.999976)
 
 [node name="LowerArmL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL" index="0"]
-rotation = -0.414037
+rotation = -0.450952
 scale = Vector2(0.999982, 0.999982)
 
 [node name="WristL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL" index="0"]
-rotation = 2.64321
+rotation = 2.6657
 scale = Vector2(0.999976, 0.999976)
 
 [node name="HeadMain" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop" index="2"]
-rotation = -0.11631
+rotation = -0.107041
 scale = Vector2(0.999971, 0.999971)
 
 [node name="LowerJaw" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="0"]
-rotation = 1.08822
+rotation = 1.09238
 scale = Vector2(0.999975, 0.999975)
 
 [node name="EarL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="2"]
 scale = Vector2(0.443939, 0.778982)
 
 [node name="UpperLegR" parent="BearNew/Skeleton2D/TorsoMain" index="1"]
-rotation = 1.90429
+rotation = 2.12282
 scale = Vector2(0.999987, 0.999987)
 
 [node name="LowerLegR" parent="BearNew/Skeleton2D/TorsoMain/UpperLegR" index="0"]
-rotation = 1.63102
+rotation = 1.30142
 scale = Vector2(0.999976, 0.999976)
 
 [node name="UpperLegL" parent="BearNew/Skeleton2D/TorsoMain" index="2"]
-rotation = 2.6634
+rotation = 2.23816
 scale = Vector2(0.999986, 0.999986)
 
 [node name="LowerLegL" parent="BearNew/Skeleton2D/TorsoMain/UpperLegL" index="0"]
-rotation = 0.364215
+rotation = 0.988524
 scale = Vector2(0.99998, 0.99998)
 
 [node name="AnimationTree" parent="BearNew" index="10"]

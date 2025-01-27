@@ -36,7 +36,9 @@ func init_state_machine() -> void:
 	hsm.add_transition(idle_state, attack_state, hsm.STARTED_ATTACK)
 	hsm.add_transition(attack_state, idle_state, hsm.FINISHED_ATTACK)
 	hsm.add_transition(hsm.ANYSTATE, death_state, hsm.DIED)
-	hsm.add_transition(hsm.ANYSTATE, stunned_state, hsm.STUNNED)
+	hsm.add_transition(run_state, stunned_state, hsm.STUNNED)
+	hsm.add_transition(idle_state, stunned_state, hsm.STUNNED)
+	hsm.add_transition(attack_state, stunned_state, hsm.STUNNED)
 	hsm.add_transition(stunned_state, idle_state, stunned_state.EVENT_FINISHED)
 
 	hsm.initialize(self)
@@ -55,6 +57,7 @@ func _physics_process(delta: float):
 
 func set_stunned(was_stunned: bool):
 	super(was_stunned)
+	actor.can_move = true
 	if !was_stunned:
 		hsm.allowed_advance_movement = true
 		hsm.dispatch(stunned_state.EVENT_FINISHED)
@@ -64,7 +67,7 @@ func set_stunned(was_stunned: bool):
 
 
 func reset_combo():
-	print("Combo has been reset")
+	# print("Combo has been reset")
 	fighting_style.combo_count = 0
 
 func apply_knockback(direction, force):

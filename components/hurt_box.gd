@@ -14,7 +14,7 @@ func on_hurtbox_entered(area: Area2D):
 		var enemy_hitbox: Hitbox = area
 		var enemy: Character = enemy_hitbox.agent
 		
-		print(enemy.name)
+		# print(enemy.name)
 		health_component.apply_damage(enemy)
 		
 		GlobalSignals.hurt_triggered.emit(enemy)

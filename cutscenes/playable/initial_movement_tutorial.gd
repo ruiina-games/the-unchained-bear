@@ -59,7 +59,7 @@ func init_tutorial():
 	annoyance_timer.start()
 
 func _on_annoyance_timer_timeout():
-	print("TIMEOUT")
+	# print("TIMEOUT")
 	annoyance_timer.start()
 	beast_tamer.animation_tree["parameters/MainStateMachine/conditions/attack"] = true
 	beast_tamer.animation_tree.animation_finished.connect(func(anim_name): beast_tamer.animation_tree["parameters/MainStateMachine/conditions/attack"] = false)

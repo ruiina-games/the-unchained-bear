@@ -69,7 +69,7 @@ func _on_btn_spin_pressed():
 
 		for item in rewards:
 			if reward_position >= item.from - 22.5 and reward_position <= item.to - 22.5:
-				print(item.name)
+				# print(item.name)
 				#signal for another scene
 				receive_reward.emit(item)
 		tween.tween_property(%front, "rotation_degrees", reward_position +  360 * speed * power , 3).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CIRC)
