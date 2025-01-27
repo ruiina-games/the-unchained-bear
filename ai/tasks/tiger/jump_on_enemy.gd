@@ -1,6 +1,8 @@
 extends BaseAction
 class_name JumpOnEnemy
 
+@export var horizontal_speed: float = 2500
+
 var distance = 300  # Визначена дистанція стрибкач
 var gravity = 200  # Гравітація під час стрибка
 var target = null  # Ціль, до якої ми стрибаємо
@@ -18,23 +20,21 @@ func _enter() -> void:
 		state_machine.animation_tree.animation_finished.connect(func(anim_name):
 			if anim_name.to_lower() == "jump":
 				var horizontal_distance = -(unique_actor.global_position.x - target.global_position.x)
-				var horizontal_speed = 1600  # Фіксована горизонтальна швидкість
 				var time_to_target = abs(horizontal_distance) / horizontal_speed  # Час досягнення цілі
 
 				# Розрахунок вертикальної сили (jump_force), щоб досягнути потрібну дистанцію
 				var vertical_distance = GlobalVariables.FLOOR_HEIGHT - unique_actor.global_position.y
 				var jump_force = -(gravity * time_to_target)  # Сила стрибка для необхідного часу
 
-				velocity = Vector2(sign(horizontal_distance) * horizontal_speed, jump_force)  # Початкова швидкість
-		  # Початкова анімація стрибка
+				velocity = Vector2(sign(horizontal_distance) * horizontal_speed, jump_force)
 				jumping = true
 				
 			if anim_name.to_lower() == "fly_catch" || anim_name.to_lower() == "fly_land" :
 				jumping = false
 				has_finished_jump = true
 				
-				if anim_name.to_lower() == "fly_catch":
-					target.got_stunned.emit(true)
+				#if anim_name.to_lower() == "fly_catch":
+				#	target.got_stunned.emit(true)
 			)
 			
 		state_machine.switch_state("jump")

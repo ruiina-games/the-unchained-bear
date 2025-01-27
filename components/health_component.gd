@@ -51,7 +51,7 @@ func apply_direct_damage(enemy_stats: CharacterStats, damage: Damage):
 	var base_damage: float = damage.get_damage_amount() * critical_multiplier * enemy_stats.attack_power_multiplier
 	base_damage *= (1 - agent_stats.status_resist_multiplier)
 
-	print("final damage is: " + str(base_damage))
+	# print("final damage is: " + str(base_damage))
 	agent_stats.take_damage(base_damage)
 
 func apply_negative_effects(enemy_stats: CharacterStats, negative_effect: NegativeEffect):
@@ -103,7 +103,7 @@ func process_ticking_effects(effect: TickingNegativeEffect, multiplier: float):
 			await get_tree().create_timer(tick_interval).timeout
 			var bleeding_damage = effect.calculate_damage(agent.character_stats.max_health)
 			bleeding_damage *= multiplier
-			print(bleeding_damage)
+			# print(bleeding_damage)
 			agent.character_stats.take_damage(bleeding_damage)
 			if agent.character_stats.current_health <= 0:
 				handle_death()
@@ -127,7 +127,7 @@ func process_knockback_effect(effect: Knockback, multiplier: float):
 	var knockback_force = effect.knockback_force * multiplier
 	knockback_force *= (1 - agent.character_stats.status_resist_multiplier)
 	var knockback_direction: Vector2 = enemy.global_position.direction_to(agent.global_position).normalized()
-	print(knockback_direction.normalized())
+	# print(knockback_direction.normalized())
 	knockback_direction.y = 0
 	agent.got_knocked.emit(knockback_direction, knockback_force)
 
@@ -136,7 +136,7 @@ func handle_death():
 	
 	agent.died.emit()
 	agent.is_dead = true
-	print(agent.name + " has died.")
+	# print(agent.name + " has died.")
 
 func heal(heal_amount: float):
 	if !agent:

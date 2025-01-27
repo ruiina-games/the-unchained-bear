@@ -20,6 +20,13 @@ func _enter() -> void:
 	if target and _is_target_in_correct_direction(target):
 		state_machine.animation_tree.animation_finished.connect(func(anim_name):
 			if anim_name.to_lower() == bite_animation_state_name:
+				var direction_to_target = unique_actor.global_position.direction_to(target.global_position)
+				
+				if direction_to_target.x < 0:
+					target.global_position.x = unique_actor.global_position.x - 300
+				else:
+					target.global_position.x = unique_actor.global_position.x + 300
+				
 				state_machine.switch_state("catch_idle")
 				await controller.get_tree().create_timer(1.5).timeout
 				state_machine.switch_state("catch_off")

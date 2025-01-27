@@ -11,7 +11,7 @@ class_name FightingStyle
 var combo_count: int
 
 func get_damage() -> Damage:
-	print(combo_count)
+	# print(combo_count)
 	if combo_count >= max_combo_count:
 		combo_count = 0
 	return damage_variations[combo_count]
