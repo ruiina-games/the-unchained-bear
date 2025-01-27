@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://co1j0yw5vpui4"]
+
+[ext_resource type="Material" uid="uid://vhkhaachdafc" path="res://controllers/Effects/ParticleEffects/Fire/fire_particle.tres" id="1_fi5if"]
+[ext_resource type="Texture2D" uid="uid://c8afeqvdur4gg" path="res://assets/FX/dust.png" id="2_nmcce"]
+
+[node name="FireParticle" type="GPUParticles2D"]
+amount = 1
+process_material = ExtResource("1_fi5if")
+texture = ExtResource("2_nmcce")
+local_coords = true

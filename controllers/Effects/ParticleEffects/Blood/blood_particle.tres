@@ -1,0 +1,15 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=3 format=3 uid="uid://dcn7tyrf7isw2"]
+
+[sub_resource type="Curve" id="Curve_hbvqq"]
+_data = [Vector2(0.00321543, 0), 0.0, 0.0, 0, 0, Vector2(0.498392, 0.989011), 0.0, 0.0, 0, 0, Vector2(0.938907, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_rv846"]
+curve = SubResource("Curve_hbvqq")
+
+[resource]
+particle_flag_disable_z = true
+gravity = Vector3(0, 200, 0)
+scale_min = 0.2
+scale_max = 0.3
+scale_curve = SubResource("CurveTexture_rv846")

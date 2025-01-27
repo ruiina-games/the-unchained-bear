@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://0dfwmnai52gx"]
+
+[ext_resource type="Material" uid="uid://dcn7tyrf7isw2" path="res://controllers/Effects/ParticleEffects/Blood/blood_particle.tres" id="1_a7sfx"]
+[ext_resource type="Texture2D" uid="uid://c8afeqvdur4gg" path="res://assets/FX/dust.png" id="2_ncjr7"]
+
+[node name="BloodParticle" type="GPUParticles2D"]
+amount = 1
+process_material = ExtResource("1_a7sfx")
+texture = ExtResource("2_ncjr7")
+lifetime = 1.5
+local_coords = true

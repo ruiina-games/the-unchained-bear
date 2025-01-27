@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://cjbnosxi4m18l"]
+[gd_scene load_steps=82 format=3 uid="uid://cjbnosxi4m18l"]
 
 [ext_resource type="Texture2D" uid="uid://0qm6mhlm33ap" path="res://assets/New_Bear/images/template.png" id="1_8qh4k"]
 [ext_resource type="Script" path="res://characters/bear/bear.gd" id="1_kcxgq"]
@@ -54,6 +54,8 @@
 [ext_resource type="Texture2D" uid="uid://bruaf5quf77fu" path="res://assets/FX/Axe.png" id="41_jnyu6"]
 [ext_resource type="Texture2D" uid="uid://dts1fn4rr16rj" path="res://assets/FX/Wave.png" id="42_s6im0"]
 [ext_resource type="Material" uid="uid://cdcq7kdq6n2cg" path="res://characters/bear/bash_particels.tres" id="45_eun0t"]
+[ext_resource type="PackedScene" uid="uid://0dfwmnai52gx" path="res://controllers/Effects/ParticleEffects/Blood/blood_particle.tscn" id="55_3p2ew"]
+[ext_resource type="PackedScene" uid="uid://co1j0yw5vpui4" path="res://controllers/Effects/ParticleEffects/Fire/fire_particle.tscn" id="56_gji10"]
 
 [sub_resource type="Shader" id="Shader_vq56p"]
 code = "shader_type canvas_item;
@@ -4372,7 +4374,7 @@ _data = {
 "hit_head_tutorial": SubResource("Animation_3me3p")
 }
 
-[node name="BearNew" type="CharacterBody2D" node_paths=PackedStringArray("animation_tree", "hitbox", "health_component", "hurtbox")]
+[node name="BearNew" type="CharacterBody2D" node_paths=PackedStringArray("animation_tree", "hitbox", "health_component", "hurtbox", "blood_folder", "fire_folder")]
 position = Vector2(-19, 29)
 collision_layer = 0
 script = ExtResource("1_kcxgq")
@@ -4382,6 +4384,8 @@ shader_material = SubResource("ShaderMaterial_twima")
 hitbox = NodePath("Hitbox")
 health_component = NodePath("HealthComponent")
 hurtbox = NodePath("Hurtbox")
+blood_folder = NodePath("DamageTypeFX/Blood")
+fire_folder = NodePath("DamageTypeFX/Fire")
 
 [node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("agent")]
 script = ExtResource("3_mo1l2")
@@ -4775,25 +4779,25 @@ rest = Transform2D(0.27827, -0.960503, 0.960503, 0.27827, -69, -372)
 
 [node name="TorsoTop" type="Bone2D" parent="Skeleton2D/TorsoMain"]
 position = Vector2(68.0068, 40.6826)
-rotation = 0.505475
+rotation = 0.579191
 scale = Vector2(0.999995, 0.999995)
 rest = Transform2D(0.979417, 0.201843, -0.201843, 0.979417, 68.0068, 40.6826)
 
 [node name="UpperArmR" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop"]
 position = Vector2(14.7319, -42.8132)
-rotation = -1.72326
+rotation = -1.82009
 scale = Vector2(0.999995, 0.999995)
 rest = Transform2D(-0.619213, 0.785223, -0.785223, -0.619213, 35.0991, -54.9368)
 
 [node name="LowerArmR" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/UpperArmR"]
 position = Vector2(87.0015, -14.133)
-rotation = -1.89056
+rotation = -1.77622
 scale = Vector2(0.999994, 0.999994)
 rest = Transform2D(0.489786, -0.871843, 0.871843, 0.489786, 118.59, 1.53075)
 
 [node name="WristR" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR"]
 position = Vector2(97.3649, 21.8967)
-rotation = 1.24784
+rotation = 1.24183
 scale = Vector2(0.999996, 0.999996)
 rest = Transform2D(0.965287, 0.261192, -0.261192, 0.965287, 112.95, 10.1021)
 auto_calculate_length_and_angle = false
@@ -4825,19 +4829,19 @@ texture = ExtResource("9_82aq5")
 
 [node name="UpperArmL" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop"]
 position = Vector2(74.8369, 35.4323)
-rotation = -1.1129
+rotation = -1.39499
 scale = Vector2(0.999996, 0.999996)
 rest = Transform2D(0.998048, -0.0624427, 0.0624427, 0.998048, 74.8369, 35.4323)
 
 [node name="LowerArmL" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/UpperArmL"]
 position = Vector2(-40.9861, 98.2146)
-rotation = 1.08574
+rotation = 0.909209
 scale = Vector2(0.999994, 0.999994)
 rest = Transform2D(0.911628, 0.411016, -0.411016, 0.911628, -40.9861, 98.2146)
 
 [node name="WristL" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL"]
 position = Vector2(43.2869, 47.6577)
-rotation = 1.47116
+rotation = 1.20905
 scale = Vector2(0.999994, 0.999994)
 rest = Transform2D(-0.154783, 0.987948, -0.987948, -0.154783, 43.2869, 47.6577)
 auto_calculate_length_and_angle = false
@@ -4846,13 +4850,13 @@ bone_angle = 0.0
 
 [node name="HeadMain" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop"]
 position = Vector2(122.167, 2.28322)
-rotation = -0.202005
+rotation = -0.24681
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.999947, 0.010315, -0.010315, 0.999947, 122.167, 2.28322)
 
 [node name="LowerJaw" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/HeadMain"]
 position = Vector2(-29.8503, -14.7242)
-rotation = 1.29776
+rotation = 1.24457
 scale = Vector2(0.999993, 0.999993)
 rest = Transform2D(0.256368, 0.966579, -0.966579, 0.256368, -29.8503, -14.7242)
 auto_calculate_length_and_angle = false
@@ -4881,13 +4885,13 @@ bone_angle = 0.0
 
 [node name="UpperLegR" type="Bone2D" parent="Skeleton2D/TorsoMain"]
 position = Vector2(-63.9228, 23.7249)
-rotation = 1.95665
+rotation = 2.30461
 scale = Vector2(0.999996, 0.999996)
 rest = Transform2D(-0.809772, 0.586744, -0.586744, -0.809772, -63.9228, 23.7249)
 
 [node name="LowerLegR" type="Bone2D" parent="Skeleton2D/TorsoMain/UpperLegR"]
 position = Vector2(105.268, 2.76837)
-rotation = 1.44606
+rotation = 0.925446
 scale = Vector2(0.999995, 0.999995)
 rest = Transform2D(0.865783, 0.50042, -0.50042, 0.865783, 105.268, 2.76837)
 auto_calculate_length_and_angle = false
@@ -4896,13 +4900,13 @@ bone_angle = 0.0
 
 [node name="UpperLegL" type="Bone2D" parent="Skeleton2D/TorsoMain"]
 position = Vector2(-42.3166, 109.084)
-rotation = 2.61534
+rotation = 2.33092
 scale = Vector2(0.999996, 0.999996)
 rest = Transform2D(-0.938539, 0.345172, -0.345172, -0.938539, -42.3166, 109.084)
 
 [node name="LowerLegL" type="Bone2D" parent="Skeleton2D/TorsoMain/UpperLegL"]
 position = Vector2(100.597, -4.93311)
-rotation = 0.462381
+rotation = 0.863209
 scale = Vector2(0.999997, 0.999997)
 rest = Transform2D(0.969936, 0.243361, -0.243361, 0.969936, 100.597, -4.93311)
 auto_calculate_length_and_angle = false
@@ -5270,3 +5274,50 @@ parameters/OneShot/active = false
 parameters/OneShot/internal_active = false
 parameters/OneShot/request = 0
 parameters/TimeScale/scale = 1.4
+
+[node name="DamageTypeFX" type="Node2D" parent="."]
+
+[node name="Blood" type="Node2D" parent="DamageTypeFX"]
+
+[node name="BloodParticle" parent="DamageTypeFX/Blood" instance=ExtResource("55_3p2ew")]
+position = Vector2(-111, -324)
+emitting = false
+
+[node name="BloodParticle2" parent="DamageTypeFX/Blood" instance=ExtResource("55_3p2ew")]
+z_index = 1
+position = Vector2(93, -357)
+emitting = false
+
+[node name="BloodParticle3" parent="DamageTypeFX/Blood" instance=ExtResource("55_3p2ew")]
+z_index = 1
+position = Vector2(-78, -447)
+emitting = false
+
+[node name="BloodParticle4" parent="DamageTypeFX/Blood" instance=ExtResource("55_3p2ew")]
+z_index = 1
+position = Vector2(91, -450)
+emitting = false
+
+[node name="Fire" type="Node2D" parent="DamageTypeFX"]
+
+[node name="FireParticle" parent="DamageTypeFX/Fire" instance=ExtResource("56_gji10")]
+position = Vector2(-116, -303)
+emitting = false
+
+[node name="FireParticle2" parent="DamageTypeFX/Fire" instance=ExtResource("56_gji10")]
+position = Vector2(-16, -546)
+emitting = false
+
+[node name="FireParticle3" parent="DamageTypeFX/Fire" instance=ExtResource("56_gji10")]
+z_index = 2
+position = Vector2(89, -393)
+emitting = false
+
+[node name="FireParticle4" parent="DamageTypeFX/Fire" instance=ExtResource("56_gji10")]
+z_index = 2
+position = Vector2(5, -295)
+emitting = false
+
+[node name="Stun" type="Node2D" parent="DamageTypeFX"]
+
+[node name="Slow" type="Node2D" parent="DamageTypeFX"]
