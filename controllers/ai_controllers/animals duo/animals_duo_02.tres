@@ -45,7 +45,7 @@ animation_condition = &"run"
 
 [sub_resource type="BTAction" id="BTAction_rvy7m"]
 script = ExtResource("3_fujyr")
-move_speed = 400.0
+move_speed = 450.0
 tolerance = 600.0
 should_stop_at_enemy = true
 
@@ -53,7 +53,7 @@ should_stop_at_enemy = true
 children = [SubResource("BTCondition_di873"), SubResource("BTAction_kmvwf"), SubResource("BTAction_rvy7m")]
 
 [sub_resource type="BTCooldown" id="BTCooldown_u4eis"]
-duration = 2.0
+duration = 1.5
 custom_name = "Movement"
 children = [SubResource("BTSequence_vhhrt")]
 
@@ -70,7 +70,7 @@ available_attacks = 3
 children = [SubResource("BTCondition_f3bbe"), SubResource("BTAction_h3c24")]
 
 [sub_resource type="BTCooldown" id="BTCooldown_pvtgr"]
-duration = 2.0
+duration = 1.5
 custom_name = "Attack"
 children = [SubResource("BTSequence_w8rld")]
 

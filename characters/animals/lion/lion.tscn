@@ -75,31 +75,31 @@ size = Vector2(488, 786)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yu2mn"]
 
-[sub_resource type="Resource" id="Resource_ti2s7"]
+[sub_resource type="Resource" id="Resource_d8wyp"]
 script = ExtResource("23_qeh74")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_yfxce"]
+[sub_resource type="Resource" id="Resource_skhe0"]
 script = ExtResource("23_qeh74")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_d0n11"]
+[sub_resource type="Resource" id="Resource_ou686"]
 script = ExtResource("23_qeh74")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_lkesv"]
+[sub_resource type="Resource" id="Resource_d8otj"]
 script = ExtResource("23_qeh74")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_hdjg0"]
+[sub_resource type="Resource" id="Resource_oty0h"]
 script = ExtResource("26_pbnub")
 frequency = 1.0
 damping = 1.0
@@ -3317,7 +3317,7 @@ script = ExtResource("22_mouru")
 target_node = NodePath("../../../../TargetNodes/NeckTarget/HeadTarget")
 enabled = true
 bone_node = NodePath("../../../Main/BodyBack/BodyMid/BodyFront/Neck/Head")
-easing = SubResource("Resource_ti2s7")
+easing = SubResource("Resource_d8wyp")
 
 [node name="NeckLookAt" type="Node" parent="Skeleton2D/SoupStack/HeadStack" node_paths=PackedStringArray("target_node", "bone_node")]
 script = ExtResource("22_mouru")
@@ -3325,7 +3325,7 @@ target_node = NodePath("../../../../TargetNodes/NeckTarget")
 enabled = true
 bone_node = NodePath("../../../Main/BodyBack/BodyMid/BodyFront/Neck")
 use_easing = true
-easing = SubResource("Resource_yfxce")
+easing = SubResource("Resource_skhe0")
 
 [node name="JawLookAt" type="Node" parent="Skeleton2D/SoupStack/HeadStack" node_paths=PackedStringArray("target_node", "bone_node")]
 script = ExtResource("22_mouru")
@@ -3344,7 +3344,7 @@ flip_bend_direction = true
 joint_one_bone_node = NodePath("../../../Main/BodyBack/BodyMid/BodyFront/UpperRHand")
 joint_two_bone_node = NodePath("../../../Main/BodyBack/BodyMid/BodyFront/UpperRHand/LowerRHand")
 chain_tip = NodePath("../../../Main/BodyBack/BodyMid/BodyFront/UpperRHand/LowerRHand/WristR")
-first_joint_easing = SubResource("Resource_d0n11")
+first_joint_easing = SubResource("Resource_ou686")
 
 [node name="RWristLookAt" type="Node" parent="Skeleton2D/SoupStack/RHandStack" node_paths=PackedStringArray("target_node", "bone_node")]
 script = ExtResource("22_mouru")
@@ -3363,7 +3363,7 @@ flip_bend_direction = true
 joint_one_bone_node = NodePath("../../../Main/BodyBack/BodyMid/BodyFront/UpperLHand")
 joint_two_bone_node = NodePath("../../../Main/BodyBack/BodyMid/BodyFront/UpperLHand/LowerLHand")
 chain_tip = NodePath("../../../Main/BodyBack/BodyMid/BodyFront/UpperLHand/LowerLHand/WristL")
-first_joint_easing = SubResource("Resource_lkesv")
+first_joint_easing = SubResource("Resource_d8otj")
 
 [node name="LWristLookAt" type="Node" parent="Skeleton2D/SoupStack/LHandStack" node_paths=PackedStringArray("target_node", "bone_node")]
 script = ExtResource("22_mouru")
@@ -3396,7 +3396,7 @@ target_node = NodePath("../../../../TargetNodes/TailTarget")
 enabled = true
 bone_node = NodePath("../../../Main/BodyBack/Tail")
 use_easing = true
-easing = SubResource("Resource_hdjg0")
+easing = SubResource("Resource_oty0h")
 
 [node name="Main" type="Bone2D" parent="Skeleton2D"]
 position = Vector2(-118, -270)
