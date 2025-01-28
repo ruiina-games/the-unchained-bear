@@ -19,6 +19,11 @@ signal died()
 @export var health_component: HealthComponent
 @export var hurtbox: Hurtbox
 
+@export_category("FX Markers Folders")
+@export var blood_folder: Node2D
+@export var fire_folder: Node2D
+@export var stun_folder: Node2D
+
 var effects_dic: Dictionary
 
 var can_move: bool = true
