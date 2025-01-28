@@ -48,10 +48,11 @@ linear_damp = 0.2
 constant_force = Vector2(0, -100)
 script = ExtResource("1_84fse")
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="." node_paths=PackedStringArray("object")]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("7_sqi0t")
+object = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(-1, -78)

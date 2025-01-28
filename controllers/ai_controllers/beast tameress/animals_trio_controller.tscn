@@ -166,31 +166,31 @@ root_task = SubResource("BTSelector_qut7k")
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_ybi6c"]
 
-[sub_resource type="Resource" id="Resource_hs7f5"]
+[sub_resource type="Resource" id="Resource_lr7hs"]
 script = ExtResource("6_ascop")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_5ku55"]
+[sub_resource type="Resource" id="Resource_1w0sd"]
 script = ExtResource("6_ascop")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_afyfw"]
+[sub_resource type="Resource" id="Resource_dtl58"]
 script = ExtResource("6_ascop")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_6uxut"]
+[sub_resource type="Resource" id="Resource_1tiw7"]
 script = ExtResource("6_ascop")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_dbny5"]
+[sub_resource type="Resource" id="Resource_86pn6"]
 script = ExtResource("7_2jlgf")
 frequency = 1.0
 damping = 1.0
@@ -249,74 +249,74 @@ script = ExtResource("9_pq7pm")
 position = Vector2(708, 12)
 
 [node name="HeadLookAt" parent="Tiger/Skeleton2D/SoupStack/HeadStack" index="0"]
-easing = SubResource("Resource_hs7f5")
+easing = SubResource("Resource_lr7hs")
 
 [node name="NeckLookAt" parent="Tiger/Skeleton2D/SoupStack/HeadStack" index="1"]
-easing = SubResource("Resource_5ku55")
+easing = SubResource("Resource_1w0sd")
 
 [node name="RHandTwoBoneIK" parent="Tiger/Skeleton2D/SoupStack/RHandStack" index="0"]
-first_joint_easing = SubResource("Resource_afyfw")
+first_joint_easing = SubResource("Resource_dtl58")
 
 [node name="LHandTwoBoneIK" parent="Tiger/Skeleton2D/SoupStack/LHandStack" index="0"]
-first_joint_easing = SubResource("Resource_6uxut")
+first_joint_easing = SubResource("Resource_1tiw7")
 
 [node name="TailJiggle" parent="Tiger/Skeleton2D/SoupStack/SoupSubStack" index="2"]
-easing = SubResource("Resource_dbny5")
+easing = SubResource("Resource_86pn6")
 
 [node name="Neck" parent="Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront" index="0"]
-rotation = 0.203185
+rotation = 0.196961
 scale = Vector2(0.999989, 0.999989)
 
 [node name="Head" parent="Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/Neck" index="0"]
-rotation = 0.136223
+rotation = 0.105653
 scale = Vector2(0.999979, 0.999979)
 
 [node name="Jaw" parent="Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/Neck/Head" index="0"]
-rotation = -2.15436
+rotation = -2.15308
 scale = Vector2(1, 1)
 
 [node name="UpperRHand" parent="Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront" index="1"]
-rotation = -0.143395
+rotation = -0.155168
 scale = Vector2(0.999987, 0.999987)
 
 [node name="LowerRHand" parent="Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperRHand" index="0"]
-rotation = 0.365569
+rotation = 0.397139
 scale = Vector2(0.99999, 0.99999)
 
 [node name="WristR" parent="Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperRHand/LowerRHand" index="0"]
-rotation = -1.57207
+rotation = -1.59187
 scale = Vector2(0.999986, 0.999986)
 
 [node name="UpperLHand" parent="Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront" index="2"]
-rotation = -2.67686
+rotation = -2.68799
 scale = Vector2(0.999988, 0.999988)
 
 [node name="LowerLHand" parent="Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperLHand" index="0"]
-rotation = 0.372202
+rotation = 0.401817
 scale = Vector2(0.999991, 0.999991)
 
 [node name="WristL" parent="Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperLHand/LowerLHand" index="0"]
-rotation = 0.703601
+rotation = 0.685113
 scale = Vector2(0.999992, 0.999992)
 
 [node name="UpperRLeg" parent="Tiger/Skeleton2D/Main/BodyBack" index="1"]
-rotation = 0.0297307
+rotation = 0.016127
 scale = Vector2(0.999982, 0.999982)
 
 [node name="LowerRLeg" parent="Tiger/Skeleton2D/Main/BodyBack/UpperRLeg" index="0"]
-rotation = -1.15041
+rotation = -1.12132
 scale = Vector2(0.999992, 0.999992)
 
 [node name="UpperLLeg" parent="Tiger/Skeleton2D/Main/BodyBack" index="2"]
-rotation = 0.000387572
+rotation = -0.00927031
 scale = Vector2(0.999984, 0.999984)
 
 [node name="LowerLLeg" parent="Tiger/Skeleton2D/Main/BodyBack/UpperLLeg" index="0"]
-rotation = -1.11302
+rotation = -1.09218
 scale = Vector2(0.999992, 0.999992)
 
 [node name="Tail" parent="Tiger/Skeleton2D/Main/BodyBack" index="3"]
-rotation = 2.10174
+rotation = 2.03562
 scale = Vector2(0.999992, 0.999992)
 
 [editable path="Tiger"]

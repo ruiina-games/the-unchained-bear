@@ -19,7 +19,9 @@ func throw_object(direction: Vector2, container: Node2D):
 	var object = object_to_throw_scene.instantiate()
 	container.add_child(object)
 	object.hitbox.agent = self
-
+	
+	object.damage_index = character_stats.fighting_style.combo_count
+	print("damage index while throwing: " + str(object.damage_index))
 	# Визначаємо базову силу кидка
 	var base_force = Vector2()  # Початкова сила
 	var torque = 0  # Крутний момент
@@ -55,7 +57,6 @@ func throw_object(direction: Vector2, container: Node2D):
 	# Встановлюємо початкову позицію та імпульс
 	object.node_to_attach_to = null
 	object.global_transform = throwing_hand.global_transform
-	object.damage = character_stats.fighting_style.get_damage()
 	object.apply_impulse(base_force)
 	object.apply_torque_impulse(torque)
 

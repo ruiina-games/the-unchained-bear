@@ -4,7 +4,7 @@ class_name ThrowingObject
 @onready var hitbox: Hitbox = $Hitbox
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
-var damage: Damage
+var damage_index: int
 var was_thrown: bool = false
 var force: Vector2 = Vector2.ZERO
 var node_to_attach_to: Node2D

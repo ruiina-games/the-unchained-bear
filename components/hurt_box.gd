@@ -12,10 +12,7 @@ func on_hurtbox_entered(area: Area2D):
 	if area is Hitbox:
 		var enemy_hitbox: Hitbox = area
 		var enemy: Character = enemy_hitbox.agent
-		var thrown_object: ThrowingObject 
-		
-		if enemy.object:
-			thrown_object = enemy.object
+		var thrown_object: ThrowingObject  = enemy_hitbox.object
 		
 		health_component.apply_damage(enemy, thrown_object)
 		

@@ -11,7 +11,7 @@ func _ready() -> void:
 		print(name + " doesn't have an agent")
 		return
 
-func apply_damage(_enemy: Character, _object: ThrowingObject):
+func apply_damage(_enemy: Node2D, _object: ThrowingObject):
 	if !agent:
 		print(name + " doesn't have an agent")
 		return
@@ -26,7 +26,9 @@ func apply_damage(_enemy: Character, _object: ThrowingObject):
 
 	var damage_effect: Damage = enemy.character_stats.fighting_style.get_damage()
 	if _object:
-		damage_effect = _object.damage
+		damage_effect = enemy.character_stats.fighting_style.get_damage_at_index(_object.damage_index)
+		print(_object.damage_index)
+	
 	process_effects(enemy.character_stats, damage_effect)
 
 	got_hit.emit(enemy)
@@ -92,7 +94,6 @@ func process_ticking_effects(effect: TickingNegativeEffect, multiplier: float):
 	var tick_interval: float = effect.get_tick_interval() * multiplier
 
 	if effect is FireEffect:
-		
 		for i in range(tick_count):
 			await get_tree().create_timer(tick_interval).timeout
 			var adjusted_damage = effect.base_damage * multiplier

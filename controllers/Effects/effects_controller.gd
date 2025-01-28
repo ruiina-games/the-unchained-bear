@@ -18,6 +18,7 @@ extends Node2D
 
 var default_camera_zoom: Vector2
 var original_offset: Vector2
+var slowmo_timer: Timer = null  # Таймер для слоу-мо
 
 func _ready():
 	default_camera_zoom = main_camera.zoom
@@ -25,6 +26,7 @@ func _ready():
 	
 	GlobalSignals.hurt_triggered.connect(func(causer): if causer and causer.name != "BearNew": shake_camera(shake_duration, shake_magnitude))
 	GlobalSignals.character_died.connect(func(agent): slow_motion(slowmotion_duration, slowmotion_strength))
+	GlobalSignals.stop_slow_motion.connect(func(): stop_slow_motion())
 
 func _process(delta):
 	tilt_camera(player_controller.direction.x)
@@ -41,52 +43,44 @@ func tilt_camera(direction: float):
 		tween.parallel().tween_property(main_camera, "zoom", default_camera_zoom, tilt_duration)
 
 func shake_camera(shake_duration: float = 0.5, shake_magnitude: float = 10.0) -> void:
-	# Створюємо Tween через вбудовану функцію create_tween()
 	var tween: Tween = create_tween()
-
-	# Кількість "ривків" (кадрів), за які камера робить різкі зміщення
 	var steps := 10
-	# Час на кожен ривок
 	var step_duration := shake_duration / float(steps)
-	
-	# Поточне (стартове) зміщення для першого кроку
 	var current_offset = original_offset
 
-	# Циклічно додаємо ривки
 	for i in range(steps):
-		# Генеруємо випадковий вектор зміщення
 		var random_offset = Vector2(
 			randf_range(-shake_magnitude, shake_magnitude),
 			randf_range(-shake_magnitude, shake_magnitude)
 		)
-		# Цільове зміщення: оригінальне + випадковий "стрибок"
 		var target_offset = original_offset + random_offset
-		
-		# Додаємо анімацію властивості offset у Tween:
-		# від current_offset до target_offset за step_duration секунд
-		tween.tween_property(
-			main_camera,               # Кому анімуємо?
-			"offset",           # Яку властивість?
-			target_offset,      # Кінцеве значення
-			step_duration       # Тривалість
-		)
-		
+		tween.tween_property(main_camera, "offset", target_offset, step_duration)
 		current_offset = target_offset
 
-	# Повертаємо зміщення у вихідну точку
 	tween.tween_property(main_camera, "offset", original_offset, step_duration)
-
 
 func slow_motion(duration: float, percentage: float):
 	Engine.time_scale = percentage  # Встановлюємо нову швидкість часу
 	
-	# Створюємо таймер для відновлення нормальної швидкості
-	var timer = Timer.new()
-	timer.one_shot = true
-	timer.wait_time = duration * percentage
-	add_child(timer)
-	timer.connect("timeout", _reset_time_scale)
-	timer.start()
+	# Якщо таймер вже існує, видаляємо його
+	if slowmo_timer:
+		slowmo_timer.stop()
+		slowmo_timer.queue_free()
+	
+	# Створюємо новий таймер для відновлення нормальної швидкості
+	slowmo_timer = Timer.new()
+	slowmo_timer.one_shot = true
+	slowmo_timer.wait_time = duration * percentage
+	add_child(slowmo_timer)
+	slowmo_timer.connect("timeout", _reset_time_scale)
+	slowmo_timer.start()
 
 func _reset_time_scale():
 	Engine.time_scale = 1.0  # Повертаємо швидкість часу до нормальної
+	if slowmo_timer:
+		slowmo_timer.queue_free()  # Видаляємо таймер
+		slowmo_timer = null
+
+func stop_slow_motion():
+	# Викликаємо метод для відновлення часу
+	_reset_time_scale()
