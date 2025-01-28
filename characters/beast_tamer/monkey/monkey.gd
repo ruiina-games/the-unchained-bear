@@ -6,7 +6,7 @@ signal ready_to_throw_object()
 @onready var throwing_hand: Bone2D = %WristR
 @export var object_to_throw_scene: PackedScene
 
-var object: RigidBody2D
+# var object: RigidBody2D
 var objects_container: Node2D
 
 func _ready() -> void:
@@ -35,6 +35,13 @@ func attack():
 	objects_container.add_child(object)
 	object.hitbox.agent = self
 	ready_to_throw_object.emit()
+	
+func get_ready_to_throw():
+	%AnimationTree.set("parameters/StateMachine/conditions/idle", false)
+	%AnimationTree.set("parameters/StateMachine/conditions/take", true)
+	
+func break_object():
+	object.break_object()
 
 func throw_object(direction :Vector2):
 	print(direction)
@@ -44,10 +51,3 @@ func throw_object(direction :Vector2):
 	object.node_to_attach_to = null
 	object.global_transform = throwing_hand.global_transform
 	object.apply_impulse(force)
-	
-func get_ready_to_throw():
-	%AnimationTree.set("parameters/StateMachine/conditions/idle", false)
-	%AnimationTree.set("parameters/StateMachine/conditions/take", true)
-	
-func break_object():
-	object.break_object()

@@ -1,6 +1,6 @@
 [gd_resource type="AnimationNodeBlendTree" load_steps=30 format=3 uid="uid://dqhiy5onp28va"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xg7do"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1up1e"]
 animation = &"LION_ANIMS/HURT"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wf8vl"]
@@ -140,21 +140,21 @@ states/RUN/node = SubResource("AnimationNodeAnimation_ojraa")
 states/RUN/position = Vector2(713.569, 210.554)
 states/Start/position = Vector2(245.6, 44.96)
 transitions = ["ATTACK", "RUN", SubResource("AnimationNodeStateMachineTransition_s7iky"), "ATTACK", "DEATH", SubResource("AnimationNodeStateMachineTransition_ewlys"), "RUN", "ATTACK", SubResource("AnimationNodeStateMachineTransition_cm4ts"), "RUN", "DEATH", SubResource("AnimationNodeStateMachineTransition_kwldv"), "Start", "IDLE", SubResource("AnimationNodeStateMachineTransition_jnc2h"), "IDLE", "ATTACK", SubResource("AnimationNodeStateMachineTransition_eigq5"), "IDLE", "DEATH", SubResource("AnimationNodeStateMachineTransition_fb18t"), "IDLE", "RUN", SubResource("AnimationNodeStateMachineTransition_wiv22"), "IDLE", "ROAR", SubResource("AnimationNodeStateMachineTransition_rev2e"), "ROAR", "IDLE", SubResource("AnimationNodeStateMachineTransition_6qeeq"), "ATTACK", "IDLE", SubResource("AnimationNodeStateMachineTransition_bjdt2"), "RUN", "IDLE", SubResource("AnimationNodeStateMachineTransition_2gwvx"), "ROAR", "RUN", SubResource("AnimationNodeStateMachineTransition_r8j5b"), "RUN", "ROAR", SubResource("AnimationNodeStateMachineTransition_2ifak"), "ATTACK", "ROAR", SubResource("AnimationNodeStateMachineTransition_midd0"), "ROAR", "DEATH", SubResource("AnimationNodeStateMachineTransition_kxlkv"), "ROAR", "ATTACK", SubResource("AnimationNodeStateMachineTransition_ibuas")]
-graph_offset = Vector2(-128.015, -220.015)
+graph_offset = Vector2(-165.725, -47.125)
 
-[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_xnv4l"]
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_wjg8c"]
 mix_mode = 1
 
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_0i55w"]
 
 [resource]
-graph_offset = Vector2(-354.816, 53.76)
-nodes/Animation/node = SubResource("AnimationNodeAnimation_xg7do")
+graph_offset = Vector2(-470.016, 47.616)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_1up1e")
 nodes/Animation/position = Vector2(-16, 384)
 nodes/MainStateMachine/node = SubResource("AnimationNodeStateMachine_wnddi")
-nodes/MainStateMachine/position = Vector2(-16, 80)
-nodes/OneShot/node = SubResource("AnimationNodeOneShot_xnv4l")
-nodes/OneShot/position = Vector2(192, 80)
+nodes/MainStateMachine/position = Vector2(-16, 64)
+nodes/OneShot/node = SubResource("AnimationNodeOneShot_wjg8c")
+nodes/OneShot/position = Vector2(208, 96)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_0i55w")
 nodes/TimeScale/position = Vector2(368, 80)
 nodes/output/position = Vector2(528, 96)

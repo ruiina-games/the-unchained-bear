@@ -8,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://c51iqyujalyrs" path="res://assets/box/4.png" id="5_tgyny"]
 [ext_resource type="Texture2D" uid="uid://cp0nlf3sugspu" path="res://assets/box/5.png" id="6_wn06n"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qxww4"]
+size = Vector2(181, 182)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_qlxyb"]
 atlas = ExtResource("1_7g7wi")
 region = Rect2(0, 0, 512, 512)
@@ -46,9 +49,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5wmf3"]
 size = Vector2(181, 182)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qxww4"]
-size = Vector2(181, 182)
-
 [node name="RigidBody2D" type="RigidBody2D"]
 z_index = -15
 collision_layer = 0
@@ -58,6 +58,16 @@ linear_damp_mode = 1
 linear_damp = 1.0
 constant_force = Vector2(0, 200)
 script = ExtResource("1_h1hy8")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("3_xrrsa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-6, -91)
+shape = SubResource("RectangleShape2D_qxww4")
+debug_color = Color(0.915946, 0.237705, 0.42187, 0.42)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-6, -127)
@@ -69,13 +79,3 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-5.5, -92)
 shape = SubResource("RectangleShape2D_5wmf3")
-
-[node name="Hitbox" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 2
-script = ExtResource("3_xrrsa")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(-6, -91)
-shape = SubResource("RectangleShape2D_qxww4")
-debug_color = Color(0.915946, 0.237705, 0.42187, 0.42)

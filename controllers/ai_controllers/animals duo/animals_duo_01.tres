@@ -9,7 +9,7 @@
 
 [sub_resource type="BTCondition" id="BTCondition_di873"]
 script = ExtResource("1_gton5")
-target_distance = 400.0
+target_distance = 700.0
 check_mode = 0
 
 [sub_resource type="BTAction" id="BTAction_kmvwf"]
@@ -31,7 +31,7 @@ animation_condition = &"idle"
 children = [SubResource("BTCondition_di873"), SubResource("BTAction_kmvwf"), SubResource("BTAction_rvy7m"), SubResource("BTAction_mpxb1")]
 
 [sub_resource type="BTCooldown" id="BTCooldown_u4eis"]
-duration = 3.0
+duration = 2.0
 custom_name = "Movement"
 children = [SubResource("BTSequence_vhhrt")]
 
@@ -53,7 +53,7 @@ bb_state_machine = SubResource("BBNode_evfll")
 children = [SubResource("BTCondition_f3bbe"), SubResource("BTAction_h3c24")]
 
 [sub_resource type="BTCooldown" id="BTCooldown_pvtgr"]
-duration = 3.0
+duration = 2.0
 custom_name = "Attack"
 children = [SubResource("BTSequence_w8rld")]
 

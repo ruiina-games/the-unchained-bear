@@ -37,5 +37,9 @@ func switch_state(target_state: String):
 	
 func switch_animation_in_blendspace(animation_state_name: String, blend_space_position: int):
 	var path_to_blendspace: String = path_to_main_state_machine + animation_state_name.to_upper() + "/blend_position"
-	print(path_to_blendspace)
+	# print(path_to_blendspace)
 	animation_tree.set(path_to_blendspace, blend_space_position)
+
+func fire_blend_animation(parameter_name: String):
+	var full_path: String = "parameters/" + parameter_name + "/request"
+	animation_tree.set(full_path, AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)

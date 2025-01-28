@@ -1,46 +1,73 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmrlhmw5fn5ki"]
+[gd_scene load_steps=10 format=3 uid="uid://cmrlhmw5fn5ki"]
 
+[ext_resource type="Script" path="res://objects/keglia/keglia.gd" id="1_84fse"]
 [ext_resource type="Texture2D" uid="uid://h0khkm73jio8" path="res://assets/Acrobat/Keglya.png" id="2_w3abn"]
 [ext_resource type="Material" uid="uid://bocosgt3beuki" path="res://objects/keglia/fire_on_keglia.tres" id="3_ff745"]
 [ext_resource type="Texture2D" uid="uid://c8afeqvdur4gg" path="res://assets/FX/dust.png" id="3_gvthn"]
 [ext_resource type="Script" path="res://components/hit_box.gd" id="7_sqi0t"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o0bag"]
+size = Vector2(374, 145.642)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qd0xp"]
+atlas = ExtResource("2_w3abn")
+region = Rect2(0, 0, 415, 156)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sf0gb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_w3abn")
+}],
+"loop": true,
+"name": &"break",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qd0xp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_au42o"]
 radius = 30.9548
 height = 390.045
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6t2nn"]
-radius = 32.3665
-height = 389.77
 
 [node name="RigidBody2D" type="RigidBody2D"]
 z_index = -15
 collision_layer = 0
 collision_mask = 0
-gravity_scale = 1.5
+gravity_scale = 2.0
+inertia = 12.78
+linear_velocity = Vector2(0, 2000)
 linear_damp_mode = 1
-linear_damp = 1.0
-constant_force = Vector2(0, 200)
+linear_damp = 0.2
+constant_force = Vector2(0, -100)
+script = ExtResource("1_84fse")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="." node_paths=PackedStringArray("object")]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("7_sqi0t")
+object = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-1, -78)
+shape = SubResource("RectangleShape2D_o0bag")
+debug_color = Color(0.915946, 0.237705, 0.42187, 0.42)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -75)
-texture = ExtResource("2_w3abn")
+sprite_frames = SubResource("SpriteFrames_sf0gb")
+animation = &"break"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(4, -81)
 rotation = 1.33935
 shape = SubResource("CapsuleShape2D_au42o")
-
-[node name="Hitbox" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 2
-script = ExtResource("7_sqi0t")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(4, -80)
-rotation = 1.34983
-shape = SubResource("CapsuleShape2D_6t2nn")
-debug_color = Color(0.915946, 0.237705, 0.42187, 0.42)
 
 [node name="FireOnKeglia" type="GPUParticles2D" parent="."]
 z_index = 1

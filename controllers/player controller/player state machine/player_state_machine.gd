@@ -13,6 +13,7 @@ var STARTED_ATTACK: StringName = "started_attack"
 var FINISHED_ATTACK: StringName = "finished_attack"
 var DIED: StringName = "death"
 var STUNNED: StringName = "stunned"
+var UNSTUCK: StringName = "unstuck"
 
 func init_state_machine():
 	super()
@@ -42,6 +43,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			dispatch(JUMPED)
 		if event.is_action_pressed("attack"):
 			dispatch(STARTED_ATTACK)
+
+	if event.is_action_pressed("unstuck"):
+		controller.unstuck()
 
 	if !character.can_move:
 		return

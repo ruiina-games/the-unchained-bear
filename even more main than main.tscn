@@ -1,8 +1,52 @@
-[gd_scene load_steps=3 format=3 uid="uid://qhpf0l7xje0f"]
+[gd_scene load_steps=5 format=3 uid="uid://qhpf0l7xje0f"]
 
 [ext_resource type="Script" path="res://even_more_main_than_main.gd" id="1_0ojiy"]
-[ext_resource type="PackedScene" uid="uid://nyr1tohq4w76" path="res://main.tscn" id="1_ngjpe"]
+[ext_resource type="PackedScene" uid="uid://nyr1tohq4w76" path="res://level_acrobat.tscn" id="1_ngjpe"]
+[ext_resource type="PackedScene" uid="uid://c1a7wqq7kje5j" path="res://level_beast_tameress.tscn" id="2_yn6u2"]
+[ext_resource type="PackedScene" uid="uid://mwe6kaqwuc8" path="res://level_animals_duo.tscn" id="3_kuhfw"]
 
 [node name="EvenMoreMainThanMain" type="Node2D"]
 script = ExtResource("1_0ojiy")
-scene_to_spawn = ExtResource("1_ngjpe")
+beast_tameress_scene = ExtResource("2_yn6u2")
+duo_animals_scene = ExtResource("3_kuhfw")
+acrobat_scene = ExtResource("1_ngjpe")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="beast_tameress_btn" type="Button" parent="CanvasLayer/Control/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Beast Tameress"
+
+[node name="duo_animals_btn" type="Button" parent="CanvasLayer/Control/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Duo Animals"
+
+[node name="acrobat_btn" type="Button" parent="CanvasLayer/Control/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Acrobat
+"

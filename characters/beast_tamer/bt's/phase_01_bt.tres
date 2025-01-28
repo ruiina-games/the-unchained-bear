@@ -144,7 +144,7 @@ animation_condition = &"run"
 script = ExtResource("2_mgrc0")
 move_speed = 650.0
 tolerance = 400.0
-should_stop_at_enemy = true
+should_stop_at_enemy = false
 
 [sub_resource type="BTTimeLimit" id="BTTimeLimit_fad70"]
 time_limit = 4.0

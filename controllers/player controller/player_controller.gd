@@ -28,18 +28,19 @@ func kill_actor():
 	hsm.dispatch(hsm.DIED)
 
 func init_state_machine() -> void:
+	hsm.add_transition(hsm.ANYSTATE, jump_state, hsm.JUMPED)
+	hsm.add_transition(hsm.ANYSTATE, death_state, hsm.DIED)
 	hsm.add_transition(idle_state, run_state, hsm.MOVEMENT_STARTED)
 	hsm.add_transition(run_state, idle_state, hsm.MOVEMENT_FINISHED)
-	hsm.add_transition(hsm.ANYSTATE, jump_state, hsm.JUMPED)
 	hsm.add_transition(jump_state, idle_state, hsm.LANDED)
 	hsm.add_transition(run_state, attack_state, hsm.STARTED_ATTACK)
 	hsm.add_transition(idle_state, attack_state, hsm.STARTED_ATTACK)
 	hsm.add_transition(attack_state, idle_state, hsm.FINISHED_ATTACK)
-	hsm.add_transition(hsm.ANYSTATE, death_state, hsm.DIED)
 	hsm.add_transition(run_state, stunned_state, hsm.STUNNED)
 	hsm.add_transition(idle_state, stunned_state, hsm.STUNNED)
 	hsm.add_transition(attack_state, stunned_state, hsm.STUNNED)
 	hsm.add_transition(stunned_state, idle_state, stunned_state.EVENT_FINISHED)
+	hsm.add_transition(hsm.ANYSTATE, idle_state, hsm.UNSTUCK)
 
 	hsm.initialize(self)
 	hsm.set_active(true)
@@ -75,3 +76,8 @@ func apply_knockback(direction, force):
 	super(direction, force)
 	tilt = clamp(tilt, -max_tilt, max_tilt)
 	actor.rotate(deg_to_rad(tilt))
+
+func unstuck():
+	hsm.dispatch(hsm.UNSTUCK)
+	hsm.allowed_advance_movement = true
+	set_stunned(false)
