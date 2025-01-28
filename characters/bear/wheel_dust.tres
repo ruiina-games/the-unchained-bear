@@ -2,7 +2,7 @@
 
 [sub_resource type="Gradient" id="Gradient_jf1a5"]
 offsets = PackedFloat32Array(0, 0.80344)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+colors = PackedColorArray(1, 1, 1, 0.627451, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_2nsx6"]
 gradient = SubResource("Gradient_jf1a5")
@@ -12,13 +12,11 @@ lifetime_randomness = 0.4
 particle_flag_disable_z = true
 angle_min = -310.3
 angle_max = 209.6
-inherit_velocity_ratio = 0.403
 velocity_pivot = Vector3(0.06, 0, 0)
 direction = Vector3(-1, -2, 0)
 spread = 30.812
 flatness = 0.445
-initial_velocity_min = 252.53
-initial_velocity_max = 578.68
+initial_velocity_max = 25.86
 radial_velocity_min = -277.15
 radial_velocity_max = -277.15
 gravity = Vector3(0, 0, 0)
