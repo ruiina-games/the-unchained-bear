@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://dtxw0uuy8c6tp"]
+
+[ext_resource type="Texture2D" uid="uid://bmhe3xytpf1n5" path="res://assets/FX/EffectParitcles/Fire_2.png" id="1_t00sj"]
+
+[sub_resource type="Gradient" id="Gradient_vdm67"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.321555, 0.756184, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jaxy4"]
+gradient = SubResource("Gradient_vdm67")
+
+[sub_resource type="Curve" id="Curve_hf0h2"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.144695, 1), 0.0, 0.0, 0, 0, Vector2(0.829582, 0.858151), -0.864998, -0.864998, 0, 0, Vector2(0.993569, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_s0w6d"]
+curve = SubResource("Curve_hf0h2")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_scd5a"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 50.0
+emission_ring_radius = 50.0
+emission_ring_inner_radius = 50.0
+angular_velocity_min = 360.0
+angular_velocity_max = 360.0
+orbit_velocity_min = 1.0
+orbit_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_s0w6d")
+color_ramp = SubResource("GradientTexture1D_jaxy4")
+
+[node name="StunParticle" type="GPUParticles2D"]
+z_index = 7
+amount = 3
+process_material = SubResource("ParticleProcessMaterial_scd5a")
+texture = ExtResource("1_t00sj")
+preprocess = 0.4
+local_coords = true

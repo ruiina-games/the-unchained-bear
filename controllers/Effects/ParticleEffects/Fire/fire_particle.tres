@@ -1,0 +1,26 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=5 format=3 uid="uid://vhkhaachdafc"]
+
+[sub_resource type="Curve" id="Curve_hcn88"]
+min_value = -1.0
+_data = [Vector2(0.0160772, -0.985879), 0.0, 0.0, 0, 0, Vector2(0.073955, 1), 0.0, 0.0, 0, 0, Vector2(0.141479, -1), 0.0, 0.0, 0, 0, Vector2(0.241158, 1), 0.0, 0.0, 0, 0, Vector2(0.327974, -1), 0.0, 0.0, 0, 0, Vector2(0.414791, 1), 0.0, 0.0, 0, 0, Vector2(0.527331, -1), 0.0, 0.0, 0, 0, Vector2(0.598071, 1), 0.0, 0.0, 0, 0, Vector2(0.691318, -1), 0.0, 0.0, 0, 0, Vector2(0.752412, 1), 0.0, 0.0, 0, 0, Vector2(0.85209, -1), 0.0, 0.0, 0, 0, Vector2(0.932476, 1), 0.0, 0.0, 0, 0, Vector2(1, -1), 0.0, 0.0, 0, 0]
+point_count = 13
+
+[sub_resource type="CurveTexture" id="CurveTexture_v8ocn"]
+curve = SubResource("Curve_hcn88")
+
+[sub_resource type="Curve" id="Curve_llftq"]
+_data = [Vector2(0.00643086, 0), 0.0, 0.0, 0, 0, Vector2(0.231511, 1), 0.0, 0.0, 0, 0, Vector2(0.282958, 0.791399), 0.0, 0.0, 0, 0, Vector2(0.350482, 1), 0.0, 0.0, 0, 0, Vector2(0.456592, 0.766367), 0.0, 0.0, 0, 0, Vector2(0.553055, 1), -0.179873, -0.179873, 0, 0, Vector2(0.643087, 0.816431), 0.0, 0.0, 0, 0, Vector2(0.729904, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 9
+
+[sub_resource type="CurveTexture" id="CurveTexture_rmiog"]
+curve = SubResource("Curve_llftq")
+
+[resource]
+particle_flag_disable_z = true
+angular_velocity_min = -12.45
+angular_velocity_max = 16.6
+angular_velocity_curve = SubResource("CurveTexture_v8ocn")
+gravity = Vector3(0, 0, 0)
+scale_min = 1.2
+scale_max = 1.4
+scale_curve = SubResource("CurveTexture_rmiog")

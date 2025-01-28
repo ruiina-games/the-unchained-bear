@@ -1,6 +1,7 @@
 [gd_resource type="ParticleProcessMaterial" load_steps=3 format=3 uid="uid://bocosgt3beuki"]
 
 [sub_resource type="Gradient" id="Gradient_rrheh"]
+offsets = PackedFloat32Array(0.600707, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_pu07o"]
@@ -10,7 +11,9 @@ gradient = SubResource("Gradient_rrheh")
 particle_flag_disable_z = true
 emission_shape = 1
 emission_sphere_radius = 63.46
+angular_velocity_min = -203.34
+angular_velocity_max = 116.2
 gravity = Vector3(0, -100, 0)
-scale_min = 0.1
-scale_max = 0.15
+scale_min = 0.8
+scale_max = 1.2
 color_ramp = SubResource("GradientTexture1D_pu07o")
