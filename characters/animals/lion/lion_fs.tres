@@ -1,40 +1,48 @@
-[gd_resource type="Resource" script_class="FightingStyle" load_steps=12 format=3 uid="uid://dhmuofq5ev26f"]
+[gd_resource type="Resource" script_class="FightingStyle" load_steps=13 format=3 uid="uid://dhmuofq5ev26f"]
 
 [ext_resource type="Script" path="res://data/damage/scripts/damage.gd" id="1_dxg0b"]
 [ext_resource type="Script" path="res://fighting styles/figting_style.gd" id="2_ps0yu"]
+[ext_resource type="Script" path="res://data/damage/scripts/stun.gd" id="3_4r7yy"]
 [ext_resource type="Script" path="res://data/damage/scripts/fire.gd" id="3_5lqj4"]
-[ext_resource type="Script" path="res://data/damage/scripts/knockback.gd" id="3_trdho"]
 
-[sub_resource type="Resource" id="Resource_qocay"]
-script = ExtResource("3_trdho")
-knockback_force = 8000.0
-base_damage = 100.0
+[sub_resource type="Resource" id="Resource_oge2w"]
+script = ExtResource("3_5lqj4")
+tick_interval = 0.5
+base_damage = 0.0
 base_proc_chance = 1.0
-duration = 0.0
+duration = 3.0
 
 [sub_resource type="Resource" id="Resource_tlx3i"]
 script = ExtResource("1_dxg0b")
 damage_amount = 200.0
 multiplier = 1.0
-effect = SubResource("Resource_qocay")
+effect = SubResource("Resource_oge2w")
 
-[sub_resource type="Resource" id="Resource_f8vlk"]
+[sub_resource type="Resource" id="Resource_h5aou"]
 script = ExtResource("3_5lqj4")
 tick_interval = 0.5
-base_damage = 2.0
+base_damage = 0.0
 base_proc_chance = 1.0
-duration = 4.0
+duration = 3.0
 
 [sub_resource type="Resource" id="Resource_55f5y"]
 script = ExtResource("1_dxg0b")
 damage_amount = 50.0
 multiplier = 1.0
-effect = SubResource("Resource_f8vlk")
+effect = SubResource("Resource_h5aou")
+
+[sub_resource type="Resource" id="Resource_0wecr"]
+script = ExtResource("3_4r7yy")
+clicks_to_release = 1
+base_damage = 0.0
+base_proc_chance = 1.0
+duration = 3.0
 
 [sub_resource type="Resource" id="Resource_ngb2c"]
 script = ExtResource("1_dxg0b")
 damage_amount = 100.0
 multiplier = 1.0
+effect = SubResource("Resource_0wecr")
 
 [sub_resource type="Resource" id="Resource_qgnep"]
 script = ExtResource("3_5lqj4")

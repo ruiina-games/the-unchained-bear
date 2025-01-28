@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://cjbnosxi4m18l"]
+[gd_scene load_steps=83 format=3 uid="uid://cjbnosxi4m18l"]
 
 [ext_resource type="Texture2D" uid="uid://0qm6mhlm33ap" path="res://assets/New_Bear/images/template.png" id="1_8qh4k"]
 [ext_resource type="Script" path="res://characters/bear/bear.gd" id="1_kcxgq"]
@@ -56,6 +56,7 @@
 [ext_resource type="Material" uid="uid://cdcq7kdq6n2cg" path="res://characters/bear/bash_particels.tres" id="45_eun0t"]
 [ext_resource type="PackedScene" uid="uid://0dfwmnai52gx" path="res://controllers/Effects/ParticleEffects/Blood/blood_particle.tscn" id="55_3p2ew"]
 [ext_resource type="PackedScene" uid="uid://co1j0yw5vpui4" path="res://controllers/Effects/ParticleEffects/Fire/fire_particle.tscn" id="56_gji10"]
+[ext_resource type="PackedScene" uid="uid://dtxw0uuy8c6tp" path="res://controllers/Effects/ParticleEffects/Stun/stun_particle.tscn" id="57_swcif"]
 
 [sub_resource type="Shader" id="Shader_vq56p"]
 code = "shader_type canvas_item;
@@ -722,10 +723,10 @@ tracks/1/path = NodePath("Skeleton2D/TorsoMain:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": []
+"values": [-1.2888]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -785,7 +786,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(109.291, -443.588), Vector2(65.307, -441.265), Vector2(109.291, -443.588)]
+"values": [Vector2(114.746, -443.854), Vector2(65.307, -441.265), Vector2(109.291, -443.588)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -809,7 +810,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(200.138, -192.248), Vector2(162.124, -193.969), Vector2(200.138, -192.248)]
+"values": [Vector2(195.534, -200.44), Vector2(162.124, -193.969), Vector2(200.138, -192.248)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -833,7 +834,7 @@ tracks/10/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(37.1855, 129.082), Vector2(-11.7182, 102.739), Vector2(37.1855, 129.082)]
+"values": [Vector2(32.3207, 127.927), Vector2(-11.7182, 102.739), Vector2(37.1855, 129.082)]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
@@ -857,7 +858,7 @@ tracks/12/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(299.744, -172.204), Vector2(117.41, -262.535), Vector2(299.744, -172.204)]
+"values": [Vector2(160.594, -192.184), Vector2(117.41, -262.535), Vector2(299.744, -172.204)]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
@@ -881,7 +882,7 @@ tracks/14/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(-298, -222), Vector2(-345, -146), Vector2(-298, -222)]
+"values": [Vector2(-301, -234), Vector2(-345, -146), Vector2(-298, -222)]
 }
 tracks/15/type = "value"
 tracks/15/imported = false
@@ -905,7 +906,7 @@ tracks/16/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(497, -567), Vector2(551, -594)]
+"values": [Vector2(485, -533), Vector2(551, -594)]
 }
 tracks/17/type = "value"
 tracks/17/imported = false
@@ -4374,7 +4375,7 @@ _data = {
 "hit_head_tutorial": SubResource("Animation_3me3p")
 }
 
-[node name="BearNew" type="CharacterBody2D" node_paths=PackedStringArray("animation_tree", "hitbox", "health_component", "hurtbox", "blood_folder", "fire_folder")]
+[node name="BearNew" type="CharacterBody2D" node_paths=PackedStringArray("animation_tree", "hitbox", "health_component", "hurtbox", "blood_folder", "fire_folder", "stun_folder")]
 position = Vector2(-19, 29)
 collision_layer = 0
 script = ExtResource("1_kcxgq")
@@ -4386,6 +4387,7 @@ health_component = NodePath("HealthComponent")
 hurtbox = NodePath("Hurtbox")
 blood_folder = NodePath("DamageTypeFX/Blood")
 fire_folder = NodePath("DamageTypeFX/Fire")
+stun_folder = NodePath("DamageTypeFX/Stun")
 
 [node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("agent")]
 script = ExtResource("3_mo1l2")
@@ -4779,25 +4781,25 @@ rest = Transform2D(0.27827, -0.960503, 0.960503, 0.27827, -69, -372)
 
 [node name="TorsoTop" type="Bone2D" parent="Skeleton2D/TorsoMain"]
 position = Vector2(68.0068, 40.6826)
-rotation = 0.579191
+rotation = 0.542383
 scale = Vector2(0.999995, 0.999995)
 rest = Transform2D(0.979417, 0.201843, -0.201843, 0.979417, 68.0068, 40.6826)
 
 [node name="UpperArmR" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop"]
 position = Vector2(14.7319, -42.8132)
-rotation = -1.82009
-scale = Vector2(0.999995, 0.999995)
+rotation = 0.588203
+scale = Vector2(0.999994, 0.999994)
 rest = Transform2D(-0.619213, 0.785223, -0.785223, -0.619213, 35.0991, -54.9368)
 
 [node name="LowerArmR" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/UpperArmR"]
 position = Vector2(87.0015, -14.133)
-rotation = -1.77622
-scale = Vector2(0.999994, 0.999994)
+rotation = -0.906805
+scale = Vector2(0.999993, 0.999993)
 rest = Transform2D(0.489786, -0.871843, 0.871843, 0.489786, 118.59, 1.53075)
 
 [node name="WristR" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR"]
 position = Vector2(97.3649, 21.8967)
-rotation = 1.24183
+rotation = 1.2657
 scale = Vector2(0.999996, 0.999996)
 rest = Transform2D(0.965287, 0.261192, -0.261192, 0.965287, 112.95, 10.1021)
 auto_calculate_length_and_angle = false
@@ -4829,20 +4831,20 @@ texture = ExtResource("9_82aq5")
 
 [node name="UpperArmL" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop"]
 position = Vector2(74.8369, 35.4323)
-rotation = -1.39499
+rotation = -2.05217
 scale = Vector2(0.999996, 0.999996)
 rest = Transform2D(0.998048, -0.0624427, 0.0624427, 0.998048, 74.8369, 35.4323)
 
 [node name="LowerArmL" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/UpperArmL"]
 position = Vector2(-40.9861, 98.2146)
-rotation = 0.909209
+rotation = 1.01248
 scale = Vector2(0.999994, 0.999994)
 rest = Transform2D(0.911628, 0.411016, -0.411016, 0.911628, -40.9861, 98.2146)
 
 [node name="WristL" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL"]
 position = Vector2(43.2869, 47.6577)
-rotation = 1.20905
-scale = Vector2(0.999994, 0.999994)
+rotation = 2.47649
+scale = Vector2(0.999993, 0.999993)
 rest = Transform2D(-0.154783, 0.987948, -0.987948, -0.154783, 43.2869, 47.6577)
 auto_calculate_length_and_angle = false
 length = 48.17
@@ -4850,14 +4852,14 @@ bone_angle = 0.0
 
 [node name="HeadMain" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop"]
 position = Vector2(122.167, 2.28322)
-rotation = -0.24681
-scale = Vector2(0.999999, 0.999999)
+rotation = -0.227311
+scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(0.999947, 0.010315, -0.010315, 0.999947, 122.167, 2.28322)
 
 [node name="LowerJaw" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/HeadMain"]
 position = Vector2(-29.8503, -14.7242)
-rotation = 1.24457
-scale = Vector2(0.999993, 0.999993)
+rotation = 1.33504
+scale = Vector2(0.999992, 0.999992)
 rest = Transform2D(0.256368, 0.966579, -0.966579, 0.256368, -29.8503, -14.7242)
 auto_calculate_length_and_angle = false
 length = 99.642
@@ -4883,15 +4885,21 @@ auto_calculate_length_and_angle = false
 length = 35.302
 bone_angle = 0.0
 
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/TorsoMain/TorsoTop/HeadMain"]
+position = Vector2(91.2382, 17.2229)
+rotation = 0.972818
+scale = Vector2(1.00001, 1.00001)
+remote_path = NodePath("../../../../../DamageTypeFX/Stun/StunParticle")
+
 [node name="UpperLegR" type="Bone2D" parent="Skeleton2D/TorsoMain"]
 position = Vector2(-63.9228, 23.7249)
-rotation = 2.30461
+rotation = 1.41429
 scale = Vector2(0.999996, 0.999996)
 rest = Transform2D(-0.809772, 0.586744, -0.586744, -0.809772, -63.9228, 23.7249)
 
 [node name="LowerLegR" type="Bone2D" parent="Skeleton2D/TorsoMain/UpperLegR"]
 position = Vector2(105.268, 2.76837)
-rotation = 0.925446
+rotation = 0.839706
 scale = Vector2(0.999995, 0.999995)
 rest = Transform2D(0.865783, 0.50042, -0.50042, 0.865783, 105.268, 2.76837)
 auto_calculate_length_and_angle = false
@@ -4900,13 +4908,13 @@ bone_angle = 0.0
 
 [node name="UpperLegL" type="Bone2D" parent="Skeleton2D/TorsoMain"]
 position = Vector2(-42.3166, 109.084)
-rotation = 2.33092
+rotation = 1.07089
 scale = Vector2(0.999996, 0.999996)
 rest = Transform2D(-0.938539, 0.345172, -0.345172, -0.938539, -42.3166, 109.084)
 
 [node name="LowerLegL" type="Bone2D" parent="Skeleton2D/TorsoMain/UpperLegL"]
 position = Vector2(100.597, -4.93311)
-rotation = 0.863209
+rotation = 1.23269
 scale = Vector2(0.999997, 0.999997)
 rest = Transform2D(0.969936, 0.243361, -0.243361, 0.969936, 100.597, -4.93311)
 auto_calculate_length_and_angle = false
@@ -5280,22 +5288,27 @@ parameters/TimeScale/scale = 1.4
 [node name="Blood" type="Node2D" parent="DamageTypeFX"]
 
 [node name="BloodParticle" parent="DamageTypeFX/Blood" instance=ExtResource("55_3p2ew")]
-position = Vector2(-111, -324)
+position = Vector2(-114, -310)
 emitting = false
 
 [node name="BloodParticle2" parent="DamageTypeFX/Blood" instance=ExtResource("55_3p2ew")]
 z_index = 1
-position = Vector2(93, -357)
+position = Vector2(63, -295)
 emitting = false
 
 [node name="BloodParticle3" parent="DamageTypeFX/Blood" instance=ExtResource("55_3p2ew")]
 z_index = 1
-position = Vector2(-78, -447)
+position = Vector2(-103, -406)
 emitting = false
 
 [node name="BloodParticle4" parent="DamageTypeFX/Blood" instance=ExtResource("55_3p2ew")]
 z_index = 1
-position = Vector2(91, -450)
+position = Vector2(107, -446)
+emitting = false
+
+[node name="BloodParticle5" parent="DamageTypeFX/Blood" instance=ExtResource("55_3p2ew")]
+z_index = 2
+position = Vector2(19, -486)
 emitting = false
 
 [node name="Fire" type="Node2D" parent="DamageTypeFX"]
@@ -5308,9 +5321,19 @@ emitting = false
 position = Vector2(-16, -546)
 emitting = false
 
+[node name="FireParticle5" parent="DamageTypeFX/Fire" instance=ExtResource("56_gji10")]
+z_index = 4
+position = Vector2(-8, -464)
+emitting = false
+
 [node name="FireParticle3" parent="DamageTypeFX/Fire" instance=ExtResource("56_gji10")]
 z_index = 2
 position = Vector2(89, -393)
+emitting = false
+
+[node name="FireParticle6" parent="DamageTypeFX/Fire" instance=ExtResource("56_gji10")]
+z_index = 2
+position = Vector2(-94, -400)
 emitting = false
 
 [node name="FireParticle4" parent="DamageTypeFX/Fire" instance=ExtResource("56_gji10")]
@@ -5319,5 +5342,12 @@ position = Vector2(5, -295)
 emitting = false
 
 [node name="Stun" type="Node2D" parent="DamageTypeFX"]
+
+[node name="StunParticle" parent="DamageTypeFX/Stun" instance=ExtResource("57_swcif")]
+z_index = 4
+position = Vector2(194.617, -437.665)
+rotation = 0.574949
+scale = Vector2(1, 1)
+emitting = false
 
 [node name="Slow" type="Node2D" parent="DamageTypeFX"]

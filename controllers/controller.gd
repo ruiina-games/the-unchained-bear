@@ -64,6 +64,7 @@ func init_state_machine() -> void:
 # Тому треба придумати якийсь переключатель.
 func process_effects(effect: Effect):
 	if effect is FireEffect:
+		
 		var duration_timer = Timer.new()
 		duration_timer.wait_time = effect.duration
 		add_child(duration_timer)
@@ -74,17 +75,31 @@ func process_effects(effect: Effect):
 				particle.emitting = false
 			)
 		for particle in actor.fire_folder.get_children():
+			if particle.emitting == true:
+				particle.lifetime += effect.duration
+				
 			particle.lifetime = effect.duration
 			particle.emitting = true
-			
-			
+
 	elif effect is BleedingEffect:
 		for particle in actor.blood_folder.get_children():
+			await get_tree().create_timer(0.2).timeout
 			particle.emitting = true
 	elif effect is SlowEffect:
 		pass
 	elif effect is StunEffect:
-		pass
+		var duration_timer = Timer.new()
+		duration_timer.wait_time = effect.duration
+		add_child(duration_timer)
+		duration_timer.start()
+		
+		duration_timer.timeout.connect(func():
+			for particle in actor.stun_folder.get_children():
+				particle.emitting = false
+			)
+		
+		for particle in actor.stun_folder.get_children():
+			particle.emitting = true
 	elif effect is Knockback:
 		pass
 
