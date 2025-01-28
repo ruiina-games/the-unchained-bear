@@ -1,6 +1,6 @@
 [gd_resource type="AnimationNodeBlendTree" load_steps=30 format=3 uid="uid://dqhiy5onp28va"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xg7do"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lymcx"]
 animation = &"LION_ANIMS/HURT"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wf8vl"]
@@ -148,8 +148,8 @@ mix_mode = 1
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_0i55w"]
 
 [resource]
-graph_offset = Vector2(-354.816, 53.76)
-nodes/Animation/node = SubResource("AnimationNodeAnimation_xg7do")
+graph_offset = Vector2(-324.096, 73.728)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_lymcx")
 nodes/Animation/position = Vector2(-16, 384)
 nodes/MainStateMachine/node = SubResource("AnimationNodeStateMachine_wnddi")
 nodes/MainStateMachine/position = Vector2(-16, 80)

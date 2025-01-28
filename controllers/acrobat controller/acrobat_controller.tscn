@@ -35,7 +35,7 @@ script = ExtResource("3_hpkts")
 animation_condition = &"idle"
 
 [sub_resource type="BTWait" id="BTWait_uw0y2"]
-duration = 4.0
+duration = 2.0
 
 [sub_resource type="BTAction" id="BTAction_gmnx5"]
 custom_name = "Charge Anim"
@@ -59,7 +59,6 @@ animation_condition = &"idle"
 children = [SubResource("BTAction_m3ox6"), SubResource("BTWait_uw0y2"), SubResource("BTAction_gmnx5"), SubResource("BTAction_dy1jl"), SubResource("BTAction_3p21t"), SubResource("BTWait_8eh2c")]
 
 [sub_resource type="BTCooldown" id="BTCooldown_i4j86"]
-duration = 50.0
 start_cooled = true
 custom_name = "Charge"
 children = [SubResource("BTSequence_o2yol")]
@@ -88,6 +87,8 @@ times = 3
 children = [SubResource("BTSequence_kyblq")]
 
 [sub_resource type="BTCooldown" id="BTCooldown_m034a"]
+duration = 14.0
+start_cooled = true
 custom_name = "Three in a Row"
 children = [SubResource("BTRepeat_5dn3k")]
 
@@ -218,31 +219,31 @@ root_task = SubResource("BTSelector_unlav")
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_4pa35"]
 
-[sub_resource type="Resource" id="Resource_wcekg"]
+[sub_resource type="Resource" id="Resource_gnsul"]
 script = ExtResource("5_f83hx")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_0i0nq"]
+[sub_resource type="Resource" id="Resource_55r27"]
 script = ExtResource("5_f83hx")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_w1o32"]
+[sub_resource type="Resource" id="Resource_c80x0"]
 script = ExtResource("5_f83hx")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_a0ut7"]
+[sub_resource type="Resource" id="Resource_myah8"]
 script = ExtResource("5_f83hx")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_4yfls"]
+[sub_resource type="Resource" id="Resource_082cu"]
 script = ExtResource("5_f83hx")
 frequency = 1.0
 damping = 1.0
@@ -270,81 +271,80 @@ collision_layer = 0
 collision_mask = 0
 
 [node name="RLegTwoBoneIK" parent="Acrobat/Skeleton2D/SoupStack/RLegStack" index="0"]
-first_joint_easing = SubResource("Resource_wcekg")
+first_joint_easing = SubResource("Resource_gnsul")
 
 [node name="LLegTwoBoneIK" parent="Acrobat/Skeleton2D/SoupStack/LLegStack" index="0"]
-first_joint_easing = SubResource("Resource_0i0nq")
+first_joint_easing = SubResource("Resource_55r27")
 
 [node name="HeadLookAt" parent="Acrobat/Skeleton2D/SoupStack/HeadStack" index="0"]
-easing = SubResource("Resource_w1o32")
+easing = SubResource("Resource_c80x0")
 
 [node name="Bubon1LookAt" parent="Acrobat/Skeleton2D/SoupStack/HeadStack" index="1"]
-easing = SubResource("Resource_a0ut7")
+easing = SubResource("Resource_myah8")
 
 [node name="Bubon2LookAt" parent="Acrobat/Skeleton2D/SoupStack/HeadStack" index="2"]
-easing = SubResource("Resource_4yfls")
+easing = SubResource("Resource_082cu")
 
 [node name="UpperBody" parent="Acrobat/Skeleton2D/Main" index="0"]
 scale = Vector2(0.999986, 0.999986)
 
 [node name="Head" parent="Acrobat/Skeleton2D/Main/UpperBody/Neck" index="0"]
-rotation = 0.0663222
+rotation = 0.000130305
 scale = Vector2(0.999989, 0.999989)
 
 [node name="Bubon_1" parent="Acrobat/Skeleton2D/Main/UpperBody/Neck/Head" index="0"]
-rotation = -1.01846
+rotation = -0.934038
 scale = Vector2(0.999997, 0.999997)
 
 [node name="Bubon_2" parent="Acrobat/Skeleton2D/Main/UpperBody/Neck/Head" index="1"]
-rotation = -0.517552
+rotation = -0.430805
 scale = Vector2(0.999994, 0.999994)
 
 [node name="UpperHandR" parent="Acrobat/Skeleton2D/Main/UpperBody" index="1"]
-rotation = -0.198593
+rotation = -0.0937049
 scale = Vector2(0.999991, 0.999991)
 
 [node name="LowerHandR" parent="Acrobat/Skeleton2D/Main/UpperBody/UpperHandR" index="0"]
-rotation = 0.702015
+rotation = 0.953567
 scale = Vector2(0.999996, 0.999996)
 
 [node name="WristR" parent="Acrobat/Skeleton2D/Main/UpperBody/UpperHandR/LowerHandR" index="0"]
-rotation = 1.64012
+rotation = 2.3904
 scale = Vector2(0.999994, 0.999994)
 
 [node name="UpperHandL" parent="Acrobat/Skeleton2D/Main/UpperBody" index="2"]
-rotation = -0.0170171
+rotation = 0.0283177
 scale = Vector2(0.99999, 0.99999)
 
 [node name="LowerHandL" parent="Acrobat/Skeleton2D/Main/UpperBody/UpperHandL" index="0"]
-rotation = 0.478009
+rotation = 0.754216
 scale = Vector2(0.999995, 0.999995)
 
 [node name="WristL" parent="Acrobat/Skeleton2D/Main/UpperBody/UpperHandL/LowerHandL" index="0"]
-rotation = 1.13841
+rotation = 1.35003
 scale = Vector2(0.999994, 0.999994)
 
 [node name="UpperLegR" parent="Acrobat/Skeleton2D/Main" index="1"]
-rotation = -0.000424456
+rotation = 0.0843734
 scale = Vector2(0.999991, 0.999991)
 
 [node name="LowerLegR" parent="Acrobat/Skeleton2D/Main/UpperLegR" index="0"]
-rotation = -0.0426436
+rotation = -0.193884
 scale = Vector2(0.999993, 0.999993)
 
 [node name="FootR" parent="Acrobat/Skeleton2D/Main/UpperLegR/LowerLegR" index="0"]
-rotation = 1.59021
+rotation = 1.60192
 scale = Vector2(0.999986, 0.999986)
 
 [node name="UpperLegL" parent="Acrobat/Skeleton2D/Main" index="2"]
-rotation = 0.0796469
+rotation = 0.0907679
 scale = Vector2(0.99999, 0.99999)
 
 [node name="LowerLegL" parent="Acrobat/Skeleton2D/Main/UpperLegL" index="0"]
-rotation = -0.126768
 scale = Vector2(0.999995, 0.999995)
 
 [node name="FootL" parent="Acrobat/Skeleton2D/Main/UpperLegL/LowerLegL" index="0"]
-rotation = 1.55558
+rotation = 1.51994
 scale = Vector2(0.999991, 0.999991)
 
 [node name="AnimationTree" parent="Acrobat" index="10"]
