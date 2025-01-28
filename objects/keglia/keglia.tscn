@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://objects/keglia/keglia.gd" id="1_84fse"]
 [ext_resource type="Texture2D" uid="uid://h0khkm73jio8" path="res://assets/Acrobat/Keglya.png" id="2_w3abn"]
 [ext_resource type="Material" uid="uid://bocosgt3beuki" path="res://objects/keglia/fire_on_keglia.tres" id="3_ff745"]
-[ext_resource type="Texture2D" uid="uid://c8afeqvdur4gg" path="res://assets/FX/dust.png" id="3_gvthn"]
+[ext_resource type="Texture2D" uid="uid://bmhe3xytpf1n5" path="res://assets/FX/EffectParitcles/Fire_2.png" id="5_fyowj"]
 [ext_resource type="Script" path="res://components/hit_box.gd" id="7_sqi0t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o0bag"]
@@ -74,6 +74,6 @@ z_index = 1
 position = Vector2(-98, -44)
 rotation = -2.72959
 emitting = false
-amount = 80
+amount = 200
 process_material = ExtResource("3_ff745")
-texture = ExtResource("3_gvthn")
+texture = ExtResource("5_fyowj")
