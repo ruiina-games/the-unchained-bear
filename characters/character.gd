@@ -114,3 +114,6 @@ func perform_kick():
 	
 	character_stats.fighting_style.combo_count = -1
 	attack()
+	
+func dodge_attack():
+	pass

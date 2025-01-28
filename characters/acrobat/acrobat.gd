@@ -63,6 +63,10 @@ func throw_object(direction: Vector2, container: Node2D):
 func charge():
 	character_stats.fighting_style.combo_count = -2
 	var og_frames: int = frames_to_activate_attack_for
-	frames_to_activate_attack_for = 30
+	frames_to_activate_attack_for = 10
 	attack()
 	frames_to_activate_attack_for = og_frames
+
+func dodge_attack():
+	if animation_tree:
+		animation_tree.set("parameters/DODGE/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
