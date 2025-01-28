@@ -47,7 +47,7 @@ animation_condition = &"run"
 script = ExtResource("3_fujyr")
 move_speed = 450.0
 tolerance = 600.0
-should_stop_at_enemy = true
+should_stop_at_enemy = false
 
 [sub_resource type="BTSequence" id="BTSequence_vhhrt"]
 children = [SubResource("BTCondition_di873"), SubResource("BTAction_kmvwf"), SubResource("BTAction_rvy7m")]

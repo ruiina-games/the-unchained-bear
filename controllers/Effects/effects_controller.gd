@@ -23,7 +23,7 @@ func _ready():
 	default_camera_zoom = main_camera.zoom
 	original_offset = main_camera.offset
 	
-	GlobalSignals.hurt_triggered.connect(func(causer): if causer.name != "BearNew": shake_camera(shake_duration, shake_magnitude))
+	GlobalSignals.hurt_triggered.connect(func(causer): if causer and causer.name != "BearNew": shake_camera(shake_duration, shake_magnitude))
 	GlobalSignals.character_died.connect(func(agent): slow_motion(slowmotion_duration, slowmotion_strength))
 
 func _process(delta):

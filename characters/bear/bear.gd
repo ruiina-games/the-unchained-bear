@@ -15,6 +15,6 @@ func _ready() -> void:
 	super()
 	
 	$HealthComponent.got_hit.connect(func(enemy):
-		if enemy is Monkey:
+		if enemy.object and enemy.object is ThrowingObject:
 			enemy.break_object()
 		)

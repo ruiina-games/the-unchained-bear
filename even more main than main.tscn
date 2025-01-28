@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://qhpf0l7xje0f"]
 
 [ext_resource type="Script" path="res://even_more_main_than_main.gd" id="1_0ojiy"]
-[ext_resource type="PackedScene" uid="uid://nyr1tohq4w76" path="res://main.tscn" id="1_ngjpe"]
+[ext_resource type="PackedScene" uid="uid://nyr1tohq4w76" path="res://level_acrobat.tscn" id="1_ngjpe"]
 
 [node name="EvenMoreMainThanMain" type="Node2D"]
 script = ExtResource("1_0ojiy")

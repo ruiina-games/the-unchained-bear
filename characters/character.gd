@@ -24,6 +24,7 @@ var effects_dic: Dictionary
 var can_move: bool = true
 var is_dead: bool = false
 var is_on_floor: bool = false
+var object: ThrowingObject = null
 
 func _ready() -> void:
 	apply_shader_to_polygons($Polygons)
@@ -101,3 +102,10 @@ func apply_shader_to_polygons(node: Node):
 		node.material = shader_material
 	for child in node.get_children():
 		apply_shader_to_polygons(child)
+
+func perform_kick():
+	if !character_stats:
+		return
+	
+	character_stats.fighting_style.combo_count = -1
+	attack()

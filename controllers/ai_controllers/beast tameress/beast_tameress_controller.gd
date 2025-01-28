@@ -18,6 +18,7 @@ func setup_monkey():
 			return
 		var throw_direction: Vector2 = actor.global_position.direction_to(target.global_position)
 		actor.adjust_scale_for_direction(throw_direction)
+		monkey.object.damage = actor.character_stats.fighting_style.get_damage()
 		monkey.throw_object(throw_direction.normalized())
 	)
 

@@ -1,7 +1,6 @@
 extends Area2D
 class_name Hurtbox
 
-
 @export var agent: Character
 @export var health_component: HealthComponent
 
@@ -13,9 +12,12 @@ func on_hurtbox_entered(area: Area2D):
 	if area is Hitbox:
 		var enemy_hitbox: Hitbox = area
 		var enemy: Character = enemy_hitbox.agent
+		var thrown_object: ThrowingObject 
 		
-		# print(enemy.name)
-		health_component.apply_damage(enemy)
+		if enemy.object:
+			thrown_object = enemy.object
+		
+		health_component.apply_damage(enemy, thrown_object)
 		
 		GlobalSignals.hurt_triggered.emit(enemy)
 		

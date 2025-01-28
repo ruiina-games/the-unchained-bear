@@ -21,7 +21,7 @@ animation_condition = &"run"
 script = ExtResource("3_847qd")
 move_speed = 300.0
 tolerance = 600.0
-should_stop_at_enemy = true
+should_stop_at_enemy = false
 
 [sub_resource type="BTAction" id="BTAction_mpxb1"]
 script = ExtResource("2_5qkip")
