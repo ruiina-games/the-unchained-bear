@@ -1,16 +1,22 @@
-[gd_scene load_steps=20 format=3 uid="uid://dx1oxtxefy7my"]
+[gd_scene load_steps=26 format=3 uid="uid://dx1oxtxefy7my"]
 
 [ext_resource type="PackedScene" uid="uid://dq2wgiu3t6ygp" path="res://controllers/ai_controllers/beast tameress/ai_controller.tscn" id="1_nrp6k"]
 [ext_resource type="PackedScene" uid="uid://bsi86oh8bgr5y" path="res://characters/beast_tamer/beast_tameress.tscn" id="2_807yu"]
 [ext_resource type="Script" path="res://controllers/ai_controllers/beast tameress/beast_tameress_controller.gd" id="2_j55bh"]
 [ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Easing/soup_second_order_easing.gd" id="3_2stpe"]
+[ext_resource type="Texture2D" uid="uid://dd8qlem4388h7" path="res://assets/BeastTamer/Neck.png" id="3_7yd33"]
 [ext_resource type="BehaviorTree" uid="uid://c2gr4a0ig0ujm" path="res://characters/beast_tamer/bt's/phase_01_bt.tres" id="3_ekoyw"]
 [ext_resource type="Script" path="res://state machines/Boss States/Beast Tameress/boss_state.gd" id="4_avb0h"]
 [ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Easing/soup_second_order_easing_no_g.gd" id="4_ek7q5"]
+[ext_resource type="Texture2D" uid="uid://dgdfdfnxueb47" path="res://assets/BeastTamer/Hair_1.png" id="4_pmacp"]
+[ext_resource type="Texture2D" uid="uid://pg8n87qjktnr" path="res://assets/BeastTamer/Head.png" id="5_cd6bl"]
+[ext_resource type="Texture2D" uid="uid://bvu0h8ht8plux" path="res://assets/BeastTamer/Hair_2.png" id="6_5rjsu"]
+[ext_resource type="Texture2D" uid="uid://cyflu41rrotkk" path="res://assets/BeastTamer/Feather.png" id="7_sgyub"]
+[ext_resource type="Texture2D" uid="uid://cw3qf4uer4v0v" path="res://assets/BeastTamer/Hat.png" id="8_hib5s"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_qxid3"]
 
-[sub_resource type="Resource" id="Resource_cgdkn"]
+[sub_resource type="Resource" id="Resource_2p052"]
 script = ExtResource("3_2stpe")
 frequency = 10.001
 damping = 0.485
@@ -19,66 +25,126 @@ reaction = 1.0
 [sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_qhum3"]
 enabled = true
 
-[sub_resource type="Resource" id="Resource_s20ys"]
+[sub_resource type="Resource" id="Resource_ex0go"]
 script = ExtResource("4_ek7q5")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_cgoyd"]
+[sub_resource type="Resource" id="Resource_d186v"]
 script = ExtResource("4_ek7q5")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_jpq3v"]
+[sub_resource type="Resource" id="Resource_cnscu"]
 script = ExtResource("3_2stpe")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_f42ul"]
+[sub_resource type="Resource" id="Resource_gbfkc"]
 script = ExtResource("3_2stpe")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_w8yde"]
+[sub_resource type="Resource" id="Resource_dwj5x"]
 script = ExtResource("4_ek7q5")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_biqbi"]
+[sub_resource type="Resource" id="Resource_052k1"]
 script = ExtResource("3_2stpe")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_yybdb"]
+[sub_resource type="Resource" id="Resource_j68gd"]
 script = ExtResource("3_2stpe")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_drljb"]
+[sub_resource type="Resource" id="Resource_31cxh"]
 script = ExtResource("4_ek7q5")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_p3ac5"]
+[sub_resource type="Resource" id="Resource_kkglo"]
 script = ExtResource("3_2stpe")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[node name="Beast Tameress Controller" node_paths=PackedStringArray("monkey", "actor", "hsm", "hp_label") instance=ExtResource("1_nrp6k")]
+[node name="Beast Tameress Controller" node_paths=PackedStringArray("monkey", "actor", "hsm", "hp_bar") instance=ExtResource("1_nrp6k")]
 script = ExtResource("2_j55bh")
 monkey = NodePath("BeastTamer/Skeleton2D/TorsoMain/Monkey")
 actor = NodePath("BeastTamer")
 hsm = NodePath("LimboHSM")
-hp_label = NodePath("CanvasLayer/HP")
+hp_bar = NodePath("CanvasLayer/HPBar/HBBarContainer/HPBar")
+
+[node name="Head" type="Node2D" parent="CanvasLayer/HPBar/HBBarContainer" index="2"]
+position = Vector2(-16, 18)
+scale = Vector2(-0.5, 0.5)
+
+[node name="Neck" type="Polygon2D" parent="CanvasLayer/HPBar/HBBarContainer/Head" index="0"]
+position = Vector2(-41.27, 3.27747)
+texture = ExtResource("3_7yd33")
+skeleton = NodePath("../../../Skeleton2D")
+polygon = PackedVector2Array(23.7301, 73.1571, 35.7126, 94.2605, 60.3928, 96.9432, 78.8136, 89.0741, 84.7154, 72.6206, 74.5214, 54.021, 71.4811, 47.0461, 70.9445, 37.5675, 65.4004, 2.69323, 22.8359, 7.70082, -0.234741, 35.7791, 11.39, 56.5248, 18.3649, 63.6785)
+uv = PackedVector2Array(23.7301, 73.1571, 35.7126, 94.2605, 60.3928, 96.9432, 78.8136, 89.0741, 84.7154, 72.6206, 74.5214, 54.021, 71.4811, 47.0461, 70.9445, 37.5675, 65.4004, 2.69323, 22.8359, 7.70082, -0.234741, 35.7791, 11.39, 56.5248, 18.3649, 63.6785)
+polygons = [PackedInt32Array(10, 8, 9), PackedInt32Array(10, 11, 7, 8), PackedInt32Array(11, 12, 6, 7), PackedInt32Array(12, 0, 5, 6), PackedInt32Array(0, 1, 2), PackedInt32Array(5, 3, 4), PackedInt32Array(5, 0, 2, 3)]
+bones = ["TorsoMain", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/UpperLegL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/UpperLegL/LowerLegL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/UpperLegL/LowerLegL/FootL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/UpperLegR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/UpperLegR/LowerLegR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/UpperLegR/LowerLegR/FootR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03/DressL_04", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03/DressL_04/DressL_05", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03/DressL_04/DressL_05/DressL_06", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03/DressR_04", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03/DressR_04/DressR_05", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03/DressR_04/DressR_05/DressR_06", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandL/LowerHandR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandL/LowerHandR/WristL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28/Whip_29", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28/Whip_29/Whip_30", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28/Whip_29/Whip_30/Whip_31", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28/Whip_29/Whip_30/Whip_31/Whip_32", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28/Whip_29/Whip_30/Whip_31/Whip_32/Whip_33", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/NeckBase", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1), "TorsoMain/LowerBody/UpperBody/NeckBase/NeckTop", PackedFloat32Array(0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1), "TorsoMain/LowerBody/UpperBody/NeckBase/NeckTop/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/NeckBase/NeckTop/Head/Feather", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="BackHair" type="Polygon2D" parent="CanvasLayer/HPBar/HBBarContainer/Head" index="1"]
+position = Vector2(-81.27, -40.7225)
+texture = ExtResource("4_pmacp")
+skeleton = NodePath("../../../Skeleton2D")
+polygon = PackedVector2Array(56.6476, 9.48795, 6.17471, 10.5422, 8.15146, 33.9996, 10.6553, 47.1779, 19.353, 63.7825, 19.0894, 78.9376, 14.477, 81.4414, 9.07394, 82.2321, 10.7871, 88.8213, 14.477, 92.3794, 23.7019, 94.2244, 42.2832, 88.4259, 47.6863, 64.705, 47.4228, 45.9918, 47.0274, 31.7593)
+uv = PackedVector2Array(56.6476, 9.48795, 6.17471, 10.5422, 8.15146, 33.9996, 10.6553, 47.1779, 19.353, 63.7825, 19.0894, 78.9376, 14.477, 81.4414, 9.07394, 82.2321, 10.7871, 88.8213, 14.477, 92.3794, 23.7019, 94.2244, 42.2832, 88.4259, 47.6863, 64.705, 47.4228, 45.9918, 47.0274, 31.7593)
+polygons = [PackedInt32Array(1, 0, 14, 2), PackedInt32Array(2, 3, 13, 14), PackedInt32Array(3, 4, 12, 13), PackedInt32Array(4, 5, 11, 12), PackedInt32Array(5, 6, 10, 11), PackedInt32Array(6, 7, 8), PackedInt32Array(6, 8, 9, 10)]
+bones = ["TorsoMain", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/UpperLegL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/UpperLegL/LowerLegL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/UpperLegL/LowerLegL/FootL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/UpperLegR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/UpperLegR/LowerLegR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/UpperLegR/LowerLegR/FootR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03/DressL_04", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03/DressL_04/DressL_05", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03/DressL_04/DressL_05/DressL_06", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03/DressR_04", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03/DressR_04/DressR_05", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03/DressR_04/DressR_05/DressR_06", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandL/LowerHandR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandL/LowerHandR/WristL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28/Whip_29", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28/Whip_29/Whip_30", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28/Whip_29/Whip_30/Whip_31", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28/Whip_29/Whip_30/Whip_31/Whip_32", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28/Whip_29/Whip_30/Whip_31/Whip_32/Whip_33", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/NeckBase", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/NeckBase/NeckTop", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/NeckBase/NeckTop/Head", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "TorsoMain/LowerBody/UpperBody/NeckBase/NeckTop/Head/Feather", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="Head" type="Polygon2D" parent="CanvasLayer/HPBar/HBBarContainer/Head" index="2"]
+position = Vector2(-71.27, -51.7225)
+texture = ExtResource("5_cd6bl")
+skeleton = NodePath("../../../Skeleton2D")
+polygon = PackedVector2Array(21.8777, 7.42093, 4.03821, 65.285, 13.8728, 130.011, 87.2893, 124.293, 118.165, 55.2217, 101.927, 3.76154)
+uv = PackedVector2Array(21.8777, 7.42093, 4.03821, 65.285, 13.8728, 130.011, 87.2893, 124.293, 118.165, 55.2217, 101.927, 3.76154)
+polygons = [PackedInt32Array(1, 4, 5, 0), PackedInt32Array(1, 2, 3, 4)]
+bones = ["TorsoMain", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/UpperLegL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/UpperLegL/LowerLegL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/UpperLegL/LowerLegL/FootL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/UpperLegR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/UpperLegR/LowerLegR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/UpperLegR/LowerLegR/FootR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03/DressL_04", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03/DressL_04/DressL_05", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03/DressL_04/DressL_05/DressL_06", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03/DressR_04", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03/DressR_04/DressR_05", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03/DressR_04/DressR_05/DressR_06", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandL/LowerHandR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandL/LowerHandR/WristL", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28/Whip_29", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28/Whip_29/Whip_30", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28/Whip_29/Whip_30/Whip_31", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28/Whip_29/Whip_30/Whip_31/Whip_32", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28/Whip_29/Whip_30/Whip_31/Whip_32/Whip_33", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/NeckBase", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/NeckBase/NeckTop", PackedFloat32Array(0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/NeckBase/NeckTop/Head", PackedFloat32Array(1, 1, 1, 1, 1, 1), "TorsoMain/LowerBody/UpperBody/NeckBase/NeckTop/Head/Feather", PackedFloat32Array(0, 0, 0, 0, 0, 0)]
+
+[node name="FrontHair" type="Polygon2D" parent="CanvasLayer/HPBar/HBBarContainer/Head" index="3"]
+position = Vector2(-75.27, -55.7225)
+texture = ExtResource("6_5rjsu")
+skeleton = NodePath("../../../Skeleton2D")
+polygon = PackedVector2Array(51.2069, 3.9414, 11.1549, 27.175, 3.69938, 65.1463, 73.746, 117.683, 127.149, 119.07, 140.326, 92.1951, 141.019, 38.7925, 90.0462, 6.88929, 82.9373, 87.166, 65.7721, 36.017)
+uv = PackedVector2Array(51.2069, 3.9414, 11.1549, 27.175, 3.69938, 65.1463, 73.746, 117.683, 127.149, 119.07, 140.326, 92.1951, 141.019, 38.7925, 90.0462, 6.88929, 82.9373, 87.166, 65.7721, 36.017)
+polygons = [PackedInt32Array(1, 9, 7, 0), PackedInt32Array(1, 2, 8, 9), PackedInt32Array(9, 7, 6, 8), PackedInt32Array(8, 5, 6), PackedInt32Array(8, 3, 4, 5), PackedInt32Array(8, 2, 3)]
+bones = ["TorsoMain", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/UpperLegL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/UpperLegL/LowerLegL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/UpperLegL/LowerLegL/FootL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/UpperLegR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/UpperLegR/LowerLegR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/UpperLegR/LowerLegR/FootR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03/DressL_04", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03/DressL_04/DressL_05", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03/DressL_04/DressL_05/DressL_06", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03/DressR_04", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03/DressR_04/DressR_05", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03/DressR_04/DressR_05/DressR_06", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandL/LowerHandR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandL/LowerHandR/WristL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28/Whip_29", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28/Whip_29/Whip_30", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28/Whip_29/Whip_30/Whip_31", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28/Whip_29/Whip_30/Whip_31/Whip_32", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28/Whip_29/Whip_30/Whip_31/Whip_32/Whip_33", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/NeckBase", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/NeckBase/NeckTop", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/NeckBase/NeckTop/Head", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "TorsoMain/LowerBody/UpperBody/NeckBase/NeckTop/Head/Feather", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+internal_vertex_count = 2
+
+[node name="Feather" type="Polygon2D" parent="CanvasLayer/HPBar/HBBarContainer/Head" index="4"]
+position = Vector2(10.73, -95.7225)
+texture = ExtResource("7_sgyub")
+skeleton = NodePath("../../../Skeleton2D")
+polygon = PackedVector2Array(16.4959, 58.899, 53.2143, 50.5062, 61.7569, 55.6018, 68.0515, 63.8447, 73.297, 74.3357, 91.4609, 110.649, 118.662, 111.309, 139.27, 64.3244, 132.181, 44.8711, 120.146, 24.4287, 92.2852, 6.6241, 59.1488, 7.7781, 2.10796, 32.1771, -0.694626, 56.2463, 106.298, 68.6107, 100.034, 52.7843, 88.3286, 39.4308, 60.9622, 29.2096)
+uv = PackedVector2Array(16.4959, 58.899, 53.2143, 50.5062, 61.7569, 55.6018, 68.0515, 63.8447, 73.297, 74.3357, 91.4609, 110.649, 118.662, 111.309, 139.27, 64.3244, 132.181, 44.8711, 120.146, 24.4287, 92.2852, 6.6241, 59.1488, 7.7781, 2.10796, 32.1771, -0.694626, 56.2463, 106.298, 68.6107, 100.034, 52.7843, 88.3286, 39.4308, 60.9622, 29.2096)
+polygons = [PackedInt32Array(12, 0, 13), PackedInt32Array(12, 11, 17), PackedInt32Array(12, 0, 17), PackedInt32Array(1, 17, 0), PackedInt32Array(1, 2, 16, 17), PackedInt32Array(17, 11, 10, 16), PackedInt32Array(3, 15, 16, 2), PackedInt32Array(15, 9, 10, 16), PackedInt32Array(15, 8, 9), PackedInt32Array(15, 14, 4, 3), PackedInt32Array(15, 8, 7, 14), PackedInt32Array(14, 6, 7), PackedInt32Array(14, 4, 5), PackedInt32Array(14, 6, 5)]
+bones = ["TorsoMain", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/UpperLegL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/UpperLegL/LowerLegL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/UpperLegL/LowerLegL/FootL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/UpperLegR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/UpperLegR/LowerLegR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/UpperLegR/LowerLegR/FootR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03/DressL_04", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03/DressL_04/DressL_05", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03/DressL_04/DressL_05/DressL_06", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03/DressR_04", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03/DressR_04/DressR_05", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03/DressR_04/DressR_05/DressR_06", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandL/LowerHandR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandL/LowerHandR/WristL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28/Whip_29", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28/Whip_29/Whip_30", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28/Whip_29/Whip_30/Whip_31", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28/Whip_29/Whip_30/Whip_31/Whip_32", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28/Whip_29/Whip_30/Whip_31/Whip_32/Whip_33", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/NeckBase", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/NeckBase/NeckTop", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/NeckBase/NeckTop/Head", PackedFloat32Array(1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/NeckBase/NeckTop/Head/Feather", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)]
+internal_vertex_count = 4
+
+[node name="Hat" type="Polygon2D" parent="CanvasLayer/HPBar/HBBarContainer/Head" index="5"]
+position = Vector2(-107.27, -145.723)
+texture = ExtResource("8_hib5s")
+skeleton = NodePath("../../../Skeleton2D")
+polygon = PackedVector2Array(4.27019, 121.506, 41.2775, 7.72256, 150.642, 8.27491, 199.525, 146.638, 22.4977, 133.382)
+uv = PackedVector2Array(4.27019, 121.506, 41.2775, 7.72256, 150.642, 8.27491, 199.525, 146.638, 22.4977, 133.382)
+polygons = [PackedInt32Array(1, 2, 4, 0), PackedInt32Array(2, 3, 4)]
+bones = ["TorsoMain", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/UpperLegL", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/UpperLegL/LowerLegL", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/UpperLegL/LowerLegL/FootL", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/UpperLegR", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/UpperLegR/LowerLegR", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/UpperLegR/LowerLegR/FootR", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03/DressL_04", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03/DressL_04/DressL_05", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03/DressL_04/DressL_05/DressL_06", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03/DressR_04", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03/DressR_04/DressR_05", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03/DressR_04/DressR_05/DressR_06", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandL", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandL/LowerHandR", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandL/LowerHandR/WristL", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28/Whip_29", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28/Whip_29/Whip_30", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28/Whip_29/Whip_30/Whip_31", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28/Whip_29/Whip_30/Whip_31/Whip_32", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR/WristR/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19/Whip_20/Whip_21/Whip_22/Whip_23/Whip_24/Whip_25/Whip_26/Whip_27/Whip_28/Whip_29/Whip_30/Whip_31/Whip_32/Whip_33", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/NeckBase", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/NeckBase/NeckTop", PackedFloat32Array(0, 0, 0, 0, 0), "TorsoMain/LowerBody/UpperBody/NeckBase/NeckTop/Head", PackedFloat32Array(1, 1, 1, 1, 1), "TorsoMain/LowerBody/UpperBody/NeckBase/NeckTop/Head/Feather", PackedFloat32Array(0, 0, 0, 0, 0)]
 
 [node name="LimboHSM" parent="." index="1" node_paths=PackedStringArray("character", "controller")]
 character = NodePath("../BeastTamer")
@@ -93,227 +159,227 @@ script = ExtResource("4_avb0h")
 collision_layer = 0
 
 [node name="TipFABRIK" parent="BeastTamer/WhipSkeleton/SoupStack/WhipStack" index="0"]
-easing = SubResource("Resource_cgdkn")
+easing = SubResource("Resource_2p052")
 
 [node name="Whip_01" parent="BeastTamer/WhipSkeleton/Handle" index="0"]
-rotation = 1.04809
+rotation = 1.05993
 scale = Vector2(0.999983, 0.999983)
 
 [node name="Whip_02" parent="BeastTamer/WhipSkeleton/Handle/Whip_01" index="0"]
-rotation = 0.872904
+rotation = 0.850693
 scale = Vector2(0.999988, 0.999988)
 
 [node name="Whip_03" parent="BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02" index="0"]
-rotation = 0.441432
+rotation = 0.453432
 scale = Vector2(0.999981, 0.999981)
 
 [node name="Whip_04" parent="BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03" index="0"]
-rotation = 0.434839
+rotation = 0.433666
 scale = Vector2(0.999985, 0.999985)
 
 [node name="Whip_05" parent="BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04" index="0"]
-rotation = 0.152463
+rotation = 0.152188
 scale = Vector2(0.999991, 0.999991)
 
 [node name="Whip_06" parent="BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05" index="0"]
-rotation = 0.603645
+rotation = 0.603904
 scale = Vector2(0.999991, 0.999991)
 
 [node name="Whip_07" parent="BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06" index="0"]
-rotation = 0.819507
+rotation = 0.819632
 
 [node name="Whip_08" parent="BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07" index="0"]
-rotation = -0.0609386
+rotation = -0.0615313
 scale = Vector2(0.999972, 0.999972)
 
 [node name="Whip_09" parent="BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08" index="0"]
-rotation = -0.64741
+rotation = -0.647588
 scale = Vector2(1, 1)
 
 [node name="Whip_10" parent="BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09" index="0"]
-rotation = -1.28892
+rotation = -1.29303
 scale = Vector2(0.999998, 0.999998)
 
 [node name="Whip_11" parent="BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10" index="0"]
-rotation = 0.0347184
+rotation = 0.0348497
 scale = Vector2(0.999951, 0.999951)
 
 [node name="Whip_12" parent="BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11" index="0"]
-rotation = -0.0424125
+rotation = -0.0421139
 scale = Vector2(0.999966, 0.999966)
 
 [node name="Whip_13" parent="BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12" index="0"]
-rotation = -0.0105074
+rotation = -0.00999826
 scale = Vector2(0.999965, 0.999965)
 
 [node name="Whip_14" parent="BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13" index="0"]
-rotation = -0.00420976
+rotation = -0.00346299
 scale = Vector2(0.999972, 0.999972)
 
 [node name="Whip_15" parent="BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14" index="0"]
-rotation = 0.0106266
+rotation = 0.011799
 scale = Vector2(0.999958, 0.999958)
 
 [node name="Whip_16" parent="BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15" index="0"]
-rotation = -0.0808264
+rotation = -0.0793916
 scale = Vector2(0.999991, 0.999991)
 
 [node name="Whip_17" parent="BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16" index="0"]
-rotation = -0.0233106
+rotation = -0.0217553
 scale = Vector2(0.999954, 0.999954)
 
 [node name="Whip_18" parent="BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17" index="0"]
-rotation = -0.089757
+rotation = -0.0885267
 scale = Vector2(0.999992, 0.999992)
 
 [node name="Whip_19" parent="BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18" index="0"]
-rotation = -0.125984
+rotation = -0.12598
 scale = Vector2(0.999996, 0.999996)
 
 [node name="Whip_20" parent="BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10/Whip_11/Whip_12/Whip_13/Whip_14/Whip_15/Whip_16/Whip_17/Whip_18/Whip_19" index="0"]
-rotation = -0.0584901
+rotation = -0.0588235
 scale = Vector2(0.999983, 0.999983)
 
 [node name="Skeleton2D" parent="BeastTamer" index="6"]
 modification_stack = SubResource("SkeletonModificationStack2D_qhum3")
 
 [node name="HandLTwoBoneIK" parent="BeastTamer/Skeleton2D/SoupStack/HandLStack" index="1"]
-first_joint_easing = SubResource("Resource_s20ys")
+first_joint_easing = SubResource("Resource_ex0go")
 
 [node name="LegRTwoBoneIK" parent="BeastTamer/Skeleton2D/SoupStack/LegRStack" index="1"]
-first_joint_easing = SubResource("Resource_cgoyd")
+first_joint_easing = SubResource("Resource_d186v")
 
 [node name="DressFABRIK" parent="BeastTamer/Skeleton2D/SoupStack/LegRStack" index="2"]
-easing = SubResource("Resource_jpq3v")
+easing = SubResource("Resource_cnscu")
 
 [node name="KneeFABRIK" parent="BeastTamer/Skeleton2D/SoupStack/LegRStack" index="3"]
-easing = SubResource("Resource_f42ul")
+easing = SubResource("Resource_gbfkc")
 
 [node name="LegLTwoBoneIK" parent="BeastTamer/Skeleton2D/SoupStack/LegLStack" index="1"]
-first_joint_easing = SubResource("Resource_w8yde")
+first_joint_easing = SubResource("Resource_dwj5x")
 
 [node name="DressFABRIK" parent="BeastTamer/Skeleton2D/SoupStack/LegLStack" index="2"]
-easing = SubResource("Resource_biqbi")
+easing = SubResource("Resource_052k1")
 
 [node name="KneeFABRIK" parent="BeastTamer/Skeleton2D/SoupStack/LegLStack" index="3"]
-easing = SubResource("Resource_yybdb")
+easing = SubResource("Resource_j68gd")
 
 [node name="HeadLookAt" parent="BeastTamer/Skeleton2D/SoupStack/HeadStack" index="0"]
-easing = SubResource("Resource_drljb")
+easing = SubResource("Resource_31cxh")
 
 [node name="FeatherJiggle" parent="BeastTamer/Skeleton2D/SoupStack/HeadStack" index="1"]
-easing = SubResource("Resource_p3ac5")
+easing = SubResource("Resource_kkglo")
 
 [node name="UpperLegL" parent="BeastTamer/Skeleton2D/TorsoMain" index="0"]
-rotation = 0.135953
-scale = Vector2(0.999825, 0.999825)
+rotation = 0.0447401
+scale = Vector2(0.999823, 0.999823)
 
 [node name="LowerLegL" parent="BeastTamer/Skeleton2D/TorsoMain/UpperLegL" index="1"]
-rotation = -0.382784
+rotation = -0.178614
 scale = Vector2(0.999842, 0.999842)
 
 [node name="FootL" parent="BeastTamer/Skeleton2D/TorsoMain/UpperLegL/LowerLegL" index="0"]
-rotation = 1.84214
-scale = Vector2(0.999836, 0.999836)
+rotation = 1.62538
+scale = Vector2(0.999839, 0.999839)
 
 [node name="UpperLegR" parent="BeastTamer/Skeleton2D/TorsoMain" index="1"]
-rotation = 0.138845
-scale = Vector2(0.99983, 0.99983)
+rotation = 0.0894892
+scale = Vector2(0.999831, 0.999831)
 
 [node name="LowerLegR" parent="BeastTamer/Skeleton2D/TorsoMain/UpperLegR" index="1"]
-rotation = -0.269001
-scale = Vector2(0.999834, 0.999834)
+rotation = -0.163675
+scale = Vector2(0.999835, 0.999835)
 
 [node name="FootR" parent="BeastTamer/Skeleton2D/TorsoMain/UpperLegR/LowerLegR" index="0"]
-rotation = 1.86126
-scale = Vector2(0.999844, 0.999844)
+rotation = 1.79624
+scale = Vector2(0.999842, 0.999842)
 
 [node name="BaseDressL" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody" index="0"]
-rotation = 0.0277698
-scale = Vector2(0.999817, 0.999817)
+rotation = -0.00810325
+scale = Vector2(0.999825, 0.999825)
 
 [node name="DressL_01" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/BaseDressL" index="0"]
-rotation = -0.0104069
+rotation = -0.0124853
 scale = Vector2(0.999533, 0.999533)
 
 [node name="DressL_02" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/BaseDressL/DressL_01" index="0"]
-rotation = -0.117298
-scale = Vector2(0.99983, 0.99983)
-
-[node name="DressL_03" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02" index="0"]
-rotation = -0.0924423
-scale = Vector2(0.999827, 0.999827)
-
-[node name="DressL_04" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03" index="0"]
-rotation = -0.0279914
-scale = Vector2(0.99982, 0.99982)
-
-[node name="DressL_05" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03/DressL_04" index="0"]
-rotation = -0.110958
+rotation = -0.0932668
 scale = Vector2(0.999829, 0.999829)
 
+[node name="DressL_03" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02" index="0"]
+rotation = -0.0551955
+scale = Vector2(0.999828, 0.999828)
+
+[node name="DressL_04" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03" index="0"]
+rotation = 0.0172478
+scale = Vector2(0.999824, 0.999824)
+
+[node name="DressL_05" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03/DressL_04" index="0"]
+rotation = -0.0612901
+scale = Vector2(0.999828, 0.999828)
+
 [node name="DressL_06" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03/DressL_04/DressL_05" index="0"]
-rotation = -3.04174
-scale = Vector2(0.999831, 0.999831)
+rotation = -2.99045
+scale = Vector2(0.999828, 0.999828)
 
 [node name="BaseDressR" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody" index="1"]
-rotation = 0.168091
+rotation = 0.144995
 scale = Vector2(0.999827, 0.999827)
 
 [node name="DressR_01" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/BaseDressR" index="0"]
-rotation = -0.00748092
-scale = Vector2(0.999322, 0.999322)
+rotation = -0.0104159
+scale = Vector2(0.999324, 0.999324)
 
 [node name="DressR_02" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/BaseDressR/DressR_01" index="0"]
-rotation = -0.0255244
-scale = Vector2(0.999829, 0.999829)
+rotation = -0.0103772
+scale = Vector2(0.999818, 0.999818)
 
 [node name="DressR_03" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02" index="0"]
-rotation = 0.00637883
-scale = Vector2(0.999809, 0.999809)
+rotation = 0.0272657
+scale = Vector2(0.999813, 0.999813)
 
 [node name="DressR_04" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03" index="0"]
-rotation = -0.0465625
-scale = Vector2(0.999705, 0.999705)
+rotation = -0.0196746
+scale = Vector2(0.999707, 0.999707)
 
 [node name="DressR_05" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03/DressR_04" index="0"]
-rotation = -0.102123
-scale = Vector2(0.999829, 0.999829)
+rotation = -0.0681456
+scale = Vector2(0.999831, 0.999831)
 
 [node name="DressR_06" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/BaseDressR/DressR_01/DressR_02/DressR_03/DressR_04/DressR_05" index="0"]
-rotation = -3.05403
-scale = Vector2(0.999824, 0.999824)
+rotation = -3.01632
+scale = Vector2(0.999829, 0.999829)
 
 [node name="UpperHandL" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/UpperBody" index="0"]
-rotation = -0.264828
-scale = Vector2(0.999834, 0.999834)
+rotation = -0.173561
+scale = Vector2(0.999832, 0.999832)
 
 [node name="LowerHandL" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandL" index="0"]
-rotation = 0.433917
-scale = Vector2(0.999849, 0.999849)
+rotation = 0.321185
+scale = Vector2(0.999851, 0.999851)
 
 [node name="WristL" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandL/LowerHandL" index="0"]
-rotation = -2.60262
-scale = Vector2(0.999878, 0.999878)
+rotation = -2.57977
+scale = Vector2(0.999879, 0.999879)
 
 [node name="UpperHandR" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/UpperBody" index="1"]
-rotation = -0.0938299
+rotation = -0.0817378
 scale = Vector2(0.999834, 0.999834)
 
 [node name="LowerHandR" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandR" index="0"]
-rotation = 0.233052
-scale = Vector2(0.999838, 0.999838)
+rotation = 0.204524
+scale = Vector2(0.999839, 0.999839)
 
 [node name="WristR" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR" index="0"]
-rotation = -1.69826
-scale = Vector2(0.999829, 0.999829)
+rotation = -1.64815
+scale = Vector2(0.999833, 0.999833)
 
 [node name="Head" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/UpperBody/NeckBase/NeckTop" index="0"]
-rotation = -0.0418437
+rotation = -0.0690892
 scale = Vector2(0.999837, 0.999837)
 
 [node name="Feather" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/UpperBody/NeckBase/NeckTop/Head" index="0"]
-rotation = 1.22417
+rotation = 1.2691
 scale = Vector2(0.999841, 0.999841)
 
 [node name="TargetNodes" parent="BeastTamer" index="7"]
@@ -326,11 +392,11 @@ autoplay = ""
 parameters/MainStateMachine/ATTACK/blend_position = 1.00601
 
 [node name="StunParticle" parent="BeastTamer/DamageFX/Stun" index="0"]
-position = Vector2(-37.739, -812.478)
-rotation = -1.60398
+position = Vector2(-40.0595, -812.34)
+rotation = -1.63123
 scale = Vector2(0.99966, 0.99966)
 
 [node name="SlowParticle" parent="BeastTamer/DamageFX/Slow" index="0"]
-position = Vector2(-37.4087, -896.186)
+position = Vector2(-42.0098, -896.027)
 
 [editable path="BeastTamer"]

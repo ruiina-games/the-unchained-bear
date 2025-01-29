@@ -4,7 +4,7 @@ class_name Controller
 @export var actor: Character
 @export var target: Character
 @export var hsm: LimboHSM
-@export var hp_label: Label
+@export var hp_bar: ProgressBar
 
 var fighting_style: FightingStyle
 
@@ -131,8 +131,9 @@ func set_stunned(stunned: bool):
 	# actor.can_move = !stunned
 
 func set_hp_label(new_hp: int):
-	if hp_label:
-		hp_label.text = str(actor.character_stats.current_health)
+	if hp_bar:
+		hp_bar.max_value = actor.character_stats.max_health
+		hp_bar.value = actor.character_stats.current_health
 
 func _process(delta: float) -> void:
 	if !target:
