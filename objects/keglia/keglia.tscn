@@ -77,3 +77,4 @@ emitting = false
 amount = 200
 process_material = ExtResource("3_ff745")
 texture = ExtResource("5_fyowj")
+local_coords = true

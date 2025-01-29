@@ -24,8 +24,13 @@ signal died()
 @export var blood_folder: Node2D
 @export var fire_folder: Node2D
 @export var stun_folder: Node2D
+@export var slow_folder: Node2D
+
+@export_category("Sound streamers")
+@export var universal_hit_sound: AudioStreamPlayer2D
 
 var effects_dic: Dictionary
+
 
 var can_move: bool = true
 var is_dead: bool = false
@@ -104,6 +109,8 @@ func reset_scale(original_scale, original_rotation):
 func get_hurt():
 	if !animation_tree:
 		return
+	if universal_hit_sound:
+		universal_hit_sound.play(0.2)
 	animation_tree.set("parameters/OneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 
 func apply_shader_to_polygons(node: Node):

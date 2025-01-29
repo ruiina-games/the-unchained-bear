@@ -71,6 +71,7 @@ func init_state_machine() -> void:
 # Ця функція викликається лише коли ефект вмикається або вимикається.
 # Тому треба придумати якийсь переключатель.
 func process_effects(effect: Effect):
+	
 	if effect is FireEffect:
 		var duration_timer = Timer.new()
 		duration_timer.wait_time = effect.duration
@@ -93,7 +94,21 @@ func process_effects(effect: Effect):
 			await get_tree().create_timer(0.2).timeout
 			particle.emitting = true
 	elif effect is SlowEffect:
-		pass
+		var duration_timer = Timer.new()
+		duration_timer.wait_time = effect.duration
+		add_child(duration_timer)
+		duration_timer.start()
+		
+		duration_timer.timeout.connect(func():
+			for particle in actor.slow_folder.get_children():
+				particle.emitting = false
+			)
+		
+		for particle in actor.slow_folder.get_children():
+			particle.lifetime = effect.duration
+			particle.emitting = true
+
+		
 	elif effect is StunEffect:
 		var duration_timer = Timer.new()
 		duration_timer.wait_time = effect.duration
