@@ -2,6 +2,7 @@ extends Node2D
 class_name InitialMovementTutorial
 
 signal tutorial_ended
+signal ready_to_change_scene
 
 @export var player_controller: PlayerController
 @export var beast_tamer: BeastTameress
@@ -136,4 +137,4 @@ func change_label_text():
 	$TextPopup.visible = true
 
 func change_scene():
-	get_tree().change_scene_to_packed(next_stage)
+	ready_to_change_scene.emit()
