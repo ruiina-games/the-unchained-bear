@@ -10,6 +10,9 @@ var force: Vector2 = Vector2.ZERO
 var node_to_attach_to: Node2D
 
 func _physics_process(delta: float) -> void:
+	if global_position.y >= 2000:
+		queue_free()
+	
 	if !node_to_attach_to:
 		return
 	global_position = node_to_attach_to.global_position

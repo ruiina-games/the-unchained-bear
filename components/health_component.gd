@@ -27,7 +27,6 @@ func apply_damage(_enemy: Node2D, _object: ThrowingObject):
 	var damage_effect: Damage = enemy.character_stats.fighting_style.get_damage()
 	if _object:
 		damage_effect = enemy.character_stats.fighting_style.get_damage_at_index(_object.damage_index)
-		print(_object.damage_index)
 	
 	process_effects(enemy.character_stats, damage_effect)
 
@@ -38,7 +37,8 @@ func apply_damage(_enemy: Node2D, _object: ThrowingObject):
 
 func check_dodge() -> bool:
 	if randf() < agent.character_stats.dodge_chance:
-		print("Attack dodged!")
+		# print("Attack dodged!")
+		agent.dodge_attack()
 		return true
 	return false
 
