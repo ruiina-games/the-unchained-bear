@@ -16,7 +16,6 @@ func _enter() -> void:
 
 	# Отримуємо нову позицію для руху
 	target_position = controller.get_target_move_position()
-	#controller.actor.adjust_scale_for_direction(target_position)
 
 func _tick(delta: float) -> Status:
 	if !controller or controller.actor == null:
@@ -63,8 +62,8 @@ func _tick(delta: float) -> Status:
 	# Рухаємо актора до цільової позиції
 	var direction = actor_global_position.direction_to(target_position)
 	velocity = direction * move_speed
-	# velocity.y = 0  # Ігноруємо вертикальний рух (якщо потрібно)
 	controller.actor.velocity = velocity
 	
+	controller.actor.adjust_scale_for_direction(direction)
 	controller.actor.move_and_slide()
 	return Status.RUNNING

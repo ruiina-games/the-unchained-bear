@@ -35,6 +35,8 @@ func _ready() -> void:
 			target = null
 			set_controller_inactive()
 		)
+		
+	set_hp_label(actor.character_stats.current_health)
 
 func connect_signals():
 	actor.got_knocked.connect(func(direction: Vector2, force: float):
@@ -51,6 +53,9 @@ func connect_signals():
 	)
 	actor.character_stats.got_hit.connect(func():
 		actor.get_hurt()
+	)
+	actor.character_stats.hp_changed.connect(func(new_hp: int):
+		set_hp_label(new_hp)
 	)
 
 func set_controller_inactive():
@@ -110,15 +115,16 @@ func set_stunned(stunned: bool):
 	# current_velocity = Vector2.ZERO
 	# actor.can_move = !stunned
 
+func set_hp_label(new_hp: int):
+	if hp_label:
+		hp_label.text = str(actor.character_stats.current_health)
+
 func _process(delta: float) -> void:
 	if !target:
 		return
 	
 	target_global_position = target.global_position
 	actor_global_position = actor.global_position
-	
-	if hp_label and actor.character_stats:
-		hp_label.text = str(actor.character_stats.current_health)
 
 func _physics_process(delta: float):
 	if actor.global_position.y >= GlobalVariables.FLOOR_HEIGHT:

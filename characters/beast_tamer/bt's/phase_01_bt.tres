@@ -113,7 +113,7 @@ custom_name = "Close Enemy or Consecutive Hits Selection"
 children = [SubResource("BTSequence_wbvid")]
 
 [sub_resource type="BTCooldown" id="BTCooldown_hm7qn"]
-duration = 2.4
+duration = 2.0
 custom_name = "Kick Cooldown"
 children = [SubResource("BTSelector_smtbu")]
 
@@ -144,7 +144,7 @@ animation_condition = &"run"
 script = ExtResource("2_mgrc0")
 move_speed = 650.0
 tolerance = 400.0
-should_stop_at_enemy = false
+should_stop_at_enemy = true
 
 [sub_resource type="BTTimeLimit" id="BTTimeLimit_fad70"]
 time_limit = 4.0
