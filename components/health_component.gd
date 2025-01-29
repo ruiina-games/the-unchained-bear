@@ -115,7 +115,7 @@ func process_ticking_effects(effect: TickingNegativeEffect, multiplier: float):
 # DONE
 func process_slow_effect(effect: SlowEffect, multiplier: float):	
 	var slow_ratio = effect.slow_ratio * multiplier
-	var original_multiplier: float = agent.character_stats.movement_speed_multiplier
+	var original_multiplier: float = agent.character_stats.reserve_copy.movement_speed_multiplier
 	
 	agent.character_stats.movement_speed_multiplier = (1 - slow_ratio)
 	await get_tree().create_timer(effect.duration * multiplier).timeout
