@@ -51,7 +51,7 @@ func _tick(delta: float) -> Status:
 		velocity = Vector2.ZERO
 		controller.actor.velocity = velocity
 		controller.actor.move_and_slide()
-		print("Reached target. Stopping.")
+		# print("Reached target. Stopping.")
 		
 		# Повертаємо актора до ворога
 		var look_at_direction = controller.actor.global_position.direction_to(controller.target.global_position)
@@ -62,8 +62,8 @@ func _tick(delta: float) -> Status:
 	# Рухаємо актора до цільової позиції
 	var direction = actor_global_position.direction_to(target_position)
 	velocity = direction * move_speed
-	# velocity.y = 0  # Ігноруємо вертикальний рух (якщо потрібно)
 	controller.actor.velocity = velocity
 	
+	controller.actor.adjust_scale_for_direction(direction)
 	controller.actor.move_and_slide()
 	return Status.RUNNING

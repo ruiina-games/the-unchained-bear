@@ -15,7 +15,6 @@ func apply_damage(_enemy: Node2D, _object: ThrowingObject):
 	if !agent:
 		print(name + " doesn't have an agent")
 		return
-		
 	if !_enemy:
 		return
 		
@@ -29,8 +28,6 @@ func apply_damage(_enemy: Node2D, _object: ThrowingObject):
 		damage_effect = enemy.character_stats.fighting_style.get_damage_at_index(_object.damage_index)
 	
 	process_effects(enemy.character_stats, damage_effect)
-
-	got_hit.emit(enemy)
 
 	if agent.character_stats.current_health <= 0:
 		handle_death()
@@ -50,12 +47,15 @@ func apply_direct_damage(enemy_stats: CharacterStats, damage: Damage):
 	var agent_stats: CharacterStats = agent.character_stats
 
 	var is_critical: bool = randf() < enemy_stats.critical_chance
-	var critical_multiplier: float = enemy_stats.critical_damage_multiplier if is_critical else 1.0
-
+	var critical_multiplier: float = 1.0
+	
+	if is_critical:
+		print("FUCK IT IS CRITICAL")
+		critical_multiplier = enemy_stats.critical_damage_multiplier
+		
 	var base_damage: float = damage.get_damage_amount() * critical_multiplier * enemy_stats.attack_power_multiplier
 	base_damage *= (1 - agent_stats.status_resist_multiplier)
 
-	# print("final damage is: " + str(base_damage))
 	agent_stats.take_damage(base_damage)
 
 func apply_negative_effects(enemy_stats: CharacterStats, negative_effect: NegativeEffect):
@@ -107,7 +107,6 @@ func process_ticking_effects(effect: TickingNegativeEffect, multiplier: float):
 			await get_tree().create_timer(tick_interval).timeout
 			var bleeding_damage = effect.calculate_damage(agent.character_stats.max_health)
 			bleeding_damage *= multiplier
-			# print(bleeding_damage)
 			agent.character_stats.take_damage(bleeding_damage)
 			if agent.character_stats.current_health <= 0:
 				handle_death()
@@ -116,15 +115,17 @@ func process_ticking_effects(effect: TickingNegativeEffect, multiplier: float):
 # DONE
 func process_slow_effect(effect: SlowEffect, multiplier: float):	
 	var slow_ratio = effect.slow_ratio * multiplier
-	var original_multiplier: float = agent.character_stats.movement_speed_multiplier
+	var original_multiplier: float = agent.character_stats.reserve_copy.movement_speed_multiplier
 	
 	agent.character_stats.movement_speed_multiplier = (1 - slow_ratio)
 	await get_tree().create_timer(effect.duration * multiplier).timeout
 	agent.character_stats.movement_speed_multiplier = original_multiplier
 
-func process_stun_effect(effect: StunEffect, multiplier: float):	
+func process_stun_effect(effect: StunEffect, multiplier: float):
 	agent.got_stunned.emit(true)
+	print(agent.name + "Was Stunned")
 	await get_tree().create_timer(effect.duration * multiplier).timeout
+	print(agent.name + "Stun finished")
 	agent.got_stunned.emit(false)
 
 func process_knockback_effect(effect: Knockback, multiplier: float):

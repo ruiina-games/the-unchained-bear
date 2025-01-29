@@ -21,7 +21,7 @@ func throw_object(direction: Vector2, container: Node2D):
 	object.hitbox.agent = self
 	
 	object.damage_index = character_stats.fighting_style.combo_count
-	print("damage index while throwing: " + str(object.damage_index))
+	# print("damage index while throwing: " + str(object.damage_index))
 	# Визначаємо базову силу кидка
 	var base_force = Vector2()  # Початкова сила
 	var torque = 0  # Крутний момент

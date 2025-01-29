@@ -7,33 +7,33 @@
 [ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Easing/soup_second_order_easing_no_g.gd" id="5_lmbfr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h68ra"]
-size = Vector2(4318, 174)
+size = Vector2(4719, 688)
 
-[sub_resource type="Resource" id="Resource_qyo76"]
+[sub_resource type="Resource" id="Resource_ggsi7"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_0cr5v"]
+[sub_resource type="Resource" id="Resource_ae3pm"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_p7yha"]
+[sub_resource type="Resource" id="Resource_4bgt3"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_t520e"]
+[sub_resource type="Resource" id="Resource_pjilq"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_pyjm6"]
+[sub_resource type="Resource" id="Resource_lkite"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
@@ -75,13 +75,18 @@ collision_layer = 512
 collision_mask = 0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Wallls"]
-position = Vector2(-2370, 274)
+position = Vector2(-2728, 244)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_h68ra")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Wallls"]
-position = Vector2(1938, 216)
+position = Vector2(2374, 220)
 rotation = 1.5708
+shape = SubResource("RectangleShape2D_h68ra")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Wallls"]
+position = Vector2(-64.5, 719)
+rotation = -3.14159
 shape = SubResource("RectangleShape2D_h68ra")
 
 [node name="ObjectSpawner" type="Node2D" parent="."]
@@ -94,61 +99,63 @@ target = NodePath("BearNew")
 position = Vector2(3, 25)
 
 [node name="TorsoTop" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="0"]
-rotation = 0.347684
+rotation = 0.35999
 scale = Vector2(0.999979, 0.999979)
 
 [node name="UpperArmR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="0"]
-rotation = 1.41694
+rotation = 1.45515
 scale = Vector2(0.999974, 0.999974)
 
 [node name="LowerArmR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR" index="0"]
-rotation = -1.76051
+rotation = -1.73206
 scale = Vector2(0.999978, 0.999978)
 
 [node name="WristR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR" index="0"]
-rotation = 1.73244
+rotation = 1.77049
 scale = Vector2(0.99998, 0.99998)
 
 [node name="UpperArmL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="1"]
-rotation = -1.03458
+rotation = -1.01257
 scale = Vector2(0.999978, 0.999978)
 
 [node name="LowerArmL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL" index="0"]
-rotation = -0.454612
+rotation = -0.427898
 scale = Vector2(0.999981, 0.999981)
 
 [node name="WristL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL" index="0"]
-rotation = 2.67972
+rotation = 2.64141
+scale = Vector2(0.999974, 0.999974)
 
 [node name="HeadMain" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="2"]
-rotation = -0.105689
+rotation = -0.113228
 
 [node name="LowerJaw" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="0"]
-rotation = 1.103
+rotation = 1.08075
 scale = Vector2(0.999973, 0.999973)
 
 [node name="EarL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="2"]
 scale = Vector2(0.443939, 0.778982)
 
 [node name="UpperLegR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="1"]
-rotation = 1.94063
+rotation = 2.40216
 scale = Vector2(0.999987, 0.999987)
 
 [node name="LowerLegR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/UpperLegR" index="0"]
-rotation = 1.58875
+rotation = 0.755334
 scale = Vector2(0.999978, 0.999978)
 
 [node name="UpperLegL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="2"]
-rotation = 2.55125
+rotation = 2.18114
 scale = Vector2(0.999987, 0.999987)
 
 [node name="LowerLegL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/UpperLegL" index="0"]
-rotation = 0.511158
+rotation = 1.13291
+scale = Vector2(0.999979, 0.999979)
 
 [node name="StunParticle" parent="PlayerController/BearNew/DamageFX/Stun" index="0"]
-position = Vector2(163.82, -601.072)
-rotation = -1.04681
-scale = Vector2(0.999949, 0.999949)
+position = Vector2(165.382, -599.674)
+rotation = -1.04204
+scale = Vector2(0.999948, 0.999948)
 
 [node name="AcrobatController" parent="." node_paths=PackedStringArray("objects_container", "target") instance=ExtResource("4_3kwme")]
 position = Vector2(1329, 529)
@@ -156,81 +163,86 @@ objects_container = NodePath("../ObjectSpawner")
 target = NodePath("../PlayerController/BearNew")
 
 [node name="RLegTwoBoneIK" parent="AcrobatController/Acrobat/Skeleton2D/SoupStack/RLegStack" index="0"]
-first_joint_easing = SubResource("Resource_qyo76")
+first_joint_easing = SubResource("Resource_ggsi7")
 
 [node name="LLegTwoBoneIK" parent="AcrobatController/Acrobat/Skeleton2D/SoupStack/LLegStack" index="0"]
-first_joint_easing = SubResource("Resource_0cr5v")
+first_joint_easing = SubResource("Resource_ae3pm")
 
 [node name="HeadLookAt" parent="AcrobatController/Acrobat/Skeleton2D/SoupStack/HeadStack" index="0"]
-easing = SubResource("Resource_p7yha")
+easing = SubResource("Resource_4bgt3")
 
 [node name="Bubon1LookAt" parent="AcrobatController/Acrobat/Skeleton2D/SoupStack/HeadStack" index="1"]
-easing = SubResource("Resource_t520e")
+easing = SubResource("Resource_pjilq")
 
 [node name="Bubon2LookAt" parent="AcrobatController/Acrobat/Skeleton2D/SoupStack/HeadStack" index="2"]
-easing = SubResource("Resource_pyjm6")
+easing = SubResource("Resource_lkite")
 
 [node name="UpperBody" parent="AcrobatController/Acrobat/Skeleton2D/Main" index="0"]
-scale = Vector2(0.999993, 0.999993)
+scale = Vector2(0.999992, 0.999992)
 
 [node name="Head" parent="AcrobatController/Acrobat/Skeleton2D/Main/UpperBody/Neck" index="0"]
-rotation = 0.00429738
+rotation = 0.0366588
+scale = Vector2(0.999988, 0.999988)
 
 [node name="Bubon_1" parent="AcrobatController/Acrobat/Skeleton2D/Main/UpperBody/Neck/Head" index="0"]
-rotation = -0.945021
+rotation = -1.0099
 scale = Vector2(0.999997, 0.999997)
 
 [node name="Bubon_2" parent="AcrobatController/Acrobat/Skeleton2D/Main/UpperBody/Neck/Head" index="1"]
-rotation = -0.442261
+rotation = -0.502749
+scale = Vector2(0.999994, 0.999994)
 
 [node name="UpperHandR" parent="AcrobatController/Acrobat/Skeleton2D/Main/UpperBody" index="1"]
-rotation = -0.0912069
+rotation = -0.209126
+scale = Vector2(0.99999, 0.99999)
 
 [node name="LowerHandR" parent="AcrobatController/Acrobat/Skeleton2D/Main/UpperBody/UpperHandR" index="0"]
-rotation = 0.952622
+rotation = 0.584946
+scale = Vector2(0.999996, 0.999996)
 
 [node name="WristR" parent="AcrobatController/Acrobat/Skeleton2D/Main/UpperBody/UpperHandR/LowerHandR" index="0"]
-rotation = 2.39047
+rotation = 1.46628
 scale = Vector2(0.999997, 0.999997)
 
 [node name="UpperHandL" parent="AcrobatController/Acrobat/Skeleton2D/Main/UpperBody" index="2"]
-rotation = 0.0290581
+rotation = -0.0395527
 scale = Vector2(0.99999, 0.99999)
 
 [node name="LowerHandL" parent="AcrobatController/Acrobat/Skeleton2D/Main/UpperBody/UpperHandL" index="0"]
-rotation = 0.758466
+rotation = 0.415988
 scale = Vector2(0.999995, 0.999995)
 
 [node name="WristL" parent="AcrobatController/Acrobat/Skeleton2D/Main/UpperBody/UpperHandL/LowerHandL" index="0"]
-rotation = 1.35126
+rotation = 1.04037
 scale = Vector2(0.999996, 0.999996)
 
 [node name="UpperLegR" parent="AcrobatController/Acrobat/Skeleton2D/Main" index="1"]
-rotation = 0.0820044
+rotation = -0.0368103
 scale = Vector2(0.999996, 0.999996)
 
 [node name="LowerLegR" parent="AcrobatController/Acrobat/Skeleton2D/Main/UpperLegR" index="0"]
-rotation = -0.188432
+rotation = 0.031775
 scale = Vector2(0.999995, 0.999995)
 
 [node name="FootR" parent="AcrobatController/Acrobat/Skeleton2D/Main/UpperLegR/LowerLegR" index="0"]
-rotation = 1.60299
+rotation = 1.59829
+scale = Vector2(0.999986, 0.999986)
 
 [node name="UpperLegL" parent="AcrobatController/Acrobat/Skeleton2D/Main" index="2"]
-rotation = 0.0906909
-scale = Vector2(0.999993, 0.999993)
+rotation = 0.075251
+scale = Vector2(0.999992, 0.999992)
 
 [node name="LowerLegL" parent="AcrobatController/Acrobat/Skeleton2D/Main/UpperLegL" index="0"]
 scale = Vector2(0.999996, 0.999996)
 
 [node name="FootL" parent="AcrobatController/Acrobat/Skeleton2D/Main/UpperLegL/LowerLegL" index="0"]
-rotation = 1.51965
+rotation = 1.57677
 scale = Vector2(0.999995, 0.999995)
 
 [node name="StunParticle" parent="AcrobatController/Acrobat/DamageFX/Stun" index="0"]
-position = Vector2(-53.9308, -1001.57)
-rotation = -0.0182429
-scale = Vector2(0.999982, 0.999982)
+position = Vector2(-45.8824, -1013.03)
+rotation = 0.0368431
+scale = Vector2(0.99998, 0.99998)
 
 [editable path="PlayerController"]
 [editable path="PlayerController/BearNew"]

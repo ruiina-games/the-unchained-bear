@@ -1,6 +1,10 @@
 extends PlayerState
 class_name PlayerIdleState
 
+func _enter() -> void:
+	super()
+	
+
 func _update(delta: float):
 	if !character.can_move:
 		return

@@ -45,7 +45,7 @@ script = ExtResource("4_qpdct")
 inform_text = "Monkey throwing an object!"
 
 [sub_resource type="BTCooldown" id="BTCooldown_5tthl"]
-duration = 8.0
+duration = 6.0
 start_cooled = true
 custom_name = "Monkey Throwing Objects"
 children = [SubResource("BTDelay_xafoe")]
@@ -113,7 +113,7 @@ custom_name = "Close Enemy or Consecutive Hits Selection"
 children = [SubResource("BTSequence_wbvid")]
 
 [sub_resource type="BTCooldown" id="BTCooldown_hm7qn"]
-duration = 2.4
+duration = 2.0
 custom_name = "Kick Cooldown"
 children = [SubResource("BTSelector_smtbu")]
 
@@ -144,10 +144,10 @@ animation_condition = &"run"
 script = ExtResource("2_mgrc0")
 move_speed = 650.0
 tolerance = 400.0
-should_stop_at_enemy = false
+should_stop_at_enemy = true
 
 [sub_resource type="BTTimeLimit" id="BTTimeLimit_fad70"]
-time_limit = 4.0
+time_limit = 6.0
 children = [SubResource("BTAction_e77kh")]
 
 [sub_resource type="BTAction" id="BTAction_ympc1"]
@@ -186,7 +186,7 @@ custom_name = "Attack 1 Sequence"
 children = [SubResource("BTCondition_31app"), SubResource("BTDelay_txoqq")]
 
 [sub_resource type="BTCooldown" id="BTCooldown_ufa2x"]
-duration = 3.0
+duration = 2.5
 custom_name = "Attack 1 Cooldown"
 children = [SubResource("BTSequence_qiqji")]
 
