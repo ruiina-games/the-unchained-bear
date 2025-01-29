@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dtxw0uuy8c6tp"]
 
-[ext_resource type="Texture2D" uid="uid://bmhe3xytpf1n5" path="res://assets/FX/EffectParitcles/Fire_2.png" id="1_t00sj"]
+[ext_resource type="Texture2D" uid="uid://c7bjcui8p6of1" path="res://assets/FX/Star.png" id="1_h8i4a"]
 
 [sub_resource type="Gradient" id="Gradient_vdm67"]
 interpolation_mode = 2
@@ -36,6 +36,6 @@ color_ramp = SubResource("GradientTexture1D_jaxy4")
 z_index = 7
 amount = 3
 process_material = SubResource("ParticleProcessMaterial_scd5a")
-texture = ExtResource("1_t00sj")
+texture = ExtResource("1_h8i4a")
 preprocess = 0.4
 local_coords = true

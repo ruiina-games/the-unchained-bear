@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://cjbnosxi4m18l"]
+[gd_scene load_steps=102 format=3 uid="uid://cjbnosxi4m18l"]
 
 [ext_resource type="Texture2D" uid="uid://0qm6mhlm33ap" path="res://assets/New_Bear/images/template.png" id="1_8qh4k"]
 [ext_resource type="Script" path="res://characters/bear/bear.gd" id="1_kcxgq"]
@@ -57,6 +57,24 @@
 [ext_resource type="PackedScene" uid="uid://0dfwmnai52gx" path="res://controllers/Effects/ParticleEffects/Blood/blood_particle.tscn" id="55_7inbd"]
 [ext_resource type="PackedScene" uid="uid://co1j0yw5vpui4" path="res://controllers/Effects/ParticleEffects/Fire/fire_particle.tscn" id="56_4wrum"]
 [ext_resource type="PackedScene" uid="uid://dtxw0uuy8c6tp" path="res://controllers/Effects/ParticleEffects/Stun/stun_particle.tscn" id="57_5aerv"]
+[ext_resource type="PackedScene" uid="uid://3jap2cx10kbs" path="res://controllers/Effects/ParticleEffects/Slow/slow_particle.tscn" id="58_eba2n"]
+[ext_resource type="AudioStream" uid="uid://d4gstweoqknh6" path="res://assets/Sounds/BearSounds/bear_hurt.wav" id="58_xrwjs"]
+[ext_resource type="AudioStream" uid="uid://sm4vl1xibtst" path="res://assets/Sounds/BearSounds/Hurt_v2_wav.wav" id="59_yyglq"]
+[ext_resource type="AudioStream" uid="uid://bqo87odlxncu4" path="res://assets/Sounds/BearSounds/Jump.mp3" id="60_1lqbr"]
+[ext_resource type="AudioStream" uid="uid://d3yr4yd676tln" path="res://assets/Sounds/slap-hurt-pain-sound-effect-262618.mp3" id="60_smd1f"]
+[ext_resource type="AudioStream" uid="uid://r88v4ydth7mw" path="res://assets/Sounds/BearSounds/Land.mp3" id="61_pvhpm"]
+[ext_resource type="AudioStream" uid="uid://ch78fbwmae08t" path="res://assets/Sounds/BearSounds/BreathingIdleTest.mp3" id="62_nu3dm"]
+[ext_resource type="AudioStream" uid="uid://b11fr81heym72" path="res://assets/Sounds/BearSounds/Whoosh_v1_wav.mp3" id="63_kgua0"]
+[ext_resource type="AudioStream" uid="uid://bv1e2kioxf5pi" path="res://assets/Sounds/BearSounds/Whoosh_v2_wav.wav" id="64_ak0dw"]
+[ext_resource type="AudioStream" uid="uid://8xsxf5ehpt6n" path="res://assets/Sounds/BearSounds/Whoosh_v3_wav.wav" id="65_neuwe"]
+[ext_resource type="AudioStream" uid="uid://73wccadc4ljo" path="res://assets/Sounds/BearSounds/Whoosh_v4_wav.wav" id="66_37po4"]
+[ext_resource type="AudioStream" uid="uid://bfvhxbppwhqbj" path="res://assets/Sounds/BearSounds/SwingWhoosh.mp3" id="67_lo631"]
+[ext_resource type="AudioStream" uid="uid://butccubqa3fv7" path="res://assets/Sounds/BearSounds/angry-grunt-103204.mp3" id="68_x53ba"]
+[ext_resource type="AudioStream" uid="uid://bq8e16apndpxf" path="res://assets/Sounds/BearSounds/Wheel/Wheel_1.MP3" id="68_xnawy"]
+[ext_resource type="AudioStream" uid="uid://cc0gexagqquy8" path="res://assets/Sounds/BearSounds/Wheel/Wheels_2.MP3" id="69_u6s6s"]
+[ext_resource type="AudioStream" uid="uid://6041gubratyy" path="res://assets/Sounds/BearSounds/Wheel/Wheels_3.MP3" id="71_2kxfo"]
+[ext_resource type="AudioStream" uid="uid://c1ebrs3i7ejwx" path="res://assets/Sounds/BearSounds/Wheel/Wheels_4.MP3" id="72_c2seq"]
+[ext_resource type="AudioStream" uid="uid://ckycrsi1r6i00" path="res://assets/Sounds/BearSounds/Wheel/Wheels_5.MP3" id="73_7jksk"]
 
 [sub_resource type="Shader" id="Shader_vq56p"]
 code = "shader_type canvas_item;
@@ -670,6 +688,20 @@ tracks/20/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/21/type = "method"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Sounds/Death")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_no0vv"]
 resource_name = "EYES_SPIN"
@@ -1105,6 +1137,20 @@ tracks/9/keys = {
 "update": 0,
 "values": [0.0, 1.0, 0.0]
 }
+tracks/10/type = "method"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Sounds/Hurt")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_axxn3"]
 resource_name = "JUMP"
@@ -1385,6 +1431,20 @@ tracks/22/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/23/type = "method"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Sounds/Jump")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_8sph3"]
@@ -1678,6 +1738,20 @@ tracks/23/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/24/type = "method"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Sounds/Land")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.2],
+"method": &"play"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_utm5s"]
@@ -2905,6 +2979,23 @@ tracks/24/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/25/type = "method"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Sounds/BreathingIdle")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0, 0.95),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [],
+"method": &"stop"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_685ra"]
 resource_name = "TUTORIAL_PICK_CYCLE"
@@ -3468,6 +3559,23 @@ tracks/22/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/23/type = "method"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Sounds/BreathingIdle")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0, 1.14286),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [],
+"method": &"stop"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_knkik"]
 resource_name = "TUTORIAL_STAND_UP"
@@ -3760,6 +3868,23 @@ tracks/23/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/24/type = "method"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Sounds/BreathingIdle")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(3, 9),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [],
+"method": &"stop"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_3330t"]
@@ -4375,7 +4500,18 @@ _data = {
 "hit_head_tutorial": SubResource("Animation_3me3p")
 }
 
-[node name="BearNew" type="CharacterBody2D" node_paths=PackedStringArray("animation_tree", "hitbox", "health_component", "hurtbox", "blood_folder", "fire_folder", "stun_folder")]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2k3ba"]
+playback_mode = 1
+random_pitch = 1.78
+random_volume_offset_db = 2.28
+streams_count = 5
+stream_0/stream = ExtResource("68_xnawy")
+stream_1/stream = ExtResource("69_u6s6s")
+stream_2/stream = ExtResource("71_2kxfo")
+stream_3/stream = ExtResource("72_c2seq")
+stream_4/stream = ExtResource("73_7jksk")
+
+[node name="BearNew" type="CharacterBody2D" node_paths=PackedStringArray("animation_tree", "hitbox", "health_component", "hurtbox", "blood_folder", "fire_folder", "stun_folder", "slow_folder", "universal_hit_sound")]
 position = Vector2(-19, 29)
 collision_layer = 0
 collision_mask = 512
@@ -4389,6 +4525,8 @@ hurtbox = NodePath("Hurtbox")
 blood_folder = NodePath("DamageFX/Blood")
 fire_folder = NodePath("DamageFX/Fire")
 stun_folder = NodePath("DamageFX/Stun")
+slow_folder = NodePath("DamageFX/Slow")
+universal_hit_sound = NodePath("Sounds/UniversalHurt")
 
 [node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("agent")]
 script = ExtResource("3_mo1l2")
@@ -4782,25 +4920,25 @@ rest = Transform2D(0.27827, -0.960503, 0.960503, 0.27827, -69, -372)
 
 [node name="TorsoTop" type="Bone2D" parent="Skeleton2D/TorsoMain"]
 position = Vector2(68.0068, 40.6826)
-rotation = 0.61982
-scale = Vector2(0.999994, 0.999994)
+rotation = 0.437436
+scale = Vector2(0.999993, 0.999993)
 rest = Transform2D(0.979417, 0.201843, -0.201843, 0.979417, 68.0068, 40.6826)
 
 [node name="UpperArmR" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop"]
 position = Vector2(14.7319, -42.8132)
-rotation = -1.79655
-scale = Vector2(0.999994, 0.999994)
+rotation = -1.55036
+scale = Vector2(0.999993, 0.999993)
 rest = Transform2D(-0.619213, 0.785223, -0.785223, -0.619213, 35.0991, -54.9368)
 
 [node name="LowerArmR" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/UpperArmR"]
 position = Vector2(87.0015, -14.133)
-rotation = -1.75985
-scale = Vector2(0.999993, 0.999993)
+rotation = -1.60623
+scale = Vector2(0.999992, 0.999992)
 rest = Transform2D(0.489786, -0.871843, 0.871843, 0.489786, 118.59, 1.53075)
 
 [node name="WristR" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR"]
 position = Vector2(97.3649, 21.8967)
-rotation = 1.38106
+rotation = 1.22211
 scale = Vector2(0.999995, 0.999995)
 rest = Transform2D(0.965287, 0.261192, -0.261192, 0.965287, 112.95, 10.1021)
 auto_calculate_length_and_angle = false
@@ -4832,20 +4970,20 @@ texture = ExtResource("9_82aq5")
 
 [node name="UpperArmL" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop"]
 position = Vector2(74.8369, 35.4323)
-rotation = -1.07818
-scale = Vector2(0.999995, 0.999995)
+rotation = -0.541694
+scale = Vector2(0.999994, 0.999994)
 rest = Transform2D(0.998048, -0.0624427, 0.0624427, 0.998048, 74.8369, 35.4323)
 
 [node name="LowerArmL" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/UpperArmL"]
 position = Vector2(-40.9861, 98.2146)
-rotation = 0.70454
+rotation = 0.514709
 scale = Vector2(0.999993, 0.999993)
 rest = Transform2D(0.911628, 0.411016, -0.411016, 0.911628, -40.9861, 98.2146)
 
 [node name="WristL" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL"]
 position = Vector2(43.2869, 47.6577)
-rotation = 1.36516
-scale = Vector2(0.999993, 0.999993)
+rotation = 1.17263
+scale = Vector2(0.999991, 0.999991)
 rest = Transform2D(-0.154783, 0.987948, -0.987948, -0.154783, 43.2869, 47.6577)
 auto_calculate_length_and_angle = false
 length = 48.17
@@ -4853,14 +4991,14 @@ bone_angle = 0.0
 
 [node name="HeadMain" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop"]
 position = Vector2(122.167, 2.28322)
-rotation = -0.271464
-scale = Vector2(0.999997, 0.999997)
+rotation = -0.160551
+scale = Vector2(0.999995, 0.999995)
 rest = Transform2D(0.999947, 0.010315, -0.010315, 0.999947, 122.167, 2.28322)
 
 [node name="LowerJaw" type="Bone2D" parent="Skeleton2D/TorsoMain/TorsoTop/HeadMain"]
 position = Vector2(-29.8503, -14.7242)
-rotation = 1.18343
-scale = Vector2(0.999992, 0.999992)
+rotation = 1.2948
+scale = Vector2(0.999991, 0.999991)
 rest = Transform2D(0.256368, 0.966579, -0.966579, 0.256368, -29.8503, -14.7242)
 auto_calculate_length_and_angle = false
 length = 99.642
@@ -4890,15 +5028,21 @@ bone_angle = 0.0
 position = Vector2(117.816, 48.6134)
 remote_path = NodePath("../../../../../DamageFX/Stun/StunParticle")
 
+[node name="RemoteTransform2D2" type="RemoteTransform2D" parent="Skeleton2D/TorsoMain/TorsoTop/HeadMain"]
+position = Vector2(171.983, -29.7505)
+remote_path = NodePath("../../../../../DamageFX/Slow/SlowParticle")
+update_rotation = false
+update_scale = false
+
 [node name="UpperLegR" type="Bone2D" parent="Skeleton2D/TorsoMain"]
 position = Vector2(-63.9228, 23.7249)
-rotation = 2.3753
+rotation = 2.24015
 scale = Vector2(0.999995, 0.999995)
 rest = Transform2D(-0.809772, 0.586744, -0.586744, -0.809772, -63.9228, 23.7249)
 
 [node name="LowerLegR" type="Bone2D" parent="Skeleton2D/TorsoMain/UpperLegR"]
 position = Vector2(105.268, 2.76837)
-rotation = 0.791609
+rotation = 1.08183
 scale = Vector2(0.999994, 0.999994)
 rest = Transform2D(0.865783, 0.50042, -0.50042, 0.865783, 105.268, 2.76837)
 auto_calculate_length_and_angle = false
@@ -4907,14 +5051,14 @@ bone_angle = 0.0
 
 [node name="UpperLegL" type="Bone2D" parent="Skeleton2D/TorsoMain"]
 position = Vector2(-42.3166, 109.084)
-rotation = 1.98565
+rotation = 2.11753
 scale = Vector2(0.999995, 0.999995)
 rest = Transform2D(-0.938539, 0.345172, -0.345172, -0.938539, -42.3166, 109.084)
 
 [node name="LowerLegL" type="Bone2D" parent="Skeleton2D/TorsoMain/UpperLegL"]
 position = Vector2(100.597, -4.93311)
-rotation = 1.45534
-scale = Vector2(0.999996, 0.999996)
+rotation = 1.21515
+scale = Vector2(0.999995, 0.999995)
 rest = Transform2D(0.969936, 0.243361, -0.243361, 0.969936, 100.597, -4.93311)
 auto_calculate_length_and_angle = false
 length = 106.075
@@ -5333,7 +5477,113 @@ emitting = false
 [node name="Stun" type="Node2D" parent="DamageFX"]
 
 [node name="StunParticle" parent="DamageFX/Stun" instance=ExtResource("57_5aerv")]
-position = Vector2(194.963, -566.495)
-rotation = -0.940448
-scale = Vector2(0.99999, 0.99999)
+position = Vector2(174.905, -590.499)
+rotation = -1.01192
+scale = Vector2(0.999987, 0.999987)
 emitting = false
+
+[node name="Slow" type="Node2D" parent="DamageFX"]
+
+[node name="SlowParticle" parent="DamageFX/Slow" instance=ExtResource("58_eba2n")]
+z_index = 10
+position = Vector2(137.186, -677.975)
+rotation = 0.0715804
+scale = Vector2(0.999989, 0.999989)
+emitting = false
+
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="Hurt" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("59_yyglq")
+volume_db = -15.0
+max_distance = 50000.0
+attenuation = 2.2974
+bus = &"SFX"
+
+[node name="UniversalHurt" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("60_smd1f")
+volume_db = -20.0
+max_distance = 50000.0
+attenuation = 2.2974
+max_polyphony = 4
+bus = &"SFX"
+
+[node name="Death" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("58_xrwjs")
+volume_db = -5.0
+max_distance = 50000.0
+attenuation = 2.2974
+bus = &"SFX"
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("60_1lqbr")
+volume_db = 15.0
+max_distance = 50000.0
+attenuation = 2.2974
+bus = &"SFX"
+
+[node name="Land" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("61_pvhpm")
+volume_db = 5.0
+max_distance = 50000.0
+attenuation = 2.2974
+bus = &"SFX"
+
+[node name="BreathingIdle" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("62_nu3dm")
+volume_db = -5.0
+pitch_scale = 0.72
+attenuation = 2.2974
+bus = &"SFX"
+
+[node name="AttackSounds" type="Node2D" parent="Sounds"]
+
+[node name="Whoosh_1" type="AudioStreamPlayer2D" parent="Sounds/AttackSounds"]
+stream = ExtResource("63_kgua0")
+volume_db = -6.89
+max_distance = 50000.0
+bus = &"SFX"
+
+[node name="SwingWhoosh" type="AudioStreamPlayer2D" parent="Sounds/AttackSounds"]
+stream = ExtResource("67_lo631")
+volume_db = -12.899
+max_distance = 50000.0
+bus = &"SFX"
+
+[node name="Whoosh_2" type="AudioStreamPlayer2D" parent="Sounds/AttackSounds"]
+stream = ExtResource("64_ak0dw")
+volume_db = -8.739
+pitch_scale = 0.7
+max_distance = 50000.0
+bus = &"SFX"
+
+[node name="Whoosh_3" type="AudioStreamPlayer2D" parent="Sounds/AttackSounds"]
+stream = ExtResource("65_neuwe")
+volume_db = -8.739
+pitch_scale = 0.7
+max_distance = 50000.0
+bus = &"SFX"
+
+[node name="Whoosh_4" type="AudioStreamPlayer2D" parent="Sounds/AttackSounds"]
+stream = ExtResource("66_37po4")
+volume_db = -8.739
+pitch_scale = 0.7
+max_distance = 50000.0
+bus = &"SFX"
+
+[node name="Bite" type="AudioStreamPlayer2D" parent="Sounds/AttackSounds"]
+stream = ExtResource("68_x53ba")
+volume_db = -8.739
+pitch_scale = 0.7
+max_distance = 50000.0
+bus = &"SFX"
+
+[node name="WheelSounds" type="Node2D" parent="Sounds"]
+
+[node name="Wheel_1" type="AudioStreamPlayer2D" parent="Sounds/WheelSounds"]
+stream = SubResource("AudioStreamRandomizer_2k3ba")
+volume_db = -20.0
+pitch_scale = 2.01
+max_distance = 50000.0
+attenuation = 2.2974
+bus = &"SFX"
