@@ -1,6 +1,8 @@
 extends Resource
 class_name CharacterStats
 
+signal got_hit
+
 @export var attack_power_multiplier: float = 1.0
 @export var max_health: int = 2000
 @export var critical_chance: float = 0.05
@@ -27,6 +29,7 @@ func heal(amount: int) -> void:
 	current_health = min(current_health + amount, max_health)
 
 func take_damage(amount: int) -> void:
+	got_hit.emit()
 	current_health = max(current_health - amount, 0)
 
 func increase_critical_chance(amount: float) -> void:

@@ -8,7 +8,7 @@ class_name PlayerController
 @export var max_tilt: float = 20.0
 @export var acceleration: float = 100.0  # Заміна для delta
 @export var deceleration: float = 20.0  # Заміна для delta
-@export var jump_force: float = 2400
+@export var jump_force: float = 2600
 
 @export var sec_to_reset_combo: float = 0.4
 
@@ -36,11 +36,9 @@ func init_state_machine() -> void:
 	hsm.add_transition(run_state, attack_state, hsm.STARTED_ATTACK)
 	hsm.add_transition(idle_state, attack_state, hsm.STARTED_ATTACK)
 	hsm.add_transition(attack_state, idle_state, hsm.FINISHED_ATTACK)
-	hsm.add_transition(run_state, stunned_state, hsm.STUNNED)
-	hsm.add_transition(idle_state, stunned_state, hsm.STUNNED)
-	hsm.add_transition(attack_state, stunned_state, hsm.STUNNED)
 	hsm.add_transition(stunned_state, idle_state, stunned_state.EVENT_FINISHED)
 	hsm.add_transition(hsm.ANYSTATE, idle_state, hsm.UNSTUCK)
+	hsm.add_transition(hsm.ANYSTATE, stunned_state, hsm.STUNNED)
 
 	hsm.initialize(self)
 	hsm.set_active(true)
@@ -58,14 +56,11 @@ func _physics_process(delta: float):
 
 func set_stunned(was_stunned: bool):
 	super(was_stunned)
-	actor.can_move = true
-	if !was_stunned:
-		hsm.allowed_advance_movement = true
-		hsm.dispatch(stunned_state.EVENT_FINISHED)
-	else:
-		hsm.allowed_advance_movement = false
+	# actor.can_move = true
+	if was_stunned:
 		hsm.dispatch(hsm.STUNNED)
-
+	else:
+		hsm.dispatch(stunned_state.EVENT_FINISHED)
 
 func reset_combo():
 	# print("Combo has been reset")
@@ -80,4 +75,5 @@ func apply_knockback(direction, force):
 func unstuck():
 	hsm.dispatch(hsm.UNSTUCK)
 	hsm.allowed_advance_movement = true
+	actor.can_move = true
 	set_stunned(false)

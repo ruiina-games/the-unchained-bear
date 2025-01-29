@@ -16,6 +16,7 @@ func _enter() -> void:
 
 	# Отримуємо нову позицію для руху
 	target_position = controller.get_target_move_position()
+	#controller.actor.adjust_scale_for_direction(target_position)
 
 func _tick(delta: float) -> Status:
 	if !controller or controller.actor == null:
@@ -51,7 +52,7 @@ func _tick(delta: float) -> Status:
 		velocity = Vector2.ZERO
 		controller.actor.velocity = velocity
 		controller.actor.move_and_slide()
-		print("Reached target. Stopping.")
+		# print("Reached target. Stopping.")
 		
 		# Повертаємо актора до ворога
 		var look_at_direction = controller.actor.global_position.direction_to(controller.target.global_position)

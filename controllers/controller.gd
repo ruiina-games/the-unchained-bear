@@ -49,6 +49,9 @@ func connect_signals():
 	actor.effect_changes.connect(func(effect: Effect):
 		process_effects(effect)
 	)
+	actor.character_stats.got_hit.connect(func():
+		actor.get_hurt()
+	)
 
 func set_controller_inactive():
 	pass
@@ -103,8 +106,9 @@ func process_effects(effect: Effect):
 		pass
 
 func set_stunned(stunned: bool):
-	current_velocity = Vector2.ZERO
-	actor.can_move = !stunned
+	pass
+	# current_velocity = Vector2.ZERO
+	# actor.can_move = !stunned
 
 func _process(delta: float) -> void:
 	if !target:

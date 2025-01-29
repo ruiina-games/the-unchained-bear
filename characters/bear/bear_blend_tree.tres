@@ -1,4 +1,4 @@
-[gd_resource type="AnimationNodeBlendTree" load_steps=82 format=3 uid="uid://co5jje3igjqpg"]
+[gd_resource type="AnimationNodeBlendTree" load_steps=85 format=3 uid="uid://co5jje3igjqpg"]
 
 [sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_axlxd"]
 
@@ -439,15 +439,25 @@ advance_condition = &"land"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_exsfc"]
 xfade_time = 0.2
-switch_mode = 2
 advance_mode = 2
 advance_condition = &"idle"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cikj5"]
 xfade_time = 0.4
-switch_mode = 2
 advance_mode = 2
 advance_condition = &"run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nc850"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_q1ymc"]
+advance_mode = 2
+advance_condition = &"run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_s1240"]
+advance_mode = 2
+advance_condition = &"jump"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_plt3u"]
 states/ATTACK/node = SubResource("AnimationNodeBlendSpace1D_rg0w4")
@@ -458,18 +468,18 @@ states/DEATH/node = SubResource("AnimationNodeBlendSpace1D_p5bfr")
 states/DEATH/position = Vector2(-167.229, 81.3593)
 states/End/position = Vector2(786.4, 132.96)
 states/FLY/node = SubResource("AnimationNodeBlendSpace1D_aegoi")
-states/FLY/position = Vector2(-166.898, -353.421)
+states/FLY/position = Vector2(-157.298, -447.021)
 states/IDLE/node = SubResource("AnimationNodeBlendSpace1D_4tag3")
 states/IDLE/position = Vector2(-601.265, -154.972)
 states/JUMP/node = SubResource("AnimationNodeBlendSpace1D_0ugna")
 states/JUMP/position = Vector2(-166.082, -233.396)
 states/LAND/node = SubResource("AnimationNodeBlendSpace1D_aa2xn")
-states/LAND/position = Vector2(-601.832, -352.702)
+states/LAND/position = Vector2(-835.298, -446.237)
 states/RUN/node = SubResource("AnimationNodeBlendSpace1D_vom56")
 states/RUN/position = Vector2(-599.106, -8.00587)
 states/Start/position = Vector2(-883.6, 36.2553)
-transitions = ["JUMP", "DEATH", SubResource("AnimationNodeStateMachineTransition_hlr7i"), "BEND", "DEATH", SubResource("AnimationNodeStateMachineTransition_7y30j"), "Start", "IDLE", SubResource("AnimationNodeStateMachineTransition_l4hb1"), "IDLE", "JUMP", SubResource("AnimationNodeStateMachineTransition_6f1lm"), "IDLE", "BEND", SubResource("AnimationNodeStateMachineTransition_g1egb"), "IDLE", "RUN", SubResource("AnimationNodeStateMachineTransition_wh2o3"), "IDLE", "ATTACK", SubResource("AnimationNodeStateMachineTransition_0sdei"), "IDLE", "DEATH", SubResource("AnimationNodeStateMachineTransition_yxbmv"), "ATTACK", "IDLE", SubResource("AnimationNodeStateMachineTransition_grleh"), "ATTACK", "JUMP", SubResource("AnimationNodeStateMachineTransition_3wpra"), "ATTACK", "BEND", SubResource("AnimationNodeStateMachineTransition_bw3xi"), "ATTACK", "RUN", SubResource("AnimationNodeStateMachineTransition_7lw3m"), "ATTACK", "DEATH", SubResource("AnimationNodeStateMachineTransition_1kffp"), "RUN", "IDLE", SubResource("AnimationNodeStateMachineTransition_786il"), "RUN", "JUMP", SubResource("AnimationNodeStateMachineTransition_la70i"), "RUN", "BEND", SubResource("AnimationNodeStateMachineTransition_84uqd"), "RUN", "DEATH", SubResource("AnimationNodeStateMachineTransition_gaa22"), "RUN", "ATTACK", SubResource("AnimationNodeStateMachineTransition_1v6f0"), "JUMP", "IDLE", SubResource("AnimationNodeStateMachineTransition_0ebcf"), "JUMP", "RUN", SubResource("AnimationNodeStateMachineTransition_atwfm"), "JUMP", "BEND", SubResource("AnimationNodeStateMachineTransition_kw0ea"), "BEND", "JUMP", SubResource("AnimationNodeStateMachineTransition_sbgig"), "BEND", "IDLE", SubResource("AnimationNodeStateMachineTransition_jmrhw"), "BEND", "RUN", SubResource("AnimationNodeStateMachineTransition_77rhc"), "BEND", "ATTACK", SubResource("AnimationNodeStateMachineTransition_w2jyt"), "JUMP", "FLY", SubResource("AnimationNodeStateMachineTransition_i5nhx"), "FLY", "LAND", SubResource("AnimationNodeStateMachineTransition_xnpml"), "LAND", "IDLE", SubResource("AnimationNodeStateMachineTransition_exsfc"), "LAND", "RUN", SubResource("AnimationNodeStateMachineTransition_cikj5")]
-graph_offset = Vector2(-644.345, -397.988)
+transitions = ["JUMP", "DEATH", SubResource("AnimationNodeStateMachineTransition_hlr7i"), "BEND", "DEATH", SubResource("AnimationNodeStateMachineTransition_7y30j"), "Start", "IDLE", SubResource("AnimationNodeStateMachineTransition_l4hb1"), "IDLE", "JUMP", SubResource("AnimationNodeStateMachineTransition_6f1lm"), "IDLE", "BEND", SubResource("AnimationNodeStateMachineTransition_g1egb"), "IDLE", "RUN", SubResource("AnimationNodeStateMachineTransition_wh2o3"), "IDLE", "ATTACK", SubResource("AnimationNodeStateMachineTransition_0sdei"), "IDLE", "DEATH", SubResource("AnimationNodeStateMachineTransition_yxbmv"), "ATTACK", "IDLE", SubResource("AnimationNodeStateMachineTransition_grleh"), "ATTACK", "JUMP", SubResource("AnimationNodeStateMachineTransition_3wpra"), "ATTACK", "BEND", SubResource("AnimationNodeStateMachineTransition_bw3xi"), "ATTACK", "RUN", SubResource("AnimationNodeStateMachineTransition_7lw3m"), "ATTACK", "DEATH", SubResource("AnimationNodeStateMachineTransition_1kffp"), "RUN", "IDLE", SubResource("AnimationNodeStateMachineTransition_786il"), "RUN", "JUMP", SubResource("AnimationNodeStateMachineTransition_la70i"), "RUN", "BEND", SubResource("AnimationNodeStateMachineTransition_84uqd"), "RUN", "DEATH", SubResource("AnimationNodeStateMachineTransition_gaa22"), "RUN", "ATTACK", SubResource("AnimationNodeStateMachineTransition_1v6f0"), "JUMP", "IDLE", SubResource("AnimationNodeStateMachineTransition_0ebcf"), "JUMP", "RUN", SubResource("AnimationNodeStateMachineTransition_atwfm"), "JUMP", "BEND", SubResource("AnimationNodeStateMachineTransition_kw0ea"), "BEND", "JUMP", SubResource("AnimationNodeStateMachineTransition_sbgig"), "BEND", "IDLE", SubResource("AnimationNodeStateMachineTransition_jmrhw"), "BEND", "RUN", SubResource("AnimationNodeStateMachineTransition_77rhc"), "BEND", "ATTACK", SubResource("AnimationNodeStateMachineTransition_w2jyt"), "JUMP", "FLY", SubResource("AnimationNodeStateMachineTransition_i5nhx"), "FLY", "LAND", SubResource("AnimationNodeStateMachineTransition_xnpml"), "LAND", "IDLE", SubResource("AnimationNodeStateMachineTransition_exsfc"), "LAND", "RUN", SubResource("AnimationNodeStateMachineTransition_cikj5"), "FLY", "IDLE", SubResource("AnimationNodeStateMachineTransition_nc850"), "FLY", "RUN", SubResource("AnimationNodeStateMachineTransition_q1ymc"), "LAND", "JUMP", SubResource("AnimationNodeStateMachineTransition_s1240")]
+graph_offset = Vector2(-1207.13, -545.528)
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_yoxab"]
 mix_mode = 1
@@ -477,7 +487,7 @@ mix_mode = 1
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_8x5ag"]
 
 [resource]
-graph_offset = Vector2(-556.032, -322.56)
+graph_offset = Vector2(-476.16, -199.68)
 nodes/Add2/node = SubResource("AnimationNodeAdd2_axlxd")
 nodes/Add2/position = Vector2(608, -240)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_fhsjn")

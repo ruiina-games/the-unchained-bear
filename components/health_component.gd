@@ -15,7 +15,6 @@ func apply_damage(_enemy: Node2D, _object: ThrowingObject):
 	if !agent:
 		print(name + " doesn't have an agent")
 		return
-		
 	if !_enemy:
 		return
 		
@@ -29,8 +28,6 @@ func apply_damage(_enemy: Node2D, _object: ThrowingObject):
 		damage_effect = enemy.character_stats.fighting_style.get_damage_at_index(_object.damage_index)
 	
 	process_effects(enemy.character_stats, damage_effect)
-
-	got_hit.emit(enemy)
 
 	if agent.character_stats.current_health <= 0:
 		handle_death()
@@ -55,7 +52,6 @@ func apply_direct_damage(enemy_stats: CharacterStats, damage: Damage):
 	var base_damage: float = damage.get_damage_amount() * critical_multiplier * enemy_stats.attack_power_multiplier
 	base_damage *= (1 - agent_stats.status_resist_multiplier)
 
-	# print("final damage is: " + str(base_damage))
 	agent_stats.take_damage(base_damage)
 
 func apply_negative_effects(enemy_stats: CharacterStats, negative_effect: NegativeEffect):
@@ -107,7 +103,6 @@ func process_ticking_effects(effect: TickingNegativeEffect, multiplier: float):
 			await get_tree().create_timer(tick_interval).timeout
 			var bleeding_damage = effect.calculate_damage(agent.character_stats.max_health)
 			bleeding_damage *= multiplier
-			# print(bleeding_damage)
 			agent.character_stats.take_damage(bleeding_damage)
 			if agent.character_stats.current_health <= 0:
 				handle_death()
@@ -122,9 +117,11 @@ func process_slow_effect(effect: SlowEffect, multiplier: float):
 	await get_tree().create_timer(effect.duration * multiplier).timeout
 	agent.character_stats.movement_speed_multiplier = original_multiplier
 
-func process_stun_effect(effect: StunEffect, multiplier: float):	
+func process_stun_effect(effect: StunEffect, multiplier: float):
 	agent.got_stunned.emit(true)
+	print(agent.name + "Was Stunned")
 	await get_tree().create_timer(effect.duration * multiplier).timeout
+	print(agent.name + "Stun finished")
 	agent.got_stunned.emit(false)
 
 func process_knockback_effect(effect: Knockback, multiplier: float):

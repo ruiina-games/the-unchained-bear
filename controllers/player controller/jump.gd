@@ -9,14 +9,20 @@ var is_falling :bool = false:
 var previous_x_velocity: float 
 func _enter() -> void:
 	super()
+	
+	was_on_floor = true
+	is_falling = false
+	
 	previous_x_velocity = controller.current_velocity.x
 	controller.current_velocity.x = 0
 	animation_tree.animation_finished.connect(func(anim_name: String):
 		var anim_name_suffix = anim_name.substr(anim_name.length() - animation_state_name.length(), animation_state_name.length())
+		
 		if anim_name_suffix.to_lower() == animation_state_name.to_lower():
 			controller.current_velocity.y = -controller.jump_force
 			controller.current_velocity.x = previous_x_velocity
 			state_machine.switch_state("fly")
+		
 		elif anim_name_suffix.to_lower() == "land":
 			dispatch(state_machine.LANDED)
 	)
@@ -33,6 +39,3 @@ func _update(delta: float) -> void:
 		state_machine.switch_state("land")
 	
 	was_on_floor = character.is_on_floor
-	
-#	if is_equal_approx(character.velocity.y):
-		
