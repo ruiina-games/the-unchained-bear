@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://degtmg5qnxbr"]
+[gd_scene load_steps=13 format=3 uid="uid://degtmg5qnxbr"]
 
 [ext_resource type="Texture2D" uid="uid://2ww321ihffgs" path="res://assets/box/1.png" id="1_7g7wi"]
 [ext_resource type="Script" path="res://objects/box/box.gd" id="1_h1hy8"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://colowbq4lnk5h" path="res://assets/box/3.png" id="4_1vteb"]
 [ext_resource type="Texture2D" uid="uid://c51iqyujalyrs" path="res://assets/box/4.png" id="5_tgyny"]
 [ext_resource type="Texture2D" uid="uid://cp0nlf3sugspu" path="res://assets/box/5.png" id="6_wn06n"]
+[ext_resource type="AudioStream" uid="uid://c6dfcq1aemkbv" path="res://assets/Sounds/TameressSounds/box_breacking.wav" id="8_y0c53"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qxww4"]
 size = Vector2(181, 182)
@@ -79,3 +80,6 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-5.5, -92)
 shape = SubResource("RectangleShape2D_5wmf3")
+
+[node name="Break" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_y0c53")

@@ -11,5 +11,5 @@ script = ExtResource("1_idvik")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_laqcj")
-volume_db = -15.0
+volume_db = -40.0
 bus = &"Music"
