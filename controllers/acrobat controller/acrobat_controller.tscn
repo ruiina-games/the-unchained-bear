@@ -1,15 +1,19 @@
-[gd_scene load_steps=68 format=3 uid="uid://dtmivt1ohq0p0"]
+[gd_scene load_steps=72 format=3 uid="uid://dtmivt1ohq0p0"]
 
 [ext_resource type="PackedScene" uid="uid://dq2wgiu3t6ygp" path="res://controllers/ai_controllers/beast tameress/ai_controller.tscn" id="1_c6d2b"]
 [ext_resource type="PackedScene" uid="uid://cy536glg2km27" path="res://characters/acrobat/acrobat.tscn" id="2_2y38l"]
 [ext_resource type="Script" path="res://controllers/acrobat controller/acrobat_controller.gd" id="2_n7f7l"]
 [ext_resource type="Script" path="res://ai/tasks/play_tree_anim.gd" id="3_hpkts"]
+[ext_resource type="Texture2D" uid="uid://dgyjfmavbyfdb" path="res://assets/Acrobat/Neck.png" id="3_ihs4l"]
 [ext_resource type="Script" path="res://ai/tasks/conditions/check_distance.gd" id="3_xqbvf"]
 [ext_resource type="Script" path="res://ai/tasks/beast tameress/move.gd" id="4_4rsfi"]
+[ext_resource type="Texture2D" uid="uid://c4hni28t5d3gl" path="res://assets/Acrobat/Bubon_1.png" id="4_lyxfn"]
 [ext_resource type="Script" path="res://ai/tasks/conditions/check_if_dead.gd" id="4_sroe0"]
 [ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Easing/soup_second_order_easing_no_g.gd" id="5_f83hx"]
+[ext_resource type="Texture2D" uid="uid://bvp2i6xu7umdl" path="res://assets/Acrobat/Head.png" id="5_tc8i5"]
 [ext_resource type="Script" path="res://ai/tasks/reload.gd" id="5_y0gwo"]
 [ext_resource type="Script" path="res://ai/tasks/attack_inform.gd" id="6_34asp"]
+[ext_resource type="Texture2D" uid="uid://ba3t8orgno24" path="res://assets/Acrobat/Bubon_2.png" id="6_bwjgp"]
 [ext_resource type="Script" path="res://ai/tasks/charge.gd" id="6_e1l35"]
 [ext_resource type="Script" path="res://controllers/acrobat controller/acrobat_state_machine.gd" id="7_35jn6"]
 [ext_resource type="Script" path="res://controllers/acrobat controller/acrobat_state.gd" id="8_v52dh"]
@@ -218,42 +222,82 @@ root_task = SubResource("BTSelector_unlav")
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_4pa35"]
 
-[sub_resource type="Resource" id="Resource_k1ahi"]
+[sub_resource type="Resource" id="Resource_2bcac"]
 script = ExtResource("5_f83hx")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_mfpsj"]
+[sub_resource type="Resource" id="Resource_4yqjf"]
 script = ExtResource("5_f83hx")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_22pht"]
+[sub_resource type="Resource" id="Resource_7c0ty"]
 script = ExtResource("5_f83hx")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_fls04"]
+[sub_resource type="Resource" id="Resource_dt7ao"]
 script = ExtResource("5_f83hx")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_v6c5k"]
+[sub_resource type="Resource" id="Resource_ycol3"]
 script = ExtResource("5_f83hx")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[node name="AcrobatController" node_paths=PackedStringArray("actor", "hsm", "hp_label") instance=ExtResource("1_c6d2b")]
+[node name="AcrobatController" node_paths=PackedStringArray("actor", "hsm", "hp_bar") instance=ExtResource("1_c6d2b")]
 script = ExtResource("2_n7f7l")
 attack_range = 1000.0
 actor = NodePath("Acrobat")
 hsm = NodePath("LimboHSM")
-hp_label = NodePath("CanvasLayer/HP")
+hp_bar = NodePath("CanvasLayer/HPBar/HBBarContainer/HPBar")
+
+[node name="Head" type="Node2D" parent="CanvasLayer/HPBar/HBBarContainer" index="2"]
+position = Vector2(-14, 22)
+scale = Vector2(-0.5, 0.5)
+
+[node name="Neck" type="Polygon2D" parent="CanvasLayer/HPBar/HBBarContainer/Head" index="0"]
+position = Vector2(-42.8781, 17.2078)
+texture = ExtResource("3_ihs4l")
+skeleton = NodePath("../../../Skeleton2D")
+polygon = PackedVector2Array(-13.7144, 19.2011, 41.5479, 103.512, 94.5076, 77.2974, 54.8321, -6.65877)
+uv = PackedVector2Array(-13.7144, 19.2011, 41.5479, 103.512, 94.5076, 77.2974, 54.8321, -6.65877)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+bones = ["Main", PackedFloat32Array(0, 0, 0, 0), "Main/UpperBody", PackedFloat32Array(0, 0, 0, 0), "Main/UpperBody/Neck", PackedFloat32Array(1, 1, 1, 1), "Main/UpperBody/Neck/Head", PackedFloat32Array(0, 0, 0, 0), "Main/UpperBody/Neck/Head/Bubon_1", PackedFloat32Array(0, 0, 0, 0), "Main/UpperBody/Neck/Head/Bubon_2", PackedFloat32Array(0, 0, 0, 0), "Main/UpperBody/UpperHandR", PackedFloat32Array(0, 0, 0, 0), "Main/UpperBody/UpperHandR/LowerHandR", PackedFloat32Array(0, 0, 0, 0), "Main/UpperBody/UpperHandR/LowerHandR/WristR", PackedFloat32Array(0, 0, 0, 0), "Main/UpperBody/UpperHandL", PackedFloat32Array(0, 0, 0, 0), "Main/UpperBody/UpperHandL/LowerHandL", PackedFloat32Array(0, 0, 0, 0), "Main/UpperBody/UpperHandL/LowerHandL/WristL", PackedFloat32Array(0, 0, 0, 0), "Main/UpperLegR", PackedFloat32Array(0, 0, 0, 0), "Main/UpperLegR/LowerLegR", PackedFloat32Array(0, 0, 0, 0), "Main/UpperLegR/LowerLegR/FootR", PackedFloat32Array(0, 0, 0, 0), "Main/UpperLegL", PackedFloat32Array(0, 0, 0, 0), "Main/UpperLegL/LowerLegL", PackedFloat32Array(0, 0, 0, 0), "Main/UpperLegL/LowerLegL/FootL", PackedFloat32Array(0, 0, 0, 0)]
+
+[node name="Bubon_1" type="Polygon2D" parent="CanvasLayer/HPBar/HBBarContainer/Head" index="1"]
+position = Vector2(-59.8781, -151.792)
+texture = ExtResource("4_lyxfn")
+skeleton = NodePath("../../../Skeleton2D")
+polygon = PackedVector2Array(102.703, -8.20775, 15.7102, 49.2463, -7.01173, 161.233, 71.5412, 166.751, 81.9284, 86.8998, 105.624, 66.7746, 138.409, 134.291, 172.167, 116.438, 140.032, 32.6917)
+uv = PackedVector2Array(102.703, -8.20775, 15.7102, 49.2463, -7.01173, 161.233, 71.5412, 166.751, 81.9284, 86.8998, 105.624, 66.7746, 138.409, 134.291, 172.167, 116.438, 140.032, 32.6917)
+polygons = [PackedInt32Array(2, 3, 4, 1), PackedInt32Array(4, 5, 0, 1), PackedInt32Array(5, 8, 0), PackedInt32Array(5, 6, 7, 8)]
+bones = ["Main", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Main/UpperBody", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Main/UpperBody/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Main/UpperBody/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Main/UpperBody/Neck/Head/Bubon_1", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1), "Main/UpperBody/Neck/Head/Bubon_2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Main/UpperBody/UpperHandR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Main/UpperBody/UpperHandR/LowerHandR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Main/UpperBody/UpperHandR/LowerHandR/WristR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Main/UpperBody/UpperHandL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Main/UpperBody/UpperHandL/LowerHandL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Main/UpperBody/UpperHandL/LowerHandL/WristL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Main/UpperLegR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Main/UpperLegR/LowerLegR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Main/UpperLegR/LowerLegR/FootR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Main/UpperLegL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Main/UpperLegL/LowerLegL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Main/UpperLegL/LowerLegL/FootL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="Head" type="Polygon2D" parent="CanvasLayer/HPBar/HBBarContainer/Head" index="2"]
+position = Vector2(-73.8781, -80.7922)
+texture = ExtResource("5_tc8i5")
+skeleton = NodePath("../../../Skeleton2D")
+polygon = PackedVector2Array(4.25165, 1.59346, 14.2961, 187.08, 131.816, 134.849, 119.762, -0.750235)
+uv = PackedVector2Array(4.25165, 1.59346, 14.2961, 187.08, 131.816, 134.849, 119.762, -0.750235)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+bones = ["Main", PackedFloat32Array(0, 0, 0, 0), "Main/UpperBody", PackedFloat32Array(0, 0, 0, 0), "Main/UpperBody/Neck", PackedFloat32Array(0, 0, 0, 0), "Main/UpperBody/Neck/Head", PackedFloat32Array(1, 1, 1, 1), "Main/UpperBody/Neck/Head/Bubon_1", PackedFloat32Array(0, 0, 0, 0), "Main/UpperBody/Neck/Head/Bubon_2", PackedFloat32Array(0, 0, 0, 0), "Main/UpperBody/UpperHandR", PackedFloat32Array(0, 0, 0, 0), "Main/UpperBody/UpperHandR/LowerHandR", PackedFloat32Array(0, 0, 0, 0), "Main/UpperBody/UpperHandR/LowerHandR/WristR", PackedFloat32Array(0, 0, 0, 0), "Main/UpperBody/UpperHandL", PackedFloat32Array(0, 0, 0, 0), "Main/UpperBody/UpperHandL/LowerHandL", PackedFloat32Array(0, 0, 0, 0), "Main/UpperBody/UpperHandL/LowerHandL/WristL", PackedFloat32Array(0, 0, 0, 0), "Main/UpperLegR", PackedFloat32Array(0, 0, 0, 0), "Main/UpperLegR/LowerLegR", PackedFloat32Array(0, 0, 0, 0), "Main/UpperLegR/LowerLegR/FootR", PackedFloat32Array(0, 0, 0, 0), "Main/UpperLegL", PackedFloat32Array(0, 0, 0, 0), "Main/UpperLegL/LowerLegL", PackedFloat32Array(0, 0, 0, 0), "Main/UpperLegL/LowerLegL/FootL", PackedFloat32Array(0, 0, 0, 0)]
+
+[node name="Bubon_2" type="Polygon2D" parent="CanvasLayer/HPBar/HBBarContainer/Head" index="3"]
+position = Vector2(-30.8781, -147.792)
+texture = ExtResource("6_bwjgp")
+skeleton = NodePath("../../../Skeleton2D")
+polygon = PackedVector2Array(74.0259, 150.205, -16.3583, 99.6884, 34.4054, 20.9428, 149.552, -5.05818, 193.878, 148.966)
+uv = PackedVector2Array(74.0259, 150.205, -16.3583, 99.6884, 34.4054, 20.9428, 149.552, -5.05818, 193.878, 148.966)
+polygons = [PackedInt32Array(0, 2, 1), PackedInt32Array(0, 4, 3, 2)]
+bones = ["Main", PackedFloat32Array(0, 0, 0, 0, 0), "Main/UpperBody", PackedFloat32Array(0, 0, 0, 0, 0), "Main/UpperBody/Neck", PackedFloat32Array(0, 0, 0, 0, 0), "Main/UpperBody/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0), "Main/UpperBody/Neck/Head/Bubon_1", PackedFloat32Array(0, 0, 0, 0, 0), "Main/UpperBody/Neck/Head/Bubon_2", PackedFloat32Array(1, 1, 1, 1, 1), "Main/UpperBody/UpperHandR", PackedFloat32Array(0, 0, 0, 0, 0), "Main/UpperBody/UpperHandR/LowerHandR", PackedFloat32Array(0, 0, 0, 0, 0), "Main/UpperBody/UpperHandR/LowerHandR/WristR", PackedFloat32Array(0, 0, 0, 0, 0), "Main/UpperBody/UpperHandL", PackedFloat32Array(0, 0, 0, 0, 0), "Main/UpperBody/UpperHandL/LowerHandL", PackedFloat32Array(0, 0, 0, 0, 0), "Main/UpperBody/UpperHandL/LowerHandL/WristL", PackedFloat32Array(0, 0, 0, 0, 0), "Main/UpperLegR", PackedFloat32Array(0, 0, 0, 0, 0), "Main/UpperLegR/LowerLegR", PackedFloat32Array(0, 0, 0, 0, 0), "Main/UpperLegR/LowerLegR/FootR", PackedFloat32Array(0, 0, 0, 0, 0), "Main/UpperLegL", PackedFloat32Array(0, 0, 0, 0, 0), "Main/UpperLegL/LowerLegL", PackedFloat32Array(0, 0, 0, 0, 0), "Main/UpperLegL/LowerLegL/FootL", PackedFloat32Array(0, 0, 0, 0, 0)]
 
 [node name="LimboHSM" parent="." index="1" node_paths=PackedStringArray("character", "controller")]
 script = ExtResource("7_35jn6")
@@ -269,88 +313,93 @@ script = ExtResource("8_v52dh")
 collision_mask = 0
 
 [node name="RLegTwoBoneIK" parent="Acrobat/Skeleton2D/SoupStack/RLegStack" index="0"]
-first_joint_easing = SubResource("Resource_k1ahi")
+first_joint_easing = SubResource("Resource_2bcac")
 
 [node name="LLegTwoBoneIK" parent="Acrobat/Skeleton2D/SoupStack/LLegStack" index="0"]
-first_joint_easing = SubResource("Resource_mfpsj")
+first_joint_easing = SubResource("Resource_4yqjf")
 
 [node name="HeadLookAt" parent="Acrobat/Skeleton2D/SoupStack/HeadStack" index="0"]
-easing = SubResource("Resource_22pht")
+easing = SubResource("Resource_7c0ty")
 
 [node name="Bubon1LookAt" parent="Acrobat/Skeleton2D/SoupStack/HeadStack" index="1"]
-easing = SubResource("Resource_fls04")
+easing = SubResource("Resource_dt7ao")
 
 [node name="Bubon2LookAt" parent="Acrobat/Skeleton2D/SoupStack/HeadStack" index="2"]
-easing = SubResource("Resource_v6c5k")
+easing = SubResource("Resource_ycol3")
 
 [node name="UpperBody" parent="Acrobat/Skeleton2D/Main" index="0"]
 scale = Vector2(0.999985, 0.999985)
 
 [node name="Head" parent="Acrobat/Skeleton2D/Main/UpperBody/Neck" index="0"]
-rotation = 0.0593
+rotation = 0.0415223
 scale = Vector2(0.999988, 0.999988)
 
 [node name="Bubon_1" parent="Acrobat/Skeleton2D/Main/UpperBody/Neck/Head" index="0"]
-rotation = -1.01776
+rotation = -0.954806
 scale = Vector2(0.999997, 0.999997)
 
 [node name="Bubon_2" parent="Acrobat/Skeleton2D/Main/UpperBody/Neck/Head" index="1"]
-rotation = -0.515185
+rotation = -0.457469
 scale = Vector2(0.999994, 0.999994)
 
 [node name="UpperHandR" parent="Acrobat/Skeleton2D/Main/UpperBody" index="1"]
-rotation = -0.202163
+rotation = -0.118504
 scale = Vector2(0.99999, 0.99999)
 
 [node name="LowerHandR" parent="Acrobat/Skeleton2D/Main/UpperBody/UpperHandR" index="0"]
-rotation = 0.669792
+rotation = 0.958421
 scale = Vector2(0.999996, 0.999996)
 
 [node name="WristR" parent="Acrobat/Skeleton2D/Main/UpperBody/UpperHandR/LowerHandR" index="0"]
-rotation = 1.55192
+rotation = 2.37564
 scale = Vector2(0.999994, 0.999994)
 
 [node name="UpperHandL" parent="Acrobat/Skeleton2D/Main/UpperBody" index="2"]
-rotation = -0.0214826
+rotation = 0.0246826
 scale = Vector2(0.99999, 0.99999)
 
 [node name="LowerHandL" parent="Acrobat/Skeleton2D/Main/UpperBody/UpperHandL" index="0"]
-rotation = 0.457127
+rotation = 0.7026
 scale = Vector2(0.999995, 0.999995)
 
 [node name="WristL" parent="Acrobat/Skeleton2D/Main/UpperBody/UpperHandL/LowerHandL" index="0"]
-rotation = 1.11421
+rotation = 1.34087
 scale = Vector2(0.999994, 0.999994)
 
 [node name="UpperLegR" parent="Acrobat/Skeleton2D/Main" index="1"]
-rotation = -0.0124393
+rotation = 0.103523
 scale = Vector2(0.999991, 0.999991)
 
 [node name="LowerLegR" parent="Acrobat/Skeleton2D/Main/UpperLegR" index="0"]
-rotation = -0.0188046
+rotation = -0.240401
 scale = Vector2(0.999992, 0.999992)
 
 [node name="FootR" parent="Acrobat/Skeleton2D/Main/UpperLegR/LowerLegR" index="0"]
-rotation = 1.59076
+rotation = 1.58751
 scale = Vector2(0.999985, 0.999985)
 
 [node name="UpperLegL" parent="Acrobat/Skeleton2D/Main" index="2"]
-rotation = 0.0783976
+rotation = 0.0913656
 scale = Vector2(0.99999, 0.99999)
 
 [node name="LowerLegL" parent="Acrobat/Skeleton2D/Main/UpperLegL" index="0"]
 scale = Vector2(0.999995, 0.999995)
 
 [node name="FootL" parent="Acrobat/Skeleton2D/Main/UpperLegL/LowerLegL" index="0"]
-rotation = 1.56043
+rotation = 1.52286
 scale = Vector2(0.99999, 0.99999)
 
 [node name="AnimationTree" parent="Acrobat" index="10"]
 parameters/MainStateMachine/ATTACK/blend_position = 1.01218
 
 [node name="StunParticle" parent="Acrobat/DamageFX/Stun" index="0"]
-position = Vector2(-46.923, -1011.82)
-rotation = 0.0511288
+position = Vector2(-55.539, -1002.06)
+rotation = 0.00724898
+scale = Vector2(0.999973, 0.999973)
+
+[node name="SlowParticle" parent="Acrobat/DamageFX/Slow" index="0"]
+position = Vector2(-64.915, -1073.43)
+rotation = 0.00724898
 scale = Vector2(0.999973, 0.999973)
 
 [editable path="Acrobat"]

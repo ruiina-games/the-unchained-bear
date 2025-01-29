@@ -1,39 +1,44 @@
-[gd_scene load_steps=14 format=3 uid="uid://cevie0mm3xc4j"]
+[gd_scene load_steps=23 format=3 uid="uid://cevie0mm3xc4j"]
 
 [ext_resource type="Script" path="res://controllers/player controller/player_controller.gd" id="1_jg0g5"]
 [ext_resource type="PackedScene" uid="uid://cjbnosxi4m18l" path="res://characters/bear/bear_new.tscn" id="2_drj5a"]
 [ext_resource type="Script" path="res://controllers/player controller/stats_container.gd" id="2_ogm1v"]
 [ext_resource type="Script" path="res://controllers/player controller/player state machine/player_state_machine.gd" id="3_7xkve"]
 [ext_resource type="Resource" uid="uid://c40i2hba3vmid" path="res://data/characters data/bear/bear_stats.tres" id="3_60oav"]
+[ext_resource type="Texture2D" uid="uid://dxtyf8ln75bdu" path="res://assets/New_Bear/images/Head_Up.png" id="4_2sym7"]
 [ext_resource type="Script" path="res://controllers/player controller/player state machine/states/idle.gd" id="4_hhf8t"]
+[ext_resource type="Texture2D" uid="uid://cc62kiuqsd3u" path="res://assets/New_Bear/images/Head_Down.png" id="4_kp14w"]
+[ext_resource type="Texture2D" uid="uid://b55hmrk5dqbon" path="res://assets/New_Bear/images/Teeth.png" id="5_k0f1u"]
 [ext_resource type="Script" path="res://controllers/player controller/run.gd" id="5_kcgja"]
 [ext_resource type="Script" path="res://controllers/player controller/jump.gd" id="6_ofg5v"]
+[ext_resource type="Texture2D" uid="uid://clvuw23yv5omq" path="res://assets/New_Bear/images/L_Ear.png" id="6_qs0sm"]
 [ext_resource type="Script" path="res://controllers/player controller/player state machine/states/attack.gd" id="7_ieqh6"]
+[ext_resource type="Texture2D" uid="uid://bnjqy7q0oxjmg" path="res://assets/New_Bear/images/R_Eyebrow.png" id="8_vvi6x"]
+[ext_resource type="Texture2D" uid="uid://bqmaamod3m0x" path="res://assets/New_Bear/images/L_Eyebrow.png" id="9_q54n3"]
 [ext_resource type="Script" path="res://controllers/player controller/death.gd" id="10_ggmk1"]
+[ext_resource type="Texture2D" uid="uid://ypuhv5li0orv" path="res://assets/New_Bear/images/Eyes_Open.png" id="10_tv18w"]
 [ext_resource type="Script" path="res://controllers/player controller/stunned.gd" id="11_1g1x7"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_lpkf7"]
-font_size = 40
+[ext_resource type="Texture2D" uid="uid://cn8tebw0neagh" path="res://assets/New_Bear/images/R_Ear.png" id="11_gfand"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_uxfgu"]
 font_size = 50
 
-[node name="PlayerController" type="Node2D" node_paths=PackedStringArray("actor", "hsm", "hp_label")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m2ihu"]
+bg_color = Color(0.314316, 0.314316, 0.314316, 1)
+
+[sub_resource type="Theme" id="Theme_y1bro"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_m2ihu")
+
+[node name="PlayerController" type="Node2D" node_paths=PackedStringArray("actor", "hsm", "hp_bar")]
 script = ExtResource("1_jg0g5")
 speed = 1200.0
 turn_speed = 0.2
 max_tilt = 10.0
 actor = NodePath("BearNew")
 hsm = NodePath("LimboHSM")
-hp_label = NodePath("CanvasLayer/HP")
+hp_bar = NodePath("CanvasLayer/HPBar/HBBarContainer/HPBar")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="HP" type="Label" parent="CanvasLayer"]
-offset_right = 241.0
-offset_bottom = 141.0
-label_settings = SubResource("LabelSettings_lpkf7")
-horizontal_alignment = 2
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 visible = false
@@ -186,62 +191,172 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 
+[node name="HPBar" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+offset_left = -95.0
+offset_top = -25.0
+offset_bottom = 40.0
+
+[node name="HBBarContainer" type="VBoxContainer" parent="CanvasLayer/HPBar"]
+layout_mode = 0
+offset_left = 201.0
+offset_top = 79.0
+offset_right = 501.0
+offset_bottom = 232.0
+
+[node name="HPBar" type="ProgressBar" parent="CanvasLayer/HPBar/HBBarContainer"]
+custom_minimum_size = Vector2(300, 30)
+layout_mode = 2
+size_flags_vertical = 1
+theme = SubResource("Theme_y1bro")
+show_percentage = false
+
+[node name="EffectsContainer" type="GridContainer" parent="CanvasLayer/HPBar/HBBarContainer"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 8
+columns = 4
+
+[node name="Head" type="Node2D" parent="CanvasLayer/HPBar"]
+position = Vector2(163, 97)
+scale = Vector2(0.5, 0.5)
+
+[node name="HeadDown" type="Polygon2D" parent="CanvasLayer/HPBar/Head"]
+z_index = 2
+position = Vector2(-77.6057, -13.5256)
+texture = ExtResource("4_kp14w")
+polygon = PackedVector2Array(71.8018, 4.59235, 10.4107, 43.1013, 6.87606, 74.1689, 32.1766, 113.794, 145.471, 114.166, 143.797, 88.1214, 129.658, 16.8706, 76.4526, 60.0304)
+uv = PackedVector2Array(71.8018, 4.59235, 10.4107, 43.1013, 6.87606, 74.1689, 32.1766, 113.794, 145.471, 114.166, 143.797, 88.1214, 129.658, 16.8706, 76.4526, 60.0304)
+polygons = [PackedInt32Array(0, 7, 6), PackedInt32Array(0, 1, 7), PackedInt32Array(1, 2, 7), PackedInt32Array(7, 3, 2), PackedInt32Array(7, 4, 3), PackedInt32Array(7, 5, 4), PackedInt32Array(7, 6, 5)]
+bones = ["TorsoMain", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmR/LowerArmR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmR/LowerArmR/WristR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmL/LowerArmL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmL/LowerArmL/WristL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop/HeadMain", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1), "TorsoMain/TorsoTop/HeadMain/LowerJaw", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1), "TorsoMain/TorsoTop/HeadMain/UpperJaw", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop/HeadMain/UpperJaw/EarR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop/HeadMain/UpperJaw/EarL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoBottom", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)]
+internal_vertex_count = 1
+
+[node name="Teeth" type="Polygon2D" parent="CanvasLayer/HPBar/Head"]
+visible = false
+z_index = 2
+position = Vector2(70.3943, -542.526)
+texture = ExtResource("5_k0f1u")
+skeleton = NodePath("../../../Skeleton2D")
+polygon = PackedVector2Array(5.65745, 11.9384, 38.8564, 82.3156, 105.937, 83.2252, 101.73, 38.8841)
+uv = PackedVector2Array(2.47399, 4.0934, 38.8564, 82.3156, 105.937, 83.2252, 101.73, 38.8841)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+bones = ["TorsoMain", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoTop", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmR", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmR/LowerArmR", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmR/LowerArmR/WristR", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmL", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmL/LowerArmL", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmL/LowerArmL/WristL", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoTop/HeadMain", PackedFloat32Array(1, 1, 1, 1), "TorsoMain/TorsoTop/HeadMain/LowerJaw", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoTop/HeadMain/UpperJaw", PackedFloat32Array(1, 1, 1, 1), "TorsoMain/TorsoTop/HeadMain/UpperJaw/EarR", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoTop/HeadMain/UpperJaw/EarL", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoBottom", PackedFloat32Array(0, 0, 0, 0)]
+
+[node name="EarL" type="Polygon2D" parent="CanvasLayer/HPBar/Head"]
+z_index = 2
+position = Vector2(38.394, -109.526)
+texture = ExtResource("6_qs0sm")
+polygon = PackedVector2Array(47.2927, 10.0315, 23.2927, 2.03153, 7.29275, 18.0315, -0.707253, 42.0315, 7.29275, 66.0315, 39.2927, 66.0315, 63.2927, 50.0315, 71.2927, 26.0315, 47.2927, 34.0315, 23.2927, 42.0315)
+uv = PackedVector2Array(47.2927, 10.0315, 23.2927, 2.03153, 7.29275, 18.0315, -0.707253, 42.0315, 7.29275, 66.0315, 39.2927, 66.0315, 63.2927, 50.0315, 71.2927, 26.0315, 47.2927, 34.0315, 23.2927, 42.0315)
+polygons = [PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 8, 6, 7), PackedInt32Array(8, 9, 3, 0), PackedInt32Array(8, 6, 5, 9), PackedInt32Array(9, 3, 4, 5)]
+bones = ["TorsoMain", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmR/LowerArmR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmR/LowerArmR/WristR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmL/LowerArmL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmL/LowerArmL/WristL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop/HeadMain", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop/HeadMain/LowerJaw", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop/HeadMain/UpperJaw", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop/HeadMain/EarR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop/HeadMain/EarL", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "TorsoMain/TorsoBottom", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+internal_vertex_count = 2
+
+[node name="HeadUp" type="Polygon2D" parent="CanvasLayer/HPBar/Head"]
+z_index = 2
+position = Vector2(-127.606, -99.5256)
+texture = ExtResource("4_2sym7")
+polygon = PackedVector2Array(25.6892, 31.9987, -0.394295, 118.173, 39.2262, 192.462, 226.103, 199.065, 229.735, 24.4048, 161.059, -2.00883, 125.396, 93.7464)
+uv = PackedVector2Array(25.6892, 31.9987, -0.394295, 118.173, 39.2262, 192.462, 226.103, 199.065, 229.735, 24.4048, 161.059, -2.00883, 125.396, 93.7464)
+polygons = [PackedInt32Array(0, 6, 5), PackedInt32Array(6, 1, 0), PackedInt32Array(6, 2, 1), PackedInt32Array(6, 3, 2), PackedInt32Array(5, 6, 4), PackedInt32Array(6, 3, 4)]
+bones = ["TorsoMain", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmR/LowerArmR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmR/LowerArmR/WristR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmL/LowerArmL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmL/LowerArmL/WristL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop/HeadMain", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1), "TorsoMain/TorsoTop/HeadMain/LowerJaw", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop/HeadMain/UpperJaw", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1), "TorsoMain/TorsoTop/HeadMain/UpperJaw/EarR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop/HeadMain/UpperJaw/EarL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoBottom", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)]
+internal_vertex_count = 1
+
+[node name="EyebrowR" type="Polygon2D" parent="CanvasLayer/HPBar/Head"]
+z_index = 2
+position = Vector2(-26.6057, -77.5256)
+texture = ExtResource("8_vvi6x")
+polygon = PackedVector2Array(8.63175, 5.9326, 7.90824, 49.0541, 70.7093, 50.1393, 68.8281, 4.63028)
+uv = PackedVector2Array(8.63175, 5.9326, 7.90824, 49.0541, 70.7093, 50.1393, 68.8281, 4.63028)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+bones = ["TorsoMain", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoTop", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmR", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmR/LowerArmR", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmR/LowerArmR/WristR", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmL", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmL/LowerArmL", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmL/LowerArmL/WristL", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoTop/HeadMain", PackedFloat32Array(1, 1, 1, 1), "TorsoMain/TorsoTop/HeadMain/LowerJaw", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoTop/HeadMain/UpperJaw", PackedFloat32Array(1, 1, 1, 1), "TorsoMain/TorsoTop/HeadMain/UpperJaw/EarR", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoTop/HeadMain/UpperJaw/EarL", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoBottom", PackedFloat32Array(0, 0, 0, 0)]
+
+[node name="EyebrowL" type="Polygon2D" parent="CanvasLayer/HPBar/Head"]
+z_index = 2
+position = Vector2(42.394, -61.5256)
+texture = ExtResource("9_q54n3")
+polygon = PackedVector2Array(8.58112, 8.62779, 8.98809, 43.7906, 43.3369, 62.3487, 43.9067, 6.18593)
+uv = PackedVector2Array(8.58112, 8.62779, 8.98809, 43.7906, 43.3369, 62.3487, 43.9067, 6.18593)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+bones = ["TorsoMain", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoTop", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmR", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmR/LowerArmR", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmR/LowerArmR/WristR", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmL", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmL/LowerArmL", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmL/LowerArmL/WristL", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoTop/HeadMain", PackedFloat32Array(1, 1, 1, 1), "TorsoMain/TorsoTop/HeadMain/LowerJaw", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoTop/HeadMain/UpperJaw", PackedFloat32Array(1, 1, 1, 1), "TorsoMain/TorsoTop/HeadMain/UpperJaw/EarR", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoTop/HeadMain/UpperJaw/EarL", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoBottom", PackedFloat32Array(0, 0, 0, 0)]
+
+[node name="Eyes" type="Polygon2D" parent="CanvasLayer/HPBar/Head"]
+z_index = 2
+position = Vector2(-1.6057, -40.5256)
+texture = ExtResource("10_tv18w")
+skeleton = NodePath("../../../Skeleton2D")
+polygon = PackedVector2Array(2.22119, 23.0081, 63.8646, 45.5198, 74.1592, 23.4422, 17.539, 5.08566)
+uv = PackedVector2Array(2.22119, 23.0081, 63.8646, 45.5198, 74.1592, 23.4422, 17.539, 5.08566)
+polygons = [PackedInt32Array(3, 0, 1, 2)]
+bones = ["TorsoMain", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoTop", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmR", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmR/LowerArmR", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmR/LowerArmR/WristR", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmL", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmL/LowerArmL", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmL/LowerArmL/WristL", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoTop/HeadMain", PackedFloat32Array(1, 1, 1, 1), "TorsoMain/TorsoTop/HeadMain/LowerJaw", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoTop/HeadMain/UpperJaw", PackedFloat32Array(1, 1, 1, 1), "TorsoMain/TorsoTop/HeadMain/UpperJaw/EarR", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoTop/HeadMain/UpperJaw/EarL", PackedFloat32Array(0, 0, 0, 0), "TorsoMain/TorsoBottom", PackedFloat32Array(0, 0, 0, 0)]
+
+[node name="EarR" type="Polygon2D" parent="CanvasLayer/HPBar/Head"]
+z_index = 2
+position = Vector2(-86.6057, -132.526)
+texture = ExtResource("11_gfand")
+skeleton = NodePath("../../../Skeleton2D")
+polygon = PackedVector2Array(29.5691, 74.5257, 13.5691, 66.5257, 5.56908, 42.5257, 5.56908, 18.5256, 21.5691, 2.52565, 53.5691, 10.5256, 69.5691, 26.5256, 69.5691, 66.5257, 53.5691, 82.5257, 29.5691, 18.5256, 45.5691, 50.5257)
+uv = PackedVector2Array(29.5691, 74.5257, 13.5691, 66.5257, 5.56908, 42.5257, 5.56908, 18.5256, 21.5691, 2.52565, 53.5691, 10.5256, 69.5691, 26.5256, 69.5691, 66.5257, 53.5691, 82.5257, 29.5691, 18.5256, 45.5691, 50.5257)
+polygons = [PackedInt32Array(0, 3, 2, 1), PackedInt32Array(3, 9, 5, 4), PackedInt32Array(10, 9, 3, 0), PackedInt32Array(10, 7, 6, 5, 9), PackedInt32Array(7, 10, 0, 8)]
+bones = ["TorsoMain", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmR/LowerArmR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmR/LowerArmR/WristR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmL/LowerArmL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop/UpperArmL/LowerArmL/WristL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop/HeadMain", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop/HeadMain/LowerJaw", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop/HeadMain/UpperJaw", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoTop/HeadMain/EarR", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "TorsoMain/TorsoTop/HeadMain/EarL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "TorsoMain/TorsoBottom", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+internal_vertex_count = 2
+
 [node name="BearNew" parent="." instance=ExtResource("2_drj5a")]
 unique_name_in_owner = true
 
 [node name="TorsoTop" parent="BearNew/Skeleton2D/TorsoMain" index="0"]
-rotation = 0.340711
-scale = Vector2(0.999979, 0.999979)
+rotation = 0.408832
+scale = Vector2(0.999978, 0.999978)
 
 [node name="UpperArmR" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop" index="0"]
-rotation = 1.40431
+rotation = 1.44338
 scale = Vector2(0.999974, 0.999974)
 
 [node name="LowerArmR" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR" index="0"]
-rotation = -1.72451
+rotation = -1.76136
 scale = Vector2(0.999972, 0.999972)
 
 [node name="WristR" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR" index="0"]
-rotation = 1.79147
+rotation = 1.63323
 scale = Vector2(0.999982, 0.999982)
 
 [node name="UpperArmL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop" index="1"]
-rotation = -1.00784
+rotation = -1.14097
 scale = Vector2(0.999975, 0.999975)
 
 [node name="LowerArmL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL" index="0"]
-rotation = -0.472066
+rotation = -0.310185
 scale = Vector2(0.999981, 0.999981)
 
 [node name="WristL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL" index="0"]
-rotation = 2.68803
+rotation = 2.56085
 scale = Vector2(0.999974, 0.999974)
 
 [node name="HeadMain" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop" index="2"]
-rotation = -0.10142
+rotation = -0.143091
 scale = Vector2(0.99997, 0.99997)
 
 [node name="LowerJaw" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="0"]
-rotation = 1.10297
+rotation = 1.06067
 scale = Vector2(0.999974, 0.999974)
 
 [node name="EarL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="2"]
 scale = Vector2(0.443939, 0.778982)
 
 [node name="UpperLegR" parent="BearNew/Skeleton2D/TorsoMain" index="1"]
-rotation = 2.43487
-scale = Vector2(0.999986, 0.999986)
+rotation = 1.84987
+scale = Vector2(0.999985, 0.999985)
 
 [node name="LowerLegR" parent="BearNew/Skeleton2D/TorsoMain/UpperLegR" index="0"]
-rotation = 0.678958
-scale = Vector2(0.999975, 0.999975)
+rotation = 1.68401
+scale = Vector2(0.999974, 0.999974)
 
 [node name="UpperLegL" parent="BearNew/Skeleton2D/TorsoMain" index="2"]
-rotation = 2.00537
+rotation = 2.86458
 scale = Vector2(0.999985, 0.999985)
 
 [node name="LowerLegL" parent="BearNew/Skeleton2D/TorsoMain/UpperLegL" index="0"]
-rotation = 1.43646
+rotation = 0.110761
 scale = Vector2(0.999979, 0.999979)
 
 [node name="AnimationTree" parent="BearNew" index="10"]
@@ -254,9 +369,13 @@ parameters/MainStateMachine/IDLE/blend_position = 1.00243
 parameters/MainStateMachine/JUMP/blend_position = -0.0486618
 
 [node name="StunParticle" parent="BearNew/DamageFX/Stun" index="0"]
-position = Vector2(162.929, -601.857)
-rotation = -1.04951
-scale = Vector2(0.999948, 0.999948)
+position = Vector2(171.449, -593.959)
+rotation = -1.02306
+scale = Vector2(0.999947, 0.999947)
+
+[node name="SlowParticle" parent="BearNew/DamageFX/Slow" index="0"]
+position = Vector2(132.76, -681.006)
+scale = Vector2(0.999989, 0.999989)
 
 [node name="LimboHSM" type="LimboHSM" parent="." node_paths=PackedStringArray("debug_label", "character", "controller")]
 unique_name_in_owner = true
