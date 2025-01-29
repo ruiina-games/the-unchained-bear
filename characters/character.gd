@@ -3,6 +3,7 @@ class_name Character
 
 signal got_knocked()
 signal got_hit()
+
 signal got_stunned(was_stunned: bool)
 signal effect_changes(effect: Effect)
 signal died()
@@ -36,14 +37,20 @@ func _ready() -> void:
 	# Initializing current health with max health considering we create a character with full HP
 	if character_stats:
 		character_stats.current_health = character_stats.max_health
-		#health_component.character_stats = character_stats
+		
+		if !character_stats.reserve_copy:
+			character_stats.reserve_copy = character_stats.duplicate()
 		
 	if !health_component:
 		return
 		
 	health_component.got_hit.connect(func(enemy):
 		get_hurt()
-		)
+	)
+	
+	GlobalSignals.reset_stats_all.connect(func():
+		character_stats.reset()
+	)
 
 func activate_effect(effect: Effect):
 	effects_dic[effect] = true

@@ -17,13 +17,17 @@ func _enter() -> void:
 
 	# Отримуємо поточну позицію та напрямок руху персонажа
 	var actor_global_position = controller.actor.global_position
-	var direction = controller.actor.global_position.direction_to(controller.target.global_position).normalized()
+	var target_global_position = controller.target.global_position
 
-	# Розраховуємо цільову позицію на основі дистанції заряду
-	target_position = actor_global_position + direction * charge_distance
+	# Визначаємо напрямок лише по осі X
+	var direction_x = sign(target_global_position.x - actor_global_position.x)  # -1 (ліворуч), 1 (праворуч)
+
+	# Розраховуємо цільову позицію на основі дистанції заряду (лише по осі X)
+	target_position = actor_global_position + Vector2(direction_x * charge_distance, 0)
 	is_charging = true  # Починаємо заряд
-	
-	controller.actor.adjust_scale_for_direction(direction)
+
+	# Налаштовуємо масштаб персонажа залежно від напрямку
+	controller.actor.adjust_scale_for_direction(Vector2(direction_x, 0))
 
 func _tick(delta: float) -> Status:
 	if !controller or controller.actor == null:
@@ -41,20 +45,19 @@ func _tick(delta: float) -> Status:
 		return Status.SUCCESS
 
 	var actor_global_position = controller.actor.global_position
-	var distance_to_target = actor_global_position.distance_to(target_position)
+	var distance_to_target = abs(actor_global_position.x - target_position.x)  # Відстань лише по осі X
 
 	# Якщо досягнуто цільову позицію
 	if distance_to_target <= tolerance:
 		velocity = Vector2.ZERO
 		controller.actor.velocity = velocity
 		controller.actor.move_and_slide()
-		print("Charge completed. Stopping.")
 		is_charging = false  # Зупиняємо заряд
 		return Status.SUCCESS
 
-	# Рухаємо персонажа до цільової позиції
-	var direction = actor_global_position.direction_to(target_position)
-	velocity = direction * move_speed
+	# Рухаємо персонажа до цільової позиції (лише по осі X)
+	var direction_x = sign(target_position.x - actor_global_position.x)  # Напрямок руху (-1 або 1)
+	velocity = Vector2(direction_x * move_speed, 0)  # Рух лише по осі X
 	controller.actor.velocity = velocity
 	controller.actor.move_and_slide()
 

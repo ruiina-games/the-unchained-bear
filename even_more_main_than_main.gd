@@ -31,9 +31,11 @@ func _unhandled_input(event: InputEvent) -> void:
 			current_level.queue_free()
 		add_level(current_scene)
 		GlobalSignals.stop_slow_motion.emit()
+		GlobalSignals.reset_stats_all.emit()
 	elif event.is_action_pressed("pause"):
 		go_to_main_menu()
 		GlobalSignals.stop_slow_motion.emit()
+		GlobalSignals.reset_stats_all.emit()
 
 func add_level(scene_to_spawn: PackedScene):
 	current_scene = scene_to_spawn
