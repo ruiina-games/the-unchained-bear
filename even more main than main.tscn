@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://qhpf0l7xje0f"]
+[gd_scene load_steps=7 format=3 uid="uid://qhpf0l7xje0f"]
 
 [ext_resource type="Script" path="res://even_more_main_than_main.gd" id="1_0ojiy"]
 [ext_resource type="PackedScene" uid="uid://nyr1tohq4w76" path="res://level_acrobat.tscn" id="1_ngjpe"]
 [ext_resource type="PackedScene" uid="uid://c1a7wqq7kje5j" path="res://level_beast_tameress.tscn" id="2_yn6u2"]
 [ext_resource type="PackedScene" uid="uid://mwe6kaqwuc8" path="res://level_animals_duo.tscn" id="3_kuhfw"]
 [ext_resource type="Script" path="res://controllers/player controller/stats_container.gd" id="5_2msob"]
-[ext_resource type="PackedScene" uid="uid://cevie0mm3xc4j" path="res://controllers/player controller/player_controller.tscn" id="5_gv1vo"]
 [ext_resource type="Resource" uid="uid://c40i2hba3vmid" path="res://data/characters data/bear/bear_stats.tres" id="6_lcypx"]
 
 [node name="EvenMoreMainThanMain" type="Node2D"]
@@ -25,6 +24,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CharacterStats" type="GridContainer" parent="CanvasLayer/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -146,7 +146,6 @@ layout_mode = 2
 text = "0"
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/Control"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -175,77 +174,3 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Acrobat
 "
-
-[node name="PlayerController" parent="." node_paths=PackedStringArray("target") instance=ExtResource("5_gv1vo")]
-position = Vector2(-754, -3)
-target = NodePath("BearNew")
-
-[node name="TorsoTop" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="0"]
-rotation = 0.353267
-scale = Vector2(0.999973, 0.999973)
-
-[node name="UpperArmR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="0"]
-rotation = 1.37712
-scale = Vector2(0.999968, 0.999968)
-
-[node name="LowerArmR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR" index="0"]
-rotation = -1.7023
-scale = Vector2(0.999965, 0.999965)
-
-[node name="WristR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR" index="0"]
-rotation = 1.95236
-scale = Vector2(0.999976, 0.999976)
-
-[node name="UpperArmL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="1"]
-rotation = -1.03146
-scale = Vector2(0.999972, 0.999972)
-
-[node name="LowerArmL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL" index="0"]
-rotation = -0.44209
-scale = Vector2(0.999976, 0.999976)
-
-[node name="WristL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL" index="0"]
-rotation = 2.66466
-scale = Vector2(0.99997, 0.99997)
-
-[node name="HeadMain" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="2"]
-rotation = -0.10911
-scale = Vector2(0.999965, 0.999965)
-
-[node name="LowerJaw" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="0"]
-rotation = 1.09513
-scale = Vector2(0.99997, 0.99997)
-
-[node name="EarL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="2"]
-scale = Vector2(0.443939, 0.778982)
-
-[node name="UpperLegR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="1"]
-rotation = 1.98015
-scale = Vector2(0.999982, 0.999982)
-
-[node name="LowerLegR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/UpperLegR" index="0"]
-rotation = 1.41209
-scale = Vector2(0.999969, 0.999969)
-
-[node name="UpperLegL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="2"]
-rotation = 2.66291
-scale = Vector2(0.999981, 0.999981)
-
-[node name="LowerLegL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/UpperLegL" index="0"]
-rotation = 0.408938
-scale = Vector2(0.999974, 0.999974)
-
-[node name="StunParticle" parent="PlayerController/BearNew/DamageFX/Stun" index="0"]
-position = Vector2(164.529, -600.438)
-rotation = -1.04464
-scale = Vector2(0.999938, 0.999938)
-
-[node name="SlowParticle" parent="PlayerController/BearNew/DamageFX/Slow" index="0"]
-position = Vector2(123.97, -686.629)
-scale = Vector2(0.999988, 0.999988)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.5, 0.5)
-
-[editable path="PlayerController"]
-[editable path="PlayerController/BearNew"]
