@@ -79,3 +79,12 @@ func unstuck():
 	hsm.allowed_advance_movement = true
 	actor.can_move = true
 	set_stunned(false)
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("1"):
+		actor.character_stats.add_temporary_upgrade(UpgradeManager.temporary_upgrades_pool[1])
+		UpgradeManager.get_temporary_upgrades_pool(4, actor.character_stats)
+		
+	if event.is_action_pressed("2"):
+		actor.character_stats.add_temporary_upgrade(UpgradeManager.temporary_upgrades_pool[1])
+		actor.character_stats.stats_upgraded.emit()

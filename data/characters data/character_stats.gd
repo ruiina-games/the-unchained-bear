@@ -4,6 +4,7 @@ class_name CharacterStats
 signal got_hit()
 signal hp_changed(new_hp: int)
 signal died()
+signal stats_upgraded
 
 @export var attack_power_multiplier: float = 1.0
 @export var max_health: int = 2000

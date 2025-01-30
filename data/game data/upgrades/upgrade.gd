@@ -2,11 +2,11 @@ extends Resource
 class_name Upgrade
 
 enum RARITY {
-	COMMON = 1,
-	UNCOMMON = 2,
-	RARE = 3,
-	MYTHICAL = 4,
-	LEGENDARY = 5
+	COMMON = 0,
+	UNCOMMON,
+	RARE,
+	MYTHICAL,
+	LEGENDARY
 }
 
 enum UPGRADABLE_STATS {
@@ -20,48 +20,41 @@ enum UPGRADABLE_STATS {
 	EFFECT_POWER_MULTI = 8
 }
 
-@export var rarity: RARITY:
-	set(new_rarity):
-		set_rarity(new_rarity)
-
-# Key is UPGRADABLE_STATS, value is multiplier.
-@export var upgrade_dictionary: Dictionary
+@export var name: String
+@export_multiline var description: String
+@export var icon_path: String
+@export var rarity: RARITY = RARITY.COMMON
+@export var upgrade_array: Array[StatModel]
 
 var drop_chance: float
-var multiplier: float
 
-func set_rarity(new_rarity: RARITY):
-	if rarity == new_rarity:
-		return
-	rarity = new_rarity
+func initialize_upgrade():
+	update_rarity()
+
+func update_rarity():
+	var multiplier: float
 	
 	match rarity:
 		RARITY.COMMON:
 			drop_chance = 0.4
-			multiplier = 1.1
+			multiplier = 1
 		RARITY.UNCOMMON:
 			drop_chance = 0.3
-			multiplier = 1.2
+			multiplier = 2
 		RARITY.RARE:
 			drop_chance = 0.15
-			multiplier = 1.3
+			multiplier = 3
 		RARITY.MYTHICAL:
 			drop_chance = 0.1
-			multiplier = 1.4
+			multiplier = 4
 		RARITY.LEGENDARY:
 			drop_chance = 0.05
-			multiplier = 1.5
+			multiplier = 5
 			apply_legendary_effect()
 	
 	# Застосовуємо множник до всіх значень у upgrade_dictionary
-	for key in upgrade_dictionary:
-		upgrade_dictionary[key] *= multiplier
+	for stats_model in upgrade_array:
+		stats_model.multiplier *= multiplier
 
 func apply_legendary_effect():
-	# Додатковий унікальний ефект для легендарних покращень
-	print("Легендарний ефект активовано!")
-	# Наприклад, можна додати випадковий бонус до одного з атрибутів
-	var random_stat = UPGRADABLE_STATS.values()[randi() % UPGRADABLE_STATS.size()]
-	var bonus_multiplier = 1.2  # Додатковий бонус 20%
-	upgrade_dictionary[random_stat] *= bonus_multiplier
-	print("Додатковий бонус до: ", UPGRADABLE_STATS.keys()[random_stat - 1])
+	pass

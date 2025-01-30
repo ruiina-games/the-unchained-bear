@@ -33,6 +33,9 @@ func update_stats_display() -> void:
 func _ready() -> void:
 	if !character_stats:
 		return
+	character_stats.stats_upgraded.connect(func():
+		update_stats_display()
+		)
 	update_stats_display()
 
 # You might also want to call this whenever character_stats are updated
