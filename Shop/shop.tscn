@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://iho2j3v1lyy1"]
+[gd_scene load_steps=22 format=3 uid="uid://iho2j3v1lyy1"]
 
 [ext_resource type="Texture2D" uid="uid://hfv6fovd6eke" path="res://assets/Store/Store/Background.png" id="1_04ypj"]
 [ext_resource type="Script" path="res://Shop/shop.gd" id="1_f14ov"]
@@ -21,6 +21,74 @@ size = Vector2(677, 1048)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_spye5"]
 size = Vector2(704, 1154)
+
+[sub_resource type="Animation" id="Animation_bf331"]
+resource_name = "APPEAR"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_87uh3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8hx1j"]
+resource_name = "DISSAPEAR"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"transition_complete"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b6hg1"]
+_data = {
+"APPEAR": SubResource("Animation_bf331"),
+"DISSAPEAR": SubResource("Animation_8hx1j"),
+"RESET": SubResource("Animation_87uh3")
+}
 
 [node name="Shop" type="Node2D" node_paths=PackedStringArray("teddy", "wheel")]
 script = ExtResource("1_f14ov")
@@ -47,6 +115,35 @@ grow_vertical = 0
 text = "Press [E] to interact"
 label_settings = ExtResource("2_8713t")
 
+[node name="QuestionLabel" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -1168.0
+offset_top = -291.0
+offset_right = -42.0
+offset_bottom = -126.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press [E] to proceed to the next boss"
+label_settings = ExtResource("2_8713t")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1931.0
+offset_top = -1489.0
+offset_right = 804.0
+offset_bottom = 109.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
 [node name="ShopArea" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2048
@@ -61,6 +158,15 @@ collision_layer = 0
 collision_mask = 2048
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WheelArea"]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_spye5")
+
+[node name="NextStageArea" type="Area2D" parent="."]
+position = Vector2(1515, -85)
+collision_layer = 0
+collision_mask = 2048
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NextStageArea"]
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_spye5")
 
@@ -182,9 +288,16 @@ volume_db = -25.0
 autoplay = true
 bus = &"Music"
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_b6hg1")
+}
+
 [connection signal="body_entered" from="ShopArea" to="." method="_on_shop_area_body_entered"]
 [connection signal="body_exited" from="ShopArea" to="." method="_on_shop_area_body_exited"]
 [connection signal="body_entered" from="WheelArea" to="." method="_on_wheel_area_body_entered"]
 [connection signal="body_exited" from="WheelArea" to="." method="_on_wheel_area_body_exited"]
+[connection signal="body_entered" from="NextStageArea" to="." method="_on_next_stage_area_body_entered"]
+[connection signal="body_exited" from="NextStageArea" to="." method="_on_next_stage_area_body_exited"]
 
 [editable path="spin_wheel"]

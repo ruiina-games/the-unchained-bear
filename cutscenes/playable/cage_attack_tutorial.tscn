@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bnv0o4pvq2ads"]
+[gd_scene load_steps=16 format=3 uid="uid://bnv0o4pvq2ads"]
 
 [ext_resource type="PackedScene" uid="uid://cjbnosxi4m18l" path="res://characters/bear/bear_new.tscn" id="1_3nfvf"]
 [ext_resource type="Script" path="res://cutscenes/playable/cage_attack_tutorial.gd" id="1_uu30b"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cx8dc0bj8r1lp" path="res://assets/New_Bear/images/Pedal.png" id="4_c4yca"]
 [ext_resource type="Texture2D" uid="uid://orkdr4eoifpk" path="res://assets/New_Bear/images/saddle.png" id="5_fymm2"]
 [ext_resource type="Texture2D" uid="uid://dvam2rf1vgrf" path="res://assets/New_Bear/images/L&SH.png" id="6_7dqj7"]
+[ext_resource type="LabelSettings" uid="uid://brp3qn5x2peqk" path="res://cutscenes/basic_font.tres" id="7_ieeqj"]
+[ext_resource type="AudioStream" uid="uid://c5ttv3v5eb0bf" path="res://assets/Sounds/278172__adharca__metal-tube-5.ogg" id="8_2d8w6"]
+[ext_resource type="AudioStream" uid="uid://lxmxxbjwhs6k" path="res://assets/Sounds/metal-pipe-230698.mp3" id="9_xr85p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nocro"]
 size = Vector2(4594, 174)
@@ -122,105 +125,6 @@ tracks/7/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_s7ix2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Curtain:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Camera2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../Camera2D:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../Camera2D:zoom")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.45, 0.45)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-504, 475)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath(".:rotation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("../Cycle:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("../SubtitleControl:visible")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="Animation" id="Animation_2p0ov"]
 resource_name = "END"
 length = 9.0
@@ -232,8 +136,8 @@ tracks/0/path = NodePath("..")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2, 5, 8),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 2, 5, 8, 9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "values": [{
 "args": [],
 "method": &"play_idle"
@@ -246,6 +150,9 @@ tracks/0/keys = {
 }, {
 "args": [],
 "method": &"play_end_run"
+}, {
+"args": [],
+"method": &"emit_cutscene_ended"
 }]
 }
 tracks/1/type = "value"
@@ -345,19 +252,111 @@ tracks/8/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_s7ix2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Curtain:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Camera2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Camera2D:zoom")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.45, 0.45)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-504, 475)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Cycle:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../SubtitleControl:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_upfie"]
 _data = {
 "BEGIN": SubResource("Animation_mcepo"),
 "END": SubResource("Animation_2p0ov"),
 "RESET": SubResource("Animation_s7ix2")
 }
-
-[sub_resource type="LabelSettings" id="LabelSettings_dclrx"]
-font_size = 120
-outline_size = 12
-outline_color = Color(0, 0, 0, 1)
-shadow_size = 12
-shadow_color = Color(0, 0, 0, 0.584314)
 
 [node name="CageAttackTutorial" type="Node2D"]
 script = ExtResource("1_uu30b")
@@ -397,7 +396,6 @@ libraries = {
 z_index = 2
 position = Vector2(1255, 362)
 rotation = -1.79559
-scale = Vector2(1, 1)
 
 [node name="Wheel" type="Sprite2D" parent="Cycle"]
 rotation = 0.103023
@@ -414,6 +412,22 @@ texture = ExtResource("5_fymm2")
 
 [node name="Light" type="Sprite2D" parent="Cycle"]
 texture = ExtResource("6_7dqj7")
+
+[node name="ROFL" type="Label" parent="."]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 248.0
+offset_top = -394.0
+offset_right = 1309.0
+offset_bottom = -229.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "IMAGINE YOU'RE IN PRISON"
+label_settings = ExtResource("7_ieeqj")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="SubtitleControl" type="Control" parent="."]
 visible = false
@@ -440,7 +454,7 @@ offset_bottom = 82.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Press [F] To Attack"
-label_settings = SubResource("LabelSettings_dclrx")
+label_settings = ExtResource("7_ieeqj")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -452,3 +466,15 @@ offset_right = -2398.0
 offset_bottom = -1296.0
 scale = Vector2(15.8383, 9.65236)
 color = Color(0, 0, 0, 1)
+
+[node name="CageHit" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("8_2d8w6")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="CageBreak" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("9_xr85p")
+volume_db = -5.0
+bus = &"SFX"

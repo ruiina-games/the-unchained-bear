@@ -1,19 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://qhpf0l7xje0f"]
+[gd_scene load_steps=12 format=3 uid="uid://qhpf0l7xje0f"]
 
 [ext_resource type="Script" path="res://even_more_main_than_main.gd" id="1_0ojiy"]
 [ext_resource type="PackedScene" uid="uid://nyr1tohq4w76" path="res://level_acrobat.tscn" id="1_ngjpe"]
 [ext_resource type="PackedScene" uid="uid://c1a7wqq7kje5j" path="res://level_beast_tameress.tscn" id="2_yn6u2"]
 [ext_resource type="PackedScene" uid="uid://mwe6kaqwuc8" path="res://level_animals_duo.tscn" id="3_kuhfw"]
+[ext_resource type="PackedScene" uid="uid://csuyqsgda2pls" path="res://cutscenes/cutscene_main.tscn" id="5_fe3js"]
+[ext_resource type="PackedScene" uid="uid://bnv0o4pvq2ads" path="res://cutscenes/playable/cage_attack_tutorial.tscn" id="6_rxh64"]
+[ext_resource type="PackedScene" uid="uid://iho2j3v1lyy1" path="res://Shop/shop.tscn" id="7_3ujyh"]
+[ext_resource type="Script" path="res://pause.gd" id="8_ja8jw"]
+[ext_resource type="LabelSettings" uid="uid://drt4vbq5awgad" path="res://cutscenes/smaller_font.tres" id="9_8pm0r"]
+[ext_resource type="LabelSettings" uid="uid://ddlppfp33dpu1" path="res://cutscenes/a_bit_bigger_than_even_smaller_font.tres" id="10_5eap0"]
+[ext_resource type="LabelSettings" uid="uid://wblyhtrwvirh" path="res://cutscenes/even_smaller_font.tres" id="11_3si7t"]
 
 [node name="EvenMoreMainThanMain" type="Node2D"]
 script = ExtResource("1_0ojiy")
 beast_tameress_scene = ExtResource("2_yn6u2")
 duo_animals_scene = ExtResource("3_kuhfw")
 acrobat_scene = ExtResource("1_ngjpe")
+initial_cutscene_scene = ExtResource("5_fe3js")
+prison_cutscene_scene = ExtResource("6_rxh64")
+shop_scene = ExtResource("7_3ujyh")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CheatLvlSelection" type="CanvasLayer" parent="."]
+visible = false
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="Control" type="Control" parent="CheatLvlSelection"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,7 +32,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Control"]
+[node name="GridContainer" type="GridContainer" parent="CheatLvlSelection/Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,24 +40,151 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="beast_tameress_btn" type="Button" parent="CanvasLayer/Control/GridContainer"]
+[node name="beast_tameress_btn" type="Button" parent="CheatLvlSelection/Control/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Beast Tameress"
 
-[node name="duo_animals_btn" type="Button" parent="CanvasLayer/Control/GridContainer"]
+[node name="duo_animals_btn" type="Button" parent="CheatLvlSelection/Control/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Duo Animals"
 
-[node name="acrobat_btn" type="Button" parent="CanvasLayer/Control/GridContainer"]
+[node name="acrobat_btn" type="Button" parent="CheatLvlSelection/Control/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Acrobat
 "
+
+[node name="Pause" type="CanvasLayer" parent="."]
+process_mode = 2
+script = ExtResource("8_ja8jw")
+
+[node name="PauseMenu" type="Control" parent="Pause"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Pause/PauseMenu"]
+process_mode = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.352941)
+
+[node name="Label" type="Label" parent="Pause/PauseMenu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -73.0
+offset_top = 106.0
+offset_right = 486.0
+offset_bottom = 216.0
+grow_horizontal = 2
+text = "GAME PAUSED"
+label_settings = ExtResource("9_8pm0r")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause/PauseMenu"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 376.0
+offset_right = 265.0
+offset_bottom = 597.0
+theme_override_constants/separation = 16
+
+[node name="ResumeButton" type="Button" parent="Pause/PauseMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Resume"
+
+[node name="OptionsButton" type="Button" parent="Pause/PauseMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Options"
+
+[node name="ExitButton" type="Button" parent="Pause/PauseMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Exit
+"
+
+[node name="OptionsMenu" type="Control" parent="Pause"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause/OptionsMenu"]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 348.0
+offset_right = 694.0
+offset_bottom = 597.0
+theme_override_constants/separation = 6
+
+[node name="Label" type="Label" parent="Pause/OptionsMenu/VBoxContainer"]
+layout_mode = 2
+text = "Volume Settings"
+label_settings = ExtResource("10_5eap0")
+
+[node name="GeneralVolumeContainer" type="VBoxContainer" parent="Pause/OptionsMenu/VBoxContainer"]
+layout_mode = 2
+
+[node name="GeneralVolume" type="Label" parent="Pause/OptionsMenu/VBoxContainer/GeneralVolumeContainer"]
+layout_mode = 2
+text = "General Volume"
+label_settings = ExtResource("11_3si7t")
+
+[node name="GeneralVolumeSlider" type="HSlider" parent="Pause/OptionsMenu/VBoxContainer/GeneralVolumeContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="MusicVolumeContainer" type="VBoxContainer" parent="Pause/OptionsMenu/VBoxContainer"]
+layout_mode = 2
+
+[node name="MusicVolume" type="Label" parent="Pause/OptionsMenu/VBoxContainer/MusicVolumeContainer"]
+layout_mode = 2
+text = "Music Volume"
+label_settings = ExtResource("11_3si7t")
+
+[node name="MusicVolumeSlider" type="HSlider" parent="Pause/OptionsMenu/VBoxContainer/MusicVolumeContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="SFXVolumeContainer" type="VBoxContainer" parent="Pause/OptionsMenu/VBoxContainer"]
+layout_mode = 2
+
+[node name="SFXVolume" type="Label" parent="Pause/OptionsMenu/VBoxContainer/SFXVolumeContainer"]
+layout_mode = 2
+text = "SFX Volume"
+label_settings = ExtResource("11_3si7t")
+
+[node name="SFXVolumeSlider" type="HSlider" parent="Pause/OptionsMenu/VBoxContainer/SFXVolumeContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[connection signal="pressed" from="Pause/PauseMenu/VBoxContainer/ResumeButton" to="Pause" method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Pause/PauseMenu/VBoxContainer/OptionsButton" to="Pause" method="_on_options_button_pressed"]
+[connection signal="pressed" from="Pause/PauseMenu/VBoxContainer/ExitButton" to="Pause" method="_on_exit_button_pressed"]

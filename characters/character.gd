@@ -98,6 +98,15 @@ func adjust_scale_for_direction(direction):
 		transform.x.x = -1
 	elif direction.x < 0:
 		transform.x.x = 1
+
+func _process(delta):
+	if hurtbox:
+		if is_dead:
+			hurtbox.monitorable = false
+			hurtbox.monitoring = false
+		else:
+			hurtbox.monitorable = true
+			hurtbox.monitoring = true
 	
 func apply_knockback(direction: Vector2, force: float):
 	got_knocked.emit(direction, force)

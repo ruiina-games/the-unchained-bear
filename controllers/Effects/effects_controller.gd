@@ -20,12 +20,17 @@ var default_camera_zoom: Vector2
 var original_offset: Vector2
 var slowmo_timer: Timer = null  # Таймер для слоу-мо
 
+
 func _ready():
 	default_camera_zoom = main_camera.zoom
 	original_offset = main_camera.offset
 	
 	GlobalSignals.hurt_triggered.connect(func(causer): if causer and causer.name != "BearNew": shake_camera(shake_duration, shake_magnitude))
-	GlobalSignals.character_died.connect(func(agent): slow_motion(slowmotion_duration, slowmotion_strength))
+	GlobalSignals.character_died.connect(func(agent): 
+		slow_motion(slowmotion_duration, slowmotion_strength)
+		await get_tree().create_timer(slowmotion_duration).timeout
+		GlobalSignals.ready_to_transit.emit(agent)
+		)
 	GlobalSignals.stop_slow_motion.connect(func(): stop_slow_motion())
 
 func _process(delta):

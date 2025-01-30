@@ -138,7 +138,6 @@ func process_knockback_effect(effect: Knockback, multiplier: float):
 
 func handle_death():
 	GlobalSignals.character_died.emit(agent)
-	
 	agent.died.emit()
 	agent.is_dead = true
 	# print(agent.name + " has died.")
