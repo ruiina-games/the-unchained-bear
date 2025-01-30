@@ -1,10 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://cevie0mm3xc4j"]
+[gd_scene load_steps=21 format=3 uid="uid://cevie0mm3xc4j"]
 
 [ext_resource type="Script" path="res://controllers/player controller/player_controller.gd" id="1_jg0g5"]
 [ext_resource type="PackedScene" uid="uid://cjbnosxi4m18l" path="res://characters/bear/bear_new.tscn" id="2_drj5a"]
-[ext_resource type="Script" path="res://controllers/player controller/stats_container.gd" id="2_ogm1v"]
 [ext_resource type="Script" path="res://controllers/player controller/player state machine/player_state_machine.gd" id="3_7xkve"]
-[ext_resource type="Resource" uid="uid://c40i2hba3vmid" path="res://data/characters data/bear/bear_stats.tres" id="3_60oav"]
 [ext_resource type="Texture2D" uid="uid://dxtyf8ln75bdu" path="res://assets/New_Bear/images/Head_Up.png" id="4_2sym7"]
 [ext_resource type="Script" path="res://controllers/player controller/player state machine/states/idle.gd" id="4_hhf8t"]
 [ext_resource type="Texture2D" uid="uid://cc62kiuqsd3u" path="res://assets/New_Bear/images/Head_Down.png" id="4_kp14w"]
@@ -62,137 +60,9 @@ offset_bottom = 95.0
 text = "rare"
 label_settings = SubResource("LabelSettings_uxfgu")
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Control"]
-layout_mode = 1
-offset_left = 67.0
-offset_top = 42.0
-offset_right = 232.0
-offset_bottom = 308.0
-script = ExtResource("2_ogm1v")
-character_stats = ExtResource("3_60oav")
-
-[node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer/Control/GridContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/Control/GridContainer/HSplitContainer"]
-layout_mode = 2
-text = "strength: "
-
-[node name="strength" type="Label" parent="CanvasLayer/Control/GridContainer/HSplitContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "0"
-
-[node name="HSplitContainer2" type="HSplitContainer" parent="CanvasLayer/Control/GridContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/Control/GridContainer/HSplitContainer2"]
-layout_mode = 2
-text = "max health: "
-
-[node name="max health" type="Label" parent="CanvasLayer/Control/GridContainer/HSplitContainer2"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "0"
-
-[node name="HSplitContainer3" type="HSplitContainer" parent="CanvasLayer/Control/GridContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/Control/GridContainer/HSplitContainer3"]
-layout_mode = 2
-text = "current_health: "
-
-[node name="current health" type="Label" parent="CanvasLayer/Control/GridContainer/HSplitContainer3"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "0"
-
-[node name="HSplitContainer4" type="HSplitContainer" parent="CanvasLayer/Control/GridContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/Control/GridContainer/HSplitContainer4"]
-layout_mode = 2
-text = "critical chance: "
-
-[node name="critical chance" type="Label" parent="CanvasLayer/Control/GridContainer/HSplitContainer4"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "0"
-
-[node name="HSplitContainer5" type="HSplitContainer" parent="CanvasLayer/Control/GridContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/Control/GridContainer/HSplitContainer5"]
-layout_mode = 2
-text = "dodge chance: "
-
-[node name="dodge chance" type="Label" parent="CanvasLayer/Control/GridContainer/HSplitContainer5"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "0"
-
-[node name="HSplitContainer6" type="HSplitContainer" parent="CanvasLayer/Control/GridContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/Control/GridContainer/HSplitContainer6"]
-layout_mode = 2
-text = "attack speed: "
-
-[node name="attack speed" type="Label" parent="CanvasLayer/Control/GridContainer/HSplitContainer6"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "0"
-
-[node name="HSplitContainer7" type="HSplitContainer" parent="CanvasLayer/Control/GridContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/Control/GridContainer/HSplitContainer7"]
-layout_mode = 2
-text = "movement speed: "
-
-[node name="movement speed" type="Label" parent="CanvasLayer/Control/GridContainer/HSplitContainer7"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "0"
-
-[node name="HSplitContainer8" type="HSplitContainer" parent="CanvasLayer/Control/GridContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/Control/GridContainer/HSplitContainer8"]
-layout_mode = 2
-text = "attack range: "
-
-[node name="attack range" type="Label" parent="CanvasLayer/Control/GridContainer/HSplitContainer8"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "0"
-
-[node name="HSplitContainer9" type="HSplitContainer" parent="CanvasLayer/Control/GridContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/Control/GridContainer/HSplitContainer9"]
-layout_mode = 2
-text = "status resists: "
-
-[node name="status resist" type="Label" parent="CanvasLayer/Control/GridContainer/HSplitContainer9"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "0"
-
-[node name="HSplitContainer10" type="HSplitContainer" parent="CanvasLayer/Control/GridContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/Control/GridContainer/HSplitContainer10"]
-layout_mode = 2
-text = "effect power: "
-
-[node name="effect power" type="Label" parent="CanvasLayer/Control/GridContainer/HSplitContainer10"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "0"
-
 [node name="HPBar" type="Control" parent="CanvasLayer"]
 layout_mode = 3
+anchors_preset = 0
 offset_left = -95.0
 offset_top = -25.0
 offset_bottom = 40.0
@@ -305,58 +175,58 @@ internal_vertex_count = 2
 unique_name_in_owner = true
 
 [node name="TorsoTop" parent="BearNew/Skeleton2D/TorsoMain" index="0"]
-rotation = 0.408832
+rotation = 0.420185
 scale = Vector2(0.999978, 0.999978)
 
 [node name="UpperArmR" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop" index="0"]
-rotation = 1.44338
+rotation = 1.16701
 scale = Vector2(0.999974, 0.999974)
 
 [node name="LowerArmR" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR" index="0"]
-rotation = -1.76136
+rotation = -1.54397
 scale = Vector2(0.999972, 0.999972)
 
 [node name="WristR" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR" index="0"]
-rotation = 1.63323
+rotation = 1.68162
 scale = Vector2(0.999982, 0.999982)
 
 [node name="UpperArmL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop" index="1"]
-rotation = -1.14097
+rotation = -1.12948
 scale = Vector2(0.999975, 0.999975)
 
 [node name="LowerArmL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL" index="0"]
-rotation = -0.310185
+rotation = -0.287531
 scale = Vector2(0.999981, 0.999981)
 
 [node name="WristL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL" index="0"]
-rotation = 2.56085
+rotation = 2.5307
 scale = Vector2(0.999974, 0.999974)
 
 [node name="HeadMain" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop" index="2"]
-rotation = -0.143091
+rotation = -0.150024
 scale = Vector2(0.99997, 0.99997)
 
 [node name="LowerJaw" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="0"]
-rotation = 1.06067
+rotation = 1.04241
 scale = Vector2(0.999974, 0.999974)
 
 [node name="EarL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="2"]
 scale = Vector2(0.443939, 0.778982)
 
 [node name="UpperLegR" parent="BearNew/Skeleton2D/TorsoMain" index="1"]
-rotation = 1.84987
+rotation = 2.24521
 scale = Vector2(0.999985, 0.999985)
 
 [node name="LowerLegR" parent="BearNew/Skeleton2D/TorsoMain/UpperLegR" index="0"]
-rotation = 1.68401
+rotation = 1.07173
 scale = Vector2(0.999974, 0.999974)
 
 [node name="UpperLegL" parent="BearNew/Skeleton2D/TorsoMain" index="2"]
-rotation = 2.86458
+rotation = 2.11044
 scale = Vector2(0.999985, 0.999985)
 
 [node name="LowerLegL" parent="BearNew/Skeleton2D/TorsoMain/UpperLegL" index="0"]
-rotation = 0.110761
+rotation = 1.22752
 scale = Vector2(0.999979, 0.999979)
 
 [node name="AnimationTree" parent="BearNew" index="10"]
@@ -369,12 +239,12 @@ parameters/MainStateMachine/IDLE/blend_position = 1.00243
 parameters/MainStateMachine/JUMP/blend_position = -0.0486618
 
 [node name="StunParticle" parent="BearNew/DamageFX/Stun" index="0"]
-position = Vector2(171.449, -593.959)
-rotation = -1.02306
+position = Vector2(172.828, -592.594)
+rotation = -1.01864
 scale = Vector2(0.999947, 0.999947)
 
 [node name="SlowParticle" parent="BearNew/DamageFX/Slow" index="0"]
-position = Vector2(132.76, -681.006)
+position = Vector2(134.524, -679.811)
 scale = Vector2(0.999989, 0.999989)
 
 [node name="LimboHSM" type="LimboHSM" parent="." node_paths=PackedStringArray("debug_label", "character", "controller")]

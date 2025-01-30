@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="TemporaryUpgrade" load_steps=4 format=3 uid="uid://b0bh5nrdeevxf"]
+
+[ext_resource type="Script" path="res://data/game data/upgrades/temporary_upgrades.gd" id="1_ogpkm"]
+[ext_resource type="Script" path="res://data/game data/upgrades/stat_model.gd" id="2_nnfiy"]
+
+[sub_resource type="Resource" id="Resource_d4qhk"]
+script = ExtResource("2_nnfiy")
+stat_type = 4
+multiplier = 0.2
+
+[resource]
+script = ExtResource("1_ogpkm")
+name = "Can Opener"
+description = "Increases critical damage by 20% for each Rarity level."
+icon_path = ""
+rarity = 0
+upgrade_array = Array[ExtResource("2_nnfiy")]([SubResource("Resource_d4qhk")])

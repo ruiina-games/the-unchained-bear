@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="TemporaryUpgrade" load_steps=4 format=3 uid="uid://bxti5071wyetx"]
+
+[ext_resource type="Script" path="res://data/game data/upgrades/temporary_upgrades.gd" id="1_ldgen"]
+[ext_resource type="Script" path="res://data/game data/upgrades/stat_model.gd" id="2_g82mg"]
+
+[sub_resource type="Resource" id="Resource_d4qhk"]
+script = ExtResource("2_g82mg")
+stat_type = 7
+multiplier = 0.1
+
+[resource]
+script = ExtResource("1_ldgen")
+name = "Training Suit"
+description = "Increases effect resist by 10% for each Rarity level."
+icon_path = ""
+rarity = 0
+upgrade_array = Array[ExtResource("2_g82mg")]([SubResource("Resource_d4qhk")])

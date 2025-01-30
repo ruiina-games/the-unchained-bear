@@ -1,20 +1,22 @@
 extends Resource
 class_name CharacterStats
 
-signal got_hit
+signal got_hit()
 signal hp_changed(new_hp: int)
+signal died()
+signal stats_upgraded
 
 @export var attack_power_multiplier: float = 1.0
 @export var max_health: int = 2000
 @export var critical_chance: float = 0.05
 @export var critical_damage_multiplier: float = 1.2
 @export var dodge_chance: float = 0.0
-# @export var attack_speed_multiplier: float = 1.0
 @export var movement_speed_multiplier: float = 1.0
-# @export var attack_range: float = 0.0
 @export var status_resist_multiplier: float = 0.1
 @export var effect_power_multiplier: float = 1.0
 @export var fighting_style: FightingStyle
+# @export var attack_speed_multiplier: float = 1.0
+# @export var attack_range: float = 0.0
 
 var current_health: int
 var reserve_copy: CharacterStats
@@ -23,9 +25,9 @@ var reserve_copy: CharacterStats
 func increase_attack_power_multiplier(amount: float) -> void:
 	attack_power_multiplier += amount
 
-func increase_max_health(amount: int) -> void:
-	max_health += amount
-	current_health = min(current_health + amount, max_health)
+func increase_max_health(multiplier: float) -> void:
+	max_health *= multiplier
+	# current_health = min(current_health + amount, max_health)
 
 func heal(amount: int) -> void:
 	current_health = min(current_health + amount, max_health)

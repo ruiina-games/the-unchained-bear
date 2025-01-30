@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://qhpf0l7xje0f"]
+[gd_scene load_steps=7 format=3 uid="uid://qhpf0l7xje0f"]
 
 [ext_resource type="Script" path="res://even_more_main_than_main.gd" id="1_0ojiy"]
 [ext_resource type="PackedScene" uid="uid://nyr1tohq4w76" path="res://level_acrobat.tscn" id="1_ngjpe"]
 [ext_resource type="PackedScene" uid="uid://c1a7wqq7kje5j" path="res://level_beast_tameress.tscn" id="2_yn6u2"]
 [ext_resource type="PackedScene" uid="uid://mwe6kaqwuc8" path="res://level_animals_duo.tscn" id="3_kuhfw"]
+[ext_resource type="Script" path="res://controllers/player controller/stats_container.gd" id="5_2msob"]
+[ext_resource type="Resource" uid="uid://c40i2hba3vmid" path="res://data/characters data/bear/bear_stats.tres" id="6_lcypx"]
 
 [node name="EvenMoreMainThanMain" type="Node2D"]
 script = ExtResource("1_0ojiy")
@@ -20,6 +22,128 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="CharacterStats" type="GridContainer" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -248.0
+offset_top = 35.0
+offset_right = -83.0
+offset_bottom = 301.0
+grow_horizontal = 0
+script = ExtResource("5_2msob")
+character_stats = ExtResource("6_lcypx")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer/Control/CharacterStats"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/CharacterStats/HSplitContainer"]
+layout_mode = 2
+text = "attack multi: "
+
+[node name="strength" type="Label" parent="CanvasLayer/Control/CharacterStats/HSplitContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="HSplitContainer2" type="HSplitContainer" parent="CanvasLayer/Control/CharacterStats"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/CharacterStats/HSplitContainer2"]
+layout_mode = 2
+text = "max health: "
+
+[node name="max health" type="Label" parent="CanvasLayer/Control/CharacterStats/HSplitContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="HSplitContainer3" type="HSplitContainer" parent="CanvasLayer/Control/CharacterStats"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/CharacterStats/HSplitContainer3"]
+layout_mode = 2
+text = "current_health: "
+
+[node name="current health" type="Label" parent="CanvasLayer/Control/CharacterStats/HSplitContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="HSplitContainer4" type="HSplitContainer" parent="CanvasLayer/Control/CharacterStats"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/CharacterStats/HSplitContainer4"]
+layout_mode = 2
+text = "critical chance: "
+
+[node name="critical chance" type="Label" parent="CanvasLayer/Control/CharacterStats/HSplitContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="HSplitContainer6" type="HSplitContainer" parent="CanvasLayer/Control/CharacterStats"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/CharacterStats/HSplitContainer6"]
+layout_mode = 2
+text = "critical damage: "
+
+[node name="critical damage" type="Label" parent="CanvasLayer/Control/CharacterStats/HSplitContainer6"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="HSplitContainer5" type="HSplitContainer" parent="CanvasLayer/Control/CharacterStats"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/CharacterStats/HSplitContainer5"]
+layout_mode = 2
+text = "dodge chance: "
+
+[node name="dodge chance" type="Label" parent="CanvasLayer/Control/CharacterStats/HSplitContainer5"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="HSplitContainer7" type="HSplitContainer" parent="CanvasLayer/Control/CharacterStats"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/CharacterStats/HSplitContainer7"]
+layout_mode = 2
+text = "movement speed: "
+
+[node name="movement speed" type="Label" parent="CanvasLayer/Control/CharacterStats/HSplitContainer7"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="HSplitContainer9" type="HSplitContainer" parent="CanvasLayer/Control/CharacterStats"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/CharacterStats/HSplitContainer9"]
+layout_mode = 2
+text = "status resists: "
+
+[node name="status resist" type="Label" parent="CanvasLayer/Control/CharacterStats/HSplitContainer9"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="HSplitContainer10" type="HSplitContainer" parent="CanvasLayer/Control/CharacterStats"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/CharacterStats/HSplitContainer10"]
+layout_mode = 2
+text = "effect power: "
+
+[node name="effect power" type="Label" parent="CanvasLayer/Control/CharacterStats/HSplitContainer10"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/Control"]
 layout_mode = 1
