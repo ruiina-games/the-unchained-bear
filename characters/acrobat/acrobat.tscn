@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://data/damage/scripts/stun.gd" id="2_khuca"]
 [ext_resource type="Shader" path="res://shaders/hit_flash.gdshader" id="2_kkcbp"]
 [ext_resource type="PackedScene" uid="uid://cmrlhmw5fn5ki" path="res://objects/keglia/keglia.tscn" id="2_pcubv"]
-[ext_resource type="Script" path="res://data/characters data/character_data.gd" id="2_x88hk"]
+[ext_resource type="Script" path="res://data/characters data/character_stats.gd" id="2_x88hk"]
 [ext_resource type="Script" path="res://fighting styles/figting_style.gd" id="2_xvo1u"]
 [ext_resource type="Script" path="res://data/damage/scripts/damage.gd" id="3_02hec"]
 [ext_resource type="Texture2D" uid="uid://c1kfcp01wgmp8" path="res://assets/Acrobat/Ball.png" id="3_xiq2c"]

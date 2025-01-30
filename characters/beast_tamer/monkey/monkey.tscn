@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b6x006j3ikrun" path="res://assets/Monkey/images/R_Hand_Down.png" id="3_07a1q"]
 [ext_resource type="Resource" uid="uid://dvqxwyja6yi8h" path="res://fighting styles/beast tameress/monkey_fighthing_style.tres" id="3_pefby"]
 [ext_resource type="Texture2D" uid="uid://q4ruqy23uxf7" path="res://assets/Monkey/images/R_Fist.png" id="4_eyuyk"]
-[ext_resource type="Script" path="res://data/characters data/character_data.gd" id="4_qrs3q"]
+[ext_resource type="Script" path="res://data/characters data/character_stats.gd" id="4_qrs3q"]
 [ext_resource type="Texture2D" uid="uid://s1suitkcbkj0" path="res://assets/Monkey/images/Body.png" id="5_3tg1y"]
 [ext_resource type="Texture2D" uid="uid://c70mrihxlvd8f" path="res://assets/Monkey/images/Shmot.png" id="6_as0x8"]
 [ext_resource type="Texture2D" uid="uid://egkktu2bowsm" path="res://assets/Monkey/images/L_Foot copy.png" id="6_l2wy8"]

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CharacterStats" load_steps=3 format=3 uid="uid://c40i2hba3vmid"]
 
-[ext_resource type="Resource" uid="uid://c1srjs271sw2o" path="res://fighting styles/bear/bear_freestyle.tres" id="1_jjua5"]
-[ext_resource type="Script" path="res://data/characters data/character_data.gd" id="1_utsoq"]
+[ext_resource type="Resource" uid="uid://c1srjs271sw2o" path="res://fighting styles/bear/bear_freestyle.tres" id="1_2v1fq"]
+[ext_resource type="Script" path="res://data/characters data/character_stats.gd" id="1_utsoq"]
 
 [resource]
 script = ExtResource("1_utsoq")
@@ -13,4 +13,4 @@ dodge_chance = 0.0
 movement_speed_multiplier = 1.0
 status_resist_multiplier = 0.1
 effect_power_multiplier = 1.0
-fighting_style = ExtResource("1_jjua5")
+fighting_style = ExtResource("1_2v1fq")
