@@ -324,7 +324,7 @@ easing = SubResource("Resource_rddku")
 easing = SubResource("Resource_7xvcg")
 
 [node name="UpperBody" parent="Acrobat/Skeleton2D/Main" index="0"]
-scale = Vector2(0.999984, 0.999984)
+scale = Vector2(0.999982, 0.999982)
 
 [node name="Head" parent="Acrobat/Skeleton2D/Main/UpperBody/Neck" index="0"]
 rotation = -0.0222067

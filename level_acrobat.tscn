@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://c7qnb6sg7ksxw" path="res://assets/Arena_3/Viewer_3.png" id="14_rluo0"]
 [ext_resource type="Texture2D" uid="uid://c2d1otwyoxvih" path="res://assets/Arena_3/Viewer_4.png" id="15_acyvj"]
 [ext_resource type="Texture2D" uid="uid://da860stww08t3" path="res://assets/Arena_3/Viewer_5.png" id="16_l0qwr"]
-[ext_resource type="AudioStream" uid="uid://dmwiqn0c3n8k5" path="res://assets/Sounds/crown_cheer.mp3" id="18_gq8ye"]
+[ext_resource type="AudioStream" uid="uid://bc1jx20oq5brj" path="res://assets/Sounds/crowd_cheer.mp3" id="18_ygghp"]
 
 [sub_resource type="Animation" id="Animation_3xmyb"]
 resource_name = "crowd_idle"
@@ -274,7 +274,7 @@ tracks/9/keys = {
 
 [sub_resource type="Animation" id="Animation_ybub5"]
 resource_name = "crowd_cheer"
-length = 1.5
+length = 3.0
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -283,10 +283,10 @@ tracks/0/path = NodePath("Audience_1:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.4, 0.65, 0.9, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.15, 0.4, 0.65, 0.9, 1.1, 1.35, 1.6, 1.85, 2.1, 2.35, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-2008.04, 442.857), Vector2(-1985.71, 308.036), Vector2(-1950, 276.786), Vector2(-2016.96, 334.821), Vector2(-1950, 276.786), Vector2(-2008.04, 442.857)]
+"values": [Vector2(-2008.04, 442.857), Vector2(-1985.71, 308.036), Vector2(-1950, 276.786), Vector2(-2016.96, 334.821), Vector2(-1950, 276.786), Vector2(-1985.71, 308.036), Vector2(-1950, 276.786), Vector2(-2016.96, 334.821), Vector2(-1950, 276.786), Vector2(-1985.71, 308.036), Vector2(-1950, 276.786), Vector2(-2008.04, 442.857)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -295,10 +295,10 @@ tracks/1/path = NodePath("Audience_1:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.4, 0.65, 0.9, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.15, 0.4, 0.65, 0.9, 1.1, 1.35, 1.6, 1.85, 2.1, 2.35, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 0.0, 0.0629964, -0.0625531, 0.0629964, 0.0]
+"values": [0.0, 0.0, 0.0629964, -0.0625531, 0.0629964, 0.0, 0.0629964, -0.0625531, 0.0629964, 0.0, 0.0629964, 0.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -307,10 +307,10 @@ tracks/2/path = NodePath("Audience_2:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.4, 0.65, 0.9, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.15, 0.4, 0.65, 0.9, 1.1, 1.35, 1.6, 1.85, 2.1, 2.35, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-1479.46, 365.179), Vector2(-1452.68, 216.964), Vector2(-1479.46, 225.893), Vector2(-1366.96, 162.5), Vector2(-1479.46, 225.893), Vector2(-1479.46, 365.179)]
+"values": [Vector2(-1479.46, 365.179), Vector2(-1452.68, 216.964), Vector2(-1479.46, 225.893), Vector2(-1366.96, 162.5), Vector2(-1479.46, 225.893), Vector2(-1452.68, 216.964), Vector2(-1479.46, 225.893), Vector2(-1366.96, 162.5), Vector2(-1479.46, 225.893), Vector2(-1452.68, 216.964), Vector2(-1479.46, 225.893), Vector2(-1479.46, 365.179)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -319,10 +319,10 @@ tracks/3/path = NodePath("Audience_2:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.4, 0.65, 0.9, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.15, 0.4, 0.65, 0.9, 1.1, 1.35, 1.6, 1.85, 2.1, 2.35, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 0.0, -0.0417877, 0.0694935, -0.0417877, 0.0]
+"values": [0.0, 0.0, -0.0417877, 0.0694935, -0.0417877, 0.0, -0.0417877, 0.0694935, -0.0417877, 0.0, -0.0417877, 0.0]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -331,10 +331,10 @@ tracks/4/path = NodePath("Audience_3:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.4, 0.65, 0.9, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.15, 0.4, 0.65, 0.9, 1.1, 1.35, 1.6, 1.85, 2.1, 2.35, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-452.679, 394.643), Vector2(-430.357, 291.071), Vector2(-399.107, 259.821), Vector2(-466.964, 304.464), Vector2(-399.107, 259.821), Vector2(-452.679, 394.643)]
+"values": [Vector2(-452.679, 394.643), Vector2(-430.357, 291.071), Vector2(-399.107, 259.821), Vector2(-466.964, 304.464), Vector2(-399.107, 259.821), Vector2(-430.357, 291.071), Vector2(-399.107, 259.821), Vector2(-466.964, 304.464), Vector2(-399.107, 259.821), Vector2(-430.357, 291.071), Vector2(-399.107, 259.821), Vector2(-452.679, 394.643)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -343,10 +343,10 @@ tracks/5/path = NodePath("Audience_3:rotation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.4, 0.65, 0.9, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.15, 0.4, 0.65, 0.9, 1.1, 1.35, 1.6, 1.85, 2.1, 2.35, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 0.0, 0.0385314, -0.015709, 0.0385314, 0.0]
+"values": [0.0, 0.0, 0.0385314, -0.015709, 0.0385314, 0.0, 0.0385314, -0.015709, 0.0385314, 0.0, 0.0385314, 0.0]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -355,10 +355,10 @@ tracks/6/path = NodePath("Audience_4:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.4, 0.65, 0.9, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.15, 0.4, 0.65, 0.9, 1.1, 1.35, 1.6, 1.85, 2.1, 2.35, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(339.286, 400), Vector2(361.607, 269.643), Vector2(293.75, 314.286), Vector2(370.536, 246.429), Vector2(293.75, 314.286), Vector2(339.286, 400)]
+"values": [Vector2(339.286, 400), Vector2(361.607, 269.643), Vector2(293.75, 314.286), Vector2(370.536, 246.429), Vector2(293.75, 314.286), Vector2(361.607, 269.643), Vector2(293.75, 314.286), Vector2(370.536, 246.429), Vector2(293.75, 314.286), Vector2(361.607, 269.643), Vector2(293.75, 314.286), Vector2(339.286, 400)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -367,10 +367,10 @@ tracks/7/path = NodePath("Audience_4:rotation")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.4, 0.65, 0.9, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.15, 0.4, 0.65, 0.9, 1.1, 1.35, 1.6, 1.85, 2.1, 2.35, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 0.0, -0.0891549, 0.0796608, -0.0891549, 0.0]
+"values": [0.0, 0.0, -0.0891549, 0.0796608, -0.0891549, 0.0, -0.0891549, 0.0796608, -0.0891549, 0.0, -0.0891549, 0.0]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -379,10 +379,10 @@ tracks/8/path = NodePath("Audience_5:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.4, 0.65, 0.9, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.15, 0.4, 0.65, 0.9, 1.1, 1.35, 1.6, 1.85, 2.1, 2.35, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1096.43, 328.571), Vector2(1118.75, 184.821), Vector2(1019.64, 220.536), Vector2(1046.43, 220.536), Vector2(1019.64, 220.536), Vector2(1096.43, 328.571)]
+"values": [Vector2(1096.43, 328.571), Vector2(1118.75, 184.821), Vector2(1019.64, 220.536), Vector2(1046.43, 220.536), Vector2(1019.64, 220.536), Vector2(1118.75, 184.821), Vector2(1019.64, 220.536), Vector2(1046.43, 220.536), Vector2(1019.64, 220.536), Vector2(1118.75, 184.821), Vector2(1019.64, 220.536), Vector2(1096.43, 328.571)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -391,10 +391,10 @@ tracks/9/path = NodePath("Audience_5:rotation")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.4, 0.65, 0.9, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.15, 0.4, 0.65, 0.9, 1.1, 1.35, 1.6, 1.85, 2.1, 2.35, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 0.0, -0.0677531, 0.0671217, -0.0677531, 0.0]
+"values": [0.0, 0.0, -0.0677531, 0.0671217, -0.0677531, 0.0, -0.0677531, 0.0671217, -0.0677531, 0.0, -0.0677531, 0.0]
 }
 tracks/10/type = "method"
 tracks/10/imported = false
@@ -421,31 +421,31 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h68ra"]
 size = Vector2(4719, 688)
 
-[sub_resource type="Resource" id="Resource_ni3rt"]
+[sub_resource type="Resource" id="Resource_wjpwi"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_nb7b7"]
+[sub_resource type="Resource" id="Resource_ubqjx"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_hb5dh"]
+[sub_resource type="Resource" id="Resource_rqhn1"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_dxg84"]
+[sub_resource type="Resource" id="Resource_82tx3"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_f3e3t"]
+[sub_resource type="Resource" id="Resource_if2k5"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
@@ -565,14 +565,16 @@ stretch_mode = 2
 
 [node name="PointLight2D" type="PointLight2D" parent="Arena"]
 position = Vector2(-1709.82, -254.464)
-energy = 4.0
+color = Color(1, 1, 1, 0.427451)
+energy = 2.0
 shadow_enabled = true
 texture = ExtResource("11_14ngw")
 texture_scale = 4.0
 
 [node name="PointLight2D2" type="PointLight2D" parent="Arena"]
 position = Vector2(1795.54, -269.643)
-energy = 4.0
+color = Color(1, 1, 1, 0.427451)
+energy = 2.0
 shadow_enabled = true
 texture = ExtResource("11_14ngw")
 texture_scale = 4.0
@@ -648,7 +650,7 @@ libraries = {
 autoplay = "crowd_idle"
 
 [node name="CrowdCheer" type="AudioStreamPlayer" parent="Arena/Crowd"]
-stream = ExtResource("18_gq8ye")
+stream = ExtResource("18_ygghp")
 volume_db = -10.0
 bus = &"SFX"
 
@@ -686,67 +688,67 @@ target = NodePath("BearNew")
 position = Vector2(3, 25)
 
 [node name="TorsoTop" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="0"]
-rotation = 0.428138
+rotation = 0.346602
 scale = Vector2(0.999977, 0.999977)
 
 [node name="UpperArmR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="0"]
-rotation = 1.3789
+rotation = 1.30119
 scale = Vector2(0.999974, 0.999974)
 
 [node name="LowerArmR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR" index="0"]
-rotation = -1.67127
-scale = Vector2(0.999978, 0.999978)
+rotation = -1.65355
+scale = Vector2(0.999977, 0.999977)
 
 [node name="WristR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR" index="0"]
-rotation = 1.7436
+rotation = 1.75201
 scale = Vector2(0.999979, 0.999979)
 
 [node name="UpperArmL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="1"]
-rotation = -1.14281
+rotation = -0.998369
 scale = Vector2(0.999978, 0.999978)
 
 [node name="LowerArmL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL" index="0"]
-rotation = -0.269387
+rotation = -0.458952
 scale = Vector2(0.99998, 0.99998)
 
 [node name="WristL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL" index="0"]
-rotation = 2.51524
+rotation = 2.66981
 scale = Vector2(0.999974, 0.999974)
 
 [node name="HeadMain" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="2"]
-rotation = -0.154878
-scale = Vector2(0.99997, 0.99997)
+rotation = -0.105029
+scale = Vector2(0.999969, 0.999969)
 
 [node name="LowerJaw" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="0"]
-rotation = 1.03646
+rotation = 1.09271
 scale = Vector2(0.999973, 0.999973)
 
 [node name="EarL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="2"]
 scale = Vector2(0.443939, 0.778982)
 
 [node name="UpperLegR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="1"]
-rotation = 2.28996
-scale = Vector2(0.999986, 0.999986)
+rotation = 2.11431
+scale = Vector2(0.999987, 0.999987)
 
 [node name="LowerLegR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/UpperLegR" index="0"]
-rotation = 0.949565
+rotation = 1.31651
 scale = Vector2(0.999977, 0.999977)
 
 [node name="UpperLegL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="2"]
-rotation = 2.34328
+rotation = 2.24718
 scale = Vector2(0.999986, 0.999986)
 
 [node name="LowerLegL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/UpperLegL" index="0"]
-rotation = 0.83887
+rotation = 0.972024
 scale = Vector2(0.999979, 0.999979)
 
 [node name="StunParticle" parent="PlayerController/BearNew/DamageFX/Stun" index="0"]
-position = Vector2(173.787, -591.63)
-rotation = -1.01554
+position = Vector2(163.681, -601.194)
+rotation = -1.04723
 scale = Vector2(0.999946, 0.999946)
 
 [node name="SlowParticle" parent="PlayerController/BearNew/DamageFX/Slow" index="0"]
-position = Vector2(135.753, -678.965)
+position = Vector2(122.899, -687.28)
 scale = Vector2(0.999988, 0.999988)
 
 [node name="AcrobatController" parent="." node_paths=PackedStringArray("objects_container", "target") instance=ExtResource("4_3kwme")]
@@ -755,89 +757,89 @@ objects_container = NodePath("../ObjectSpawner")
 target = NodePath("../PlayerController/BearNew")
 
 [node name="RLegTwoBoneIK" parent="AcrobatController/Acrobat/Skeleton2D/SoupStack/RLegStack" index="0"]
-first_joint_easing = SubResource("Resource_ni3rt")
+first_joint_easing = SubResource("Resource_wjpwi")
 
 [node name="LLegTwoBoneIK" parent="AcrobatController/Acrobat/Skeleton2D/SoupStack/LLegStack" index="0"]
-first_joint_easing = SubResource("Resource_nb7b7")
+first_joint_easing = SubResource("Resource_ubqjx")
 
 [node name="HeadLookAt" parent="AcrobatController/Acrobat/Skeleton2D/SoupStack/HeadStack" index="0"]
-easing = SubResource("Resource_hb5dh")
+easing = SubResource("Resource_rqhn1")
 
 [node name="Bubon1LookAt" parent="AcrobatController/Acrobat/Skeleton2D/SoupStack/HeadStack" index="1"]
-easing = SubResource("Resource_dxg84")
+easing = SubResource("Resource_82tx3")
 
 [node name="Bubon2LookAt" parent="AcrobatController/Acrobat/Skeleton2D/SoupStack/HeadStack" index="2"]
-easing = SubResource("Resource_f3e3t")
+easing = SubResource("Resource_if2k5")
 
 [node name="UpperBody" parent="AcrobatController/Acrobat/Skeleton2D/Main" index="0"]
 scale = Vector2(0.999991, 0.999991)
 
 [node name="Head" parent="AcrobatController/Acrobat/Skeleton2D/Main/UpperBody/Neck" index="0"]
-rotation = 0.0838902
+rotation = 0.0775684
 
 [node name="Bubon_1" parent="AcrobatController/Acrobat/Skeleton2D/Main/UpperBody/Neck/Head" index="0"]
-rotation = -1.01112
+rotation = -1.01655
 scale = Vector2(0.999997, 0.999997)
 
 [node name="Bubon_2" parent="AcrobatController/Acrobat/Skeleton2D/Main/UpperBody/Neck/Head" index="1"]
-rotation = -0.515425
-scale = Vector2(0.999994, 0.999994)
+rotation = -0.518718
+scale = Vector2(0.999993, 0.999993)
 
 [node name="UpperHandR" parent="AcrobatController/Acrobat/Skeleton2D/Main/UpperBody" index="1"]
-rotation = -0.180318
+rotation = -0.189201
 scale = Vector2(0.999989, 0.999989)
 
 [node name="LowerHandR" parent="AcrobatController/Acrobat/Skeleton2D/Main/UpperBody/UpperHandR" index="0"]
-rotation = 0.810157
+rotation = 0.765705
 scale = Vector2(0.999996, 0.999996)
 
 [node name="WristR" parent="AcrobatController/Acrobat/Skeleton2D/Main/UpperBody/UpperHandR/LowerHandR" index="0"]
-rotation = 2.04204
+rotation = 1.87202
 scale = Vector2(0.999997, 0.999997)
 
 [node name="UpperHandL" parent="AcrobatController/Acrobat/Skeleton2D/Main/UpperBody" index="2"]
-rotation = -0.00456173
+rotation = -0.00962977
 scale = Vector2(0.999989, 0.999989)
 
 [node name="LowerHandL" parent="AcrobatController/Acrobat/Skeleton2D/Main/UpperBody/UpperHandL" index="0"]
-rotation = 0.559155
+rotation = 0.524285
 scale = Vector2(0.999994, 0.999994)
 
 [node name="WristL" parent="AcrobatController/Acrobat/Skeleton2D/Main/UpperBody/UpperHandL/LowerHandL" index="0"]
-rotation = 1.21564
+rotation = 1.18401
 scale = Vector2(0.999996, 0.999996)
 
 [node name="UpperLegR" parent="AcrobatController/Acrobat/Skeleton2D/Main" index="1"]
-rotation = 0.0448171
+rotation = 0.0255984
 scale = Vector2(0.999995, 0.999995)
 
 [node name="LowerLegR" parent="AcrobatController/Acrobat/Skeleton2D/Main/UpperLegR" index="0"]
-rotation = -0.130679
+rotation = -0.0934894
 scale = Vector2(0.999994, 0.999994)
 
 [node name="FootR" parent="AcrobatController/Acrobat/Skeleton2D/Main/UpperLegR/LowerLegR" index="0"]
-rotation = 1.59026
+rotation = 1.59028
 scale = Vector2(0.999985, 0.999985)
 
 [node name="UpperLegL" parent="AcrobatController/Acrobat/Skeleton2D/Main" index="2"]
-rotation = 0.0841666
+rotation = 0.0822404
 scale = Vector2(0.999992, 0.999992)
 
 [node name="LowerLegL" parent="AcrobatController/Acrobat/Skeleton2D/Main/UpperLegL" index="0"]
 scale = Vector2(0.999996, 0.999996)
 
 [node name="FootL" parent="AcrobatController/Acrobat/Skeleton2D/Main/UpperLegL/LowerLegL" index="0"]
-rotation = 1.54157
+rotation = 1.54703
 scale = Vector2(0.999994, 0.999994)
 
 [node name="StunParticle" parent="AcrobatController/Acrobat/DamageFX/Stun" index="0"]
-position = Vector2(-48.4073, -1008.12)
-rotation = 0.0639962
+position = Vector2(-47.8064, -1009.52)
+rotation = 0.0615917
 scale = Vector2(0.999979, 0.999979)
 
 [node name="SlowParticle" parent="AcrobatController/Acrobat/DamageFX/Slow" index="0"]
-position = Vector2(-53.72, -1079.91)
-rotation = 0.0639962
+position = Vector2(-53.2916, -1081.3)
+rotation = 0.0615917
 scale = Vector2(0.999979, 0.999979)
 
 [node name="Music" type="Node2D" parent="."]

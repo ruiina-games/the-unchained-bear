@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://clfvobvi3rno6"]
+
+[ext_resource type="Script" path="res://Shop/SpinWheel/addons/spin_wheel.gd" id="1_l4rrp"]
+[ext_resource type="Texture2D" uid="uid://bcu46sm3pcjeq" path="res://assets/Store/Store/Baraban_Stand.png" id="2_80i00"]
+[ext_resource type="Texture2D" uid="uid://cnu682dffev" path="res://assets/Store/Store/Baraban.png" id="3_n73fj"]
+[ext_resource type="Texture2D" uid="uid://gai1hdlhn8lg" path="res://assets/Store/Store/Baraban_Glass.png" id="4_x0syi"]
+
+[node name="spin_wheel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(440, 622)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_l4rrp")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 849.0
+offset_bottom = 722.0
+texture = ExtResource("2_80i00")
+
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6531, 0.6631)
+
+[node name="front" type="TextureRect" parent="background"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -578.0
+offset_top = -578.0
+offset_right = 578.0
+offset_bottom = 578.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(578, 578)
+texture = ExtResource("3_n73fj")
+
+[node name="glass" type="TextureRect" parent="background"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -578.0
+offset_top = -589.5
+offset_right = 578.0
+offset_bottom = 589.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(578, 578)
+texture = ExtResource("4_x0syi")

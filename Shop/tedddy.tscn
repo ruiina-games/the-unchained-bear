@@ -1,0 +1,478 @@
+[gd_scene load_steps=14 format=3 uid="uid://b4rstorssuhyo"]
+
+[ext_resource type="Texture2D" uid="uid://df16curhe4h0t" path="res://assets/Store/Store/Teddy_L_Hand.png" id="1_hn51w"]
+[ext_resource type="Script" path="res://Shop/tedddy.gd" id="1_wvifu"]
+[ext_resource type="Texture2D" uid="uid://duax54qtbyrhl" path="res://assets/Store/Store/Directors_Hahd.png" id="2_bbejp"]
+[ext_resource type="Texture2D" uid="uid://b2lfs3l0n3d8w" path="res://assets/Store/Store/Teddy_Body.png" id="3_3cgox"]
+[ext_resource type="Texture2D" uid="uid://cerw343jleo01" path="res://assets/Store/Store/Teddy_R_Hand.png" id="4_hx3ho"]
+[ext_resource type="Texture2D" uid="uid://dg1k0lbm8upjv" path="res://assets/Store/Store/Teddy_Head.png" id="5_dqjrc"]
+[ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Animatinators/soup_stack.gd" id="6_dcqir"]
+[ext_resource type="Script" path="res://addons/Souperior 2D Skeleton Modifications/Animatinators/Modifications/soup_look_at.gd" id="7_xpr7l"]
+[ext_resource type="AudioStream" uid="uid://p4gnpubv0ip8" path="res://assets/Sounds/zakhar_rofl.mp3" id="9_n2bsf"]
+
+[sub_resource type="Animation" id="Animation_mifei"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TargetNodes/LHandMarker:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(143, -170)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TargetNodes/LHandMarker:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TargetNodes/HeadMarker:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12, -268)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TargetNodes/HeadMarker:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TargetNodes/BodyMarker:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(56, -151)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TargetNodes/BodyMarker:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TargetNodes/RHandMarker:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-151, -190)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TargetNodes/RHandMarker:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_wuifb"]
+resource_name = "greetings"
+length = 1.4
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TargetNodes/HeadMarker:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12, -268)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TargetNodes/HeadMarker:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TargetNodes/BodyMarker:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(56, -151), Vector2(96, -132), Vector2(91, -140), Vector2(56, -151)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TargetNodes/BodyMarker:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TargetNodes/RHandMarker:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 0.8, 1, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-151, -190), Vector2(-146, -193), Vector2(-90, -230), Vector2(-122, -216), Vector2(-98, -235), Vector2(-151, -190)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TargetNodes/RHandMarker:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TargetNodes/LHandMarker:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.4, 1, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(143, -170), Vector2(113, 30), Vector2(124, 20), Vector2(143, -170)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TargetNodes/LHandMarker:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ZakharRoflSound")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_saq70"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TargetNodes/LHandMarker:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 1, 1.6, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(143, -170), Vector2(116, -192), Vector2(146, -132), Vector2(122, -159), Vector2(143, -170)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TargetNodes/LHandMarker:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TargetNodes/HeadMarker:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.4, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-12, -268), Vector2(-33, -264), Vector2(-6, -266), Vector2(-12, -268)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TargetNodes/HeadMarker:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TargetNodes/BodyMarker:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(56, -151), Vector2(47, -151), Vector2(56, -151)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TargetNodes/BodyMarker:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TargetNodes/RHandMarker:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-151, -190), Vector2(-158, -165), Vector2(-190, -121), Vector2(-169, -167), Vector2(-151, -190)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TargetNodes/RHandMarker:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_67d3e"]
+_data = {
+"RESET": SubResource("Animation_mifei"),
+"greetings": SubResource("Animation_wuifb"),
+"idle": SubResource("Animation_saq70")
+}
+
+[node name="Tedddy" type="Node2D"]
+script = ExtResource("1_wvifu")
+
+[node name="Polygons" type="Node2D" parent="."]
+position = Vector2(-4, 24)
+
+[node name="HandL" type="Polygon2D" parent="Polygons"]
+position = Vector2(22, -205)
+texture = ExtResource("1_hn51w")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(81.3002, -8.67518, -7.90606, 93.4283, 36.1597, 132.335, 137.618, 22.0634)
+uv = PackedVector2Array(81.3002, -8.67518, -7.90606, 93.4283, 36.1597, 132.335, 137.618, 22.0634)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+bones = ["Main", PackedFloat32Array(0, 0, 0, 0), "Main/Body", PackedFloat32Array(0, 0, 0, 0), "Main/Body/HandL", PackedFloat32Array(1, 1, 1, 1), "Main/Body/HandR", PackedFloat32Array(0, 0, 0, 0), "Main/Body/Head", PackedFloat32Array(0, 0, 0, 0)]
+
+[node name="BigHand" type="Polygon2D" parent="Polygons"]
+position = Vector2(-67, -70)
+texture = ExtResource("2_bbejp")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(-0.691635, 15.4116, 18.2519, 163.617, 151.692, 150.524, 119.377, 3.71115)
+uv = PackedVector2Array(-0.691635, 15.4116, 18.2519, 163.617, 151.692, 150.524, 119.377, 3.71115)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+bones = ["Main", PackedFloat32Array(1, 1, 1, 1), "Main/Body", PackedFloat32Array(0, 0, 0, 0), "Main/Body/HandL", PackedFloat32Array(0, 0, 0, 0), "Main/Body/HandR", PackedFloat32Array(0, 0, 0, 0), "Main/Body/Head", PackedFloat32Array(0, 0, 0, 0)]
+
+[node name="TeddyBody" type="Polygon2D" parent="Polygons"]
+position = Vector2(-77, -178)
+texture = ExtResource("3_3cgox")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(6.45633, 3.46099, 3.44421, 187.2, 165.238, 185.479, 143.292, -0.411724)
+uv = PackedVector2Array(6.45633, 3.46099, 3.44421, 187.2, 165.238, 185.479, 143.292, -0.411724)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+bones = ["Main", PackedFloat32Array(0, 0, 0, 0), "Main/Body", PackedFloat32Array(1, 1, 1, 1), "Main/Body/HandL", PackedFloat32Array(0, 0, 0, 0), "Main/Body/HandR", PackedFloat32Array(0, 0, 0, 0), "Main/Body/Head", PackedFloat32Array(0, 0, 0, 0)]
+
+[node name="Head" type="Polygon2D" parent="Polygons"]
+position = Vector2(-75, -287)
+texture = ExtResource("5_dqjrc")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(4.06321, -1.12122, 8.87543, 148.359, 111.737, 162.796, 209.486, 36.1736)
+uv = PackedVector2Array(4.06321, -1.12122, 8.87543, 148.359, 111.737, 162.796, 209.486, 36.1736)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+bones = ["Main", PackedFloat32Array(0, 0, 0, 0), "Main/Body", PackedFloat32Array(0, 0, 0, 0), "Main/Body/HandL", PackedFloat32Array(0, 0, 0, 0), "Main/Body/HandR", PackedFloat32Array(0, 0, 0, 0), "Main/Body/Head", PackedFloat32Array(1, 1, 1, 1)]
+
+[node name="HandR" type="Polygon2D" parent="Polygons"]
+position = Vector2(-128, -205)
+texture = ExtResource("4_hx3ho")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(26.6673, -5.18021, -9.98253, 40.2182, 92.6369, 136.217, 142.055, 87.5083, 52.2039, 0.967501)
+uv = PackedVector2Array(26.6673, -5.18021, -9.98253, 40.2182, 92.6369, 136.217, 142.055, 87.5083, 52.2039, 0.967501)
+polygons = [PackedInt32Array(0, 1, 2, 3, 4)]
+bones = ["Main", PackedFloat32Array(0, 0, 0, 0, 0), "Main/Body", PackedFloat32Array(0, 0, 0, 0, 0), "Main/Body/HandL", PackedFloat32Array(0, 0, 0, 0, 0), "Main/Body/HandR", PackedFloat32Array(1, 1, 1, 1, 1), "Main/Body/Head", PackedFloat32Array(0, 0, 0, 0, 0)]
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+
+[node name="SoupStack" type="Node" parent="Skeleton2D"]
+script = ExtResource("6_dcqir")
+
+[node name="HeadLookAt" type="Node" parent="Skeleton2D/SoupStack" node_paths=PackedStringArray("target_node", "bone_node")]
+script = ExtResource("7_xpr7l")
+target_node = NodePath("../../../TargetNodes/HeadMarker")
+enabled = true
+bone_node = NodePath("../../Main/Body/Head")
+
+[node name="BodyLookAt" type="Node" parent="Skeleton2D/SoupStack" node_paths=PackedStringArray("target_node", "bone_node")]
+script = ExtResource("7_xpr7l")
+target_node = NodePath("../../../TargetNodes/BodyMarker")
+enabled = true
+bone_node = NodePath("../../Main/Body")
+
+[node name="RHandLookAt" type="Node" parent="Skeleton2D/SoupStack" node_paths=PackedStringArray("target_node", "bone_node")]
+script = ExtResource("7_xpr7l")
+target_node = NodePath("../../../TargetNodes/RHandMarker")
+enabled = true
+bone_node = NodePath("../../Main/Body/HandR")
+
+[node name="LHandLookAt" type="Node" parent="Skeleton2D/SoupStack" node_paths=PackedStringArray("target_node", "bone_node")]
+script = ExtResource("7_xpr7l")
+target_node = NodePath("../../../TargetNodes/LHandMarker")
+enabled = true
+bone_node = NodePath("../../Main/Body/HandL")
+
+[node name="Main" type="Bone2D" parent="Skeleton2D"]
+position = Vector2(1, 39)
+rest = Transform2D(1, 0, 0, 1, 1, 39)
+
+[node name="Body" type="Bone2D" parent="Skeleton2D/Main"]
+position = Vector2(0, -42)
+rotation = -0.0247009
+rest = Transform2D(1, 0, 0, 1, 0, -42)
+
+[node name="HandL" type="Bone2D" parent="Skeleton2D/Main/Body"]
+position = Vector2(34, -85)
+rotation = -0.610636
+rest = Transform2D(0.760487, -0.649353, 0.649353, 0.760487, 34, -85)
+auto_calculate_length_and_angle = false
+length = 107.808
+bone_angle = 0.0
+
+[node name="HandR" type="Bone2D" parent="Skeleton2D/Main/Body"]
+position = Vector2(-42, -93)
+rotation = -2.3938
+rest = Transform2D(-0.751301, -0.65996, 0.65996, -0.751301, -42, -93)
+auto_calculate_length_and_angle = false
+length = 94.692
+bone_angle = 0.0
+
+[node name="Head" type="Bone2D" parent="Skeleton2D/Main/Body"]
+position = Vector2(3, -132)
+rotation = -1.64161
+rest = Transform2D(-0.058471, -0.998289, 0.998289, -0.058471, 3, -132)
+auto_calculate_length_and_angle = false
+length = 81.577
+bone_angle = 0.0
+
+[node name="TargetNodes" type="Node2D" parent="."]
+
+[node name="HeadMarker" type="Marker2D" parent="TargetNodes"]
+position = Vector2(-12, -268)
+gizmo_extents = 48.5
+
+[node name="BodyMarker" type="Marker2D" parent="TargetNodes"]
+position = Vector2(56, -151)
+gizmo_extents = 48.5
+
+[node name="RHandMarker" type="Marker2D" parent="TargetNodes"]
+position = Vector2(-151, -190)
+gizmo_extents = 48.5
+
+[node name="LHandMarker" type="Marker2D" parent="TargetNodes"]
+position = Vector2(143, -170)
+gizmo_extents = 48.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_67d3e")
+}
+autoplay = "idle"
+
+[node name="ZakharRoflSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_n2bsf")
+volume_db = -10.0
+pitch_scale = 1.2
+max_distance = 50000.0
+bus = &"SFX"

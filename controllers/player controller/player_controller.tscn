@@ -301,58 +301,55 @@ internal_vertex_count = 2
 unique_name_in_owner = true
 
 [node name="TorsoTop" parent="BearNew/Skeleton2D/TorsoMain" index="0"]
-rotation = 0.420887
+rotation = 0.368725
 scale = Vector2(0.999978, 0.999978)
 
 [node name="UpperArmR" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop" index="0"]
-rotation = 1.22129
+rotation = 1.34465
 scale = Vector2(0.999974, 0.999974)
 
 [node name="LowerArmR" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR" index="0"]
-rotation = -1.59183
+rotation = -1.69607
 scale = Vector2(0.999972, 0.999972)
 
 [node name="WristR" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR" index="0"]
-rotation = 1.94097
+rotation = 1.93855
 scale = Vector2(0.999982, 0.999982)
 
 [node name="UpperArmL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop" index="1"]
-rotation = -1.15585
+rotation = -1.07456
 scale = Vector2(0.999975, 0.999975)
 
 [node name="LowerArmL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL" index="0"]
-rotation = -0.282932
+rotation = -0.404222
 scale = Vector2(0.999981, 0.999981)
 
 [node name="WristL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL" index="0"]
-rotation = 2.53571
+rotation = 2.64008
 scale = Vector2(0.999974, 0.999974)
 
 [node name="HeadMain" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop" index="2"]
-rotation = -0.150451
+rotation = -0.118572
 scale = Vector2(0.99997, 0.99997)
 
 [node name="LowerJaw" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="0"]
-rotation = 1.05003
+rotation = 1.08984
 scale = Vector2(0.999974, 0.999974)
 
-[node name="EarL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="2"]
-scale = Vector2(0.443939, 0.778982)
-
 [node name="UpperLegR" parent="BearNew/Skeleton2D/TorsoMain" index="1"]
-rotation = 2.35054
+rotation = 2.2615
 scale = Vector2(0.999985, 0.999985)
 
 [node name="LowerLegR" parent="BearNew/Skeleton2D/TorsoMain/UpperLegR" index="0"]
-rotation = 0.857794
+rotation = 1.00467
 scale = Vector2(0.999974, 0.999974)
 
 [node name="UpperLegL" parent="BearNew/Skeleton2D/TorsoMain" index="2"]
-rotation = 2.55782
+rotation = 2.66106
 scale = Vector2(0.999985, 0.999985)
 
 [node name="LowerLegL" parent="BearNew/Skeleton2D/TorsoMain/UpperLegL" index="0"]
-rotation = 0.536671
+rotation = 0.393239
 scale = Vector2(0.999979, 0.999979)
 
 [node name="AnimationTree" parent="BearNew" index="10"]
@@ -365,13 +362,12 @@ parameters/MainStateMachine/IDLE/blend_position = 1.00243
 parameters/MainStateMachine/JUMP/blend_position = -0.0486618
 
 [node name="StunParticle" parent="BearNew/DamageFX/Stun" index="0"]
-position = Vector2(172.913, -592.509)
-rotation = -1.01836
+position = Vector2(166.483, -598.671)
+rotation = -1.03865
 scale = Vector2(0.999947, 0.999947)
 
 [node name="SlowParticle" parent="BearNew/DamageFX/Slow" index="0"]
-position = Vector2(134.633, -679.737)
-scale = Vector2(0.999989, 0.999989)
+position = Vector2(126.441, -685.104)
 
 [node name="LimboHSM" type="LimboHSM" parent="." node_paths=PackedStringArray("debug_label", "character", "controller")]
 unique_name_in_owner = true

@@ -11,8 +11,8 @@ func crowd_cheer():
 	if crowd_anim_player.current_animation == "crowd_cheer":
 		return
 	
-	var random_number = randi_range(0, 10)
-	if random_number > 8:
+	var random_number = randi_range(0, 11)
+	if random_number > 9:
 		crowd_anim_player.play("crowd_cheer")
 		crowd_anim_player.animation_finished.connect(func(anim_name): if anim_name == "crowd_cheer": crowd_anim_player.play("crowd_idle"))
 		

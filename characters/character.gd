@@ -38,6 +38,7 @@ var is_on_floor: bool = false
 var object: ThrowingObject = null
 
 func _ready() -> void:
+	
 	apply_shader_to_polygons($Polygons)
 	# Initializing current health with max health considering we create a character with full HP
 	if character_stats:
