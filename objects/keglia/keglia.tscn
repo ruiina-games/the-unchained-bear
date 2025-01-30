@@ -37,7 +37,6 @@ radius = 30.9548
 height = 390.045
 
 [node name="RigidBody2D" type="RigidBody2D"]
-z_index = -15
 collision_layer = 0
 collision_mask = 0
 gravity_scale = 2.0
