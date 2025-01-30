@@ -4,32 +4,33 @@ class_name PlayerStats
 @export var game_data: GameData
 
 # @export var unique_skill: Resource
-@export var temporary_modifiers: Array[TemporaryUpgrade]
+@export var temporary_upgrades: Array[TemporaryUpgrade]
 @export var one_time_upgrades: Array[Upgrade]
 
 func clear_temporary_modifiers():
-	for modifier in temporary_modifiers:
-		remove_temporary_modifier(modifier)
+	for upgrade in temporary_upgrades:
+		remove_temporary_upgrade(upgrade)
 	
 # Додає тимчасовий модифікатор і застосовує його ефекти
-func add_temporary_modifier(new_modifier: TemporaryUpgrade) -> void:
-	temporary_modifiers.push_back(new_modifier)
-	apply_modifier(new_modifier, true)  # true = додати ефекти
+func add_temporary_upgrade(new_upgrade: TemporaryUpgrade) -> void:
+	temporary_upgrades.push_back(new_upgrade)
+	apply_modifier(new_upgrade, true)  # true = додати ефекти
 
 # Видаляє тимчасовий модифікатор і віднімає його ефекти
-func remove_temporary_modifier(modifier: TemporaryUpgrade) -> void:
-	if temporary_modifiers.has(modifier):
-		temporary_modifiers.erase(modifier)
-		apply_modifier(modifier, false)  # false = відняти ефекти
+func remove_temporary_upgrade(new_upgrade: TemporaryUpgrade) -> void:
+	if temporary_upgrades.has(new_upgrade):
+		temporary_upgrades.erase(new_upgrade)
+		apply_modifier(new_upgrade, false)  # false = відняти ефекти
 
 # Застосовує або видаляє ефекти модифікатора
 func apply_modifier(modifier: Upgrade, is_adding: bool) -> void:
-	for stat in modifier.upgrade_dictionary:
-		var value = modifier.upgrade_dictionary[stat]
+	for stat in modifier.upgrade_array:
+		
+		var value = stat.multiplier
 		if !is_adding:
 			value = -value  # Якщо віднімаємо, інвертуємо значення
 		
-		match stat:
+		match stat.stat_type:
 			Upgrade.UPGRADABLE_STATS.MAX_HEALTH:
 				increase_max_health(value)
 			Upgrade.UPGRADABLE_STATS.ATTACK_POWER_MULTI:

@@ -1,0 +1,13 @@
+[gd_scene load_steps=8 format=3 uid="uid://bwyqod11pchc1"]
+
+[ext_resource type="Script" path="res://globals/upgrade_manager.gd" id="1_u82n7"]
+[ext_resource type="Script" path="res://data/game data/upgrades/temporary_upgrades.gd" id="2_5y85q"]
+[ext_resource type="Resource" uid="uid://fya84kjlngsu" path="res://data/game data/upgrades/temporary_upgrades/circus_hammer.tres" id="3_7jpun"]
+[ext_resource type="Resource" uid="uid://c7b17bewp4qvk" path="res://data/game data/upgrades/temporary_upgrades/boxing_gloves.tres" id="4_21ags"]
+[ext_resource type="Resource" uid="uid://b0bh5nrdeevxf" path="res://data/game data/upgrades/temporary_upgrades/can_opener.tres" id="5_7al4h"]
+[ext_resource type="Resource" uid="uid://caabbjswodl3q" path="res://data/game data/upgrades/temporary_upgrades/kettlebell.tres" id="6_mndut"]
+[ext_resource type="Resource" uid="uid://bxti5071wyetx" path="res://data/game data/upgrades/temporary_upgrades/training_suit.tres" id="7_r3mad"]
+
+[node name="UpgradeManager" type="Node"]
+script = ExtResource("1_u82n7")
+temporary_upgrades_pool = Array[ExtResource("2_5y85q")]([ExtResource("3_7jpun"), ExtResource("4_21ags"), ExtResource("5_7al4h"), ExtResource("6_mndut"), ExtResource("7_r3mad")])
