@@ -7,7 +7,7 @@
 [ext_resource type="Resource" uid="uid://dhmuofq5ev26f" path="res://characters/animals/lion/lion_fs.tres" id="2_p3b0o"]
 [ext_resource type="Texture2D" uid="uid://ethh0d8mqv1g" path="res://assets/Lion/R_Leg_Up.png" id="2_pde4s"]
 [ext_resource type="Texture2D" uid="uid://bqltm5kbgmtnf" path="res://assets/Lion/Tail.png" id="3_b3sbo"]
-[ext_resource type="Script" path="res://data/characters data/character_data.gd" id="4_gb6q2"]
+[ext_resource type="Script" path="res://data/characters data/character_stats.gd" id="4_gb6q2"]
 [ext_resource type="Texture2D" uid="uid://1fxtqled1p01" path="res://assets/Lion/R_Hand_Up.png" id="4_uj12c"]
 [ext_resource type="Script" path="res://components/hit_box.gd" id="5_18ou3"]
 [ext_resource type="Texture2D" uid="uid://bgxb8we6br8ln" path="res://assets/Lion/R_Hand_Down.png" id="5_paa30"]

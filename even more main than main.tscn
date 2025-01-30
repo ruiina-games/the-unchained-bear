@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://qhpf0l7xje0f"]
+[gd_scene load_steps=8 format=3 uid="uid://qhpf0l7xje0f"]
 
 [ext_resource type="Script" path="res://even_more_main_than_main.gd" id="1_0ojiy"]
 [ext_resource type="PackedScene" uid="uid://nyr1tohq4w76" path="res://level_acrobat.tscn" id="1_ngjpe"]
 [ext_resource type="PackedScene" uid="uid://c1a7wqq7kje5j" path="res://level_beast_tameress.tscn" id="2_yn6u2"]
 [ext_resource type="PackedScene" uid="uid://mwe6kaqwuc8" path="res://level_animals_duo.tscn" id="3_kuhfw"]
+[ext_resource type="Script" path="res://controllers/player controller/stats_container.gd" id="5_2msob"]
+[ext_resource type="PackedScene" uid="uid://cevie0mm3xc4j" path="res://controllers/player controller/player_controller.tscn" id="5_gv1vo"]
+[ext_resource type="Resource" uid="uid://c40i2hba3vmid" path="res://data/characters data/bear/bear_stats.tres" id="6_lcypx"]
 
 [node name="EvenMoreMainThanMain" type="Node2D"]
 script = ExtResource("1_0ojiy")
@@ -21,7 +24,129 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="CharacterStats" type="GridContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -248.0
+offset_top = 35.0
+offset_right = -83.0
+offset_bottom = 301.0
+grow_horizontal = 0
+script = ExtResource("5_2msob")
+character_stats = ExtResource("6_lcypx")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer/Control/CharacterStats"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/CharacterStats/HSplitContainer"]
+layout_mode = 2
+text = "attack multi: "
+
+[node name="strength" type="Label" parent="CanvasLayer/Control/CharacterStats/HSplitContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="HSplitContainer2" type="HSplitContainer" parent="CanvasLayer/Control/CharacterStats"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/CharacterStats/HSplitContainer2"]
+layout_mode = 2
+text = "max health: "
+
+[node name="max health" type="Label" parent="CanvasLayer/Control/CharacterStats/HSplitContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="HSplitContainer3" type="HSplitContainer" parent="CanvasLayer/Control/CharacterStats"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/CharacterStats/HSplitContainer3"]
+layout_mode = 2
+text = "current_health: "
+
+[node name="current health" type="Label" parent="CanvasLayer/Control/CharacterStats/HSplitContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="HSplitContainer4" type="HSplitContainer" parent="CanvasLayer/Control/CharacterStats"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/CharacterStats/HSplitContainer4"]
+layout_mode = 2
+text = "critical chance: "
+
+[node name="critical chance" type="Label" parent="CanvasLayer/Control/CharacterStats/HSplitContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="HSplitContainer6" type="HSplitContainer" parent="CanvasLayer/Control/CharacterStats"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/CharacterStats/HSplitContainer6"]
+layout_mode = 2
+text = "critical damage: "
+
+[node name="critical damage" type="Label" parent="CanvasLayer/Control/CharacterStats/HSplitContainer6"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="HSplitContainer5" type="HSplitContainer" parent="CanvasLayer/Control/CharacterStats"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/CharacterStats/HSplitContainer5"]
+layout_mode = 2
+text = "dodge chance: "
+
+[node name="dodge chance" type="Label" parent="CanvasLayer/Control/CharacterStats/HSplitContainer5"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="HSplitContainer7" type="HSplitContainer" parent="CanvasLayer/Control/CharacterStats"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/CharacterStats/HSplitContainer7"]
+layout_mode = 2
+text = "movement speed: "
+
+[node name="movement speed" type="Label" parent="CanvasLayer/Control/CharacterStats/HSplitContainer7"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="HSplitContainer9" type="HSplitContainer" parent="CanvasLayer/Control/CharacterStats"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/CharacterStats/HSplitContainer9"]
+layout_mode = 2
+text = "status resists: "
+
+[node name="status resist" type="Label" parent="CanvasLayer/Control/CharacterStats/HSplitContainer9"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="HSplitContainer10" type="HSplitContainer" parent="CanvasLayer/Control/CharacterStats"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/CharacterStats/HSplitContainer10"]
+layout_mode = 2
+text = "effect power: "
+
+[node name="effect power" type="Label" parent="CanvasLayer/Control/CharacterStats/HSplitContainer10"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -50,3 +175,77 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Acrobat
 "
+
+[node name="PlayerController" parent="." node_paths=PackedStringArray("target") instance=ExtResource("5_gv1vo")]
+position = Vector2(-754, -3)
+target = NodePath("BearNew")
+
+[node name="TorsoTop" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="0"]
+rotation = 0.352917
+scale = Vector2(0.999978, 0.999978)
+
+[node name="UpperArmR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="0"]
+rotation = 1.37501
+scale = Vector2(0.999973, 0.999973)
+
+[node name="LowerArmR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR" index="0"]
+rotation = -1.70373
+scale = Vector2(0.999971, 0.999971)
+
+[node name="WristR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR" index="0"]
+rotation = 1.95419
+scale = Vector2(0.999982, 0.999982)
+
+[node name="UpperArmL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="1"]
+rotation = -1.0356
+scale = Vector2(0.999975, 0.999975)
+
+[node name="LowerArmL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL" index="0"]
+rotation = -0.442649
+scale = Vector2(0.999981, 0.999981)
+
+[node name="WristL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL" index="0"]
+rotation = 2.66695
+scale = Vector2(0.999974, 0.999974)
+
+[node name="HeadMain" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="2"]
+rotation = -0.108895
+scale = Vector2(0.999969, 0.999969)
+
+[node name="LowerJaw" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="0"]
+rotation = 1.0969
+scale = Vector2(0.999974, 0.999974)
+
+[node name="EarL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="2"]
+scale = Vector2(0.443939, 0.778982)
+
+[node name="UpperLegR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="1"]
+rotation = 1.98127
+scale = Vector2(0.999985, 0.999985)
+
+[node name="LowerLegR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/UpperLegR" index="0"]
+rotation = 1.41048
+scale = Vector2(0.999974, 0.999974)
+
+[node name="UpperLegL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="2"]
+rotation = 2.66287
+scale = Vector2(0.999985, 0.999985)
+
+[node name="LowerLegL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/UpperLegL" index="0"]
+rotation = 0.409049
+scale = Vector2(0.999979, 0.999979)
+
+[node name="StunParticle" parent="PlayerController/BearNew/DamageFX/Stun" index="0"]
+position = Vector2(164.486, -600.479)
+rotation = -1.04478
+scale = Vector2(0.999946, 0.999946)
+
+[node name="SlowParticle" parent="PlayerController/BearNew/DamageFX/Slow" index="0"]
+position = Vector2(123.915, -686.665)
+scale = Vector2(0.999989, 0.999989)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
+
+[editable path="PlayerController"]
+[editable path="PlayerController/BearNew"]

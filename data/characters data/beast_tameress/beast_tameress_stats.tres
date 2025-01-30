@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CharacterStats" load_steps=3 format=3 uid="uid://t3npl04by4g0"]
 
-[ext_resource type="Script" path="res://data/characters data/character_data.gd" id="1_4dkq8"]
+[ext_resource type="Script" path="res://data/characters data/character_stats.gd" id="1_4dkq8"]
 [ext_resource type="Resource" uid="uid://c6l7jwpahuvjx" path="res://fighting styles/beast tameress/beast_tameress_default.tres" id="1_ppk1e"]
 
 [resource]
