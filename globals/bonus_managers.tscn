@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://lxvgbw7lxwpx"]
+
+[ext_resource type="Script" path="res://globals/bonus_manager.gd" id="1_hemmk"]
+
+[node name="BonusManagers" type="Node"]
+script = ExtResource("1_hemmk")
