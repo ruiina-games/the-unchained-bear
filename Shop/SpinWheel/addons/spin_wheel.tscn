@@ -16,6 +16,8 @@ pivot_offset = Vector2(440, 622)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_l4rrp")
+speed = 1
+power = 10
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
@@ -49,6 +51,78 @@ grow_vertical = 2
 pivot_offset = Vector2(578, 578)
 texture = ExtResource("3_n73fj")
 
+[node name="DarkGreenSlot" type="TextureRect" parent="background/front"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 337.633
+offset_top = 118.468
+offset_right = 548.633
+offset_bottom = 329.467
+expand_mode = 2
+
+[node name="DarkBlueSlot" type="TextureRect" parent="background/front"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 605.585
+offset_top = 121.484
+offset_right = 816.585
+offset_bottom = 332.484
+expand_mode = 2
+
+[node name="PinkSlot" type="TextureRect" parent="background/front"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 826.072
+offset_top = 349.202
+offset_right = 1037.07
+offset_bottom = 560.202
+expand_mode = 2
+
+[node name="OrangeSlot" type="TextureRect" parent="background/front"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 824.541
+offset_top = 599.541
+offset_right = 1035.54
+offset_bottom = 810.541
+expand_mode = 2
+
+[node name="GreenSlot" type="TextureRect" parent="background/front"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 605.585
+offset_top = 816.703
+offset_right = 816.585
+offset_bottom = 1027.7
+expand_mode = 2
+
+[node name="PurpleSlot" type="TextureRect" parent="background/front"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 331.508
+offset_top = 822.735
+offset_right = 542.508
+offset_bottom = 1033.74
+expand_mode = 2
+
+[node name="BlueSlot" type="TextureRect" parent="background/front"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 112.552
+offset_top = 599.541
+offset_right = 323.552
+offset_bottom = 810.541
+expand_mode = 2
+
+[node name="YellowSlot" type="TextureRect" parent="background/front"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 114.083
+offset_top = 343.17
+offset_right = 325.083
+offset_bottom = 554.17
+expand_mode = 2
+
 [node name="glass" type="TextureRect" parent="background"]
 unique_name_in_owner = true
 layout_mode = 1
@@ -57,10 +131,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -578.0
-offset_top = -589.5
-offset_right = 578.0
-offset_bottom = 589.5
+offset_left = -575.691
+offset_top = -605.815
+offset_right = 580.309
+offset_bottom = 573.185
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(578, 578)

@@ -6,11 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://mwe6kaqwuc8" path="res://level_animals_duo.tscn" id="3_kuhfw"]
 [ext_resource type="PackedScene" uid="uid://csuyqsgda2pls" path="res://cutscenes/cutscene_main.tscn" id="5_fe3js"]
 [ext_resource type="PackedScene" uid="uid://bnv0o4pvq2ads" path="res://cutscenes/playable/cage_attack_tutorial.tscn" id="6_rxh64"]
-[ext_resource type="PackedScene" path="res://Shop/shop.tscn" id="7_3ujyh"]
+[ext_resource type="PackedScene" uid="uid://iho2j3v1lyy1" path="res://Shop/shop.tscn" id="7_3ujyh"]
 [ext_resource type="Script" path="res://pause.gd" id="8_ja8jw"]
-[ext_resource type="LabelSettings" path="res://cutscenes/smaller_font.tres" id="9_8pm0r"]
-[ext_resource type="LabelSettings" path="res://cutscenes/a_bit_bigger_than_even_smaller_font.tres" id="10_5eap0"]
-[ext_resource type="LabelSettings" path="res://cutscenes/even_smaller_font.tres" id="11_3si7t"]
+[ext_resource type="LabelSettings" uid="uid://drt4vbq5awgad" path="res://cutscenes/smaller_font.tres" id="9_8pm0r"]
+[ext_resource type="LabelSettings" uid="uid://ddlppfp33dpu1" path="res://cutscenes/a_bit_bigger_than_even_smaller_font.tres" id="10_5eap0"]
+[ext_resource type="LabelSettings" uid="uid://wblyhtrwvirh" path="res://cutscenes/even_smaller_font.tres" id="11_3si7t"]
 
 [node name="EvenMoreMainThanMain" type="Node2D"]
 script = ExtResource("1_0ojiy")

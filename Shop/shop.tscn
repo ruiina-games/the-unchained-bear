@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://iho2j3v1lyy1"]
+[gd_scene load_steps=23 format=3 uid="uid://iho2j3v1lyy1"]
 
 [ext_resource type="Texture2D" uid="uid://hfv6fovd6eke" path="res://assets/Store/Store/Background.png" id="1_04ypj"]
 [ext_resource type="Script" path="res://Shop/shop.gd" id="1_f14ov"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dk11w1r725vk4" path="res://assets/Store/Store/Curtain_2.png" id="5_sik2m"]
 [ext_resource type="PackedScene" uid="uid://b4rstorssuhyo" path="res://Shop/tedddy.tscn" id="5_uop7w"]
 [ext_resource type="Texture2D" uid="uid://de5oqmbfgr4uv" path="res://assets/Store/Store/Barrel.png" id="6_be7tm"]
+[ext_resource type="Texture2D" uid="uid://bn7uhusk2hoeq" path="res://globals/photo_2025-01-31_11-39-33.jpg" id="12_lek23"]
 [ext_resource type="AudioStream" uid="uid://j456e5gqtfqm" path="res://assets/Sounds/shop_music.mp3" id="15_5tx3v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qjwae"]
@@ -36,21 +37,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_87uh3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_8hx1j"]
@@ -81,6 +67,21 @@ tracks/1/keys = {
 "args": [],
 "method": &"transition_complete"
 }]
+}
+
+[sub_resource type="Animation" id="Animation_87uh3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b6hg1"]
@@ -133,6 +134,7 @@ text = "Press [E] to proceed to the next boss"
 label_settings = ExtResource("2_8713t")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -254,9 +256,84 @@ offset_bottom = 1082.0
 texture = ExtResource("6_be7tm")
 stretch_mode = 3
 
+[node name="Photo2025-01-3111-39-33" type="Sprite2D" parent="Location"]
+position = Vector2(-3708, -874)
+scale = Vector2(3.57103, 3.57103)
+texture = ExtResource("12_lek23")
+
 [node name="PlayerController" parent="." node_paths=PackedStringArray("target") instance=ExtResource("1_tvtkn")]
 position = Vector2(-707, 420)
 target = NodePath("../DummyTarget")
+
+[node name="Control" parent="PlayerController/CanvasLayer" index="0"]
+visible = true
+
+[node name="HPBar" parent="PlayerController/CanvasLayer" index="1"]
+visible = false
+
+[node name="TorsoTop" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="0"]
+rotation = 0.413033
+scale = Vector2(0.999977, 0.999977)
+
+[node name="UpperArmR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="0"]
+rotation = 1.23847
+scale = Vector2(0.999973, 0.999973)
+
+[node name="LowerArmR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR" index="0"]
+rotation = -1.60795
+scale = Vector2(0.999971, 0.999971)
+
+[node name="WristR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR" index="0"]
+rotation = 1.93873
+scale = Vector2(0.999981, 0.999981)
+
+[node name="UpperArmL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="1"]
+rotation = -1.14606
+scale = Vector2(0.999975, 0.999975)
+
+[node name="LowerArmL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL" index="0"]
+rotation = -0.300668
+scale = Vector2(0.999981, 0.999981)
+
+[node name="WristL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL" index="0"]
+rotation = 2.55205
+scale = Vector2(0.999973, 0.999973)
+
+[node name="HeadMain" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="2"]
+rotation = -0.145657
+scale = Vector2(0.999969, 0.999969)
+
+[node name="LowerJaw" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="0"]
+rotation = 1.05695
+scale = Vector2(0.999973, 0.999973)
+
+[node name="EarL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="2"]
+scale = Vector2(0.443939, 0.778982)
+
+[node name="UpperLegR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="1"]
+rotation = 2.3376
+scale = Vector2(0.999985, 0.999985)
+
+[node name="LowerLegR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/UpperLegR" index="0"]
+rotation = 0.879036
+scale = Vector2(0.999973, 0.999973)
+
+[node name="UpperLegL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="2"]
+rotation = 2.5736
+scale = Vector2(0.999984, 0.999984)
+
+[node name="LowerLegL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/UpperLegL" index="0"]
+rotation = 0.514596
+scale = Vector2(0.999978, 0.999978)
+
+[node name="StunParticle" parent="PlayerController/BearNew/DamageFX/Stun" index="0"]
+position = Vector2(171.961, -593.456)
+rotation = -1.02142
+scale = Vector2(0.999945, 0.999945)
+
+[node name="SlowParticle" parent="PlayerController/BearNew/DamageFX/Slow" index="0"]
+position = Vector2(133.414, -680.565)
+scale = Vector2(0.999988, 0.999988)
 
 [node name="DummyTarget" type="CharacterBody2D" parent="."]
 visible = false
@@ -300,4 +377,6 @@ libraries = {
 [connection signal="body_entered" from="NextStageArea" to="." method="_on_next_stage_area_body_entered"]
 [connection signal="body_exited" from="NextStageArea" to="." method="_on_next_stage_area_body_exited"]
 
+[editable path="PlayerController"]
+[editable path="PlayerController/BearNew"]
 [editable path="spin_wheel"]

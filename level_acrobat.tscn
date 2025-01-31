@@ -421,31 +421,31 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h68ra"]
 size = Vector2(4719, 688)
 
-[sub_resource type="Resource" id="Resource_k1i0c"]
+[sub_resource type="Resource" id="Resource_noidp"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_r70l8"]
+[sub_resource type="Resource" id="Resource_b14gt"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_1lh4o"]
+[sub_resource type="Resource" id="Resource_0b618"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_qw0ta"]
+[sub_resource type="Resource" id="Resource_eiyj4"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_wm1gi"]
+[sub_resource type="Resource" id="Resource_qlx0d"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
@@ -721,6 +721,9 @@ scale = Vector2(0.999969, 0.999969)
 rotation = 1.03297
 scale = Vector2(0.999973, 0.999973)
 
+[node name="EarL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="2"]
+scale = Vector2(0.443939, 0.778982)
+
 [node name="UpperLegR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="1"]
 rotation = 1.87964
 scale = Vector2(0.999987, 0.999987)
@@ -751,19 +754,19 @@ objects_container = NodePath("../ObjectSpawner")
 target = NodePath("../PlayerController/BearNew")
 
 [node name="RLegTwoBoneIK" parent="AcrobatController/Acrobat/Skeleton2D/SoupStack/RLegStack" index="0"]
-first_joint_easing = SubResource("Resource_k1i0c")
+first_joint_easing = SubResource("Resource_noidp")
 
 [node name="LLegTwoBoneIK" parent="AcrobatController/Acrobat/Skeleton2D/SoupStack/LLegStack" index="0"]
-first_joint_easing = SubResource("Resource_r70l8")
+first_joint_easing = SubResource("Resource_b14gt")
 
 [node name="HeadLookAt" parent="AcrobatController/Acrobat/Skeleton2D/SoupStack/HeadStack" index="0"]
-easing = SubResource("Resource_1lh4o")
+easing = SubResource("Resource_0b618")
 
 [node name="Bubon1LookAt" parent="AcrobatController/Acrobat/Skeleton2D/SoupStack/HeadStack" index="1"]
-easing = SubResource("Resource_qw0ta")
+easing = SubResource("Resource_eiyj4")
 
 [node name="Bubon2LookAt" parent="AcrobatController/Acrobat/Skeleton2D/SoupStack/HeadStack" index="2"]
-easing = SubResource("Resource_wm1gi")
+easing = SubResource("Resource_qlx0d")
 
 [node name="UpperBody" parent="AcrobatController/Acrobat/Skeleton2D/Main" index="0"]
 scale = Vector2(0.999989, 0.999989)

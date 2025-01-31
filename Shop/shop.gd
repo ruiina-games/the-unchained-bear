@@ -16,7 +16,11 @@ signal next_stage
 var shop_active: bool = false
 var if_on_exit: bool = false
 var  transition_completed: bool = false
+
 func _ready():
+	wheel.current_chatacter_stats = player_controller.actor.character_stats
+	wheel.place_resources()
+	
 	transition_completed = false
 	animation_player.play("APPEAR")
 	player_controller.hp_bar_container.visible = false
