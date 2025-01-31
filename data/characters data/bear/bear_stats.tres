@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource("2_blefl")
-temporary_modifiers = Array[ExtResource("3_7ixr4")]([])
+temporary_upgrades = Array[ExtResource("3_7ixr4")]([])
 one_time_upgrades = Array[ExtResource("1_sin6s")]([])
 attack_power_multiplier = 1.0
 max_health = 2000
