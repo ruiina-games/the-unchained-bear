@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ShopUpgrade" load_steps=5 format=3 uid="uid://ce0p7w5d3q8nj"]
+
+[ext_resource type="Script" path="res://data/game data/upgrades/shop_upgrade.gd" id="1_7bbjd"]
+[ext_resource type="Script" path="res://data/game data/upgrades/stat_model.gd" id="2_njvfu"]
+
+[sub_resource type="Resource" id="Resource_11032"]
+script = ExtResource("2_njvfu")
+stat_type = 1
+multiplier = 400.0
+
+[sub_resource type="Resource" id="Resource_14hnd"]
+script = ExtResource("2_njvfu")
+stat_type = 5
+multiplier = 0.05
+
+[resource]
+script = ExtResource("1_7bbjd")
+title = "Sweets Seller's Belt"
+money_type = 0
+cost = 15
+upgrade_array = Array[ExtResource("2_njvfu")]([SubResource("Resource_11032"), SubResource("Resource_14hnd")])
+upgrade_multi_step = 0.1
+slot_type = 2
+icon_folder_path = ""
+rarity = 0
+id = 100
+name = "Sweets Seller's Belt"
+description = "This elegant hat make everyone who sees you respect you and gives you confidence in battle."

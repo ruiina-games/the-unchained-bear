@@ -15,6 +15,7 @@ multiplier = 0.2
 
 [resource]
 script = ExtResource("1_nw0kj")
+title = "Cylinder Hat"
 money_type = 0
 cost = 15
 upgrade_array = Array[ExtResource("2_hwkgf")]([SubResource("Resource_11032"), SubResource("Resource_d2ue5")])
@@ -22,6 +23,6 @@ upgrade_multi_step = 0.1
 slot_type = 1
 icon_folder_path = ""
 rarity = 0
-id = 0
+id = 100
 name = "Cylinder Hat"
 description = "This elegant hat make everyone who sees you respect you and gives you confidence in battle."

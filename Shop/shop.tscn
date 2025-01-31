@@ -1,18 +1,18 @@
-[gd_scene load_steps=22 format=3 uid="uid://iho2j3v1lyy1"]
+[gd_scene load_steps=22 format=3 uid="uid://bp46gk64vilq5"]
 
 [ext_resource type="Texture2D" uid="uid://hfv6fovd6eke" path="res://assets/Store/Store/Background.png" id="1_04ypj"]
 [ext_resource type="Script" path="res://Shop/shop.gd" id="1_f14ov"]
 [ext_resource type="PackedScene" uid="uid://cevie0mm3xc4j" path="res://controllers/player controller/player_controller.tscn" id="1_tvtkn"]
-[ext_resource type="LabelSettings" uid="uid://brp3qn5x2peqk" path="res://cutscenes/basic_font.tres" id="2_8713t"]
+[ext_resource type="LabelSettings" path="res://cutscenes/basic_font.tres" id="2_8713t"]
 [ext_resource type="Script" path="res://characters/character.gd" id="2_ck00k"]
 [ext_resource type="Texture2D" uid="uid://duw820g44xtga" path="res://assets/Store/Store/Flags_2.png" id="2_whptf"]
 [ext_resource type="Texture2D" uid="uid://dttiblyel24gd" path="res://assets/Store/Store/Flags_1.png" id="3_23o10"]
 [ext_resource type="Texture2D" uid="uid://cruuvs84mf7r4" path="res://assets/Store/Store/Cabin background.png" id="4_3djtt"]
 [ext_resource type="Texture2D" uid="uid://bv78avhd1u116" path="res://assets/Store/Store/Curtain_1.png" id="4_3rwbo"]
-[ext_resource type="PackedScene" uid="uid://clfvobvi3rno6" path="res://Shop/SpinWheel/addons/spin_wheel.tscn" id="4_febeg"]
+[ext_resource type="PackedScene" path="res://Shop/SpinWheel/addons/spin_wheel.tscn" id="4_febeg"]
 [ext_resource type="Texture2D" uid="uid://bh1slwxpbhhgx" path="res://assets/Store/Store/Cabin.png" id="5_2x8qb"]
 [ext_resource type="Texture2D" uid="uid://dk11w1r725vk4" path="res://assets/Store/Store/Curtain_2.png" id="5_sik2m"]
-[ext_resource type="PackedScene" uid="uid://b4rstorssuhyo" path="res://Shop/tedddy.tscn" id="5_uop7w"]
+[ext_resource type="PackedScene" path="res://Shop/tedddy.tscn" id="5_uop7w"]
 [ext_resource type="Texture2D" uid="uid://de5oqmbfgr4uv" path="res://assets/Store/Store/Barrel.png" id="6_be7tm"]
 [ext_resource type="AudioStream" uid="uid://j456e5gqtfqm" path="res://assets/Sounds/shop_music.mp3" id="15_5tx3v"]
 
@@ -36,21 +36,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_87uh3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_8hx1j"]
@@ -81,6 +66,21 @@ tracks/1/keys = {
 "args": [],
 "method": &"transition_complete"
 }]
+}
+
+[sub_resource type="Animation" id="Animation_87uh3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b6hg1"]
@@ -247,10 +247,10 @@ stretch_mode = 3
 
 [node name="Barrel" type="TextureRect" parent="Location"]
 layout_mode = 0
-offset_left = -939.0
-offset_top = -1098.0
-offset_right = 2921.0
-offset_bottom = 1082.0
+offset_left = -938.0
+offset_top = -1097.0
+offset_right = 2922.0
+offset_bottom = 1083.0
 texture = ExtResource("6_be7tm")
 stretch_mode = 3
 

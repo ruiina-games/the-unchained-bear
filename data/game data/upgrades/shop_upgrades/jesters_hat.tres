@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ShopUpgrade" load_steps=5 format=3 uid="uid://camak8sgselho"]
+
+[ext_resource type="Script" path="res://data/game data/upgrades/shop_upgrade.gd" id="1_405fx"]
+[ext_resource type="Script" path="res://data/game data/upgrades/stat_model.gd" id="2_gt57t"]
+
+[sub_resource type="Resource" id="Resource_11032"]
+script = ExtResource("2_gt57t")
+stat_type = 7
+multiplier = 0.25
+
+[sub_resource type="Resource" id="Resource_d2ue5"]
+script = ExtResource("2_gt57t")
+stat_type = 5
+multiplier = 0.2
+
+[resource]
+script = ExtResource("1_405fx")
+title = "A Jester's Hat"
+money_type = 0
+cost = 35
+upgrade_array = Array[ExtResource("2_gt57t")]([SubResource("Resource_11032"), SubResource("Resource_d2ue5")])
+upgrade_multi_step = 0.1
+slot_type = 1
+icon_folder_path = ""
+rarity = 0
+id = 100
+name = "A Jester's Hat"
+description = "This elegant hat make everyone who sees you respect you and gives you confidence in battle."

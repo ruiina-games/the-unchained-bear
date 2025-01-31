@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bvrwck24d0ij6" path="res://assets/Tiger/R_Leg_Up.png" id="3_fn7px"]
 [ext_resource type="Script" path="res://data/damage/scripts/damage.gd" id="3_pw0xh"]
 [ext_resource type="Texture2D" uid="uid://cpbtgbmmbmjm6" path="res://assets/Tiger/Tail.png" id="4_fj4et"]
-[ext_resource type="Script" path="res://fighting styles/figting_style.gd" id="4_rnr0w"]
+[ext_resource type="Script" path="res://fighting styles/fighting_style.gd" id="4_rnr0w"]
 [ext_resource type="Script" path="res://data/characters data/character_stats.gd" id="5_3d8y5"]
 [ext_resource type="Texture2D" uid="uid://bhpj5ukhawh08" path="res://assets/Tiger/R_Hand_Up.png" id="5_sa2vo"]
 [ext_resource type="Texture2D" uid="uid://coyhplnf0s6no" path="res://assets/Tiger/R_Hand_Down.png" id="6_5h4cn"]

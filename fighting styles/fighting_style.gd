@@ -1,4 +1,4 @@
-extends Upgrade
+extends ShopUpgrade
 class_name FightingStyle
 
 @export var max_combo_count: int

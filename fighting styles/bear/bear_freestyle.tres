@@ -1,18 +1,23 @@
-[gd_resource type="Resource" script_class="FightingStyle" load_steps=5 format=3 uid="uid://c1srjs271sw2o"]
+[gd_resource type="Resource" script_class="FightingStyle" load_steps=6 format=3 uid="uid://c1srjs271sw2o"]
 
 [ext_resource type="Resource" uid="uid://bbc0sjb7y22vo" path="res://data/damage/damages/bear_freestyle/attack_base.tres" id="1_cckga"]
-[ext_resource type="Script" path="res://fighting styles/figting_style.gd" id="1_lrcxd"]
 [ext_resource type="Resource" uid="uid://ckkyyq4wt2qh1" path="res://data/damage/damages/bear_freestyle/knockback_attack.tres" id="2_w53nb"]
 [ext_resource type="Resource" uid="uid://0dak1sd5qsvf" path="res://data/damage/damages/bear_freestyle/bleeding_attack.tres" id="3_sghtk"]
+[ext_resource type="Script" path="res://fighting styles/fighting_style.gd" id="4_r1eml"]
+[ext_resource type="Script" path="res://data/game data/upgrades/stat_model.gd" id="5_q5cmr"]
 
 [resource]
-script = ExtResource("1_lrcxd")
+script = ExtResource("4_r1eml")
 max_combo_count = 3
 damage_variations = {
 0: ExtResource("2_w53nb"),
 1: ExtResource("1_cckga"),
 2: ExtResource("3_sghtk")
 }
+title = "Freestyle"
+money_type = 0
+cost = 0
+upgrade_array = Array[ExtResource("5_q5cmr")]([])
 upgrade_multi_step = 1.0
 slot_type = 4
 icon_folder_path = ""

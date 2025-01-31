@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="FightingStyle" load_steps=3 format=3 uid="uid://k8syeoud0s83"]
+[gd_resource type="Resource" script_class="FightingStyle" load_steps=4 format=3 uid="uid://k8syeoud0s83"]
 
 [ext_resource type="Resource" uid="uid://cfkp7vj2m1t16" path="res://data/damage/damages/bear_boxing/knockback_attack_boxing.tres" id="1_1lskt"]
-[ext_resource type="Script" path="res://fighting styles/figting_style.gd" id="1_7osyb"]
+[ext_resource type="Script" path="res://fighting styles/fighting_style.gd" id="2_lkjl3"]
+[ext_resource type="Script" path="res://data/game data/upgrades/stat_model.gd" id="3_psjlk"]
 
 [resource]
-script = ExtResource("1_7osyb")
+script = ExtResource("2_lkjl3")
 max_combo_count = 4
 damage_variations = {
 0: ExtResource("1_1lskt"),
@@ -12,6 +13,10 @@ damage_variations = {
 2: ExtResource("1_1lskt"),
 3: ExtResource("1_1lskt")
 }
+title = "Booklet \"The Great Box\""
+money_type = 0
+cost = 100
+upgrade_array = Array[ExtResource("3_psjlk")]([])
 upgrade_multi_step = 1.0
 slot_type = 4
 icon_folder_path = ""
