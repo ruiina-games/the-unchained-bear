@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://iho2j3v1lyy1"]
+[gd_scene load_steps=40 format=3 uid="uid://iho2j3v1lyy1"]
 
 [ext_resource type="Texture2D" uid="uid://hfv6fovd6eke" path="res://assets/Store/Store/Background.png" id="1_04ypj"]
 [ext_resource type="Script" path="res://Shop/shop.gd" id="1_f14ov"]
@@ -7,14 +7,44 @@
 [ext_resource type="Script" path="res://characters/character.gd" id="2_ck00k"]
 [ext_resource type="Texture2D" uid="uid://duw820g44xtga" path="res://assets/Store/Store/Flags_2.png" id="2_whptf"]
 [ext_resource type="Texture2D" uid="uid://dttiblyel24gd" path="res://assets/Store/Store/Flags_1.png" id="3_23o10"]
+[ext_resource type="Script" path="res://Shop/inventory.gd" id="3_75rdg"]
+[ext_resource type="LabelSettings" uid="uid://ddlppfp33dpu1" path="res://cutscenes/a_bit_bigger_than_even_smaller_font.tres" id="3_cc6nc"]
+[ext_resource type="LabelSettings" uid="uid://drt4vbq5awgad" path="res://cutscenes/smaller_font.tres" id="3_ms27o"]
+[ext_resource type="Script" path="res://controllers/player controller/stats_container.gd" id="3_p4i63"]
 [ext_resource type="Texture2D" uid="uid://cruuvs84mf7r4" path="res://assets/Store/Store/Cabin background.png" id="4_3djtt"]
 [ext_resource type="Texture2D" uid="uid://bv78avhd1u116" path="res://assets/Store/Store/Curtain_1.png" id="4_3rwbo"]
 [ext_resource type="PackedScene" uid="uid://clfvobvi3rno6" path="res://Shop/SpinWheel/addons/spin_wheel.tscn" id="4_febeg"]
+[ext_resource type="Texture2D" uid="uid://cht7cpqdol3r7" path="res://assets/Upgrades/Temporary Upgrades/Kettlebell/common.png" id="4_pf8yp"]
+[ext_resource type="Resource" uid="uid://c40i2hba3vmid" path="res://data/characters data/bear/bear_stats.tres" id="4_vxxbe"]
 [ext_resource type="Texture2D" uid="uid://bh1slwxpbhhgx" path="res://assets/Store/Store/Cabin.png" id="5_2x8qb"]
+[ext_resource type="Texture2D" uid="uid://76dlrsv2uvda" path="res://assets/Upgrades/Temporary Upgrades/Training Suit/common.png" id="5_nlss8"]
 [ext_resource type="Texture2D" uid="uid://dk11w1r725vk4" path="res://assets/Store/Store/Curtain_2.png" id="5_sik2m"]
 [ext_resource type="PackedScene" uid="uid://b4rstorssuhyo" path="res://Shop/tedddy.tscn" id="5_uop7w"]
 [ext_resource type="Texture2D" uid="uid://de5oqmbfgr4uv" path="res://assets/Store/Store/Barrel.png" id="6_be7tm"]
+[ext_resource type="PackedScene" uid="uid://cjbnosxi4m18l" path="res://characters/bear/bear_new.tscn" id="6_q34lt"]
+[ext_resource type="Texture2D" uid="uid://bkc0sma77uove" path="res://assets/Upgrades/Temporary Upgrades/Circus Hammer/common.png" id="7_uo8eo"]
+[ext_resource type="Texture2D" uid="uid://dgiuwaixygax8" path="res://assets/Upgrades/Temporary Upgrades/Boxing Gloves/common.png" id="8_xhtjx"]
+[ext_resource type="Texture2D" uid="uid://bn7uhusk2hoeq" path="res://globals/photo_2025-01-31_11-39-33.jpg" id="12_lek23"]
+[ext_resource type="Script" path="res://Shop/prize_popup.gd" id="13_3erh3"]
 [ext_resource type="AudioStream" uid="uid://j456e5gqtfqm" path="res://assets/Sounds/shop_music.mp3" id="15_5tx3v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ountj"]
+bg_color = Color(0, 0, 0, 0.752941)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yib2x"]
+bg_color = Color(0, 0, 0, 0.768627)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qsu38"]
+bg_color = Color(0, 0, 0, 0.764706)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8w8pe"]
+bg_color = Color(1.50409e-07, 0.364729, 3.85046e-07, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q11h6"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cpsic"]
+bg_color = Color(5.86594e-08, 0.143815, 9.62615e-08, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qjwae"]
 size = Vector2(677, 1048)
@@ -36,21 +66,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_87uh3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_8hx1j"]
@@ -81,6 +96,21 @@ tracks/1/keys = {
 "args": [],
 "method": &"transition_complete"
 }]
+}
+
+[sub_resource type="Animation" id="Animation_87uh3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b6hg1"]
@@ -115,6 +145,23 @@ grow_vertical = 0
 text = "Press [E] to interact"
 label_settings = ExtResource("2_8713t")
 
+[node name="HintLabel2" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -1287.0
+offset_top = -2103.0
+offset_right = 53.0
+offset_bottom = -1938.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "You can press [I] to open inventory"
+label_settings = ExtResource("3_ms27o")
+horizontal_alignment = 1
+
 [node name="QuestionLabel" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
 visible = false
@@ -133,6 +180,7 @@ text = "Press [E] to proceed to the next boss"
 label_settings = ExtResource("2_8713t")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -143,6 +191,408 @@ offset_bottom = 109.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="Inventory" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("3_75rdg")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Inventory"]
+layout_mode = 0
+offset_left = -1160.0
+offset_top = -1320.0
+offset_right = 1113.0
+offset_bottom = 344.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ountj")
+
+[node name="PlayerInventoryContainer" type="HBoxContainer" parent="CanvasLayer/Inventory/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 42.0
+offset_bottom = -342.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HeadTorsoSlotsContainer" type="VBoxContainer" parent="CanvasLayer/Inventory/Panel/PlayerInventoryContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="HeadPieceContainer" type="VBoxContainer" parent="CanvasLayer/Inventory/Panel/PlayerInventoryContainer/HeadTorsoSlotsContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Inventory/Panel/PlayerInventoryContainer/HeadTorsoSlotsContainer/HeadPieceContainer"]
+layout_mode = 2
+text = "Head Piece"
+label_settings = ExtResource("3_cc6nc")
+horizontal_alignment = 1
+
+[node name="HeadPieceIcon" type="TextureRect" parent="CanvasLayer/Inventory/Panel/PlayerInventoryContainer/HeadTorsoSlotsContainer/HeadPieceContainer"]
+layout_mode = 2
+texture = ExtResource("4_pf8yp")
+stretch_mode = 3
+
+[node name="HeadPieceStats" type="Label" parent="CanvasLayer/Inventory/Panel/PlayerInventoryContainer/HeadTorsoSlotsContainer/HeadPieceContainer"]
+layout_mode = 2
+text = "+30 Damage Multiplier"
+label_settings = ExtResource("3_cc6nc")
+horizontal_alignment = 1
+
+[node name="TorsoPieceContainer" type="VBoxContainer" parent="CanvasLayer/Inventory/Panel/PlayerInventoryContainer/HeadTorsoSlotsContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Inventory/Panel/PlayerInventoryContainer/HeadTorsoSlotsContainer/TorsoPieceContainer"]
+layout_mode = 2
+text = "Torso Piece
+"
+label_settings = ExtResource("3_cc6nc")
+horizontal_alignment = 1
+
+[node name="TorsoPieceIcon" type="TextureRect" parent="CanvasLayer/Inventory/Panel/PlayerInventoryContainer/HeadTorsoSlotsContainer/TorsoPieceContainer"]
+layout_mode = 2
+texture = ExtResource("5_nlss8")
+stretch_mode = 3
+
+[node name="TorsoPieceStats" type="Label" parent="CanvasLayer/Inventory/Panel/PlayerInventoryContainer/HeadTorsoSlotsContainer/TorsoPieceContainer"]
+layout_mode = 2
+text = "+30 Damage Multiplier"
+label_settings = ExtResource("3_cc6nc")
+horizontal_alignment = 1
+
+[node name="PlayerModel" type="Panel" parent="CanvasLayer/Inventory/Panel/PlayerInventoryContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_yib2x")
+
+[node name="BearNew" parent="CanvasLayer/Inventory/Panel/PlayerInventoryContainer/PlayerModel" instance=ExtResource("6_q34lt")]
+position = Vector2(378, 1037)
+scale = Vector2(1.12, 1.12)
+
+[node name="CurrencyContainer" type="HBoxContainer" parent="CanvasLayer/Inventory/Panel/PlayerInventoryContainer/PlayerModel"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1170.0
+offset_right = 756.0
+offset_bottom = 1278.0
+alignment = 1
+
+[node name="TicketsContainer" type="HBoxContainer" parent="CanvasLayer/Inventory/Panel/PlayerInventoryContainer/PlayerModel/CurrencyContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="TicketsAmount" type="Label" parent="CanvasLayer/Inventory/Panel/PlayerInventoryContainer/PlayerModel/CurrencyContainer/TicketsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("3_cc6nc")
+
+[node name="Tickets" type="Label" parent="CanvasLayer/Inventory/Panel/PlayerInventoryContainer/PlayerModel/CurrencyContainer/TicketsContainer"]
+layout_mode = 2
+text = "Tickets"
+label_settings = ExtResource("3_cc6nc")
+
+[node name="TokentsContainer" type="HBoxContainer" parent="CanvasLayer/Inventory/Panel/PlayerInventoryContainer/PlayerModel/CurrencyContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="TokensAmount" type="Label" parent="CanvasLayer/Inventory/Panel/PlayerInventoryContainer/PlayerModel/CurrencyContainer/TokentsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("3_cc6nc")
+
+[node name="Tokens" type="Label" parent="CanvasLayer/Inventory/Panel/PlayerInventoryContainer/PlayerModel/CurrencyContainer/TokentsContainer"]
+layout_mode = 2
+text = "Tokens"
+label_settings = ExtResource("3_cc6nc")
+
+[node name="FeetStyleContainer" type="VBoxContainer" parent="CanvasLayer/Inventory/Panel/PlayerInventoryContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 50
+
+[node name="FeetPieceContainer" type="VBoxContainer" parent="CanvasLayer/Inventory/Panel/PlayerInventoryContainer/FeetStyleContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Inventory/Panel/PlayerInventoryContainer/FeetStyleContainer/FeetPieceContainer"]
+layout_mode = 2
+text = "Feet Piece"
+label_settings = ExtResource("3_cc6nc")
+horizontal_alignment = 1
+
+[node name="FeetPieceIcon" type="TextureRect" parent="CanvasLayer/Inventory/Panel/PlayerInventoryContainer/FeetStyleContainer/FeetPieceContainer"]
+layout_mode = 2
+texture = ExtResource("7_uo8eo")
+stretch_mode = 3
+
+[node name="FeetPieceStats" type="Label" parent="CanvasLayer/Inventory/Panel/PlayerInventoryContainer/FeetStyleContainer/FeetPieceContainer"]
+layout_mode = 2
+text = "+30 Damage Multiplier"
+label_settings = ExtResource("3_cc6nc")
+horizontal_alignment = 1
+
+[node name="TorsoPieceContainer" type="VBoxContainer" parent="CanvasLayer/Inventory/Panel/PlayerInventoryContainer/FeetStyleContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Inventory/Panel/PlayerInventoryContainer/FeetStyleContainer/TorsoPieceContainer"]
+layout_mode = 2
+text = "Fighting Style
+"
+label_settings = ExtResource("3_cc6nc")
+horizontal_alignment = 1
+
+[node name="TorsoPieceIcon" type="TextureRect" parent="CanvasLayer/Inventory/Panel/PlayerInventoryContainer/FeetStyleContainer/TorsoPieceContainer"]
+layout_mode = 2
+texture = ExtResource("8_xhtjx")
+stretch_mode = 3
+
+[node name="TorsoPieceStats" type="Label" parent="CanvasLayer/Inventory/Panel/PlayerInventoryContainer/FeetStyleContainer/TorsoPieceContainer"]
+layout_mode = 2
+text = "Freestyle"
+label_settings = ExtResource("3_cc6nc")
+horizontal_alignment = 1
+
+[node name="StatsContainer" type="GridContainer" parent="CanvasLayer/Inventory/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.97
+anchor_right = 0.5
+anchor_bottom = 0.97
+offset_left = -819.0
+offset_top = -253.0
+offset_right = 819.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/h_separation = 200
+theme_override_constants/v_separation = 23
+columns = 3
+script = ExtResource("3_p4i63")
+character_stats = ExtResource("4_vxxbe")
+
+[node name="DamageMultiplierContainer" type="HSplitContainer" parent="CanvasLayer/Inventory/Panel/StatsContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Inventory/Panel/StatsContainer/DamageMultiplierContainer"]
+layout_mode = 2
+text = "Damage Multiplier: "
+label_settings = ExtResource("3_cc6nc")
+
+[node name="damage_multiplier" type="Label" parent="CanvasLayer/Inventory/Panel/StatsContainer/DamageMultiplierContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("3_cc6nc")
+horizontal_alignment = 2
+
+[node name="MaxHealthContainer" type="HSplitContainer" parent="CanvasLayer/Inventory/Panel/StatsContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Inventory/Panel/StatsContainer/MaxHealthContainer"]
+layout_mode = 2
+text = "Max Health: "
+label_settings = ExtResource("3_cc6nc")
+
+[node name="max health" type="Label" parent="CanvasLayer/Inventory/Panel/StatsContainer/MaxHealthContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("3_cc6nc")
+horizontal_alignment = 2
+
+[node name="DogdeContainer" type="HSplitContainer" parent="CanvasLayer/Inventory/Panel/StatsContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Inventory/Panel/StatsContainer/DogdeContainer"]
+layout_mode = 2
+text = "Dodge Chance: "
+label_settings = ExtResource("3_cc6nc")
+
+[node name="dodge_chance" type="Label" parent="CanvasLayer/Inventory/Panel/StatsContainer/DogdeContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("3_cc6nc")
+horizontal_alignment = 2
+
+[node name="CriticalChanceContainer" type="HSplitContainer" parent="CanvasLayer/Inventory/Panel/StatsContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Inventory/Panel/StatsContainer/CriticalChanceContainer"]
+layout_mode = 2
+text = "Critical Chance: "
+label_settings = ExtResource("3_cc6nc")
+
+[node name="critical_chance" type="Label" parent="CanvasLayer/Inventory/Panel/StatsContainer/CriticalChanceContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("3_cc6nc")
+horizontal_alignment = 2
+
+[node name="CurrentHeatlthContainer" type="HSplitContainer" parent="CanvasLayer/Inventory/Panel/StatsContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Inventory/Panel/StatsContainer/CurrentHeatlthContainer"]
+layout_mode = 2
+text = "Current Health: "
+label_settings = ExtResource("3_cc6nc")
+
+[node name="current_health" type="Label" parent="CanvasLayer/Inventory/Panel/StatsContainer/CurrentHeatlthContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("3_cc6nc")
+horizontal_alignment = 2
+
+[node name="MovementSpeedContainer" type="HSplitContainer" parent="CanvasLayer/Inventory/Panel/StatsContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Inventory/Panel/StatsContainer/MovementSpeedContainer"]
+layout_mode = 2
+text = "Movement Speed: "
+label_settings = ExtResource("3_cc6nc")
+
+[node name="movement_speed" type="Label" parent="CanvasLayer/Inventory/Panel/StatsContainer/MovementSpeedContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("3_cc6nc")
+horizontal_alignment = 2
+
+[node name="CriticalDamageContainer" type="HSplitContainer" parent="CanvasLayer/Inventory/Panel/StatsContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Inventory/Panel/StatsContainer/CriticalDamageContainer"]
+layout_mode = 2
+text = "Critical Damage: "
+label_settings = ExtResource("3_cc6nc")
+
+[node name="critical_damage" type="Label" parent="CanvasLayer/Inventory/Panel/StatsContainer/CriticalDamageContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("3_cc6nc")
+horizontal_alignment = 2
+
+[node name="StatusResistContainer" type="HSplitContainer" parent="CanvasLayer/Inventory/Panel/StatsContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Inventory/Panel/StatsContainer/StatusResistContainer"]
+layout_mode = 2
+text = "Status Resists: "
+label_settings = ExtResource("3_cc6nc")
+
+[node name="status_resist" type="Label" parent="CanvasLayer/Inventory/Panel/StatsContainer/StatusResistContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("3_cc6nc")
+horizontal_alignment = 2
+
+[node name="EffectPowerContainer" type="HSplitContainer" parent="CanvasLayer/Inventory/Panel/StatsContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Inventory/Panel/StatsContainer/EffectPowerContainer"]
+layout_mode = 2
+text = "Effect Power: "
+label_settings = ExtResource("3_cc6nc")
+
+[node name="effect power" type="Label" parent="CanvasLayer/Inventory/Panel/StatsContainer/EffectPowerContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("3_cc6nc")
+horizontal_alignment = 2
+
+[node name="PrizePopup" type="Panel" parent="CanvasLayer" node_paths=PackedStringArray("player_contoller", "wheel")]
+visible = false
+offset_left = -807.0
+offset_top = -947.0
+offset_right = 814.0
+offset_bottom = 233.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qsu38")
+script = ExtResource("13_3erh3")
+player_contoller = NodePath("../../PlayerController")
+wheel = NodePath("../../spin_wheel")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PrizePopup"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 49
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/PrizePopup/VBoxContainer"]
+layout_mode = 2
+text = "Congratulations!"
+label_settings = ExtResource("2_8713t")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/PrizePopup/VBoxContainer"]
+layout_mode = 2
+text = "You won:"
+label_settings = ExtResource("3_cc6nc")
+horizontal_alignment = 1
+
+[node name="PrizeContainer" type="VBoxContainer" parent="CanvasLayer/PrizePopup/VBoxContainer"]
+layout_mode = 2
+
+[node name="PrizeName" type="Label" parent="CanvasLayer/PrizePopup/VBoxContainer/PrizeContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Prize Name"
+label_settings = ExtResource("3_ms27o")
+horizontal_alignment = 1
+
+[node name="PrizeIcon" type="TextureRect" parent="CanvasLayer/PrizePopup/VBoxContainer/PrizeContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("8_xhtjx")
+stretch_mode = 3
+
+[node name="PrizeDescription" type="Label" parent="CanvasLayer/PrizePopup/VBoxContainer/PrizeContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Description"
+label_settings = ExtResource("3_cc6nc")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/PrizePopup/VBoxContainer"]
+custom_minimum_size = Vector2(600, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 80
+theme_override_styles/hover = SubResource("StyleBoxFlat_8w8pe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_q11h6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cpsic")
+text = "Continue"
 
 [node name="ShopArea" type="Area2D" parent="."]
 collision_layer = 0
@@ -178,6 +628,8 @@ offset_left = -34.0
 offset_top = 114.0
 offset_right = 6.0
 offset_bottom = 154.0
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="Background" type="TextureRect" parent="Location"]
 layout_mode = 0
@@ -254,9 +706,81 @@ offset_bottom = 1082.0
 texture = ExtResource("6_be7tm")
 stretch_mode = 3
 
+[node name="Photo2025-01-3111-39-33" type="Sprite2D" parent="Location"]
+position = Vector2(-3708, -874)
+scale = Vector2(3.57103, 3.57103)
+texture = ExtResource("12_lek23")
+
 [node name="PlayerController" parent="." node_paths=PackedStringArray("target") instance=ExtResource("1_tvtkn")]
 position = Vector2(-707, 420)
 target = NodePath("../DummyTarget")
+
+[node name="HPBar" parent="PlayerController/CanvasLayer" index="0"]
+visible = false
+
+[node name="TorsoTop" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="0"]
+rotation = 0.433592
+scale = Vector2(0.999976, 0.999976)
+
+[node name="UpperArmR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="0"]
+rotation = 1.36404
+scale = Vector2(0.999971, 0.999971)
+
+[node name="LowerArmR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR" index="0"]
+rotation = -1.66667
+scale = Vector2(0.999969, 0.999969)
+
+[node name="WristR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR" index="0"]
+rotation = 1.75361
+scale = Vector2(0.99998, 0.99998)
+
+[node name="UpperArmL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="1"]
+rotation = -1.16267
+scale = Vector2(0.999974, 0.999974)
+
+[node name="LowerArmL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL" index="0"]
+rotation = -0.255633
+scale = Vector2(0.99998, 0.99998)
+
+[node name="WristL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL" index="0"]
+rotation = 2.50722
+scale = Vector2(0.999972, 0.999972)
+
+[node name="HeadMain" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="2"]
+rotation = -0.158206
+scale = Vector2(0.999967, 0.999967)
+
+[node name="LowerJaw" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="0"]
+rotation = 1.03582
+scale = Vector2(0.999972, 0.999972)
+
+[node name="EarL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="2"]
+scale = Vector2(0.443939, 0.778982)
+
+[node name="UpperLegR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="1"]
+rotation = 2.24083
+scale = Vector2(0.999984, 0.999984)
+
+[node name="LowerLegR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/UpperLegR" index="0"]
+rotation = 1.03016
+scale = Vector2(0.999972, 0.999972)
+
+[node name="UpperLegL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="2"]
+rotation = 2.38321
+scale = Vector2(0.999983, 0.999983)
+
+[node name="LowerLegL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/UpperLegL" index="0"]
+rotation = 0.761759
+scale = Vector2(0.999976, 0.999976)
+
+[node name="StunParticle" parent="PlayerController/BearNew/DamageFX/Stun" index="0"]
+position = Vector2(174.44, -590.964)
+rotation = -1.01341
+scale = Vector2(0.999942, 0.999942)
+
+[node name="SlowParticle" parent="PlayerController/BearNew/DamageFX/Slow" index="0"]
+position = Vector2(136.592, -678.38)
+scale = Vector2(0.999988, 0.999988)
 
 [node name="DummyTarget" type="CharacterBody2D" parent="."]
 visible = false
@@ -293,6 +817,7 @@ libraries = {
 "": SubResource("AnimationLibrary_b6hg1")
 }
 
+[connection signal="pressed" from="CanvasLayer/PrizePopup/VBoxContainer/Button" to="CanvasLayer/PrizePopup" method="_on_button_pressed"]
 [connection signal="body_entered" from="ShopArea" to="." method="_on_shop_area_body_entered"]
 [connection signal="body_exited" from="ShopArea" to="." method="_on_shop_area_body_exited"]
 [connection signal="body_entered" from="WheelArea" to="." method="_on_wheel_area_body_entered"]
@@ -300,4 +825,6 @@ libraries = {
 [connection signal="body_entered" from="NextStageArea" to="." method="_on_next_stage_area_body_entered"]
 [connection signal="body_exited" from="NextStageArea" to="." method="_on_next_stage_area_body_exited"]
 
+[editable path="PlayerController"]
+[editable path="PlayerController/BearNew"]
 [editable path="spin_wheel"]

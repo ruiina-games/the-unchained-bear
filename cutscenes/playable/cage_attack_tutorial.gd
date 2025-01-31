@@ -43,8 +43,7 @@ func _unhandled_input(event):
 				return
 			if anim_name == "TUTORIAL_ATTACK": 
 				attack_count += 1
-				await get_tree().create_timer(0.05).timeout
-				%CageHit.play()
+				%CageHit.play(0.2)
 			)
 
 func emit_cutscene_ended():
