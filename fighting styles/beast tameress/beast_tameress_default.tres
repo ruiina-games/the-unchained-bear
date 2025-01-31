@@ -53,10 +53,3 @@ damage_variations = {
 1: SubResource("Resource_2fkhf"),
 2: SubResource("Resource_jyc8r")
 }
-upgrade_multi_step = 1.0
-slot_type = 0
-icon_folder_path = ""
-rarity = 0
-id = 0
-name = "Beast Tameress Default"
-description = ""
