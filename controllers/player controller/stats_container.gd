@@ -23,7 +23,7 @@ func update_stats_display() -> void:
 	max_health.text = str(character_stats.max_health)
 	current_health.text = str(character_stats.current_health)
 	critical_chance.text = str(character_stats.critical_chance)
-	critical_damage_multiplier.text = str(character_stats.critical_damage_multiplier)
+	# critical_damage_multiplier.text = str(character_stats.critical_damage_multiplier)
 	dodge_chance.text = str(character_stats.dodge_chance)
 	movement_speed_multiplier.text = str(character_stats.movement_speed_multiplier)
 	status_resist_multiplier.text = str(character_stats.status_resist_multiplier)
@@ -33,10 +33,6 @@ func update_stats_display() -> void:
 func _ready() -> void:
 	if !character_stats:
 		return
-	character_stats.stats_upgraded.connect(func():
-		update_stats_display()
-		)
-	# update_stats_display()
 
 # You might also want to call this whenever character_stats are updated
 func _on_character_stats_changed() -> void:
