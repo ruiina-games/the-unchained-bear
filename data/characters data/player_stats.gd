@@ -7,6 +7,16 @@ class_name PlayerStats
 @export var temporary_upgrades: Array[TemporaryUpgrade]
 @export var one_time_upgrades: Array[Upgrade]
 
+enum MONEY
+{
+ TICKETS,
+ TOKENS
+}
+@export var money_dictionary: Dictionary = { 
+ MONEY.TOKENS: 0, 
+ MONEY.TICKETS: 0
+}
+
 func clear_temporary_modifiers():
 	for upgrade in temporary_upgrades:
 		remove_temporary_upgrade(upgrade)
@@ -25,7 +35,6 @@ func remove_temporary_upgrade(new_upgrade: TemporaryUpgrade) -> void:
 # Застосовує або видаляє ефекти модифікатора
 func apply_modifier(modifier: Upgrade, is_adding: bool) -> void:
 	for stat in modifier.upgrade_array:
-		
 		var value = stat.multiplier
 		if !is_adding:
 			value = -value  # Якщо віднімаємо, інвертуємо значення

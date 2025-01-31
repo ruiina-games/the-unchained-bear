@@ -21,7 +21,7 @@ class_name SpinWheel
 var area_entered: bool = false
 var current_chatacter_stats: PlayerStats
 
-signal receive_reward(item)
+signal receive_reward(item, item_name)
 
 @onready var rewards = [
 	{
@@ -86,16 +86,17 @@ func place_resources():
 	var indices = []
 	var attempts = 0
 	var resources = UpgradeManager.get_temporary_upgrades_pool(4, current_chatacter_stats)
-	var tickets_array = BonusManager.generate_tickets_array(2)
-	var tokens_array = BonusManager.generate_tokens_array(2)
+	var tickets_array = BonusManager.generate_tickets(2)
+	var tokens_array = BonusManager.generate_tokens(2)
 	
 	while indices.size() < 4 and attempts < 100:  # Запобігаємо нескінченному циклу
 		var index = randi() % rewards.size()
 		
 		# Перевіряємо, чи індекс відповідає умовам
 		var valid = true
+		
 		for i in indices:
-			if abs(i - index) <= 1:  # Перевіряємо проміжок у один елемент
+			if abs(i - index) <= 0.5:  # Перевіряємо проміжок у один елемент
 				valid = false
 				break
 		
@@ -111,6 +112,7 @@ func place_resources():
 	# Розміщуємо ресурси на вибрані позиції
 	for i in range(indices.size()):
 		rewards[indices[i]]["reward"] = resources[i]
+		rewards[indices[i]]["name"] = "UPGRADE"
 		rewards[indices[i]]["slot"].texture = load(resources[i].icon_folder_path + resources[i].get_rarity_name(resources[i].rarity).to_lower() + ".png")
 	
 	var remaining_indices = []  # Індекси, які залишилися
@@ -121,12 +123,18 @@ func place_resources():
 	# Розподіляємо tickets_array і tokens_array
 	for i in range(remaining_indices.size()):
 		var index = remaining_indices[i]
-		if i < tickets_array.size():  # Спочатку tickets_array
-			rewards[index]["reward"] = tickets_array[i]
+		if i < tickets_array[0].size():  # Спочатку tickets_array
+			# Вибираємо випадкову нагороду з tickets_array[0]
+			var random_reward_index = randi() % tickets_array[0].size()
+			rewards[index]["reward"] = tickets_array[0][random_reward_index]
+			rewards[index]["name"] = "TICKET"
 			rewards[index]["slot"].texture = load("res://assets/Upgrades/RoflTicket.png")
 		else:  # Потім tokens_array
-			var token_index = i - tickets_array.size()
-			rewards[index]["reward"] = tokens_array[token_index]
+			# Вибираємо випадкову нагороду з tokens_array[1]
+			var token_index = i - tickets_array[0].size()
+			var random_reward_index = randi() % tokens_array[1].size()
+			rewards[index]["reward"] = tokens_array[1][random_reward_index]
+			rewards[index]["name"] = "TOKEN"
 			rewards[index]["slot"].texture = load("res://assets/Upgrades/RoflZheton.png")
 
 func _unhandled_input(event):
@@ -155,7 +163,7 @@ func _unhandled_input(event):
 							if !item.reward:
 								print("WOMP WOMP")
 							else:
-								print(item.reward)
+								print(item.reward, item.name)
 								#signal for another scene
-								receive_reward.emit(item.reward)
+								receive_reward.emit(item.reward, item.name)
 						)
