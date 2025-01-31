@@ -22,7 +22,6 @@ class_name PlayerController
 var tilt_inertia: float = 0.1
 var combo_count: int
 
-@onready var control: Control = $CanvasLayer/Control
 @onready var hp_bar_container = $CanvasLayer/HPBar
 
 func update_fs():

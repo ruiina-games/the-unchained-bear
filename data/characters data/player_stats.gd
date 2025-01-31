@@ -90,6 +90,16 @@ func unequip_upgrade(upgrade: Upgrade) -> void:
 	item_unequiped.emit(upgrade, upgrade.slot_type)
 	apply_modifier(upgrade, false)  # Видаляємо ефекти предмета
 
+enum MONEY
+{
+ TICKETS,
+ TOKENS
+}
+@export var money_dictionary: Dictionary = { 
+ MONEY.TOKENS: 0, 
+ MONEY.TICKETS: 0
+}
+
 func clear_temporary_modifiers():
 	for upgrade in temporary_upgrades:
 		remove_temporary_upgrade(upgrade)

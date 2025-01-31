@@ -12,6 +12,6 @@ multiplier = 0.2
 script = ExtResource("1_ogpkm")
 name = "Can Opener"
 description = "Increases critical damage by 20% for each Rarity level."
-icon_folder_path = ""
+icon_folder_path = "res://assets/Upgrades/Temporary Upgrades/Can Opener/"
 rarity = 0
 upgrade_array = Array[ExtResource("2_nnfiy")]([SubResource("Resource_d4qhk")])
