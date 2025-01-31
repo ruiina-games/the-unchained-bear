@@ -1,0 +1,303 @@
+[gd_scene load_steps=22 format=3 uid="uid://iho2j3v1lyy1"]
+
+[ext_resource type="Texture2D" uid="uid://hfv6fovd6eke" path="res://assets/Store/Store/Background.png" id="1_04ypj"]
+[ext_resource type="Script" path="res://Shop/shop.gd" id="1_f14ov"]
+[ext_resource type="PackedScene" uid="uid://cevie0mm3xc4j" path="res://controllers/player controller/player_controller.tscn" id="1_tvtkn"]
+[ext_resource type="LabelSettings" uid="uid://brp3qn5x2peqk" path="res://cutscenes/basic_font.tres" id="2_8713t"]
+[ext_resource type="Script" path="res://characters/character.gd" id="2_ck00k"]
+[ext_resource type="Texture2D" uid="uid://duw820g44xtga" path="res://assets/Store/Store/Flags_2.png" id="2_whptf"]
+[ext_resource type="Texture2D" uid="uid://dttiblyel24gd" path="res://assets/Store/Store/Flags_1.png" id="3_23o10"]
+[ext_resource type="Texture2D" uid="uid://cruuvs84mf7r4" path="res://assets/Store/Store/Cabin background.png" id="4_3djtt"]
+[ext_resource type="Texture2D" uid="uid://bv78avhd1u116" path="res://assets/Store/Store/Curtain_1.png" id="4_3rwbo"]
+[ext_resource type="PackedScene" uid="uid://clfvobvi3rno6" path="res://Shop/SpinWheel/addons/spin_wheel.tscn" id="4_febeg"]
+[ext_resource type="Texture2D" uid="uid://bh1slwxpbhhgx" path="res://assets/Store/Store/Cabin.png" id="5_2x8qb"]
+[ext_resource type="Texture2D" uid="uid://dk11w1r725vk4" path="res://assets/Store/Store/Curtain_2.png" id="5_sik2m"]
+[ext_resource type="PackedScene" uid="uid://b4rstorssuhyo" path="res://Shop/tedddy.tscn" id="5_uop7w"]
+[ext_resource type="Texture2D" uid="uid://de5oqmbfgr4uv" path="res://assets/Store/Store/Barrel.png" id="6_be7tm"]
+[ext_resource type="AudioStream" uid="uid://j456e5gqtfqm" path="res://assets/Sounds/shop_music.mp3" id="15_5tx3v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qjwae"]
+size = Vector2(677, 1048)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_spye5"]
+size = Vector2(704, 1154)
+
+[sub_resource type="Animation" id="Animation_bf331"]
+resource_name = "APPEAR"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_87uh3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8hx1j"]
+resource_name = "DISSAPEAR"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"transition_complete"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b6hg1"]
+_data = {
+"APPEAR": SubResource("Animation_bf331"),
+"DISSAPEAR": SubResource("Animation_8hx1j"),
+"RESET": SubResource("Animation_87uh3")
+}
+
+[node name="Shop" type="Node2D" node_paths=PackedStringArray("teddy", "wheel")]
+script = ExtResource("1_f14ov")
+teddy = NodePath("Location/Tedddy")
+wheel = NodePath("spin_wheel")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="HintLabel" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -1168.0
+offset_top = -291.0
+offset_right = -42.0
+offset_bottom = -126.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press [E] to interact"
+label_settings = ExtResource("2_8713t")
+
+[node name="QuestionLabel" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -1168.0
+offset_top = -291.0
+offset_right = -42.0
+offset_bottom = -126.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press [E] to proceed to the next boss"
+label_settings = ExtResource("2_8713t")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1931.0
+offset_top = -1489.0
+offset_right = 804.0
+offset_bottom = 109.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ShopArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2048
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShopArea"]
+position = Vector2(-1321.5, -125)
+shape = SubResource("RectangleShape2D_qjwae")
+
+[node name="WheelArea" type="Area2D" parent="."]
+position = Vector2(27, -81)
+collision_layer = 0
+collision_mask = 2048
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WheelArea"]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_spye5")
+
+[node name="NextStageArea" type="Area2D" parent="."]
+position = Vector2(1515, -85)
+collision_layer = 0
+collision_mask = 2048
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NextStageArea"]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_spye5")
+
+[node name="Location" type="Control" parent="."]
+z_index = -1
+layout_mode = 3
+anchors_preset = 0
+offset_left = -34.0
+offset_top = 114.0
+offset_right = 6.0
+offset_bottom = 154.0
+
+[node name="Background" type="TextureRect" parent="Location"]
+layout_mode = 0
+offset_left = -1875.0
+offset_top = -1569.0
+offset_right = 1985.0
+offset_bottom = 611.0
+texture = ExtResource("1_04ypj")
+stretch_mode = 3
+
+[node name="Flags_2" type="TextureRect" parent="Location"]
+layout_mode = 0
+offset_left = -1346.0
+offset_top = -2428.0
+offset_right = 2514.0
+offset_bottom = -248.0
+texture = ExtResource("2_whptf")
+stretch_mode = 3
+
+[node name="Flags_1" type="TextureRect" parent="Location"]
+layout_mode = 0
+offset_left = -2177.0
+offset_top = -2353.0
+offset_right = 1683.0
+offset_bottom = -173.0
+texture = ExtResource("3_23o10")
+stretch_mode = 3
+
+[node name="CabinBG" type="TextureRect" parent="Location"]
+layout_mode = 0
+offset_left = -3168.0
+offset_top = -1401.0
+offset_right = 692.0
+offset_bottom = 779.0
+texture = ExtResource("4_3djtt")
+stretch_mode = 3
+
+[node name="Tedddy" parent="Location" instance=ExtResource("5_uop7w")]
+position = Vector2(-1263, -281)
+
+[node name="Cabin" type="TextureRect" parent="Location"]
+layout_mode = 0
+offset_left = -3168.0
+offset_top = -1401.0
+offset_right = 692.0
+offset_bottom = 779.0
+texture = ExtResource("5_2x8qb")
+stretch_mode = 3
+
+[node name="CurtainR" type="TextureRect" parent="Location"]
+layout_mode = 0
+offset_left = -3408.0
+offset_top = -2082.0
+offset_right = 452.0
+offset_bottom = 98.0
+texture = ExtResource("4_3rwbo")
+stretch_mode = 3
+
+[node name="CurtainL" type="TextureRect" parent="Location"]
+layout_mode = 0
+offset_left = -350.0
+offset_top = -2082.0
+offset_right = 3510.0
+offset_bottom = 98.0
+texture = ExtResource("5_sik2m")
+stretch_mode = 3
+
+[node name="Barrel" type="TextureRect" parent="Location"]
+layout_mode = 0
+offset_left = -939.0
+offset_top = -1098.0
+offset_right = 2921.0
+offset_bottom = 1082.0
+texture = ExtResource("6_be7tm")
+stretch_mode = 3
+
+[node name="PlayerController" parent="." node_paths=PackedStringArray("target") instance=ExtResource("1_tvtkn")]
+position = Vector2(-707, 420)
+target = NodePath("../DummyTarget")
+
+[node name="DummyTarget" type="CharacterBody2D" parent="."]
+visible = false
+script = ExtResource("2_ck00k")
+
+[node name="Polygons" type="Node2D" parent="DummyTarget"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(11, -363)
+ignore_rotation = false
+zoom = Vector2(0.34, 0.34)
+
+[node name="spin_wheel" parent="." instance=ExtResource("4_febeg")]
+z_index = -1
+offset_left = -393.0
+offset_top = -302.0
+offset_right = -393.0
+offset_bottom = -302.0
+
+[node name="background" parent="spin_wheel" index="1"]
+offset_left = 425.0
+offset_top = 226.0
+offset_right = 425.0
+offset_bottom = 226.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_5tx3v")
+volume_db = -25.0
+autoplay = true
+bus = &"Music"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_b6hg1")
+}
+
+[connection signal="body_entered" from="ShopArea" to="." method="_on_shop_area_body_entered"]
+[connection signal="body_exited" from="ShopArea" to="." method="_on_shop_area_body_exited"]
+[connection signal="body_entered" from="WheelArea" to="." method="_on_wheel_area_body_entered"]
+[connection signal="body_exited" from="WheelArea" to="." method="_on_wheel_area_body_exited"]
+[connection signal="body_entered" from="NextStageArea" to="." method="_on_next_stage_area_body_entered"]
+[connection signal="body_exited" from="NextStageArea" to="." method="_on_next_stage_area_body_exited"]
+
+[editable path="spin_wheel"]

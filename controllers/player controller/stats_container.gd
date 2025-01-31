@@ -6,7 +6,7 @@ extends GridContainer
 @onready var max_health: Label = %"max health"
 @onready var current_health: Label = %"current health"
 @onready var critical_chance: Label = %"critical chance"
-@onready var critical_damage_multiplier: Label = %"critical damage"
+# @onready var critical_damage_multiplier: Label = %"critical damage"
 @onready var dodge_chance: Label = %"dodge chance"
 # @onready var attack_speed_multiplier: Label = %"attack speed"
 @onready var movement_speed_multiplier: Label = %"movement speed"
@@ -36,7 +36,7 @@ func _ready() -> void:
 	character_stats.stats_upgraded.connect(func():
 		update_stats_display()
 		)
-	update_stats_display()
+	# update_stats_display()
 
 # You might also want to call this whenever character_stats are updated
 func _on_character_stats_changed() -> void:

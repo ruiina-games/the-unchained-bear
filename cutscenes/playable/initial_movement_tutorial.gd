@@ -29,6 +29,7 @@ var s_was_pressed: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	animation_player.play("fade_out")
+	player_controller.hp_bar_container.visible = false
 	player_controller.actor.spin_eyes.visible = true
 	
 	tutorial_ended.connect(func(): animation_player.play("fade_in"))
