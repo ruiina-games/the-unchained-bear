@@ -77,5 +77,3 @@ func _handle_look_at(delta) -> void:
 	var fixed_rotation: float = _mod_stack.apply_bone_rotation_mod(bone_node,result_rotation)
 	if fixed_rotation and easing and use_easing:
 		easing.state = Vector2.RIGHT.rotated(fixed_rotation)
-
-

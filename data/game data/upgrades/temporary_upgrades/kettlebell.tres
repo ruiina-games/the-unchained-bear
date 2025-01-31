@@ -12,6 +12,6 @@ multiplier = 0.1
 script = ExtResource("1_6pf2l")
 name = "Kettlebell"
 description = "Increases maximum health by 10% for each Rarity level."
-icon_path = ""
+icon_folder_path = "res://assets/Upgrades/Temporary Upgrades/Kettlebell/"
 rarity = 0
 upgrade_array = Array[ExtResource("2_ert0b")]([SubResource("Resource_d4qhk")])

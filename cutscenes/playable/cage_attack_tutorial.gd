@@ -4,6 +4,8 @@ extends Node2D
 @onready var camera_2d = $Camera2D
 @onready var animation_player = $AnimationPlayer
 
+signal cutscene_ended
+
 var attack_count: int = 0
 var is_cage_opened: bool = false
 # Called when the node enters the scene tree for the first time.
@@ -12,6 +14,8 @@ func _ready():
 	animation_player.play("BEGIN")
 	bear_new.spin_eyes.visible = false
 
+func connect_signals(main: Node):
+	connect("cutscene_ended", Callable(main, "_on_cutscene_ended"))
 
 func play_stand_up():
 	bear_new.animation_player.play("TUTORIAL_STAND_UP")
@@ -35,7 +39,13 @@ func _unhandled_input(event):
 			if attack_count == 3:
 				is_cage_opened = true
 				animation_player.play("END")
+				%CageBreak.play()
 				return
 			if anim_name == "TUTORIAL_ATTACK": 
 				attack_count += 1
+				await get_tree().create_timer(0.05).timeout
+				%CageHit.play()
 			)
+
+func emit_cutscene_ended():
+	cutscene_ended.emit()

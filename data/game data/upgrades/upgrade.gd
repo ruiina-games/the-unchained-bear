@@ -22,14 +22,16 @@ enum UPGRADABLE_STATS {
 
 @export var name: String
 @export_multiline var description: String
-@export var icon_path: String
+@export var icon_folder_path: String  # Шлях до папки з іконками
 @export var rarity: RARITY = RARITY.COMMON
 @export var upgrade_array: Array[StatModel]
 
 var drop_chance: float
+var icon_texture: Texture2D  # Текстура для зображення рідкості
 
 func initialize_upgrade():
 	update_rarity()
+	load_icon()  # Завантажуємо іконку при ініціалізації
 
 func update_rarity():
 	var multiplier: float
@@ -55,6 +57,22 @@ func update_rarity():
 	# Застосовуємо множник до всіх значень у upgrade_dictionary
 	for stats_model in upgrade_array:
 		stats_model.multiplier *= multiplier
+
+@export var default_icon: Texture2D  # Резервна іконка
+
+func load_icon():
+	var icon_name = get_rarity_name(rarity).to_lower() + ".png"
+	var icon_path = icon_folder_path.path_join(icon_name)
+	
+	if ResourceLoader.exists(icon_path):
+		icon_texture = load(icon_path)
+	else:
+		print("[", name, "] ", "Icon not found for rarity: ", get_rarity_name(rarity), " at path: ", icon_path)
+		icon_texture = default_icon  # Використовуємо резервну іконку
+
+# Повертаємо назву рідкості як рядок
+func get_rarity_name(rarity_value: RARITY) -> String:
+	return RARITY.keys()[rarity_value]
 
 func apply_legendary_effect():
 	pass

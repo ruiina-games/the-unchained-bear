@@ -38,6 +38,7 @@ var is_on_floor: bool = false
 var object: ThrowingObject = null
 
 func _ready() -> void:
+	
 	apply_shader_to_polygons($Polygons)
 	# Initializing current health with max health considering we create a character with full HP
 	if character_stats:
@@ -97,6 +98,15 @@ func adjust_scale_for_direction(direction):
 		transform.x.x = -1
 	elif direction.x < 0:
 		transform.x.x = 1
+
+func _process(delta):
+	if hurtbox:
+		if is_dead:
+			hurtbox.monitorable = false
+			hurtbox.monitoring = false
+		else:
+			hurtbox.monitorable = true
+			hurtbox.monitoring = true
 	
 func apply_knockback(direction: Vector2, force: float):
 	got_knocked.emit(direction, force)
