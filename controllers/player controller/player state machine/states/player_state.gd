@@ -9,9 +9,6 @@ var character :Character
 var controller: PlayerController
 var playback :AnimationNodeStateMachinePlayback
 
-# var START_ATTACK :StringName = "start_attack"
-# var START_SHOOT :StringName = "start_shoot"
-
 func _enter() -> void:
 	if state_machine:
 		state_machine.switch_state(animation_state_name)

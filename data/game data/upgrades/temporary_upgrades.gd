@@ -1,2 +1,2 @@
-extends Upgrade
+extends StatUpgrade
 class_name TemporaryUpgrade

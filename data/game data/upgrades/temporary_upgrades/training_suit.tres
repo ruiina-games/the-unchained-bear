@@ -10,8 +10,11 @@ multiplier = 0.1
 
 [resource]
 script = ExtResource("1_ldgen")
-name = "Training Suit"
-description = "Increases effect resist by 10% for each Rarity level."
+upgrade_array = Array[ExtResource("2_g82mg")]([SubResource("Resource_d4qhk")])
+upgrade_multi_step = 1.0
+slot_type = 0
 icon_folder_path = "res://assets/Upgrades/Temporary Upgrades/Training Suit/"
 rarity = 0
-upgrade_array = Array[ExtResource("2_g82mg")]([SubResource("Resource_d4qhk")])
+id = 0
+name = "Training Suit"
+description = "Increases effect resist by 10% for each Rarity level."

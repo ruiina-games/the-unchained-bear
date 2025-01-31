@@ -10,8 +10,11 @@ multiplier = 0.05
 
 [resource]
 script = ExtResource("1_5hkd8")
-name = "Boxing Gloves"
-description = "Increases critical hit chance by 5% for each Rarity level."
+upgrade_array = Array[ExtResource("2_6dxnj")]([SubResource("Resource_d4qhk")])
+upgrade_multi_step = 1.0
+slot_type = 0
 icon_folder_path = "res://assets/Upgrades/Temporary Upgrades/Boxing Gloves/"
 rarity = 0
-upgrade_array = Array[ExtResource("2_6dxnj")]([SubResource("Resource_d4qhk")])
+id = 0
+name = "Boxing Gloves"
+description = "Increases critical hit chance by 5% for each Rarity level."

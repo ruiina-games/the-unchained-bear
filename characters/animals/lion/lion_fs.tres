@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://data/damage/scripts/knockback.gd" id="1_cssev"]
 [ext_resource type="Script" path="res://data/damage/scripts/damage.gd" id="1_dxg0b"]
-[ext_resource type="Script" path="res://fighting styles/figting_style.gd" id="2_ps0yu"]
+[ext_resource type="Script" path="res://fighting styles/fighting_style.gd" id="2_ps0yu"]
 [ext_resource type="Script" path="res://data/damage/scripts/bleeding.gd" id="3_qsof8"]
 
 [sub_resource type="Resource" id="Resource_b10ir"]
@@ -62,9 +62,6 @@ effect = SubResource("Resource_t54kk")
 
 [resource]
 script = ExtResource("2_ps0yu")
-id = 0
-name = ""
-description = ""
 max_combo_count = 3
 damage_variations = {
 -1: SubResource("Resource_tlx3i"),

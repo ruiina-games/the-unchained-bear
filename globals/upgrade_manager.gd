@@ -1,6 +1,7 @@
 extends Node
 
 @export var temporary_upgrades_pool: Array[TemporaryUpgrade]
+@export var shop_upgrades_pool: Array[ShopUpgrade]
 
 var rarity_to_chance: Dictionary = {
 	Upgrade.RARITY.COMMON: 0.4,

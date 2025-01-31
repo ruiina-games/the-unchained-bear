@@ -21,6 +21,7 @@ GlobalSignals="*res://globals/global_signals.gd"
 GlobalVariables="*res://globals/global_variables.gd"
 UpgradeManager="*res://globals/upgrade_manager.tscn"
 BonusManager="*res://globals/bonus_manager.gd"
+ShopManager="*res://globals/shop_manager.tscn"
 
 [display]
 

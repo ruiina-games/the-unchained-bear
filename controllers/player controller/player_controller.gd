@@ -24,6 +24,11 @@ var combo_count: int
 
 @onready var hp_bar_container = $CanvasLayer/HPBar
 
+func update_fs():
+	fighting_style = actor.character_stats.fighting_style
+	actor.animation_tree.active = false
+	reset_combo()
+	actor.animation_tree.active = true
 
 func kill_actor():
 	hsm.dispatch(hsm.DIED)

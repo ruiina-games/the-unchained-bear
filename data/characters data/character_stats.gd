@@ -25,9 +25,8 @@ var reserve_copy: CharacterStats
 func increase_attack_power_multiplier(amount: float) -> void:
 	attack_power_multiplier += amount
 
-func increase_max_health(multiplier: float) -> void:
-	max_health *= multiplier
-	# current_health = min(current_health + amount, max_health)
+func increase_max_health(amount: float) -> void:
+	max_health += amount
 
 func heal(amount: int) -> void:
 	current_health = min(current_health + amount, max_health)

@@ -31,7 +31,6 @@ signal died()
 
 var effects_dic: Dictionary
 
-
 var can_move: bool = true
 var is_dead: bool = false
 var is_on_floor: bool = false
