@@ -17,8 +17,8 @@ var amount_chances: Dictionary = {
 # Значення кількостей для квитків і жетонів
 var ticket_amounts: Dictionary = {
 	AMOUNT_TYPE.SMALL: 5,   # Мала кількість квитків
-	AMOUNT_TYPE.MEDIUM: 15,  # Середня кількість квитків
-	AMOUNT_TYPE.LARGE: 30    # Велика кількість квитків
+	AMOUNT_TYPE.MEDIUM: 15, # Середня кількість квитків
+	AMOUNT_TYPE.LARGE: 30   # Велика кількість квитків
 }
 
 var token_amounts: Dictionary = {
@@ -41,28 +41,24 @@ func get_random_amount_type() -> AMOUNT_TYPE:
 	# Якщо щось пішло не так, повертаємо SMALL за замовчуванням
 	return AMOUNT_TYPE.SMALL
 
-# Функція для генерації масиву квитків
-# Викликаєш її в колесі фортуни залежно від того, скільки є полів на квитки.
-# Поля на квитки можуть попастися лише в полях для бонусів.
-# Повертає ЗНАЧЕННЯ, тобтко КІЛЬКІСТЬ квитків.
-func generate_tickets_array(count: int) -> Array:
+# Функція для генерації словника з квитками
+# Повертає словник, де ключ — PlayerStats.MONEY.TICKETS, а значення — масив кількостей квитків
+func generate_tickets(count: int) -> Dictionary:
 	var tickets_array: Array = []
 
 	for i in range(count):
 		var amount_type = get_random_amount_type()
 		tickets_array.append(ticket_amounts[amount_type])
 
-	return tickets_array
+	return {PlayerStats.MONEY.TICKETS: tickets_array}
 
-# Функція для генерації масиву жетонів
-# Викликаєш її в колесі фортуни залежно від того, скільки є полів на жетони.
-# count - кількість полів на жетони.
-# Повертає ЗНАЧЕННЯ, тобтко КІЛЬКІСТЬ жетонів.
-func generate_tokens_array(count: int) -> Array:
+# Функція для генерації словника з жетонами
+# Повертає словник, де ключ — PlayerStats.MONEY.TOKENS, а значення — масив кількостей жетонів
+func generate_tokens(count: int) -> Dictionary:
 	var tokens_array: Array = []
 
 	for i in range(count):
 		var amount_type = get_random_amount_type()
 		tokens_array.append(token_amounts[amount_type])
 
-	return tokens_array
+	return {PlayerStats.MONEY.TOKENS: tokens_array}

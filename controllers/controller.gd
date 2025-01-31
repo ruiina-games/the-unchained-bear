@@ -71,7 +71,6 @@ func init_state_machine() -> void:
 # Ця функція викликається лише коли ефект вмикається або вимикається.
 # Тому треба придумати якийсь переключатель.
 func process_effects(effect: Effect):
-	
 	if effect is FireEffect:
 		var duration_timer = Timer.new()
 		duration_timer.wait_time = effect.duration

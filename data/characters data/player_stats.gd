@@ -1,11 +1,94 @@
 extends CharacterStats
 class_name PlayerStats
 
-@export var game_data: GameData
+signal inventory_updated()
+signal item_equiped(item: Upgrade, slot: Upgrade.SLOT_TYPE)
+signal item_unequiped(item: Upgrade, slot: Upgrade.SLOT_TYPE)
 
-# @export var unique_skill: Resource
+enum MONEY
+{
+	TICKETS,
+	TOKENS
+}
+
+@export var money_dictionary: Dictionary = { 
+	MONEY.TOKENS: 0, 
+	MONEY.TICKETS: 0
+}
+
+# Слоти для екіпірування
+@export var head_slot: Upgrade  # Слот для голови
+@export var body_slot: Upgrade  # Слот для тіла
+@export var legs_slot: Upgrade  # Слот для ніг
+
+# Пул предметів, які є у гравця
+@export var inventory: Array[Upgrade]
+
+# Інші пули
 @export var temporary_upgrades: Array[TemporaryUpgrade]
-@export var one_time_upgrades: Array[Upgrade]
+
+# Додає предмет до інвентаря
+func add_to_inventory(new_upgrade: Upgrade) -> void:
+	if new_upgrade:
+		inventory.append(new_upgrade)
+		print("Added to inventory: ", new_upgrade.name)
+		inventory_updated.emit()
+
+# Видаляє предмет з інвентаря
+func remove_from_inventory(upgrade: Upgrade) -> void:
+	if inventory.has(upgrade):
+		inventory.erase(upgrade)
+		print("Removed from inventory: ", upgrade.name)
+		inventory_updated.emit()
+
+# Екіпірує предмет у відповідний слот
+func equip_upgrade(upgrade: Upgrade) -> void:
+	if !inventory.has(upgrade):
+		print("Upgrade not in inventory: ", upgrade.name)
+		return
+
+	match upgrade.slot_type:
+		Upgrade.SLOT_TYPE.HEAD:
+			if head_slot:
+				unequip_upgrade(head_slot)  # Знімаємо поточний предмет
+			head_slot = upgrade
+			print("Equipped to head slot: ", upgrade.name)
+		Upgrade.SLOT_TYPE.BODY:
+			if body_slot:
+				unequip_upgrade(body_slot)
+			body_slot = upgrade
+			print("Equipped to body slot: ", upgrade.name)
+		Upgrade.SLOT_TYPE.LEGS:
+			if legs_slot:
+				unequip_upgrade(legs_slot)
+			legs_slot = upgrade
+			print("Equipped to legs slot: ", upgrade.name)
+		_:
+			print("Invalid slot type for upgrade: ", upgrade.name)
+			return
+
+	item_equiped.emit(upgrade, upgrade.slot_type)
+	remove_from_inventory(upgrade)
+	apply_modifier(upgrade, true)  # Застосовуємо ефекти предмета
+
+# Знімає предмет зі слота
+func unequip_upgrade(upgrade: Upgrade) -> void:
+	if head_slot == upgrade:
+		head_slot = null
+		print("Unequipped from head slot: ", upgrade.name)
+	elif body_slot == upgrade:
+		body_slot = null
+		print("Unequipped from body slot: ", upgrade.name)
+	elif legs_slot == upgrade:
+		legs_slot = null
+		print("Unequipped from legs slot: ", upgrade.name)
+	else:
+		print("Upgrade not equipped: ", upgrade.name)
+		return
+
+	add_to_inventory(upgrade)
+	item_unequiped.emit(upgrade, upgrade.slot_type)
+	apply_modifier(upgrade, false)  # Видаляємо ефекти предмета
 
 func clear_temporary_modifiers():
 	for upgrade in temporary_upgrades:
@@ -25,25 +108,35 @@ func remove_temporary_upgrade(new_upgrade: TemporaryUpgrade) -> void:
 # Застосовує або видаляє ефекти модифікатора
 func apply_modifier(modifier: Upgrade, is_adding: bool) -> void:
 	for stat in modifier.upgrade_array:
-		
 		var value = stat.multiplier
 		if !is_adding:
 			value = -value  # Якщо віднімаємо, інвертуємо значення
 		
-		match stat.stat_type:
-			Upgrade.UPGRADABLE_STATS.MAX_HEALTH:
-				increase_max_health(value)
-			Upgrade.UPGRADABLE_STATS.ATTACK_POWER_MULTI:
-				increase_attack_power_multiplier(value)
-			Upgrade.UPGRADABLE_STATS.CRITICAL_CHANCE:
-				increase_critical_chance(value)
-			Upgrade.UPGRADABLE_STATS.CRITICAL_DAMAGE:
-				increase_critical_damage_multiplier(value)
-			Upgrade.UPGRADABLE_STATS.DODGE_CHANCE:
-				increase_dodge_chance(value)
-			Upgrade.UPGRADABLE_STATS.MOVEMENT_SPEED_MULTI:
-				increase_movement_speed_multiplier(value)
-			Upgrade.UPGRADABLE_STATS.STATUS_RESIST_MULTI:
-				increase_status_resist_multiplier(value)
-			Upgrade.UPGRADABLE_STATS.EFFECT_POWER_MULTI:
-				increase_effect_power_multiplier(value)
+		if modifier is StatUpgrade:
+			match stat.stat_type:
+				StatUpgrade.UPGRADABLE_STATS.MAX_HEALTH:
+					increase_max_health(value)
+				StatUpgrade.UPGRADABLE_STATS.ATTACK_POWER_MULTI:
+					increase_attack_power_multiplier(value)
+				StatUpgrade.UPGRADABLE_STATS.CRITICAL_CHANCE:
+					increase_critical_chance(value)
+				StatUpgrade.UPGRADABLE_STATS.CRITICAL_DAMAGE:
+					increase_critical_damage_multiplier(value)
+				StatUpgrade.UPGRADABLE_STATS.DODGE_CHANCE:
+					increase_dodge_chance(value)
+				StatUpgrade.UPGRADABLE_STATS.MOVEMENT_SPEED_MULTI:
+					increase_movement_speed_multiplier(value)
+				StatUpgrade.UPGRADABLE_STATS.STATUS_RESIST_MULTI:
+					increase_status_resist_multiplier(value)
+				StatUpgrade.UPGRADABLE_STATS.EFFECT_POWER_MULTI:
+					increase_effect_power_multiplier(value)
+	stats_upgraded.emit()
+
+func change_fighting_style(new_style: FightingStyle):
+	if !inventory.has(new_style):
+		print("Inventory doesn't have such style")
+		return
+	add_to_inventory(fighting_style)
+	remove_from_inventory(new_style)
+	
+	fighting_style = new_style

@@ -62,9 +62,6 @@ effect = SubResource("Resource_t54kk")
 
 [resource]
 script = ExtResource("2_ps0yu")
-id = 0
-name = ""
-description = ""
 max_combo_count = 3
 damage_variations = {
 -1: SubResource("Resource_tlx3i"),
@@ -72,3 +69,10 @@ damage_variations = {
 1: SubResource("Resource_ngb2c"),
 2: SubResource("Resource_kqi42")
 }
+upgrade_multi_step = 1.0
+slot_type = 0
+icon_folder_path = ""
+rarity = 0
+id = 0
+name = ""
+description = ""

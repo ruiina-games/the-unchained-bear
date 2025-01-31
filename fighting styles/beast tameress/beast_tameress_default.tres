@@ -46,9 +46,6 @@ effect = SubResource("Resource_4hjs6")
 
 [resource]
 script = ExtResource("1_evf5a")
-id = 0
-name = "Beast Tameress Default"
-description = ""
 max_combo_count = 3
 damage_variations = {
 -1: ExtResource("1_vknsf"),
@@ -56,3 +53,10 @@ damage_variations = {
 1: SubResource("Resource_2fkhf"),
 2: SubResource("Resource_jyc8r")
 }
+upgrade_multi_step = 1.0
+slot_type = 0
+icon_folder_path = ""
+rarity = 0
+id = 0
+name = "Beast Tameress Default"
+description = ""

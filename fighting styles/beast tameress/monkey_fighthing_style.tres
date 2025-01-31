@@ -10,10 +10,14 @@ multiplier = 1.0
 
 [resource]
 script = ExtResource("1_yu3hi")
-id = 0
-name = ""
-description = ""
 max_combo_count = 0
 damage_variations = {
 0: SubResource("Resource_wi6a8")
 }
+upgrade_multi_step = 1.0
+slot_type = 0
+icon_folder_path = ""
+rarity = 0
+id = 0
+name = ""
+description = ""

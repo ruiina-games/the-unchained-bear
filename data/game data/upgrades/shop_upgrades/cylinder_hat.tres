@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ShopUpgrade" load_steps=5 format=3 uid="uid://b7v4o0nuviypc"]
+
+[ext_resource type="Script" path="res://data/game data/upgrades/shop_upgrade.gd" id="1_nw0kj"]
+[ext_resource type="Script" path="res://data/game data/upgrades/stat_model.gd" id="2_hwkgf"]
+
+[sub_resource type="Resource" id="Resource_11032"]
+script = ExtResource("2_hwkgf")
+stat_type = 3
+multiplier = 0.15
+
+[sub_resource type="Resource" id="Resource_d2ue5"]
+script = ExtResource("2_hwkgf")
+stat_type = 4
+multiplier = 0.2
+
+[resource]
+script = ExtResource("1_nw0kj")
+money_type = 0
+cost = 15
+upgrade_array = Array[ExtResource("2_hwkgf")]([SubResource("Resource_11032"), SubResource("Resource_d2ue5")])
+upgrade_multi_step = 0.1
+slot_type = 1
+icon_folder_path = ""
+rarity = 0
+id = 0
+name = "Cylinder Hat"
+description = "This elegant hat make everyone who sees you respect you and gives you confidence in battle."

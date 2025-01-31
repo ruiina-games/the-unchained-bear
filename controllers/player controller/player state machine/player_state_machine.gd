@@ -59,5 +59,8 @@ func switch_state(target_state: String):
 	super(target_state)
 	
 	current_state = target_state
+	set_fighting_style()
+
+func set_fighting_style():
 	var attack_animations_path = "parameters/MainStateMachine/" + current_state.to_upper() + "/blend_position"
 	animation_tree.set(attack_animations_path, controller.fighting_style.id)
