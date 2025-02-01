@@ -30,7 +30,38 @@ enum MONEY
 # Додає предмет до інвентаря
 func add_to_inventory(new_upgrade: Upgrade) -> void:
 	if new_upgrade:
+		# Перевіряємо, чи предмет вже одягнутий у відповідному слоті
+		var equipped_item: Upgrade = null
+		match new_upgrade.slot_type:
+			Upgrade.SLOT_TYPE.HEAD:
+				if head_slot and head_slot.name == new_upgrade.name:
+					equipped_item = head_slot
+			Upgrade.SLOT_TYPE.BODY:
+				if body_slot and body_slot.name == new_upgrade.name:
+					equipped_item = body_slot
+			Upgrade.SLOT_TYPE.LEGS:
+				if legs_slot and legs_slot.name == new_upgrade.name:
+					equipped_item = legs_slot
+			Upgrade.SLOT_TYPE.FIGHTING_STYLE:
+				if fighting_style and fighting_style.name == new_upgrade.name:
+					equipped_item = fighting_style
+
+		# Якщо предмет вже одягнутий, замінюємо його
+		if equipped_item:
+			unequip_upgrade(equipped_item)  # Знімаємо поточний предмет
+			remove_from_inventory(equipped_item)  # Видаляємо його з інвентаря
+
+		# Видаляємо всі інші предмети з таким самим ім'ям з інвентаря
+		for upgrade in inventory:
+			if upgrade.name == new_upgrade.name:
+				remove_from_inventory(upgrade)
+
+		# Додаємо новий предмет до інвентаря
 		inventory.append(new_upgrade)
+		
+		if equipped_item:
+			equip_upgrade(new_upgrade)
+		
 		print("Added to inventory: ", new_upgrade.name)
 		inventory_updated.emit()
 

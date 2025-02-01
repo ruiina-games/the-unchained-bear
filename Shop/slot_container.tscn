@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgqxe81427ik7"]
+
+[ext_resource type="Script" path="res://Shop/slot_container.gd" id="1_idca0"]
+[ext_resource type="Texture2D" uid="uid://cht7cpqdol3r7" path="res://assets/Upgrades/Temporary Upgrades/Kettlebell/common.png" id="1_ipbbf"]
+[ext_resource type="LabelSettings" uid="uid://ddlppfp33dpu1" path="res://cutscenes/a_bit_bigger_than_even_smaller_font.tres" id="2_pr8g2"]
+[ext_resource type="LabelSettings" uid="uid://wblyhtrwvirh" path="res://cutscenes/even_smaller_font.tres" id="3_soucr"]
+
+[node name="SlotContainer" type="HBoxContainer"]
+script = ExtResource("1_idca0")
+default_icon = ExtResource("1_ipbbf")
+slot = 1
+
+[node name="Icon" type="TextureRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+expand_mode = 2
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="ItemName" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = ExtResource("2_pr8g2")
+
+[node name="SlotName" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = ExtResource("3_soucr")
+
+[node name="Stats" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = ExtResource("3_soucr")
