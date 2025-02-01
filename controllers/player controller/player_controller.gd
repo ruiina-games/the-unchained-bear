@@ -24,6 +24,13 @@ var combo_count: int
 
 @onready var hp_bar_container = $CanvasLayer/HPBar
 
+func _ready() -> void:
+	super()
+	var player_stats = actor.character_stats
+	player_stats.fighting_style_changed.connect(func():
+		update_fs()
+		)
+
 func update_fs():
 	fighting_style = actor.character_stats.fighting_style
 	actor.animation_tree.active = false
@@ -70,7 +77,8 @@ func set_stunned(was_stunned: bool):
 
 func reset_combo():
 	# print("Combo has been reset")
-	fighting_style.combo_count = 0
+	if fighting_style:
+		fighting_style.combo_count = 0
 
 func apply_knockback(direction, force):
 	hsm.dispatch(hsm.MOVEMENT_FINISHED)

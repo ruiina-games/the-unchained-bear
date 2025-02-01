@@ -4,7 +4,9 @@ class_name CharacterStats
 signal got_hit()
 signal hp_changed(new_hp: int)
 signal died()
+
 signal stats_upgraded
+signal fighting_style_changed
 
 @export var attack_power_multiplier: float = 1.0
 @export var max_health: int = 2000
@@ -14,9 +16,11 @@ signal stats_upgraded
 @export var movement_speed_multiplier: float = 1.0
 @export var status_resist_multiplier: float = 0.1
 @export var effect_power_multiplier: float = 1.0
-@export var fighting_style: FightingStyle
-# @export var attack_speed_multiplier: float = 1.0
-# @export var attack_range: float = 0.0
+@export var fighting_style: FightingStyle:
+	set(new_fs):
+		fighting_style = new_fs
+		if fighting_style:
+			fighting_style_changed.emit()
 
 var current_health: int
 var reserve_copy: CharacterStats
