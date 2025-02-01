@@ -72,7 +72,6 @@ func remove_from_inventory(upgrade: Upgrade) -> void:
 		print("Removed from inventory: ", upgrade.name)
 		inventory_updated.emit()
 
-# Екіпірує предмет у відповідний слот
 func equip_upgrade(upgrade: Upgrade) -> void:
 	if !inventory.has(upgrade):
 		print("Upgrade not in inventory: ", upgrade.name)
@@ -94,6 +93,12 @@ func equip_upgrade(upgrade: Upgrade) -> void:
 				unequip_upgrade(legs_slot)
 			legs_slot = upgrade
 			print("Equipped to legs slot: ", upgrade.name)
+		Upgrade.SLOT_TYPE.FIGHTING_STYLE:
+			if upgrade is FightingStyle:
+				change_fighting_style(upgrade)
+			else:
+				print("Invalid fighting style: ", upgrade.name)
+				return
 		_:
 			print("Invalid slot type for upgrade: ", upgrade.name)
 			return
@@ -113,6 +118,9 @@ func unequip_upgrade(upgrade: Upgrade) -> void:
 	elif legs_slot == upgrade:
 		legs_slot = null
 		print("Unequipped from legs slot: ", upgrade.name)
+	elif fighting_style == upgrade:
+		print("cannot unequip figthing style")
+		return
 	else:
 		print("Upgrade not equipped: ", upgrade.name)
 		return
@@ -138,6 +146,9 @@ func remove_temporary_upgrade(new_upgrade: TemporaryUpgrade) -> void:
 
 # Застосовує або видаляє ефекти модифікатора
 func apply_modifier(modifier: Upgrade, is_adding: bool) -> void:
+	if modifier is FightingStyle:
+		return
+	
 	for stat in modifier.upgrade_array:
 		var value = stat.multiplier
 		if !is_adding:
@@ -167,7 +178,19 @@ func change_fighting_style(new_style: FightingStyle):
 	if !inventory.has(new_style):
 		print("Inventory doesn't have such style")
 		return
-	add_to_inventory(fighting_style)
-	remove_from_inventory(new_style)
-	
+
+	# Знімаємо поточний стиль бою
+	if fighting_style:
+		unequip_fighting_style(fighting_style)
+
+	# Встановлюємо новий стиль бою
 	fighting_style = new_style
+	remove_from_inventory(new_style)
+	apply_modifier(new_style, true)  # Застосовуємо ефекти нового стилю бою
+
+# Знімає поточний стиль бою
+func unequip_fighting_style(style: FightingStyle):
+	if fighting_style == style:
+		fighting_style = null
+		add_to_inventory(style)
+		apply_modifier(style, false)  # Видаляємо ефекти старого стилю бою
