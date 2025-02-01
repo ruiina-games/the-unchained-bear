@@ -140,6 +140,7 @@ func place_resources():
 func _unhandled_input(event):
 	if area_entered:
 		if event.is_action_pressed("interact"):
+			place_resources()
 			if is_spin == false:
 				is_spin = true
 				var tween = get_tree().create_tween().set_parallel(true)

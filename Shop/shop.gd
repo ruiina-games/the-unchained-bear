@@ -80,17 +80,16 @@ func create_item_slots():
 	if !slot_container_scene:
 		print("no ", slot_container_scene)
 		return
-		
 	for slot in equiped_container.get_children():
 		match slot.slot:
 			Upgrade.SLOT_TYPE.HEAD:
 				head_slot.item = player_stats.head_slot
 			Upgrade.SLOT_TYPE.BODY:
-				head_slot.item = player_stats.body_slot
+				body_slot.item = player_stats.body_slot
 			Upgrade.SLOT_TYPE.LEGS:
-				head_slot.item = player_stats.legs_slot
+				legs_slot.item = player_stats.legs_slot
 			Upgrade.SLOT_TYPE.FIGHTING_STYLE:
-				head_slot.item = player_stats.fighting_style
+				fighting_style.item = player_stats.fighting_style
 		slot.update_ui()
 
 # Створюємо панелі для магазину
@@ -159,8 +158,8 @@ func _unhandled_input(event):
 		if if_on_inventory and !inventory_is_open:
 			inventory.show()
 			player_controller.process_mode = Node.PROCESS_MODE_DISABLED
-			%Camera2D.position = Vector2(1019, -287)
-			%Camera2D.zoom = Vector2(0.4, 0.4)
+			%Camera2D.position = Vector2(-78, 2065)
+			%Camera2D.zoom = Vector2(0.34, 0.34)
 			inventory_is_open = true
 		elif inventory_is_open:
 			inventory.hide()
@@ -169,9 +168,6 @@ func _unhandled_input(event):
 			%Camera2D.zoom = Vector2(0.34, 0.34)
 			inventory_is_open = false
 
-func _on_next_stage_area_body_entered(body):
-	if_on_exit = true
-	question_label.show()
 
 func _on_next_stage_area_body_exited(body):
 	if_on_exit = false

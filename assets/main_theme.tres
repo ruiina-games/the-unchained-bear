@@ -1,3 +1,6 @@
-[gd_resource type="Theme" format=3 uid="uid://cyfdpf8fckxqk"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cyfdpf8fckxqk"]
+
+[ext_resource type="FontFile" uid="uid://b22766uwr0p6s" path="res://assets/Pause/Font/Imprisha.ttf" id="1_yam0n"]
 
 [resource]
+default_font = ExtResource("1_yam0n")
