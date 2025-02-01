@@ -6,6 +6,8 @@ class_name Pause
 @onready var sfx_volume_slider = %SFXVolumeSlider
 @onready var options_menu = $OptionsMenu
 
+@export var anim_player: AnimationPlayer
+
 func _ready():
 	options_menu.hide()
 	
@@ -17,11 +19,12 @@ func _ready():
 	general_volume_slider.connect("value_changed", Callable(self, "_on_general_volume_changed"))
 	music_volume_slider.connect("value_changed", Callable(self, "_on_music_volume_changed"))
 	sfx_volume_slider.connect("value_changed", Callable(self, "_on_effects_volume_changed"))
-
+	
+	
 func _unhandled_input(event):
 	if event.is_action_pressed("pause") and get_tree().paused == true:
 		get_parent().get_tree().paused = false
-		hide()
+	
 	
 func _on_general_volume_changed(value: float):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(value))
@@ -45,8 +48,9 @@ func _on_options_button_pressed():
 
 func _on_resume_button_pressed():
 	$"..".is_paused = !$"..".is_paused
+	%PauseAnimationPlayer.speed_scale = 3.0
+	anim_player.play_backwards("APPEAR")
 	get_parent().get_tree().paused = false
-	hide()
 
 
 func _on_exit_button_pressed():

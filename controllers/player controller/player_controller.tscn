@@ -215,12 +215,10 @@ scale = Vector2(0.999947, 0.999947)
 
 [node name="SlowParticle" parent="BearNew/DamageFX/Slow" index="0"]
 position = Vector2(121.751, -687.968)
-scale = Vector2(0.999989, 0.999989)
 
-[node name="LimboHSM" type="LimboHSM" parent="." node_paths=PackedStringArray("debug_label", "character", "controller")]
+[node name="LimboHSM" type="LimboHSM" parent="." node_paths=PackedStringArray("character", "controller")]
 unique_name_in_owner = true
 script = ExtResource("3_7xkve")
-debug_label = NodePath("")
 allowed_advance_movement = true
 character = NodePath("../BearNew")
 controller = NodePath("..")

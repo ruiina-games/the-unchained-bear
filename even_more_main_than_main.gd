@@ -137,8 +137,13 @@ func toggle_pause():
 
 func pause_game():
 	get_tree().paused = true
+	%PauseAnimationPlayer.speed_scale = 1.0
+	%PauseAnimationPlayer.play("APPEAR")
 	pause.show()
 
 func resume_game():
+	%PauseAnimationPlayer.speed_scale = 3.0
+	%PauseAnimationPlayer.play_backwards("APPEAR")
+	await get_tree().create_timer(1.0).timeout
 	get_tree().paused = false
 	pause.hide()

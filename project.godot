@@ -33,6 +33,10 @@ window/stretch/mode="canvas_items"
 
 enabled=PackedStringArray("res://addons/Souperior 2D Skeleton Modifications/plugin.cfg")
 
+[gui]
+
+theme/custom_font="res://assets/Pause/Font/IMPRISHA.TTF"
+
 [input]
 
 move_right={

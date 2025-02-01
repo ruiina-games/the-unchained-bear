@@ -35,15 +35,18 @@ func play_end_run():
 func _unhandled_input(event):
 	if event.is_action_pressed("attack") and !is_cage_opened:
 		bear_new.animation_player.play("TUTORIAL_ATTACK")
+		await get_tree().create_timer(0.8).timeout
+		%CageHit.play(0.2)
+		animation_player.play("CROSSBAR_SHAKE")
 		bear_new.animation_player.animation_finished.connect(func(anim_name): 
 			if attack_count == 3:
 				is_cage_opened = true
-				animation_player.play("END")
 				%CageBreak.play()
+				animation_player.play("CROSSBAR_BREAK")
 				return
 			if anim_name == "TUTORIAL_ATTACK": 
 				attack_count += 1
-				%CageHit.play(0.2)
+				
 			)
 
 func emit_cutscene_ended():
