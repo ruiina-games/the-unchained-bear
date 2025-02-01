@@ -1,6 +1,8 @@
 extends BaseResource
 class_name Upgrade
 
+signal updated()
+
 enum RARITY {
 	COMMON = 0,
 	UNCOMMON,

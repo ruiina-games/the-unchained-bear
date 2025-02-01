@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://ciqp7p2ny6o0f"]
+
+[ext_resource type="Texture2D" uid="uid://ctylypcm85o68" path="res://assets/Upgrades/Temporary Upgrades/EmptySlot.png" id="1_gat78"]
+[ext_resource type="Script" path="res://Shop/inventory_item.gd" id="2_xc2pl"]
+[ext_resource type="Resource" uid="uid://b7v4o0nuviypc" path="res://data/game data/upgrades/shop_upgrades/cylinder_hat.tres" id="3_tkr3v"]
+
+[node name="InventoryItem" type="TextureButton"]
+texture_normal = ExtResource("1_gat78")
+script = ExtResource("2_xc2pl")
+item = ExtResource("3_tkr3v")

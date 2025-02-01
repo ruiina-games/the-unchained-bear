@@ -12,4 +12,3 @@ func _ready():
 func _on_switch_button_pressed():
 	inventory_upper_container.visible = !inventory_upper_container.visible
 	stats_upper_container.visible = !stats_upper_container.visible
-		

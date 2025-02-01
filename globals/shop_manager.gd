@@ -1,5 +1,7 @@
 extends Node
 
+signal assortment_updated()
+
 @export var player_stats: PlayerStats  # Посилання на статистику гравця
 @export var shop_assortment: Array[ShopUpgrade]  # Асортимент магазину
 
@@ -7,6 +9,18 @@ var i: int = 0
 func _ready() -> void:
 	for upgrade in shop_assortment:
 		upgrade.initialize_upgrade()
+
+func get_shop_assortment(amount: int) -> Array[ShopUpgrade]:
+	var i: int = 0
+	var arr: Array[ShopUpgrade]
+	for item in shop_assortment:
+		if !item:
+			continue
+		if i == amount:
+			break
+		arr.push_back(item)
+		i += 1
+	return arr
 
 # Функція для оновлення асортименту магазину
 func update_assortment() -> void:
@@ -25,16 +39,11 @@ func update_assortment() -> void:
 		if player_has_item:
 			# Якщо гравець має цей предмет, збільшуємо його рідкість
 			if item.rarity < Upgrade.RARITY.size() - 1:  # Перевіряємо, чи рідкість не максимальна
-				item.rarity += 1
-				item.cost *= 2  # Збільшуємо вартість
+				update_item(item)
 			else:
-				# Якщо рідкість максимальна, додаємо предмет до списку для видалення
-				items_to_remove.append(item)
-
-	# Видаляємо предмети з максимальною рідкістю з асортименту
-	for item in items_to_remove:
-		shop_assortment.erase(item)
-		print("Removed from shop (max rarity): ", item.title)
+				shop_assortment.erase(item)
+				print("Removed from shop (max rarity): ", item.title)
+	assortment_updated.emit()
 
 # Функція для перевірки, чи може гравець купити предмет
 func can_afford(item: ShopUpgrade) -> bool:
@@ -45,19 +54,26 @@ func purchase_item(item: ShopUpgrade) -> bool:
 	if !can_afford(item):
 		print("Not enough money to purchase: ", item.title)
 		return false
-
+		
 	# Віднімаємо гроші
 	player_stats.money_dictionary[item.money_type] -= item.cost
 
 	# Додаємо предмет до інвентаря гравця
 	var new_upgrade = item.duplicate()
 	player_stats.add_to_inventory(new_upgrade)
-
-	# Оновлюємо асортимент магазину
-	update_assortment()
-
 	print("Purchased: ", item.title)
+
+	if item.rarity == Upgrade.RARITY.LEGENDARY:
+		update_assortment()
+	else:
+		update_item(item)
 	return true
+
+func update_item(item: ShopUpgrade):
+	item.rarity += 1
+	item.cost *= 2  # Збільшуємо вартість
+	item.updated.emit()
+	item.initialize_upgrade()
 
 # Функція для відображення доступних для покупки предметів
 func display_available_items() -> void:

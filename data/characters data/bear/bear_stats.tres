@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=5 format=3 uid="uid://c40i2hba3vmid"]
+[gd_resource type="Resource" script_class="PlayerStats" load_steps=5 format=3 uid="uid://c40i2hba3vmid"]
 
 [ext_resource type="Resource" uid="uid://k8syeoud0s83" path="res://fighting styles/bear/bear_boxing.tres" id="1_iy7uy"]
 [ext_resource type="Script" path="res://data/game data/upgrades/upgrade.gd" id="1_sin6s"]
@@ -8,8 +8,8 @@
 [resource]
 script = ExtResource("2_blefl")
 money_dictionary = {
-0: 0,
-1: 100000
+0: 20000,
+1: 20000
 }
 inventory = Array[ExtResource("1_sin6s")]([])
 temporary_upgrades = Array[ExtResource("3_7ixr4")]([])

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://hfv6fovd6eke" path="res://assets/Store/Store/Background.png" id="1_04ypj"]
 [ext_resource type="Script" path="res://Shop/shop.gd" id="1_f14ov"]
 [ext_resource type="PackedScene" uid="uid://cevie0mm3xc4j" path="res://controllers/player controller/player_controller.tscn" id="1_tvtkn"]
-[ext_resource type="LabelSettings" uid="uid://brp3qn5x2peqk" path="res://cutscenes/basic_font.tres" id="2_8713t"]
+[ext_resource type="LabelSettings" path="res://cutscenes/basic_font.tres" id="2_8713t"]
 [ext_resource type="Script" path="res://characters/character.gd" id="2_ck00k"]
 [ext_resource type="Texture2D" uid="uid://duw820g44xtga" path="res://assets/Store/Store/Flags_2.png" id="2_whptf"]
 [ext_resource type="Texture2D" uid="uid://dttiblyel24gd" path="res://assets/Store/Store/Flags_1.png" id="3_23o10"]
@@ -14,21 +14,21 @@
 [ext_resource type="Texture2D" uid="uid://cruuvs84mf7r4" path="res://assets/Store/Store/Cabin background.png" id="4_3djtt"]
 [ext_resource type="Texture2D" uid="uid://bv78avhd1u116" path="res://assets/Store/Store/Curtain_1.png" id="4_3rwbo"]
 [ext_resource type="PackedScene" uid="uid://clfvobvi3rno6" path="res://Shop/SpinWheel/addons/spin_wheel.tscn" id="4_febeg"]
-[ext_resource type="Texture2D" uid="uid://cht7cpqdol3r7" path="res://assets/Upgrades/Temporary Upgrades/Kettlebell/common.png" id="4_pf8yp"]
 [ext_resource type="Resource" uid="uid://c40i2hba3vmid" path="res://data/characters data/bear/bear_stats.tres" id="4_vxxbe"]
 [ext_resource type="Texture2D" uid="uid://bh1slwxpbhhgx" path="res://assets/Store/Store/Cabin.png" id="5_2x8qb"]
-[ext_resource type="Texture2D" uid="uid://76dlrsv2uvda" path="res://assets/Upgrades/Temporary Upgrades/Training Suit/common.png" id="5_nlss8"]
 [ext_resource type="Texture2D" uid="uid://dk11w1r725vk4" path="res://assets/Store/Store/Curtain_2.png" id="5_sik2m"]
-[ext_resource type="PackedScene" uid="uid://b4rstorssuhyo" path="res://Shop/tedddy.tscn" id="5_uop7w"]
+[ext_resource type="PackedScene" path="res://Shop/tedddy.tscn" id="5_uop7w"]
 [ext_resource type="Texture2D" uid="uid://de5oqmbfgr4uv" path="res://assets/Store/Store/Barrel.png" id="6_be7tm"]
 [ext_resource type="PackedScene" uid="uid://cjbnosxi4m18l" path="res://characters/bear/bear_new.tscn" id="6_q34lt"]
 [ext_resource type="Texture2D" uid="uid://ctylypcm85o68" path="res://assets/Upgrades/Temporary Upgrades/EmptySlot.png" id="7_4j7l8"]
-[ext_resource type="Texture2D" uid="uid://bkc0sma77uove" path="res://assets/Upgrades/Temporary Upgrades/Circus Hammer/common.png" id="7_uo8eo"]
 [ext_resource type="Texture2D" uid="uid://dgiuwaixygax8" path="res://assets/Upgrades/Temporary Upgrades/Boxing Gloves/common.png" id="8_xhtjx"]
+[ext_resource type="PackedScene" uid="uid://ciqp7p2ny6o0f" path="res://Shop/inventory_item.tscn" id="9_81sq0"]
 [ext_resource type="LabelSettings" uid="uid://wblyhtrwvirh" path="res://cutscenes/even_smaller_font.tres" id="10_j741j"]
 [ext_resource type="Texture2D" uid="uid://bn7uhusk2hoeq" path="res://globals/photo_2025-01-31_11-39-33.jpg" id="12_lek23"]
+[ext_resource type="PackedScene" uid="uid://cgqxe81427ik7" path="res://Shop/slot_container.tscn" id="12_xrpra"]
 [ext_resource type="Script" path="res://Shop/prize_popup.gd" id="13_3erh3"]
 [ext_resource type="AudioStream" uid="uid://j456e5gqtfqm" path="res://assets/Sounds/shop_music.mp3" id="15_5tx3v"]
+[ext_resource type="PackedScene" uid="uid://j60fiewfup26" path="res://Shop/shop_item_panel.tscn" id="18_iwvpi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yib2x"]
 bg_color = Color(0, 0, 0, 0.768627)
@@ -132,6 +132,10 @@ _data = {
 script = ExtResource("1_f14ov")
 teddy = NodePath("Location/Tedddy")
 wheel = NodePath("spin_wheel")
+shop_item_panel_scene = ExtResource("18_iwvpi")
+slot_container_scene = ExtResource("12_xrpra")
+inventory_item_scene = ExtResource("9_81sq0")
+metadata/_edit_lock_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
@@ -201,7 +205,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Inventory" type="Control" parent="CanvasLayer"]
-visible = false
+unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -233,6 +237,7 @@ offset_bottom = 1931.0
 texture = ExtResource("6_be7tm")
 
 [node name="PlayerInventoryContainer" type="HBoxContainer" parent="CanvasLayer/Inventory/InventoryBG"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -273,80 +278,12 @@ label_settings = ExtResource("3_cc6nc")
 horizontal_alignment = 1
 
 [node name="InventoryGridContainer" type="GridContainer" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/InventoryUpperContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 columns = 3
 
-[node name="InventorySlot_1" type="TextureRect" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/InventoryUpperContainer/InventoryGridContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(300, 300)
+[node name="InventoryItem" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/InventoryUpperContainer/InventoryGridContainer" instance=ExtResource("9_81sq0")]
 layout_mode = 2
-texture = ExtResource("7_4j7l8")
-expand_mode = 2
-stretch_mode = 4
-
-[node name="InventorySlot_2" type="TextureRect" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/InventoryUpperContainer/InventoryGridContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(300, 300)
-layout_mode = 2
-texture = ExtResource("7_4j7l8")
-expand_mode = 2
-stretch_mode = 4
-
-[node name="InventorySlot_3" type="TextureRect" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/InventoryUpperContainer/InventoryGridContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(300, 300)
-layout_mode = 2
-texture = ExtResource("7_4j7l8")
-expand_mode = 2
-stretch_mode = 4
-
-[node name="InventorySlot_4" type="TextureRect" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/InventoryUpperContainer/InventoryGridContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(300, 300)
-layout_mode = 2
-texture = ExtResource("7_4j7l8")
-expand_mode = 2
-stretch_mode = 4
-
-[node name="InventorySlot_5" type="TextureRect" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/InventoryUpperContainer/InventoryGridContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(300, 300)
-layout_mode = 2
-texture = ExtResource("7_4j7l8")
-expand_mode = 2
-stretch_mode = 4
-
-[node name="InventorySlot_6" type="TextureRect" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/InventoryUpperContainer/InventoryGridContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(300, 300)
-layout_mode = 2
-texture = ExtResource("7_4j7l8")
-expand_mode = 2
-stretch_mode = 4
-
-[node name="InventorySlot_7" type="TextureRect" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/InventoryUpperContainer/InventoryGridContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(300, 300)
-layout_mode = 2
-texture = ExtResource("7_4j7l8")
-expand_mode = 2
-stretch_mode = 4
-
-[node name="InventorySlot_8" type="TextureRect" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/InventoryUpperContainer/InventoryGridContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(300, 300)
-layout_mode = 2
-texture = ExtResource("7_4j7l8")
-expand_mode = 2
-stretch_mode = 4
-
-[node name="InventorySlot_9" type="TextureRect" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/InventoryUpperContainer/InventoryGridContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(300, 300)
-layout_mode = 2
-texture = ExtResource("7_4j7l8")
-expand_mode = 2
-stretch_mode = 4
 
 [node name="StatsUpperContainer" type="VBoxContainer" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG"]
 unique_name_in_owner = true
@@ -599,137 +536,30 @@ position = Vector2(339, 380)
 scale = Vector2(1.12, 1.12)
 
 [node name="EquipedContainer" type="VBoxContainer" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 50
 alignment = 1
 
-[node name="HeadPieceContainer" type="HBoxContainer" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/EquipedContainer"]
-layout_mode = 2
-
-[node name="HeadPieceIcon" type="TextureRect" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/EquipedContainer/HeadPieceContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 300)
-layout_mode = 2
-texture = ExtResource("4_pf8yp")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/EquipedContainer/HeadPieceContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="HeadItemName" type="Label" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/EquipedContainer/HeadPieceContainer/VBoxContainer"]
+[node name="HeadSlot" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/EquipedContainer" instance=ExtResource("12_xrpra")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Head Item Name"
-label_settings = ExtResource("3_cc6nc")
 
-[node name="Label" type="Label" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/EquipedContainer/HeadPieceContainer/VBoxContainer"]
-layout_mode = 2
-text = "Head Piece"
-label_settings = ExtResource("10_j741j")
-
-[node name="HeadPieceStats" type="Label" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/EquipedContainer/HeadPieceContainer/VBoxContainer"]
+[node name="BodySlot" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/EquipedContainer" instance=ExtResource("12_xrpra")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "+30 Damage Multiplier"
-label_settings = ExtResource("10_j741j")
+slot = 2
 
-[node name="TorsoPieceContainer" type="HBoxContainer" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/EquipedContainer"]
-layout_mode = 2
-
-[node name="TorsoPieceIcon" type="TextureRect" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/EquipedContainer/TorsoPieceContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 300)
-layout_mode = 2
-texture = ExtResource("5_nlss8")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/EquipedContainer/TorsoPieceContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="TorsoItemName" type="Label" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/EquipedContainer/TorsoPieceContainer/VBoxContainer"]
+[node name="LegsSlot" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/EquipedContainer" instance=ExtResource("12_xrpra")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Torso Item Name
-"
-label_settings = ExtResource("3_cc6nc")
+slot = 3
 
-[node name="Label" type="Label" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/EquipedContainer/TorsoPieceContainer/VBoxContainer"]
-layout_mode = 2
-text = "Torso Piece
-"
-label_settings = ExtResource("10_j741j")
-
-[node name="TorsoPieceStats" type="Label" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/EquipedContainer/TorsoPieceContainer/VBoxContainer"]
+[node name="FightingStyle" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/EquipedContainer" instance=ExtResource("12_xrpra")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "+30 Damage Multiplier"
-label_settings = ExtResource("10_j741j")
-
-[node name="FeetPieceContainer" type="HBoxContainer" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/EquipedContainer"]
-layout_mode = 2
-
-[node name="FeetPieceIcon" type="TextureRect" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/EquipedContainer/FeetPieceContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 300)
-layout_mode = 2
-texture = ExtResource("7_uo8eo")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/EquipedContainer/FeetPieceContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="FeetItemName" type="Label" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/EquipedContainer/FeetPieceContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Feet Item Name"
-label_settings = ExtResource("3_cc6nc")
-
-[node name="Label" type="Label" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/EquipedContainer/FeetPieceContainer/VBoxContainer"]
-layout_mode = 2
-text = "Feet Piece"
-label_settings = ExtResource("10_j741j")
-
-[node name="FeetPieceStats" type="Label" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/EquipedContainer/FeetPieceContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "+30 Damage Multiplier"
-label_settings = ExtResource("10_j741j")
-
-[node name="StylePieceContainer" type="HBoxContainer" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/EquipedContainer"]
-layout_mode = 2
-
-[node name="FightingStypeIcon" type="TextureRect" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/EquipedContainer/StylePieceContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 300)
-layout_mode = 2
-texture = ExtResource("8_xhtjx")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/EquipedContainer/StylePieceContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/EquipedContainer/StylePieceContainer/VBoxContainer"]
-layout_mode = 2
-text = "Fighting Style
-"
-label_settings = ExtResource("10_j741j")
-horizontal_alignment = 1
-
-[node name="FightingStypeName" type="Label" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/EquipedContainer/StylePieceContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Freestyle"
-label_settings = ExtResource("3_cc6nc")
-horizontal_alignment = 1
+slot = 4
 
 [node name="LeaveInventoryButton" type="Button" parent="CanvasLayer/Inventory/InventoryBG"]
 unique_name_in_owner = true
@@ -742,6 +572,7 @@ theme_override_font_sizes/font_size = 100
 text = "Leave Inventory"
 
 [node name="PrizePopup" type="Panel" parent="CanvasLayer" node_paths=PackedStringArray("player_contoller", "wheel")]
+visible = false
 offset_left = -1064.0
 offset_top = -1058.0
 offset_right = 1036.0
@@ -807,22 +638,28 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_cpsic")
 text = "Continue"
 
 [node name="Shop" type="Control" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
 layout_mode = 3
-anchors_preset = 0
-offset_left = -1552.0
-offset_top = 1526.0
-offset_right = 905.0
-offset_bottom = 3326.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -926.0
+offset_top = -1059.0
+offset_right = 346.0
+offset_bottom = 158.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="ShopPanel" type="Panel" parent="CanvasLayer/Shop"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -229.0
-offset_top = 34.0
-offset_right = -229.0
-offset_bottom = 34.0
+offset_left = -340.0
+offset_top = -250.0
+offset_right = -340.0
+offset_bottom = -250.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_0v4g7")
@@ -842,429 +679,11 @@ label_settings = ExtResource("2_8713t")
 horizontal_alignment = 1
 
 [node name="ShopGrid" type="GridContainer" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/v_separation = 40
 columns = 3
-
-[node name="ShopItemPanel_1" type="Panel" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid"]
-custom_minimum_size = Vector2(800, 800)
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
-
-[node name="ShopItem_1" type="VBoxContainer" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_1"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -416.5
-offset_top = -389.5
-offset_right = 416.5
-offset_bottom = 389.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 20
-
-[node name="Row_1" type="HBoxContainer" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_1/ShopItem_1"]
-layout_mode = 2
-alignment = 1
-
-[node name="ItemName" type="Label" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_1/ShopItem_1/Row_1"]
-layout_mode = 2
-text = "Cylinder Hat
-"
-label_settings = ExtResource("3_cc6nc")
-
-[node name="Row_2" type="HBoxContainer" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_1/ShopItem_1"]
-layout_mode = 2
-alignment = 1
-
-[node name="Slot" type="Label" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_1/ShopItem_1/Row_2"]
-layout_mode = 2
-text = "Head Piece
-"
-label_settings = ExtResource("10_j741j")
-
-[node name="Rarity" type="Label" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_1/ShopItem_1/Row_2"]
-layout_mode = 2
-text = ", COMMON
-"
-label_settings = ExtResource("10_j741j")
-
-[node name="Row_3" type="HBoxContainer" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_1/ShopItem_1"]
-layout_mode = 2
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_1/ShopItem_1/Row_3"]
-layout_mode = 2
-texture = ExtResource("7_4j7l8")
-
-[node name="Row_4" type="HBoxContainer" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_1/ShopItem_1"]
-layout_mode = 2
-theme_override_constants/separation = 50
-alignment = 1
-
-[node name="Price" type="Label" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_1/ShopItem_1/Row_4"]
-layout_mode = 2
-text = "12500"
-label_settings = ExtResource("3_cc6nc")
-
-[node name="Currency" type="Label" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_1/ShopItem_1/Row_4"]
-layout_mode = 2
-text = "TICKETS"
-label_settings = ExtResource("3_cc6nc")
-
-[node name="ShopItemPanel_2" type="Panel" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid"]
-custom_minimum_size = Vector2(800, 800)
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
-
-[node name="ShopItem_1" type="VBoxContainer" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_2"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -416.5
-offset_top = -389.5
-offset_right = 416.5
-offset_bottom = 389.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 20
-
-[node name="Row_1" type="HBoxContainer" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_2/ShopItem_1"]
-layout_mode = 2
-alignment = 1
-
-[node name="ItemName" type="Label" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_2/ShopItem_1/Row_1"]
-layout_mode = 2
-text = "Cylinder Hat
-"
-label_settings = ExtResource("3_cc6nc")
-
-[node name="Row_2" type="HBoxContainer" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_2/ShopItem_1"]
-layout_mode = 2
-alignment = 1
-
-[node name="Slot" type="Label" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_2/ShopItem_1/Row_2"]
-layout_mode = 2
-text = "Head Piece
-"
-label_settings = ExtResource("10_j741j")
-
-[node name="Rarity" type="Label" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_2/ShopItem_1/Row_2"]
-layout_mode = 2
-text = ", COMMON
-"
-label_settings = ExtResource("10_j741j")
-
-[node name="Row_3" type="HBoxContainer" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_2/ShopItem_1"]
-layout_mode = 2
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_2/ShopItem_1/Row_3"]
-layout_mode = 2
-texture = ExtResource("7_4j7l8")
-
-[node name="Row_4" type="HBoxContainer" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_2/ShopItem_1"]
-layout_mode = 2
-theme_override_constants/separation = 50
-alignment = 1
-
-[node name="Price" type="Label" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_2/ShopItem_1/Row_4"]
-layout_mode = 2
-text = "12500"
-label_settings = ExtResource("3_cc6nc")
-
-[node name="Currency" type="Label" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_2/ShopItem_1/Row_4"]
-layout_mode = 2
-text = "TICKETS"
-label_settings = ExtResource("3_cc6nc")
-
-[node name="ShopItemPanel_3" type="Panel" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid"]
-custom_minimum_size = Vector2(800, 800)
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
-
-[node name="ShopItem_1" type="VBoxContainer" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_3"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -416.5
-offset_top = -389.5
-offset_right = 416.5
-offset_bottom = 389.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 20
-
-[node name="Row_1" type="HBoxContainer" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_3/ShopItem_1"]
-layout_mode = 2
-alignment = 1
-
-[node name="ItemName" type="Label" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_3/ShopItem_1/Row_1"]
-layout_mode = 2
-text = "Cylinder Hat
-"
-label_settings = ExtResource("3_cc6nc")
-
-[node name="Row_2" type="HBoxContainer" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_3/ShopItem_1"]
-layout_mode = 2
-alignment = 1
-
-[node name="Slot" type="Label" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_3/ShopItem_1/Row_2"]
-layout_mode = 2
-text = "Head Piece
-"
-label_settings = ExtResource("10_j741j")
-
-[node name="Rarity" type="Label" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_3/ShopItem_1/Row_2"]
-layout_mode = 2
-text = ", COMMON
-"
-label_settings = ExtResource("10_j741j")
-
-[node name="Row_3" type="HBoxContainer" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_3/ShopItem_1"]
-layout_mode = 2
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_3/ShopItem_1/Row_3"]
-layout_mode = 2
-texture = ExtResource("7_4j7l8")
-
-[node name="Row_4" type="HBoxContainer" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_3/ShopItem_1"]
-layout_mode = 2
-theme_override_constants/separation = 50
-alignment = 1
-
-[node name="Price" type="Label" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_3/ShopItem_1/Row_4"]
-layout_mode = 2
-text = "12500"
-label_settings = ExtResource("3_cc6nc")
-
-[node name="Currency" type="Label" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_3/ShopItem_1/Row_4"]
-layout_mode = 2
-text = "TICKETS"
-label_settings = ExtResource("3_cc6nc")
-
-[node name="ShopItemPanel_4" type="Panel" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid"]
-custom_minimum_size = Vector2(800, 800)
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
-
-[node name="ShopItem_1" type="VBoxContainer" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_4"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -416.5
-offset_top = -389.5
-offset_right = 416.5
-offset_bottom = 389.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 20
-
-[node name="Row_1" type="HBoxContainer" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_4/ShopItem_1"]
-layout_mode = 2
-alignment = 1
-
-[node name="ItemName" type="Label" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_4/ShopItem_1/Row_1"]
-layout_mode = 2
-text = "Cylinder Hat
-"
-label_settings = ExtResource("3_cc6nc")
-
-[node name="Row_2" type="HBoxContainer" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_4/ShopItem_1"]
-layout_mode = 2
-alignment = 1
-
-[node name="Slot" type="Label" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_4/ShopItem_1/Row_2"]
-layout_mode = 2
-text = "Head Piece
-"
-label_settings = ExtResource("10_j741j")
-
-[node name="Rarity" type="Label" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_4/ShopItem_1/Row_2"]
-layout_mode = 2
-text = ", COMMON
-"
-label_settings = ExtResource("10_j741j")
-
-[node name="Row_3" type="HBoxContainer" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_4/ShopItem_1"]
-layout_mode = 2
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_4/ShopItem_1/Row_3"]
-layout_mode = 2
-texture = ExtResource("7_4j7l8")
-
-[node name="Row_4" type="HBoxContainer" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_4/ShopItem_1"]
-layout_mode = 2
-theme_override_constants/separation = 50
-alignment = 1
-
-[node name="Price" type="Label" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_4/ShopItem_1/Row_4"]
-layout_mode = 2
-text = "12500"
-label_settings = ExtResource("3_cc6nc")
-
-[node name="Currency" type="Label" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_4/ShopItem_1/Row_4"]
-layout_mode = 2
-text = "TICKETS"
-label_settings = ExtResource("3_cc6nc")
-
-[node name="ShopItemPanel_5" type="Panel" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid"]
-custom_minimum_size = Vector2(800, 800)
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
-
-[node name="ShopItem_1" type="VBoxContainer" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_5"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -416.5
-offset_top = -389.5
-offset_right = 416.5
-offset_bottom = 389.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 20
-
-[node name="Row_1" type="HBoxContainer" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_5/ShopItem_1"]
-layout_mode = 2
-alignment = 1
-
-[node name="ItemName" type="Label" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_5/ShopItem_1/Row_1"]
-layout_mode = 2
-text = "Cylinder Hat
-"
-label_settings = ExtResource("3_cc6nc")
-
-[node name="Row_2" type="HBoxContainer" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_5/ShopItem_1"]
-layout_mode = 2
-alignment = 1
-
-[node name="Slot" type="Label" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_5/ShopItem_1/Row_2"]
-layout_mode = 2
-text = "Head Piece
-"
-label_settings = ExtResource("10_j741j")
-
-[node name="Rarity" type="Label" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_5/ShopItem_1/Row_2"]
-layout_mode = 2
-text = ", COMMON
-"
-label_settings = ExtResource("10_j741j")
-
-[node name="Row_3" type="HBoxContainer" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_5/ShopItem_1"]
-layout_mode = 2
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_5/ShopItem_1/Row_3"]
-layout_mode = 2
-texture = ExtResource("7_4j7l8")
-
-[node name="Row_4" type="HBoxContainer" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_5/ShopItem_1"]
-layout_mode = 2
-theme_override_constants/separation = 50
-alignment = 1
-
-[node name="Price" type="Label" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_5/ShopItem_1/Row_4"]
-layout_mode = 2
-text = "12500"
-label_settings = ExtResource("3_cc6nc")
-
-[node name="Currency" type="Label" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_5/ShopItem_1/Row_4"]
-layout_mode = 2
-text = "TICKETS"
-label_settings = ExtResource("3_cc6nc")
-
-[node name="ShopItemPanel_6" type="Panel" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid"]
-custom_minimum_size = Vector2(800, 800)
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
-
-[node name="ShopItem_1" type="VBoxContainer" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_6"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -416.5
-offset_top = -389.5
-offset_right = 416.5
-offset_bottom = 389.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 20
-
-[node name="Row_1" type="HBoxContainer" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_6/ShopItem_1"]
-layout_mode = 2
-alignment = 1
-
-[node name="ItemName" type="Label" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_6/ShopItem_1/Row_1"]
-layout_mode = 2
-text = "Cylinder Hat
-"
-label_settings = ExtResource("3_cc6nc")
-
-[node name="Row_2" type="HBoxContainer" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_6/ShopItem_1"]
-layout_mode = 2
-alignment = 1
-
-[node name="Slot" type="Label" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_6/ShopItem_1/Row_2"]
-layout_mode = 2
-text = "Head Piece
-"
-label_settings = ExtResource("10_j741j")
-
-[node name="Rarity" type="Label" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_6/ShopItem_1/Row_2"]
-layout_mode = 2
-text = ", COMMON
-"
-label_settings = ExtResource("10_j741j")
-
-[node name="Row_3" type="HBoxContainer" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_6/ShopItem_1"]
-layout_mode = 2
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_6/ShopItem_1/Row_3"]
-layout_mode = 2
-texture = ExtResource("7_4j7l8")
-
-[node name="Row_4" type="HBoxContainer" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_6/ShopItem_1"]
-layout_mode = 2
-theme_override_constants/separation = 50
-alignment = 1
-
-[node name="Price" type="Label" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_6/ShopItem_1/Row_4"]
-layout_mode = 2
-text = "12500"
-label_settings = ExtResource("3_cc6nc")
-
-[node name="Currency" type="Label" parent="CanvasLayer/Shop/ShopPanel/VBoxContainer/ShopGrid/ShopItemPanel_6/ShopItem_1/Row_4"]
-layout_mode = 2
-text = "TICKETS"
-label_settings = ExtResource("3_cc6nc")
 
 [node name="ItemDetails" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -1540,67 +959,67 @@ target = NodePath("../DummyTarget")
 visible = false
 
 [node name="TorsoTop" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="0"]
-rotation = 0.439851
-scale = Vector2(0.999975, 0.999975)
+rotation = 0.361894
+scale = Vector2(0.999969, 0.999969)
 
 [node name="UpperArmR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="0"]
-rotation = 1.44064
-scale = Vector2(0.99997, 0.99997)
+rotation = 1.36742
+scale = Vector2(0.999963, 0.999963)
 
 [node name="LowerArmR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR" index="0"]
-rotation = -1.74188
-scale = Vector2(0.999968, 0.999968)
+rotation = -1.70882
+scale = Vector2(0.999962, 0.999962)
 
 [node name="WristR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR" index="0"]
-rotation = 1.65556
-scale = Vector2(0.99998, 0.99998)
+rotation = 1.93583
+scale = Vector2(0.999973, 0.999973)
 
 [node name="UpperArmL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="1"]
-rotation = -1.18048
-scale = Vector2(0.999974, 0.999974)
+rotation = -1.05429
+scale = Vector2(0.99997, 0.99997)
 
 [node name="LowerArmL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL" index="0"]
-rotation = -0.240388
-scale = Vector2(0.999979, 0.999979)
+rotation = -0.421073
+scale = Vector2(0.999974, 0.999974)
 
 [node name="WristL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL" index="0"]
-rotation = 2.49662
-scale = Vector2(0.999971, 0.999971)
+rotation = 2.65065
+scale = Vector2(0.999967, 0.999967)
 
 [node name="HeadMain" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="2"]
-rotation = -0.162025
-scale = Vector2(0.999966, 0.999966)
+rotation = -0.11439
+scale = Vector2(0.999959, 0.999959)
 
 [node name="LowerJaw" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="0"]
-rotation = 1.03346
-scale = Vector2(0.999971, 0.999971)
+rotation = 1.0918
+scale = Vector2(0.999966, 0.999966)
 
 [node name="EarL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="2"]
 scale = Vector2(0.443939, 0.778982)
 
 [node name="UpperLegR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="1"]
-rotation = 1.87639
-scale = Vector2(0.999983, 0.999983)
+rotation = 2.24618
+scale = Vector2(0.999978, 0.999978)
 
 [node name="LowerLegR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/UpperLegR" index="0"]
-rotation = 1.62931
-scale = Vector2(0.999971, 0.999971)
+rotation = 1.03006
+scale = Vector2(0.999965, 0.999965)
 
 [node name="UpperLegL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="2"]
-rotation = 2.94431
-scale = Vector2(0.999982, 0.999982)
+rotation = 2.67768
+scale = Vector2(0.999977, 0.999977)
 
 [node name="LowerLegL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/UpperLegL" index="0"]
-rotation = 0.0144275
-scale = Vector2(0.999975, 0.999975)
+rotation = 0.370401
+scale = Vector2(0.999969, 0.999969)
 
 [node name="StunParticle" parent="PlayerController/BearNew/DamageFX/Stun" index="0"]
-position = Vector2(175.187, -590.197)
-rotation = -1.01097
-scale = Vector2(0.99994, 0.99994)
+position = Vector2(165.62, -599.453)
+rotation = -1.0413
+scale = Vector2(0.999927, 0.999927)
 
 [node name="SlowParticle" parent="PlayerController/BearNew/DamageFX/Slow" index="0"]
-position = Vector2(137.552, -677.704)
+position = Vector2(125.35, -685.778)
 scale = Vector2(0.999988, 0.999988)
 
 [node name="DummyTarget" type="CharacterBody2D" parent="."]
