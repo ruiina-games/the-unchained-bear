@@ -742,11 +742,10 @@ theme_override_font_sizes/font_size = 100
 text = "Leave Inventory"
 
 [node name="PrizePopup" type="Panel" parent="CanvasLayer" node_paths=PackedStringArray("player_contoller", "wheel")]
-visible = false
-offset_left = -923.0
-offset_top = -1068.0
-offset_right = 940.0
-offset_bottom = 301.0
+offset_left = -1064.0
+offset_top = -1058.0
+offset_right = 1036.0
+offset_bottom = 311.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_qsu38")
 script = ExtResource("13_3erh3")
 player_contoller = NodePath("../../PlayerController")
@@ -1277,6 +1276,7 @@ offset_bottom = 4166.0
 
 [node name="ItemPanel" type="Panel" parent="CanvasLayer/ItemDetails"]
 custom_minimum_size = Vector2(800, 800)
+layout_mode = 0
 offset_left = -266.0
 offset_right = 1570.0
 offset_bottom = 1438.0
@@ -1540,67 +1540,67 @@ target = NodePath("../DummyTarget")
 visible = false
 
 [node name="TorsoTop" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="0"]
-rotation = 0.345056
+rotation = 0.439851
 scale = Vector2(0.999975, 0.999975)
 
 [node name="UpperArmR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="0"]
-rotation = 1.30445
+rotation = 1.44064
 scale = Vector2(0.99997, 0.99997)
 
 [node name="LowerArmR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR" index="0"]
-rotation = -1.65745
+rotation = -1.74188
 scale = Vector2(0.999968, 0.999968)
 
 [node name="WristR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR" index="0"]
-rotation = 1.75383
+rotation = 1.65556
 scale = Vector2(0.99998, 0.99998)
 
 [node name="UpperArmL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="1"]
-rotation = -0.997502
+rotation = -1.18048
 scale = Vector2(0.999974, 0.999974)
 
 [node name="LowerArmL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL" index="0"]
-rotation = -0.462511
+rotation = -0.240388
 scale = Vector2(0.999979, 0.999979)
 
 [node name="WristL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL" index="0"]
-rotation = 2.67336
+rotation = 2.49662
 scale = Vector2(0.999971, 0.999971)
 
 [node name="HeadMain" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="2"]
-rotation = -0.104082
+rotation = -0.162025
 scale = Vector2(0.999966, 0.999966)
 
 [node name="LowerJaw" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="0"]
-rotation = 1.09433
+rotation = 1.03346
 scale = Vector2(0.999971, 0.999971)
 
 [node name="EarL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="2"]
 scale = Vector2(0.443939, 0.778982)
 
 [node name="UpperLegR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="1"]
-rotation = 2.10999
+rotation = 1.87639
 scale = Vector2(0.999983, 0.999983)
 
 [node name="LowerLegR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/UpperLegR" index="0"]
-rotation = 1.32414
+rotation = 1.62931
 scale = Vector2(0.999971, 0.999971)
 
 [node name="UpperLegL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="2"]
-rotation = 2.25186
+rotation = 2.94431
 scale = Vector2(0.999982, 0.999982)
 
 [node name="LowerLegL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/UpperLegL" index="0"]
-rotation = 0.963546
+rotation = 0.0144275
 scale = Vector2(0.999975, 0.999975)
 
 [node name="StunParticle" parent="PlayerController/BearNew/DamageFX/Stun" index="0"]
-position = Vector2(163.484, -601.367)
-rotation = -1.04783
+position = Vector2(175.187, -590.197)
+rotation = -1.01097
 scale = Vector2(0.99994, 0.99994)
 
 [node name="SlowParticle" parent="PlayerController/BearNew/DamageFX/Slow" index="0"]
-position = Vector2(122.65, -687.428)
+position = Vector2(137.552, -677.704)
 scale = Vector2(0.999988, 0.999988)
 
 [node name="DummyTarget" type="CharacterBody2D" parent="."]
