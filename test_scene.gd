@@ -86,9 +86,3 @@ func create_upgrade(name: String, slot_type: Upgrade.SLOT_TYPE, stats: Array[Sta
 	upgrade.slot_type = slot_type
 	upgrade.upgrade_array = stats  # Передаємо масив StatModel в upgrade_array
 	return upgrade
-
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("1"):
-		player_stats.add_to_inventory(new_fighting_style)
-		player_stats.change_fighting_style(new_fighting_style)
-		player_controller.update_fs()

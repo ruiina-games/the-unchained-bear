@@ -86,11 +86,11 @@ func create_item_slots():
 			Upgrade.SLOT_TYPE.HEAD:
 				head_slot.item = player_stats.head_slot
 			Upgrade.SLOT_TYPE.BODY:
-				head_slot.item = player_stats.body_slot
+				body_slot.item = player_stats.body_slot
 			Upgrade.SLOT_TYPE.LEGS:
-				head_slot.item = player_stats.legs_slot
+				legs_slot.item = player_stats.legs_slot
 			Upgrade.SLOT_TYPE.FIGHTING_STYLE:
-				head_slot.item = player_stats.fighting_style
+				fighting_style.item = player_stats.fighting_style
 		slot.update_ui()
 
 # Створюємо панелі для магазину
