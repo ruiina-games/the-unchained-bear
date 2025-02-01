@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="FightingStyle" load_steps=11 format=3 uid="uid://c6l7jwpahuvjx"]
+[gd_resource type="Resource" script_class="FightingStyle" load_steps=12 format=3 uid="uid://c6l7jwpahuvjx"]
 
 [ext_resource type="Script" path="res://fighting styles/fighting_style.gd" id="1_evf5a"]
 [ext_resource type="Resource" uid="uid://w5nt8my5aw56" path="res://characters/beast_tamer/attacks/kick.tres" id="1_vknsf"]
 [ext_resource type="Script" path="res://data/damage/scripts/damage.gd" id="2_2tj1g"]
 [ext_resource type="Script" path="res://data/damage/scripts/slow.gd" id="3_cwhas"]
+[ext_resource type="Script" path="res://data/game data/upgrades/stat_model.gd" id="5_jxocu"]
 
 [sub_resource type="Resource" id="Resource_5d4ju"]
 script = ExtResource("3_cwhas")
@@ -53,3 +54,14 @@ damage_variations = {
 1: SubResource("Resource_2fkhf"),
 2: SubResource("Resource_jyc8r")
 }
+title = null
+money_type = 0
+cost = 0
+upgrade_array = Array[ExtResource("5_jxocu")]([])
+upgrade_multi_step = 1.0
+slot_type = 0
+icon_folder_path = ""
+rarity = 0
+id = 0
+name = ""
+description = ""
