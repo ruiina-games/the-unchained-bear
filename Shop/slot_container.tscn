@@ -39,7 +39,7 @@ label_settings = ExtResource("3_soucr")
 
 [node name="StatsName" type="Label" parent="VBoxContainer"]
 unique_name_in_owner = true
-modulate = Color(1, 0.425788, 0.357085, 1)
+modulate = Color(0.999996, 0.260014, 0.200842, 1)
 layout_mode = 2
 text = "dsadasdasdasd"
 label_settings = ExtResource("3_soucr")

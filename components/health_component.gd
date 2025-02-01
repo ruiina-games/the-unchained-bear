@@ -51,6 +51,7 @@ func apply_direct_damage(enemy_stats: CharacterStats, damage: Damage):
 	
 	if is_critical:
 		print("FUCK IT IS CRITICAL")
+		GlobalSignals.player_crit.emit(agent)
 		critical_multiplier = enemy_stats.critical_damage_multiplier
 		
 	var base_damage: float = damage.get_damage_amount() * critical_multiplier * enemy_stats.attack_power_multiplier

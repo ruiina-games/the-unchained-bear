@@ -51,7 +51,7 @@ bg_color = Color(0, 0, 0, 1)
 bg_color = Color(5.86594e-08, 0.143815, 9.62615e-08, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0v4g7"]
-bg_color = Color(0, 0, 0, 0.74902)
+bg_color = Color(0, 0, 0, 0.913725)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qjwae"]
 size = Vector2(677, 1048)
@@ -60,7 +60,7 @@ size = Vector2(677, 1048)
 size = Vector2(646, 898)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_spye5"]
-size = Vector2(295, 1154)
+size = Vector2(422.5, 1154)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_74kqe"]
 size = Vector2(524, 552)
@@ -202,7 +202,6 @@ text = "Press [E] to proceed to the next boss"
 label_settings = ExtResource("2_8713t")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -216,6 +215,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="Inventory" type="Control" parent="CanvasLayer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -260,6 +260,7 @@ texture_normal = ExtResource("10_xvvd8")
 stretch_mode = 0
 
 [node name="Label" type="Label" parent="CanvasLayer/Inventory/TabStats"]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -286,6 +287,7 @@ texture_normal = ExtResource("12_2tl3r")
 stretch_mode = 0
 
 [node name="Label" type="Label" parent="CanvasLayer/Inventory/TabInventory"]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -300,6 +302,8 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Inventory"
 label_settings = ExtResource("3_cc6nc")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PlayerInventoryContainer" type="HBoxContainer" parent="CanvasLayer/Inventory"]
 unique_name_in_owner = true
@@ -373,6 +377,7 @@ offset_bottom = 651.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 35
+alignment = 1
 
 [node name="Label" type="Label" parent="CanvasLayer/Inventory/PlayerInventoryContainer/StatsInvBoard/StatsUpperContainer"]
 layout_mode = 2
@@ -733,9 +738,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -340.0
+offset_left = -436.0
 offset_top = -250.0
-offset_right = -340.0
+offset_right = -180.0
 offset_bottom = -250.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -761,6 +766,15 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/v_separation = 40
 columns = 3
+
+[node name="CloseShopButton" type="Button" parent="CanvasLayer/Shop/ShopPanel"]
+layout_mode = 0
+offset_left = 2382.0
+offset_top = 25.0
+offset_right = 2775.0
+offset_bottom = 128.0
+theme_override_font_sizes/font_size = 80
+text = "Close Shop"
 
 [node name="ItemDetails" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -925,7 +939,7 @@ collision_layer = 0
 collision_mask = 2048
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextStageArea"]
-position = Vector2(204.5, -2)
+position = Vector2(108, 41)
 shape = SubResource("RectangleShape2D_spye5")
 
 [node name="InventoryArea" type="Area2D" parent="."]
@@ -977,10 +991,10 @@ stretch_mode = 3
 
 [node name="CabinBG" type="TextureRect" parent="Location"]
 layout_mode = 0
-offset_left = -3168.0
-offset_top = -1401.0
-offset_right = 692.0
-offset_bottom = 779.0
+offset_left = -3184.0
+offset_top = -1481.0
+offset_right = 676.0
+offset_bottom = 699.0
 texture = ExtResource("4_3djtt")
 stretch_mode = 3
 
@@ -1032,71 +1046,74 @@ texture = ExtResource("12_lek23")
 position = Vector2(-707, 420)
 target = NodePath("../DummyTarget")
 
-[node name="HPBar" parent="PlayerController/CanvasLayer" index="0"]
+[node name="HandL" parent="PlayerController/CanvasLayer/Tedddy/Skeleton2D/Main/Body" index="0"]
+scale = Vector2(1, 1)
+
+[node name="Head" parent="PlayerController/CanvasLayer/Tedddy/Skeleton2D/Main/Body" index="2"]
+scale = Vector2(0.999999, 0.999999)
+
+[node name="HPBar" parent="PlayerController/CanvasLayer" index="2"]
 visible = false
 
 [node name="TorsoTop" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="0"]
-rotation = 0.389236
-scale = Vector2(0.999968, 0.999968)
+rotation = 0.338676
+scale = Vector2(0.999967, 0.999967)
 
 [node name="UpperArmR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="0"]
-rotation = 1.22107
-scale = Vector2(0.999962, 0.999962)
+rotation = 1.35046
+scale = Vector2(0.999961, 0.999961)
 
 [node name="LowerArmR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR" index="0"]
-rotation = -1.5801
-scale = Vector2(0.99996, 0.99996)
+rotation = -1.68309
+scale = Vector2(0.999959, 0.999959)
 
 [node name="WristR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR" index="0"]
-rotation = 1.70777
-scale = Vector2(0.999972, 0.999972)
+rotation = 2.01423
+scale = Vector2(0.999971, 0.999971)
 
 [node name="UpperArmL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="1"]
-rotation = -1.06282
-scale = Vector2(0.999969, 0.999969)
+rotation = -0.995967
+scale = Vector2(0.999968, 0.999968)
 
 [node name="LowerArmL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL" index="0"]
-rotation = -0.359903
+rotation = -0.47721
 scale = Vector2(0.999973, 0.999973)
 
 [node name="WristL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL" index="0"]
-rotation = 2.58602
-scale = Vector2(0.999966, 0.999966)
+rotation = 2.68884
+scale = Vector2(0.999965, 0.999965)
 
 [node name="HeadMain" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="2"]
-rotation = -0.131115
-scale = Vector2(0.999958, 0.999958)
+rotation = -0.10017
+scale = Vector2(0.999957, 0.999957)
 
 [node name="LowerJaw" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="0"]
-rotation = 1.06033
+rotation = 1.10164
 scale = Vector2(0.999966, 0.999966)
 
-[node name="EarL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="2"]
-scale = Vector2(0.443939, 0.778982)
-
 [node name="UpperLegR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="1"]
-rotation = 2.19446
+rotation = 2.17696
 scale = Vector2(0.999977, 0.999977)
 
 [node name="LowerLegR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/UpperLegR" index="0"]
-rotation = 1.17011
+rotation = 1.12125
 scale = Vector2(0.999964, 0.999964)
 
 [node name="UpperLegL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="2"]
-rotation = 2.16575
-scale = Vector2(0.999976, 0.999976)
+rotation = 2.61082
+scale = Vector2(0.999975, 0.999975)
 
 [node name="LowerLegL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/UpperLegL" index="0"]
-rotation = 1.12507
+rotation = 0.476453
 scale = Vector2(0.999967, 0.999967)
 
 [node name="StunParticle" parent="PlayerController/BearNew/DamageFX/Stun" index="0"]
-position = Vector2(169.038, -596.28)
-rotation = -1.03068
-scale = Vector2(0.999925, 0.999925)
+position = Vector2(162.665, -602.081)
+rotation = -1.05029
+scale = Vector2(0.999923, 0.999923)
 
 [node name="SlowParticle" parent="PlayerController/BearNew/DamageFX/Slow" index="0"]
-position = Vector2(129.687, -683.028)
+position = Vector2(121.62, -688.04)
 scale = Vector2(0.999988, 0.999988)
 
 [node name="DummyTarget" type="CharacterBody2D" parent="."]
@@ -1139,6 +1156,8 @@ libraries = {
 [connection signal="pressed" from="CanvasLayer/Inventory/TabInventory" to="CanvasLayer/Inventory" method="_on_tab_inventory_pressed"]
 [connection signal="pressed" from="CanvasLayer/Inventory/LeaveInventoryButton" to="." method="_on_leave_inventory_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PrizePopup/VBoxContainer/Button" to="CanvasLayer/PrizePopup" method="_on_button_pressed"]
+[connection signal="visibility_changed" from="CanvasLayer/Shop" to="." method="_on_shop_visibility_changed"]
+[connection signal="pressed" from="CanvasLayer/Shop/ShopPanel/CloseShopButton" to="." method="_on_close_shop_button_pressed"]
 [connection signal="body_entered" from="ShopArea" to="." method="_on_shop_area_body_entered"]
 [connection signal="body_exited" from="ShopArea" to="." method="_on_shop_area_body_exited"]
 [connection signal="body_entered" from="WheelArea" to="." method="_on_wheel_area_body_entered"]
@@ -1149,5 +1168,6 @@ libraries = {
 [connection signal="body_exited" from="InventoryArea" to="." method="_on_inventory_area_body_exited"]
 
 [editable path="PlayerController"]
+[editable path="PlayerController/CanvasLayer/Tedddy"]
 [editable path="PlayerController/BearNew"]
 [editable path="spin_wheel"]

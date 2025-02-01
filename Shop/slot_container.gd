@@ -18,7 +18,7 @@ func _ready():
 func update_ui() -> void:
 	if item:
 		# Заповнюємо іконку (якщо вона є)
-		# item.load_icon()
+		item.load_icon()
 		if item.icon_texture:
 			icon.texture = item.icon_texture
 

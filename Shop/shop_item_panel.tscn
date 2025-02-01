@@ -1,8 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://j60fiewfup26"]
+[gd_scene load_steps=7 format=3 uid="uid://j60fiewfup26"]
 
 [ext_resource type="Script" path="res://Shop/shop_item_panel.gd" id="1_00dhx"]
 [ext_resource type="LabelSettings" uid="uid://ddlppfp33dpu1" path="res://cutscenes/a_bit_bigger_than_even_smaller_font.tres" id="1_862oa"]
 [ext_resource type="LabelSettings" uid="uid://wblyhtrwvirh" path="res://cutscenes/even_smaller_font.tres" id="2_qe7wl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q2wi6"]
+bg_color = Color(0.099986, 0.099986, 0.099986, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ovtxw"]
+font_size = 50
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6e80g"]
 load_path = "res://.godot/imported/EmptySlot.png-181bd45cb7559e750d8d950b90545f67.ctex"
@@ -11,12 +17,13 @@ load_path = "res://.godot/imported/EmptySlot.png-181bd45cb7559e750d8d950b90545f6
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -780.0
-offset_bottom = -220.0
+offset_right = -666.0
+offset_bottom = 84.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
+theme_override_styles/panel = SubResource("StyleBoxFlat_q2wi6")
 script = ExtResource("1_00dhx")
 
 [node name="Grid" type="VBoxContainer" parent="."]
@@ -39,7 +46,7 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Cylinder Hat
 "
-label_settings = ExtResource("1_862oa")
+label_settings = ExtResource("2_qe7wl")
 
 [node name="SlotRarityRow" type="HBoxContainer" parent="Grid"]
 custom_minimum_size = Vector2(40, 40)
@@ -55,15 +62,17 @@ custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 text = "Head Piece
 "
-label_settings = ExtResource("2_qe7wl")
+label_settings = SubResource("LabelSettings_ovtxw")
+horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Rarity" type="Label" parent="Grid/SlotRarityRow/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = ", COMMON
+text = "COMMON
 "
 label_settings = ExtResource("2_qe7wl")
+horizontal_alignment = 1
 
 [node name="ButtonTextureRow" type="HBoxContainer" parent="Grid"]
 layout_mode = 2

@@ -6,3 +6,5 @@ signal stop_slow_motion
 signal reset_stats_all
 
 signal ready_to_transit(agent)
+
+signal player_crit(agent)

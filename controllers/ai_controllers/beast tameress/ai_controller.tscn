@@ -1,13 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dq2wgiu3t6ygp"]
+[gd_scene load_steps=4 format=3 uid="uid://dq2wgiu3t6ygp"]
 
 [ext_resource type="Script" path="res://controllers/ai_controllers/ai_controller.gd" id="1_guvwv"]
 [ext_resource type="Script" path="res://controllers/ai_state_machine.gd" id="2_7x5dg"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rpf6d"]
-bg_color = Color(0.314316, 0.314316, 0.314316, 1)
-
-[sub_resource type="Theme" id="Theme_uyyyj"]
-ProgressBar/styles/background = SubResource("StyleBoxFlat_rpf6d")
+[ext_resource type="Theme" uid="uid://cyfdpf8fckxqk" path="res://assets/main_theme.tres" id="2_28pix"]
 
 [node name="AIController" type="Node2D"]
 script = ExtResource("1_guvwv")
@@ -18,7 +13,9 @@ script = ExtResource("1_guvwv")
 layout_mode = 3
 anchor_left = 1.075
 anchor_right = 1.2
+offset_left = -41.0
 offset_top = -25.0
+offset_right = -41.0
 offset_bottom = 40.0
 grow_horizontal = 0
 scale = Vector2(-1, 1)
@@ -35,7 +32,7 @@ offset_bottom = 232.0
 custom_minimum_size = Vector2(300, 30)
 layout_mode = 2
 size_flags_vertical = 1
-theme = SubResource("Theme_uyyyj")
+theme = ExtResource("2_28pix")
 show_percentage = false
 
 [node name="EffectsContainer" type="GridContainer" parent="CanvasLayer/HPBar/HBBarContainer"]
