@@ -31,21 +31,24 @@ func play_pick_up():
 	
 func play_end_run():
 	bear_new.animation_player.play("FREE_STYLE/RUN")
-	
+
+var allowed_to_hit: bool = true
 func _unhandled_input(event):
 	if event.is_action_pressed("attack") and !is_cage_opened:
-		bear_new.animation_player.play("TUTORIAL_ATTACK")
-		await get_tree().create_timer(0.8).timeout
-		%CageHit.play(0.2)
-		animation_player.play("CROSSBAR_SHAKE")
-		bear_new.animation_player.animation_finished.connect(func(anim_name): 
-			if attack_count == 3:
-				is_cage_opened = true
-				%CageBreak.play()
-				animation_player.play("CROSSBAR_BREAK")
-				return
-			if anim_name == "TUTORIAL_ATTACK": 
-				attack_count += 1
+		if allowed_to_hit:
+			allowed_to_hit = false
+			bear_new.animation_player.play("TUTORIAL_ATTACK")
+			%CageHit.play(0.2)
+			animation_player.play("CROSSBAR_SHAKE")
+			bear_new.animation_player.animation_finished.connect(func(anim_name):
+				if attack_count == 3:
+					is_cage_opened = true
+					%CageBreak.play()
+					animation_player.play("CROSSBAR_BREAK")
+					return
+				if anim_name == "TUTORIAL_ATTACK": 
+					attack_count += 1
+					allowed_to_hit = true 
 				
 			)
 
