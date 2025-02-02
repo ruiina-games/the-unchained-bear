@@ -3,6 +3,7 @@ class_name ShopItemPanel
 
 @export var item: ShopUpgrade  # Предмет, який продається
 @export var player_stats: PlayerStats
+@export var item_popup: PackedScene
 
 @onready var item_name: Label = %ItemName
 @onready var slot: Label = %Slot
@@ -47,9 +48,8 @@ func can_afford() -> bool:
 # Обробник натискання кнопки купівлі
 func _on_buy_button_pressed() -> void:
 	if item:
-		print("Attempting to purchase: ", item.title)
-		if ShopManager.purchase_item(item):  # Викликаємо метод покупки з ShopManager
-			print("Purchase successful!")
-			update_ui()  # Оновлюємо інтерфейс після покупки
-		else:
-			print("Purchase failed.")
+		var instance_popup = item_popup.instantiate()
+		instance_popup.item_bought.connect(func(): update_ui())
+		instance_popup.item = item
+		add_child(instance_popup)
+		

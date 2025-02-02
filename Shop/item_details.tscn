@@ -1,0 +1,162 @@
+[gd_scene load_steps=9 format=3 uid="uid://cw057lh8u8oro"]
+
+[ext_resource type="Script" path="res://Shop/item_details.gd" id="1_4y1do"]
+[ext_resource type="Texture2D" uid="uid://hajjpwc7y5ir" path="res://assets/inventory/inventory_0004_board-yellow.png" id="1_vn606"]
+[ext_resource type="LabelSettings" uid="uid://brp3qn5x2peqk" path="res://cutscenes/basic_font.tres" id="2_5pyeo"]
+[ext_resource type="LabelSettings" uid="uid://wblyhtrwvirh" path="res://cutscenes/even_smaller_font.tres" id="3_lms2v"]
+[ext_resource type="Texture2D" uid="uid://ctylypcm85o68" path="res://assets/Upgrades/Temporary Upgrades/EmptySlot.png" id="4_2au72"]
+[ext_resource type="LabelSettings" uid="uid://ddlppfp33dpu1" path="res://cutscenes/a_bit_bigger_than_even_smaller_font.tres" id="5_mx0rn"]
+[ext_resource type="Texture2D" uid="uid://b8okjqrkox8vs" path="res://assets/Pause/Pause1/circus-Pause-1_0003_button-green.png" id="6_rmmvb"]
+[ext_resource type="Texture2D" uid="uid://dh8w8n2ljit8n" path="res://assets/Pause/Pause1/circus-Pause-1_0007_button-red.png" id="7_elj41"]
+
+[node name="ItemDetails" type="CanvasLayer"]
+script = ExtResource("1_4y1do")
+
+[node name="ItemPanel" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(800, 800)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -337.0
+offset_top = -293.0
+offset_right = 1446.0
+offset_bottom = 1269.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.35, 0.35)
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture = ExtResource("1_vn606")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ItemPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -840.0
+offset_top = -733.0
+offset_right = 841.0
+offset_bottom = 739.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 45
+alignment = 1
+
+[node name="Row_1" type="HBoxContainer" parent="ItemPanel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ItemName" type="Label" parent="ItemPanel/VBoxContainer/Row_1"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Cylinder Hat
+"
+label_settings = ExtResource("2_5pyeo")
+
+[node name="Row_2" type="HBoxContainer" parent="ItemPanel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Slot" type="Label" parent="ItemPanel/VBoxContainer/Row_2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Head Piece
+"
+label_settings = ExtResource("3_lms2v")
+
+[node name="Rarity" type="Label" parent="ItemPanel/VBoxContainer/Row_2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = ", COMMON
+"
+label_settings = ExtResource("3_lms2v")
+
+[node name="Row_3" type="HBoxContainer" parent="ItemPanel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="ItemPanel/VBoxContainer/Row_3"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("4_2au72")
+
+[node name="Modifiers Conainer" type="VBoxContainer" parent="ItemPanel/VBoxContainer/Row_3"]
+layout_mode = 2
+alignment = 1
+
+[node name="ItemStat" type="Label" parent="ItemPanel/VBoxContainer/Row_3/Modifiers Conainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Damage Multiplier"
+label_settings = ExtResource("5_mx0rn")
+
+[node name="Row_4" type="HBoxContainer" parent="ItemPanel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Description" type="Label" parent="ItemPanel/VBoxContainer/Row_4"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+text = "This elegant hat make everyone who sees you respect you and gives you confidence in battle."
+label_settings = ExtResource("3_lms2v")
+autowrap_mode = 2
+
+[node name="Row_5" type="HBoxContainer" parent="ItemPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="ItemPrice" type="Label" parent="ItemPanel/VBoxContainer/Row_5"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "12500"
+label_settings = ExtResource("5_mx0rn")
+
+[node name="ItemCurrency" type="Label" parent="ItemPanel/VBoxContainer/Row_5"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "TICKETS"
+label_settings = ExtResource("5_mx0rn")
+
+[node name="Row_6" type="HBoxContainer" parent="ItemPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 110
+alignment = 1
+
+[node name="BuyItemButton" type="TextureButton" parent="ItemPanel/VBoxContainer/Row_6"]
+layout_mode = 2
+texture_normal = ExtResource("6_rmmvb")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ItemPanel/VBoxContainer/Row_6/BuyItemButton"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 112.0
+offset_top = 38.0
+offset_right = 219.0
+offset_bottom = 109.0
+text = "Buy"
+label_settings = ExtResource("3_lms2v")
+
+[node name="CancelBuyItemButton" type="TextureButton" parent="ItemPanel/VBoxContainer/Row_6"]
+layout_mode = 2
+texture_normal = ExtResource("7_elj41")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ItemPanel/VBoxContainer/Row_6/CancelBuyItemButton"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 79.0
+offset_top = 38.0
+offset_right = 255.0
+offset_bottom = 109.0
+text = "Cancel"
+label_settings = ExtResource("3_lms2v")
+
+[connection signal="pressed" from="ItemPanel/VBoxContainer/Row_6/BuyItemButton" to="." method="_on_buy_item_button_pressed"]
+[connection signal="pressed" from="ItemPanel/VBoxContainer/Row_6/CancelBuyItemButton" to="." method="_on_cancel_buy_item_button_pressed"]

@@ -154,9 +154,6 @@ position = Vector2(-172, 335)
 rotation = 1.08812
 scale = Vector2(0.675, 0.675)
 
-[node name="HandL" parent="CanvasLayer/Tedddy/Skeleton2D/Main/Body" index="0"]
-scale = Vector2(1, 1)
-
 [node name="Head" parent="CanvasLayer/Tedddy/Skeleton2D/Main/Body" index="2"]
 scale = Vector2(1, 1)
 
@@ -340,7 +337,6 @@ scale = Vector2(0.999947, 0.999947)
 
 [node name="SlowParticle" parent="BearNew/DamageFX/Slow" index="0"]
 position = Vector2(131.355, -681.941)
-scale = Vector2(0.999989, 0.999989)
 
 [node name="LimboHSM" type="LimboHSM" parent="." node_paths=PackedStringArray("character", "controller")]
 unique_name_in_owner = true

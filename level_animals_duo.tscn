@@ -22,61 +22,61 @@ absorbent = true
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jsmks"]
 size = Vector2(4719, 889)
 
-[sub_resource type="Resource" id="Resource_1oef4"]
+[sub_resource type="Resource" id="Resource_mpxdo"]
 script = ExtResource("5_sadww")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_454rx"]
+[sub_resource type="Resource" id="Resource_cjn2d"]
 script = ExtResource("5_sadww")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_7fuje"]
+[sub_resource type="Resource" id="Resource_jelj7"]
 script = ExtResource("5_sadww")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_jemp5"]
+[sub_resource type="Resource" id="Resource_7x04l"]
 script = ExtResource("5_sadww")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_m1b6i"]
+[sub_resource type="Resource" id="Resource_3vwkq"]
 script = ExtResource("6_ru65o")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_wl8db"]
+[sub_resource type="Resource" id="Resource_kcr0x"]
 script = ExtResource("5_sadww")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_5a7aq"]
+[sub_resource type="Resource" id="Resource_c1spm"]
 script = ExtResource("5_sadww")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_nxpoi"]
+[sub_resource type="Resource" id="Resource_iu2lb"]
 script = ExtResource("5_sadww")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_uagqo"]
+[sub_resource type="Resource" id="Resource_x4iu4"]
 script = ExtResource("5_sadww")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_ormta"]
+[sub_resource type="Resource" id="Resource_cg2t1"]
 script = ExtResource("6_ru65o")
 frequency = 1.0
 damping = 1.0
@@ -270,7 +270,6 @@ scale = Vector2(0.999976, 0.999976)
 
 [node name="UpperLegL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="2"]
 rotation = 2.77057
-scale = Vector2(0.999985, 0.999985)
 
 [node name="LowerLegL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/UpperLegL" index="0"]
 rotation = 0.244459
@@ -297,19 +296,19 @@ offset_left = 0.0
 offset_right = 0.0
 
 [node name="HeadLookAt" parent="Animals Duo Controller/Tiger/Skeleton2D/SoupStack/HeadStack" index="0"]
-easing = SubResource("Resource_1oef4")
+easing = SubResource("Resource_mpxdo")
 
 [node name="NeckLookAt" parent="Animals Duo Controller/Tiger/Skeleton2D/SoupStack/HeadStack" index="1"]
-easing = SubResource("Resource_454rx")
+easing = SubResource("Resource_cjn2d")
 
 [node name="RHandTwoBoneIK" parent="Animals Duo Controller/Tiger/Skeleton2D/SoupStack/RHandStack" index="0"]
-first_joint_easing = SubResource("Resource_7fuje")
+first_joint_easing = SubResource("Resource_jelj7")
 
 [node name="LHandTwoBoneIK" parent="Animals Duo Controller/Tiger/Skeleton2D/SoupStack/LHandStack" index="0"]
-first_joint_easing = SubResource("Resource_jemp5")
+first_joint_easing = SubResource("Resource_7x04l")
 
 [node name="TailJiggle" parent="Animals Duo Controller/Tiger/Skeleton2D/SoupStack/SoupSubStack" index="2"]
-easing = SubResource("Resource_m1b6i")
+easing = SubResource("Resource_3vwkq")
 
 [node name="Neck" parent="Animals Duo Controller/Tiger/Skeleton2D/Main/BodyBack/BodyMid/BodyFront" index="0"]
 rotation = 0.202149
@@ -371,19 +370,19 @@ scale = Vector2(0.999991, 0.999991)
 position = Vector2(-1632, 58)
 
 [node name="HeadLookAt" parent="Animals Duo Controller/Lion/Skeleton2D/SoupStack/HeadStack" index="0"]
-easing = SubResource("Resource_wl8db")
+easing = SubResource("Resource_kcr0x")
 
 [node name="NeckLookAt" parent="Animals Duo Controller/Lion/Skeleton2D/SoupStack/HeadStack" index="1"]
-easing = SubResource("Resource_5a7aq")
+easing = SubResource("Resource_c1spm")
 
 [node name="RHandTwoBoneIK" parent="Animals Duo Controller/Lion/Skeleton2D/SoupStack/RHandStack" index="0"]
-first_joint_easing = SubResource("Resource_nxpoi")
+first_joint_easing = SubResource("Resource_iu2lb")
 
 [node name="LHandTwoBoneIK" parent="Animals Duo Controller/Lion/Skeleton2D/SoupStack/LHandStack" index="0"]
-first_joint_easing = SubResource("Resource_uagqo")
+first_joint_easing = SubResource("Resource_x4iu4")
 
 [node name="TailJiggle" parent="Animals Duo Controller/Lion/Skeleton2D/SoupStack/SoupSubStack" index="2"]
-easing = SubResource("Resource_ormta")
+easing = SubResource("Resource_cg2t1")
 
 [node name="Main" parent="Animals Duo Controller/Lion/Skeleton2D" index="1"]
 position = Vector2(55.0067, -304.141)
@@ -398,7 +397,6 @@ scale = Vector2(0.999988, 0.999988)
 
 [node name="Jaw" parent="Animals Duo Controller/Lion/Skeleton2D/Main/BodyBack/BodyMid/BodyFront/Neck/Head" index="0"]
 rotation = -2.15487
-scale = Vector2(0.999999, 0.999999)
 
 [node name="UpperRHand" parent="Animals Duo Controller/Lion/Skeleton2D/Main/BodyBack/BodyMid/BodyFront" index="1"]
 rotation = -0.27309

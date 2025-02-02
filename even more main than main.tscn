@@ -209,6 +209,155 @@ tracks/14/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_1mv72"]
+resource_name = "GAME_COMPLETED"
+length = 3.0
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%FinalCurtain/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%FinalCurtain/BGCurtainR:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.6, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-770, -53), Vector2(-770, -53), Vector2(-28, -53)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%FinalCurtain/BGCurtainR:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.6, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("%FinalCurtain/BGCurtainL:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.6, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1387, -48), Vector2(1387, -48), Vector2(647, -48)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("%FinalCurtain/BGCurtainL:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("%FinalCurtain/CurtainL:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-455, -64), Vector2(-19, -37)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("%FinalCurtain/CurtainL:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("%FinalCurtain/CurtainR:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 2.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1398, -61), Vector2(998, -59)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("%FinalCurtain/CurtainR:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("%FinalCurtain/Vignete:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("%FinalCurtain/Panel:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 2, 2.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(386, -637), Vector2(452, -657), Vector2(459, -17)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("%FinalCurtain/Panel:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 2, 2.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0]
+}
+
 [sub_resource type="Animation" id="Animation_eiaxb"]
 length = 0.001
 tracks/0/type = "value"
@@ -536,155 +685,6 @@ tracks/26/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_1mv72"]
-resource_name = "GAME_COMPLETED"
-length = 3.0
-step = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("%FinalCurtain/ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("%FinalCurtain/BGCurtainR:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.6, 2.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-770, -53), Vector2(-770, -53), Vector2(-28, -53)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("%FinalCurtain/BGCurtainR:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.6, 2.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0, 0.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("%FinalCurtain/BGCurtainL:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.6, 2.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1387, -48), Vector2(1387, -48), Vector2(647, -48)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("%FinalCurtain/BGCurtainL:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 2.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.0]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("%FinalCurtain/CurtainL:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-455, -64), Vector2(-19, -37)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("%FinalCurtain/CurtainL:rotation")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("%FinalCurtain/CurtainR:position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 2.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1398, -61), Vector2(998, -59)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("%FinalCurtain/CurtainR:rotation")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("%FinalCurtain/Vignete:modulate")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("%FinalCurtain/Panel:position")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0, 2, 2.6),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(386, -637), Vector2(386, -637), Vector2(411, -14)]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("%FinalCurtain/Panel:rotation")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xxj1o"]
 _data = {
 "APPEAR": SubResource("Animation_fgot3"),
@@ -762,34 +762,34 @@ offset_bottom = 788.0
 color = Color(0, 0, 0, 1)
 
 [node name="BGCurtainR" type="TextureRect" parent="FinalCurtain"]
-offset_left = -28.0
+offset_left = -770.0
 offset_top = -53.0
-offset_right = 658.0
+offset_right = -84.0
 offset_bottom = 768.0
 texture = ExtResource("8_o18yg")
 expand_mode = 1
 
 [node name="BGCurtainL" type="TextureRect" parent="FinalCurtain"]
-offset_left = 647.0
+offset_left = 1387.0
 offset_top = -48.0
-offset_right = 1333.0
+offset_right = 2073.0
 offset_bottom = 773.0
 texture = ExtResource("9_i0qtf")
 expand_mode = 1
 
 [node name="CurtainL" type="TextureRect" parent="FinalCurtain"]
-offset_left = -19.0
-offset_top = -37.0
-offset_right = 312.0
-offset_bottom = 814.0
+offset_left = -455.0
+offset_top = -64.0
+offset_right = -124.0
+offset_bottom = 787.0
 texture = ExtResource("11_5lql3")
 expand_mode = 1
 
 [node name="CurtainR" type="TextureRect" parent="FinalCurtain"]
-offset_left = 998.0
-offset_top = -59.0
-offset_right = 1329.0
-offset_bottom = 792.0
+offset_left = 1398.0
+offset_top = -61.0
+offset_right = 1729.0
+offset_bottom = 790.0
 texture = ExtResource("10_6tya1")
 expand_mode = 1
 
@@ -802,10 +802,10 @@ texture = ExtResource("12_ewo7f")
 expand_mode = 1
 
 [node name="Panel" type="TextureRect" parent="FinalCurtain"]
-offset_left = 411.0
-offset_top = -14.0
-offset_right = 799.0
-offset_bottom = 563.0
+offset_left = 386.0
+offset_top = -637.0
+offset_right = 774.0
+offset_bottom = -60.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("13_ykx8f")
@@ -845,6 +845,7 @@ ignore_texture_size = true
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="FinalCurtain/Panel/VBoxContainer/ExitButton"]
+layout_mode = 0
 offset_left = 86.0
 offset_top = 37.0
 offset_right = 316.0
@@ -886,26 +887,26 @@ texture = ExtResource("12_ewo7f")
 expand_mode = 2
 
 [node name="Background" type="TextureRect" parent="Pause"]
-offset_left = -129.0
-offset_top = -836.0
-offset_right = 665.0
-offset_bottom = -47.0
+offset_left = -127.0
+offset_top = 4.0
+offset_right = 667.0
+offset_bottom = 793.0
 texture = ExtResource("9_cmk7y")
 expand_mode = 2
 
 [node name="CurtainR" type="TextureRect" parent="Pause"]
-offset_left = 1303.0
-offset_top = -14.0
-offset_right = 1573.0
-offset_bottom = 762.0
+offset_left = 1048.0
+offset_top = 3.0
+offset_right = 1318.0
+offset_bottom = 779.0
 texture = ExtResource("10_6tya1")
 expand_mode = 4
 
 [node name="CurtainL" type="TextureRect" parent="Pause"]
-offset_left = -271.0
-offset_top = -24.0
-offset_right = -8.0
-offset_bottom = 753.0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 262.0
+offset_bottom = 776.0
 texture = ExtResource("11_5lql3")
 expand_mode = 4
 
@@ -923,10 +924,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 58.0
-offset_top = 53.0
-offset_right = 617.0
-offset_bottom = 412.0
+offset_left = 52.0
+offset_top = 89.0
+offset_right = 611.0
+offset_bottom = 448.0
 grow_horizontal = 2
 text = "GAME PAUSED"
 label_settings = ExtResource("9_8pm0r")
@@ -935,9 +936,9 @@ autowrap_mode = 2
 [node name="TextureRect" type="TextureRect" parent="Pause/PauseMenu"]
 layout_mode = 2
 offset_left = 191.0
-offset_top = -800.0
+offset_top = 2.0
 offset_right = 822.0
-offset_bottom = 99.0
+offset_bottom = 901.0
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("14_ydjau")
 
