@@ -508,6 +508,7 @@ texture = ExtResource("11_5lql3")
 expand_mode = 4
 
 [node name="PauseMenu" type="Control" parent="Pause"]
+z_index = 999
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

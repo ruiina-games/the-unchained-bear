@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://iho2j3v1lyy1"]
+[gd_scene load_steps=50 format=3 uid="uid://iho2j3v1lyy1"]
 
 [ext_resource type="Texture2D" uid="uid://hfv6fovd6eke" path="res://assets/Store/Store/Background.png" id="1_04ypj"]
 [ext_resource type="Script" path="res://Shop/shop.gd" id="1_f14ov"]
@@ -80,6 +80,23 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/ColorRect")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"show"
+}, {
+"args": [],
+"method": &"hide"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_8hx1j"]
 resource_name = "DISSAPEAR"
@@ -132,6 +149,9 @@ _data = {
 "DISSAPEAR": SubResource("Animation_8hx1j"),
 "RESET": SubResource("Animation_87uh3")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y02li"]
+size = Vector2(4719, 688)
 
 [node name="Shop" type="Node2D" node_paths=PackedStringArray("teddy", "wheel")]
 script = ExtResource("1_f14ov")
@@ -1056,64 +1076,67 @@ scale = Vector2(0.999999, 0.999999)
 visible = false
 
 [node name="TorsoTop" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="0"]
-rotation = 0.338676
+rotation = 0.426234
 scale = Vector2(0.999967, 0.999967)
 
 [node name="UpperArmR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="0"]
-rotation = 1.35046
+rotation = 1.35293
 scale = Vector2(0.999961, 0.999961)
 
 [node name="LowerArmR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR" index="0"]
-rotation = -1.68309
+rotation = -1.67049
 scale = Vector2(0.999959, 0.999959)
 
 [node name="WristR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR" index="0"]
-rotation = 2.01423
+rotation = 1.79288
 scale = Vector2(0.999971, 0.999971)
 
 [node name="UpperArmL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="1"]
-rotation = -0.995967
+rotation = -1.165
 scale = Vector2(0.999968, 0.999968)
 
 [node name="LowerArmL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL" index="0"]
-rotation = -0.47721
+rotation = -0.270533
 scale = Vector2(0.999973, 0.999973)
 
 [node name="WristL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL" index="0"]
-rotation = 2.68884
+rotation = 2.52514
 scale = Vector2(0.999965, 0.999965)
 
 [node name="HeadMain" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="2"]
-rotation = -0.10017
+rotation = -0.153714
 scale = Vector2(0.999957, 0.999957)
 
 [node name="LowerJaw" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="0"]
-rotation = 1.10164
+rotation = 1.04609
 scale = Vector2(0.999966, 0.999966)
 
+[node name="EarL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="2"]
+scale = Vector2(0.443939, 0.778982)
+
 [node name="UpperLegR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="1"]
-rotation = 2.17696
+rotation = 2.13493
 scale = Vector2(0.999977, 0.999977)
 
 [node name="LowerLegR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/UpperLegR" index="0"]
-rotation = 1.12125
+rotation = 1.1979
 scale = Vector2(0.999964, 0.999964)
 
 [node name="UpperLegL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="2"]
-rotation = 2.61082
+rotation = 2.46983
 scale = Vector2(0.999975, 0.999975)
 
 [node name="LowerLegL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/UpperLegL" index="0"]
-rotation = 0.476453
+rotation = 0.620314
 scale = Vector2(0.999967, 0.999967)
 
 [node name="StunParticle" parent="PlayerController/BearNew/DamageFX/Stun" index="0"]
-position = Vector2(162.665, -602.081)
-rotation = -1.05029
+position = Vector2(173.555, -591.858)
+rotation = -1.01628
 scale = Vector2(0.999923, 0.999923)
 
 [node name="SlowParticle" parent="PlayerController/BearNew/DamageFX/Slow" index="0"]
-position = Vector2(121.62, -688.04)
+position = Vector2(135.457, -679.163)
 scale = Vector2(0.999988, 0.999988)
 
 [node name="DummyTarget" type="CharacterBody2D" parent="."]
@@ -1151,6 +1174,26 @@ bus = &"Music"
 libraries = {
 "": SubResource("AnimationLibrary_b6hg1")
 }
+
+[node name="Wallls" type="StaticBody2D" parent="."]
+position = Vector2(181, 242)
+collision_layer = 512
+collision_mask = 0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Wallls"]
+position = Vector2(-2264, 251)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_y02li")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Wallls"]
+position = Vector2(2017, 227)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_y02li")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Wallls"]
+position = Vector2(-58, 618)
+rotation = -3.14159
+shape = SubResource("RectangleShape2D_y02li")
 
 [connection signal="pressed" from="CanvasLayer/Inventory/TabStats" to="CanvasLayer/Inventory" method="_on_tab_stats_pressed"]
 [connection signal="pressed" from="CanvasLayer/Inventory/TabInventory" to="CanvasLayer/Inventory" method="_on_tab_inventory_pressed"]

@@ -139,3 +139,7 @@ func change_label_text():
 
 func change_scene():
 	ready_to_change_scene.emit()
+
+
+func _on_skip_button_pressed():
+	change_scene()

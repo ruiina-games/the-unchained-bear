@@ -421,31 +421,31 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h68ra"]
 size = Vector2(4719, 688)
 
-[sub_resource type="Resource" id="Resource_f32ny"]
+[sub_resource type="Resource" id="Resource_i6734"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_hrxws"]
+[sub_resource type="Resource" id="Resource_pshfj"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_y45o7"]
+[sub_resource type="Resource" id="Resource_e8b2l"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_0vi6n"]
+[sub_resource type="Resource" id="Resource_o275f"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_6wv2n"]
+[sub_resource type="Resource" id="Resource_36bdt"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
@@ -691,63 +691,64 @@ scale = Vector2(1, 1)
 position = Vector2(3, 25)
 
 [node name="TorsoTop" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="0"]
-rotation = 0.431167
+rotation = 0.425037
 scale = Vector2(0.999977, 0.999977)
 
 [node name="UpperArmR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="0"]
-rotation = 1.15579
+rotation = 1.35293
 
 [node name="LowerArmR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR" index="0"]
-rotation = -1.54553
+rotation = -1.67126
 scale = Vector2(0.999977, 0.999977)
 
 [node name="WristR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR" index="0"]
-rotation = 1.68266
+rotation = 1.79629
 scale = Vector2(0.999979, 0.999979)
 
 [node name="UpperArmL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="1"]
-rotation = -1.16917
+rotation = -1.16365
 scale = Vector2(0.999978, 0.999978)
 
 [node name="LowerArmL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL" index="0"]
-rotation = -0.259812
+rotation = -0.273258
 scale = Vector2(0.99998, 0.99998)
 
 [node name="WristL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL" index="0"]
-rotation = 2.5145
-scale = Vector2(0.999974, 0.999974)
+rotation = 2.52772
 
 [node name="HeadMain" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="2"]
-rotation = -0.156723
+rotation = -0.152986
 scale = Vector2(0.999969, 0.999969)
 
 [node name="LowerJaw" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="0"]
-rotation = 1.04107
+rotation = 1.04721
 scale = Vector2(0.999973, 0.999973)
 
+[node name="EarL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="2"]
+scale = Vector2(0.443939, 0.778982)
+
 [node name="UpperLegR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="1"]
-rotation = 2.33054
+rotation = 2.12756
 scale = Vector2(0.999987, 0.999987)
 
 [node name="LowerLegR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/UpperLegR" index="0"]
-rotation = 0.889899
+rotation = 1.20898
 scale = Vector2(0.999977, 0.999977)
 
 [node name="UpperLegL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="2"]
-rotation = 2.00507
+rotation = 2.47642
 scale = Vector2(0.999986, 0.999986)
 
 [node name="LowerLegL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/UpperLegL" index="0"]
-rotation = 1.41619
-scale = Vector2(0.999979, 0.999979)
+rotation = 0.611845
 
 [node name="StunParticle" parent="PlayerController/BearNew/DamageFX/Stun" index="0"]
-position = Vector2(174.151, -591.261)
-rotation = -1.01436
+position = Vector2(173.414, -592.007)
+rotation = -1.01675
 scale = Vector2(0.999945, 0.999945)
 
 [node name="SlowParticle" parent="PlayerController/BearNew/DamageFX/Slow" index="0"]
-position = Vector2(136.22, -678.64)
+position = Vector2(135.274, -679.296)
 scale = Vector2(0.999988, 0.999988)
 
 [node name="AcrobatController" parent="." node_paths=PackedStringArray("objects_container", "target") instance=ExtResource("4_3kwme")]
@@ -759,90 +760,94 @@ target = NodePath("../PlayerController/BearNew")
 offset_left = 0.0
 offset_right = 0.0
 
+[node name="HBBarContainer" parent="AcrobatController/CanvasLayer/HPBar" index="0"]
+offset_left = 201.0
+offset_right = 501.0
+
 [node name="RLegTwoBoneIK" parent="AcrobatController/Acrobat/Skeleton2D/SoupStack/RLegStack" index="0"]
-first_joint_easing = SubResource("Resource_f32ny")
+first_joint_easing = SubResource("Resource_i6734")
 
 [node name="LLegTwoBoneIK" parent="AcrobatController/Acrobat/Skeleton2D/SoupStack/LLegStack" index="0"]
-first_joint_easing = SubResource("Resource_hrxws")
+first_joint_easing = SubResource("Resource_pshfj")
 
 [node name="HeadLookAt" parent="AcrobatController/Acrobat/Skeleton2D/SoupStack/HeadStack" index="0"]
-easing = SubResource("Resource_y45o7")
+easing = SubResource("Resource_e8b2l")
 
 [node name="Bubon1LookAt" parent="AcrobatController/Acrobat/Skeleton2D/SoupStack/HeadStack" index="1"]
-easing = SubResource("Resource_0vi6n")
+easing = SubResource("Resource_o275f")
 
 [node name="Bubon2LookAt" parent="AcrobatController/Acrobat/Skeleton2D/SoupStack/HeadStack" index="2"]
-easing = SubResource("Resource_6wv2n")
+easing = SubResource("Resource_36bdt")
 
 [node name="UpperBody" parent="AcrobatController/Acrobat/Skeleton2D/Main" index="0"]
-scale = Vector2(0.999989, 0.999989)
+scale = Vector2(0.999988, 0.999988)
 
 [node name="Head" parent="AcrobatController/Acrobat/Skeleton2D/Main/UpperBody/Neck" index="0"]
-rotation = 0.083995
+rotation = -0.0174756
 scale = Vector2(0.999988, 0.999988)
 
 [node name="Bubon_1" parent="AcrobatController/Acrobat/Skeleton2D/Main/UpperBody/Neck/Head" index="0"]
-rotation = -1.01388
+rotation = -0.942045
+scale = Vector2(0.999997, 0.999997)
 
 [node name="Bubon_2" parent="AcrobatController/Acrobat/Skeleton2D/Main/UpperBody/Neck/Head" index="1"]
-rotation = -0.519416
+rotation = -0.435693
 scale = Vector2(0.999993, 0.999993)
 
 [node name="UpperHandR" parent="AcrobatController/Acrobat/Skeleton2D/Main/UpperBody" index="1"]
-rotation = -0.17652
+rotation = -0.0742355
 scale = Vector2(0.999989, 0.999989)
 
 [node name="LowerHandR" parent="AcrobatController/Acrobat/Skeleton2D/Main/UpperBody/UpperHandR" index="0"]
-rotation = 0.826258
-scale = Vector2(0.999996, 0.999996)
+rotation = 0.943683
 
 [node name="WristR" parent="AcrobatController/Acrobat/Skeleton2D/Main/UpperBody/UpperHandR/LowerHandR" index="0"]
-rotation = 2.09821
+rotation = 2.38468
 scale = Vector2(0.999997, 0.999997)
 
 [node name="UpperHandL" parent="AcrobatController/Acrobat/Skeleton2D/Main/UpperBody" index="2"]
-rotation = -0.00255953
+rotation = 0.0358621
 scale = Vector2(0.999989, 0.999989)
 
 [node name="LowerHandL" parent="AcrobatController/Acrobat/Skeleton2D/Main/UpperBody/UpperHandL" index="0"]
-rotation = 0.572096
+rotation = 0.782448
 scale = Vector2(0.999994, 0.999994)
 
 [node name="WristL" parent="AcrobatController/Acrobat/Skeleton2D/Main/UpperBody/UpperHandL/LowerHandL" index="0"]
-rotation = 1.22732
+rotation = 1.3613
 scale = Vector2(0.999996, 0.999996)
 
 [node name="UpperLegR" parent="AcrobatController/Acrobat/Skeleton2D/Main" index="1"]
-rotation = 0.0519052
+rotation = 0.0628442
 scale = Vector2(0.999995, 0.999995)
 
 [node name="LowerLegR" parent="AcrobatController/Acrobat/Skeleton2D/Main/UpperLegR" index="0"]
-rotation = -0.144356
+rotation = -0.145986
 scale = Vector2(0.999994, 0.999994)
 
 [node name="FootR" parent="AcrobatController/Acrobat/Skeleton2D/Main/UpperLegR/LowerLegR" index="0"]
-rotation = 1.5901
+rotation = 1.60767
 scale = Vector2(0.999985, 0.999985)
 
 [node name="UpperLegL" parent="AcrobatController/Acrobat/Skeleton2D/Main" index="2"]
-rotation = 0.0848923
+rotation = 0.0900691
 scale = Vector2(0.999992, 0.999992)
 
 [node name="LowerLegL" parent="AcrobatController/Acrobat/Skeleton2D/Main/UpperLegL" index="0"]
 scale = Vector2(0.999996, 0.999996)
 
 [node name="FootL" parent="AcrobatController/Acrobat/Skeleton2D/Main/UpperLegL/LowerLegL" index="0"]
-rotation = 1.53965
+rotation = 1.51778
 scale = Vector2(0.999994, 0.999994)
 
 [node name="StunParticle" parent="AcrobatController/Acrobat/DamageFX/Stun" index="0"]
-position = Vector2(-48.7933, -1007.6)
-rotation = 0.0626812
+position = Vector2(-52.5767, -1001.57)
+rotation = -0.0318359
 scale = Vector2(0.999977, 0.999977)
 
 [node name="SlowParticle" parent="AcrobatController/Acrobat/DamageFX/Slow" index="0"]
-position = Vector2(-54.2003, -1079.38)
-rotation = 0.0626812
+position = Vector2(-64.7346, -1072.52)
+rotation = -0.0318359
 scale = Vector2(0.999977, 0.999977)
 
 [node name="Music" type="Node2D" parent="."]

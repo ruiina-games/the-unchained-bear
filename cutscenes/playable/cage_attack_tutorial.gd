@@ -51,3 +51,7 @@ func _unhandled_input(event):
 
 func emit_cutscene_ended():
 	cutscene_ended.emit()
+
+
+func _on_skip_button_pressed():
+	emit_cutscene_ended()
