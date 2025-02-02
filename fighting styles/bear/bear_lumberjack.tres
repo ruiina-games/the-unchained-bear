@@ -1,16 +1,40 @@
-[gd_resource type="Resource" script_class="FightingStyle" load_steps=4 format=3 uid="uid://sdl7a5cv07o6"]
+[gd_resource type="Resource" script_class="FightingStyle" load_steps=9 format=3 uid="uid://sdl7a5cv07o6"]
 
-[ext_resource type="Resource" uid="uid://bbc0sjb7y22vo" path="res://data/damage/damages/bear_freestyle/attack_base.tres" id="1_ibs4g"]
+[ext_resource type="Script" path="res://data/damage/scripts/damage.gd" id="1_fti6h"]
+[ext_resource type="Script" path="res://data/damage/scripts/slow.gd" id="2_fbrmv"]
 [ext_resource type="Script" path="res://fighting styles/fighting_style.gd" id="2_g180i"]
 [ext_resource type="Script" path="res://data/game data/upgrades/stat_model.gd" id="3_gmvrn"]
+
+[sub_resource type="Resource" id="Resource_qvxs4"]
+script = ExtResource("1_fti6h")
+damage_amount = 100.0
+multiplier = 1.0
+
+[sub_resource type="Resource" id="Resource_gva6s"]
+script = ExtResource("1_fti6h")
+damage_amount = 120.0
+multiplier = 1.0
+
+[sub_resource type="Resource" id="Resource_ufu0w"]
+script = ExtResource("2_fbrmv")
+slow_ratio = 0.5
+base_damage = 0.0
+base_proc_chance = 0.5
+duration = 3.0
+
+[sub_resource type="Resource" id="Resource_bqn5x"]
+script = ExtResource("1_fti6h")
+damage_amount = 140.0
+multiplier = 1.0
+effect = SubResource("Resource_ufu0w")
 
 [resource]
 script = ExtResource("2_g180i")
 max_combo_count = 3
 damage_variations = {
-0: ExtResource("1_ibs4g"),
-1: ExtResource("1_ibs4g"),
-2: ExtResource("1_ibs4g")
+0: SubResource("Resource_qvxs4"),
+1: SubResource("Resource_gva6s"),
+2: SubResource("Resource_bqn5x")
 }
 title = "Booklet \"The Power of the Forest\" "
 money_type = 0

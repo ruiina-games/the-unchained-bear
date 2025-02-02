@@ -24,16 +24,17 @@ func update_ui() -> void:
 
 		# Заповнюємо назву предмета
 		item_name.text = item.name
+		print(item.name)
 
 		# Заповнюємо назву слота
 		slot_name.text = format_text(StatUpgrade.SLOT_TYPE.keys()[slot])
-
+	
 		# Заповнюємо статистику предмета
 		var stats_text = ""
 		for stat in item.upgrade_array:
-			var stat_name = StatUpgrade.UPGRADABLE_STATS.keys()[stat.stat_type]
+			var stat_name = StatUpgrade.UPGRADABLE_STATS.keys()[stat.stat_type - 1]
 			var stat_value = stat.multiplier
-			stats_text += format_text(stat_name) + ": " + str(stat_value) + "\n"
+			stats_text += format_text(stat_name) + ": " + format_multiplier_text(stat_value) + "\n"
 		stats.text = stats_text
 	else:
 		item_name.text = "Empty"
@@ -65,3 +66,7 @@ func format_text(input_text: String) -> String:
 	
 	# Видалити останній пробіл, якщо він є
 	return result.strip_edges()
+
+func format_multiplier_text(multiplier: float):
+	var final_text: String = str(multiplier*100) + "%"
+	return final_text

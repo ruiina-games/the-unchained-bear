@@ -130,6 +130,7 @@ func unequip_upgrade(upgrade: Upgrade) -> void:
 	apply_modifier(upgrade, false)  # Видаляємо ефекти предмета
 
 func clear_temporary_modifiers():
+	print(temporary_upgrades.size())
 	for upgrade in temporary_upgrades:
 		remove_temporary_upgrade(upgrade)
 	

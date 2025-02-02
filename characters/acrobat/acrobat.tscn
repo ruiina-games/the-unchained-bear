@@ -1,18 +1,13 @@
-[gd_scene load_steps=133 format=3 uid="uid://cy536glg2km27"]
+[gd_scene load_steps=117 format=3 uid="uid://cy536glg2km27"]
 
 [ext_resource type="Script" path="res://characters/acrobat/acrobat.gd" id="1_68mu6"]
-[ext_resource type="Script" path="res://data/damage/scripts/stun.gd" id="2_khuca"]
 [ext_resource type="Shader" path="res://shaders/hit_flash.gdshader" id="2_kkcbp"]
 [ext_resource type="PackedScene" uid="uid://cmrlhmw5fn5ki" path="res://objects/keglia/keglia.tscn" id="2_pcubv"]
-[ext_resource type="Script" path="res://data/characters data/character_stats.gd" id="2_x88hk"]
-[ext_resource type="Script" path="res://fighting styles/fighting_style.gd" id="2_xvo1u"]
-[ext_resource type="Script" path="res://data/damage/scripts/damage.gd" id="3_02hec"]
+[ext_resource type="Resource" uid="uid://c83a8sr00x80o" path="res://characters/acrobat/acrobat_stats.tres" id="3_dqy2n"]
 [ext_resource type="Texture2D" uid="uid://c1kfcp01wgmp8" path="res://assets/Acrobat/Ball.png" id="3_xiq2c"]
 [ext_resource type="Texture2D" uid="uid://co16jfjtmsu7p" path="res://assets/Acrobat/R_Leg_Up.png" id="4_4tf2y"]
 [ext_resource type="Script" path="res://components/health_component.gd" id="4_45o3n"]
 [ext_resource type="Script" path="res://components/hit_box.gd" id="5_7toh3"]
-[ext_resource type="Script" path="res://data/damage/scripts/knockback.gd" id="5_36djp"]
-[ext_resource type="Script" path="res://data/damage/scripts/fire.gd" id="5_affdm"]
 [ext_resource type="Texture2D" uid="uid://b6yq662on4d05" path="res://assets/Acrobat/R_Leg_Down.png" id="5_d4wca"]
 [ext_resource type="Script" path="res://components/hurt_box.gd" id="6_36qd7"]
 [ext_resource type="Texture2D" uid="uid://b0le5j7xv5uux" path="res://assets/Acrobat/R_Foot.png" id="6_85ac8"]
@@ -59,87 +54,6 @@
 [ext_resource type="AudioStream" uid="uid://b5epge0lgykx0" path="res://assets/Sounds/AcrobatSounds/balloon-rubbing-foley-1-184045.mp3" id="53_qq1cc"]
 [ext_resource type="AudioStream" uid="uid://73wccadc4ljo" path="res://assets/Sounds/BearSounds/Whoosh_v4_wav.wav" id="54_vnygb"]
 
-[sub_resource type="Resource" id="Resource_tglks"]
-script = ExtResource("5_36djp")
-knockback_force = 5000.0
-base_damage = 200.0
-base_proc_chance = 1.0
-duration = 0.0
-
-[sub_resource type="Resource" id="Resource_yovia"]
-script = ExtResource("3_02hec")
-damage_amount = 200.0
-multiplier = 1.0
-effect = SubResource("Resource_tglks")
-
-[sub_resource type="Resource" id="Resource_7h4v2"]
-script = ExtResource("2_khuca")
-clicks_to_release = 0
-base_damage = 200.0
-base_proc_chance = 1.0
-duration = 2.0
-
-[sub_resource type="Resource" id="Resource_ramay"]
-script = ExtResource("3_02hec")
-damage_amount = 200.0
-multiplier = 0.8
-effect = SubResource("Resource_7h4v2")
-
-[sub_resource type="Resource" id="Resource_jufax"]
-script = ExtResource("3_02hec")
-damage_amount = 120.0
-multiplier = 1.0
-
-[sub_resource type="Resource" id="Resource_lom2l"]
-script = ExtResource("3_02hec")
-damage_amount = 100.0
-multiplier = 1.0
-
-[sub_resource type="Resource" id="Resource_iq6m7"]
-script = ExtResource("3_02hec")
-damage_amount = 120.0
-multiplier = 1.0
-
-[sub_resource type="Resource" id="Resource_gj8ng"]
-script = ExtResource("5_affdm")
-tick_interval = 1.0
-base_damage = 40.0
-base_proc_chance = 1.0
-duration = 5.0
-
-[sub_resource type="Resource" id="Resource_ote4s"]
-script = ExtResource("3_02hec")
-damage_amount = 140.0
-multiplier = 1.0
-effect = SubResource("Resource_gj8ng")
-
-[sub_resource type="Resource" id="Resource_6eybt"]
-script = ExtResource("2_xvo1u")
-id = 0
-name = ""
-description = ""
-max_combo_count = 4
-damage_variations = {
--2: SubResource("Resource_yovia"),
--1: SubResource("Resource_ramay"),
-0: SubResource("Resource_jufax"),
-1: SubResource("Resource_lom2l"),
-2: SubResource("Resource_iq6m7"),
-3: SubResource("Resource_ote4s")
-}
-
-[sub_resource type="Resource" id="Resource_hwiat"]
-script = ExtResource("2_x88hk")
-attack_power_multiplier = 1.0
-max_health = 1500
-critical_chance = 0.05
-critical_damage_multiplier = 1.2
-dodge_chance = 0.3
-movement_speed_multiplier = 1.0
-status_resist_multiplier = 0.2
-effect_power_multiplier = 1.2
-fighting_style = SubResource("Resource_6eybt")
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hbyps"]
 shader = ExtResource("2_kkcbp")
 shader_parameter/tint_color = Color(1, 1, 1, 1)
@@ -153,31 +67,31 @@ size = Vector2(374, 1088.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6734k"]
 
-[sub_resource type="Resource" id="Resource_ympu5"]
+[sub_resource type="Resource" id="Resource_vi1gi"]
 script = ExtResource("29_5tl6e")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_32mgi"]
+[sub_resource type="Resource" id="Resource_88ovk"]
 script = ExtResource("29_5tl6e")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_3cm53"]
+[sub_resource type="Resource" id="Resource_tb285"]
 script = ExtResource("29_5tl6e")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_2ki85"]
+[sub_resource type="Resource" id="Resource_n8xl5"]
 script = ExtResource("29_5tl6e")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_rgdu6"]
+[sub_resource type="Resource" id="Resource_dy8cs"]
 script = ExtResource("29_5tl6e")
 frequency = 1.0
 damping = 1.0
@@ -5002,7 +4916,7 @@ collision_layer = 0
 collision_mask = 512
 script = ExtResource("1_68mu6")
 object_to_throw_scene = ExtResource("2_pcubv")
-character_stats = SubResource("Resource_hwiat")
+character_stats = ExtResource("3_dqy2n")
 animation_tree = NodePath("AnimationTree")
 shader_material = SubResource("ShaderMaterial_hbyps")
 hitbox = NodePath("Hitbox")
@@ -5315,7 +5229,7 @@ enabled = true
 joint_one_bone_node = NodePath("../../../Main/UpperLegR")
 joint_two_bone_node = NodePath("../../../Main/UpperLegR/LowerLegR")
 chain_tip = NodePath("../../../Main/UpperLegR/LowerLegR/FootR")
-first_joint_easing = SubResource("Resource_ympu5")
+first_joint_easing = SubResource("Resource_vi1gi")
 
 [node name="RFotLookAt" type="Node" parent="Skeleton2D/SoupStack/RLegStack" node_paths=PackedStringArray("target_node", "bone_node")]
 script = ExtResource("28_6eo1b")
@@ -5333,7 +5247,7 @@ enabled = true
 joint_one_bone_node = NodePath("../../../Main/UpperLegL")
 joint_two_bone_node = NodePath("../../../Main/UpperLegL/LowerLegL")
 chain_tip = NodePath("../../../Main/UpperLegL/LowerLegL/FootL")
-first_joint_easing = SubResource("Resource_32mgi")
+first_joint_easing = SubResource("Resource_88ovk")
 
 [node name="LFootLookAt" type="Node" parent="Skeleton2D/SoupStack/LLegStack" node_paths=PackedStringArray("target_node", "bone_node")]
 script = ExtResource("28_6eo1b")
@@ -5350,7 +5264,7 @@ target_node = NodePath("../../../../TargetNodes/HeadTarget")
 enabled = true
 bone_node = NodePath("../../../Main/UpperBody/Neck/Head")
 use_easing = true
-easing = SubResource("Resource_3cm53")
+easing = SubResource("Resource_tb285")
 
 [node name="Bubon1LookAt" type="Node" parent="Skeleton2D/SoupStack/HeadStack" node_paths=PackedStringArray("target_node", "bone_node")]
 script = ExtResource("28_6eo1b")
@@ -5358,7 +5272,7 @@ target_node = NodePath("../../../../TargetNodes/Bubon1Target")
 enabled = true
 bone_node = NodePath("../../../Main/UpperBody/Neck/Head/Bubon_1")
 use_easing = true
-easing = SubResource("Resource_2ki85")
+easing = SubResource("Resource_n8xl5")
 
 [node name="Bubon2LookAt" type="Node" parent="Skeleton2D/SoupStack/HeadStack" node_paths=PackedStringArray("target_node", "bone_node")]
 script = ExtResource("28_6eo1b")
@@ -5366,7 +5280,7 @@ target_node = NodePath("../../../../TargetNodes/Bubon2Target")
 enabled = true
 bone_node = NodePath("../../../Main/UpperBody/Neck/Head/Bubon_2")
 use_easing = true
-easing = SubResource("Resource_rgdu6")
+easing = SubResource("Resource_dy8cs")
 
 [node name="Main" type="Bone2D" parent="Skeleton2D"]
 position = Vector2(-6, -617)
@@ -5383,13 +5297,13 @@ rest = Transform2D(1, 0, 0, 1, -19, -252)
 
 [node name="Head" type="Bone2D" parent="Skeleton2D/Main/UpperBody/Neck"]
 position = Vector2(-19, -36)
-rotation = 0.00581343
+rotation = -0.0584279
 scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(1, 0, 0, 1, -19, -36)
 
 [node name="Bubon_1" type="Bone2D" parent="Skeleton2D/Main/UpperBody/Neck/Head"]
 position = Vector2(-12, -75)
-rotation = -0.996585
+rotation = -0.94877
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.670739, -0.741693, 0.741693, 0.670739, -12, -75)
 auto_calculate_length_and_angle = false
@@ -5398,7 +5312,8 @@ bone_angle = 0.0
 
 [node name="Bubon_2" type="Bone2D" parent="Skeleton2D/Main/UpperBody/Neck/Head"]
 position = Vector2(15, -78)
-rotation = -0.484577
+rotation = -0.434258
+scale = Vector2(1, 1)
 rest = Transform2D(0.798899, -0.601465, 0.601465, 0.798899, 15, -78)
 auto_calculate_length_and_angle = false
 length = 107.808
@@ -5414,19 +5329,21 @@ remote_path = NodePath("../../../../../../DamageFX/Slow/SlowParticle")
 
 [node name="UpperHandR" type="Bone2D" parent="Skeleton2D/Main/UpperBody"]
 position = Vector2(-59, -149)
-rotation = -0.194316
+rotation = -0.102471
 scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(1, 0, 0, 1, -59, -149)
 
 [node name="LowerHandR" type="Bone2D" parent="Skeleton2D/Main/UpperBody/UpperHandR"]
 position = Vector2(-49, 124)
-rotation = 0.627396
+rotation = 0.876575
+scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -49, 124)
 
 [node name="WristR" type="Bone2D" parent="Skeleton2D/Main/UpperBody/UpperHandR/LowerHandR"]
 unique_name_in_owner = true
 position = Vector2(-56, 69)
-rotation = 1.57365
+rotation = 2.42321
+scale = Vector2(1, 1)
 rest = Transform2D(-0.450349, 0.892853, -0.892853, -0.450349, -56, 69)
 auto_calculate_length_and_angle = false
 length = 55.346
@@ -5443,19 +5360,19 @@ texture = ExtResource("43_688fl")
 
 [node name="UpperHandL" type="Bone2D" parent="Skeleton2D/Main/UpperBody"]
 position = Vector2(82, -192)
-rotation = -0.0193393
+rotation = 0.0630045
 scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(1, 0, 0, 1, 82, -192)
 
 [node name="LowerHandL" type="Bone2D" parent="Skeleton2D/Main/UpperBody/UpperHandL"]
 position = Vector2(81, 128)
-rotation = 0.559024
+rotation = 0.806462
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(1, 0, 0, 1, 81, 128)
 
 [node name="WristL" type="Bone2D" parent="Skeleton2D/Main/UpperBody/UpperHandL/LowerHandL"]
 position = Vector2(29, 87)
-rotation = 1.17327
+rotation = 1.3965
 scale = Vector2(0.999997, 0.999997)
 rest = Transform2D(0.212402, 0.977183, -0.977183, 0.212402, 29, 87)
 auto_calculate_length_and_angle = false
@@ -5464,19 +5381,19 @@ bone_angle = 0.0
 
 [node name="UpperLegR" type="Bone2D" parent="Skeleton2D/Main"]
 position = Vector2(-7, 7)
-rotation = -0.102907
+rotation = -0.0104193
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(1, 0, 0, 1, -7, 7)
 
 [node name="LowerLegR" type="Bone2D" parent="Skeleton2D/Main/UpperLegR"]
 position = Vector2(-56, 167)
-rotation = 0.165039
+rotation = 0.00455467
 scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(1, 0, 0, 1, -56, 167)
 
 [node name="FootR" type="Bone2D" parent="Skeleton2D/Main/UpperLegR/LowerLegR"]
 position = Vector2(14, 195)
-rotation = 1.55411
+rotation = 1.59411
 scale = Vector2(0.99999, 0.99999)
 rest = Transform2D(0.040703, 0.999171, -0.999171, 0.040703, 14, 195)
 auto_calculate_length_and_angle = false
@@ -5485,19 +5402,19 @@ bone_angle = 0.0
 
 [node name="UpperLegL" type="Bone2D" parent="Skeleton2D/Main"]
 position = Vector2(49, 12)
-rotation = 0.0769227
+rotation = 0.0878869
 scale = Vector2(0.999997, 0.999997)
 rest = Transform2D(1, 0, 0, 1, 49, 12)
 
 [node name="LowerLegL" type="Bone2D" parent="Skeleton2D/Main/UpperLegL"]
 position = Vector2(28, 160)
-rotation = -0.126768
+rotation = -0.126767
 scale = Vector2(0.999996, 0.999996)
 rest = Transform2D(1, 0, 0, 1, 28, 160)
 
 [node name="FootL" type="Bone2D" parent="Skeleton2D/Main/UpperLegL/LowerLegL"]
 position = Vector2(10, 215)
-rotation = 1.55376
+rotation = 1.51409
 scale = Vector2(0.999997, 0.999997)
 rest = Transform2D(0.0328334, 0.999461, -0.999461, 0.0328334, 10, 215)
 auto_calculate_length_and_angle = false
@@ -5628,18 +5545,18 @@ emitting = false
 [node name="Stun" type="Node2D" parent="DamageFX"]
 
 [node name="StunParticle" parent="DamageFX/Stun" instance=ExtResource("45_iofyn")]
-position = Vector2(-44.904, -1012.27)
-rotation = 0.0145098
-scale = Vector2(0.999994, 0.999994)
+position = Vector2(-49.0549, -1002.95)
+rotation = -0.0537908
+scale = Vector2(0.999993, 0.999993)
 emitting = false
 
 [node name="Slow" type="Node2D" parent="DamageFX"]
 
 [node name="SlowParticle" parent="DamageFX/Slow" instance=ExtResource("48_ki1la")]
 z_index = 10
-position = Vector2(-53.7617, -1083.71)
-rotation = 0.0145098
-scale = Vector2(0.999994, 0.999994)
+position = Vector2(-62.7678, -1073.63)
+rotation = -0.0537908
+scale = Vector2(0.999993, 0.999993)
 emitting = false
 
 [node name="Sounds" type="Node2D" parent="."]

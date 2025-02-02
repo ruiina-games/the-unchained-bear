@@ -1,0 +1,97 @@
+[gd_resource type="Resource" script_class="CharacterStats" load_steps=18 format=3 uid="uid://c83a8sr00x80o"]
+
+[ext_resource type="Script" path="res://data/damage/scripts/knockback.gd" id="1_w3b48"]
+[ext_resource type="Script" path="res://data/damage/scripts/damage.gd" id="2_h00y0"]
+[ext_resource type="Script" path="res://data/damage/scripts/stun.gd" id="3_xm8k5"]
+[ext_resource type="Script" path="res://data/damage/scripts/fire.gd" id="4_y5lon"]
+[ext_resource type="Script" path="res://fighting styles/fighting_style.gd" id="5_mieck"]
+[ext_resource type="Script" path="res://data/game data/upgrades/stat_model.gd" id="6_26ane"]
+[ext_resource type="Script" path="res://data/characters data/character_stats.gd" id="7_2tmvj"]
+
+[sub_resource type="Resource" id="Resource_tglks"]
+script = ExtResource("1_w3b48")
+knockback_force = 5000.0
+base_damage = 200.0
+base_proc_chance = 1.0
+duration = 0.0
+
+[sub_resource type="Resource" id="Resource_yovia"]
+script = ExtResource("2_h00y0")
+damage_amount = 200.0
+multiplier = 1.0
+effect = SubResource("Resource_tglks")
+
+[sub_resource type="Resource" id="Resource_7h4v2"]
+script = ExtResource("3_xm8k5")
+clicks_to_release = 0
+base_damage = 200.0
+base_proc_chance = 1.0
+duration = 2.0
+
+[sub_resource type="Resource" id="Resource_ramay"]
+script = ExtResource("2_h00y0")
+damage_amount = 200.0
+multiplier = 0.8
+effect = SubResource("Resource_7h4v2")
+
+[sub_resource type="Resource" id="Resource_jufax"]
+script = ExtResource("2_h00y0")
+damage_amount = 120.0
+multiplier = 1.0
+
+[sub_resource type="Resource" id="Resource_lom2l"]
+script = ExtResource("2_h00y0")
+damage_amount = 150.0
+multiplier = 1.0
+
+[sub_resource type="Resource" id="Resource_iq6m7"]
+script = ExtResource("2_h00y0")
+damage_amount = 150.0
+multiplier = 1.0
+
+[sub_resource type="Resource" id="Resource_gj8ng"]
+script = ExtResource("4_y5lon")
+tick_interval = 1.0
+base_damage = 40.0
+base_proc_chance = 1.0
+duration = 5.0
+
+[sub_resource type="Resource" id="Resource_ote4s"]
+script = ExtResource("2_h00y0")
+damage_amount = 180.0
+multiplier = 1.0
+effect = SubResource("Resource_gj8ng")
+
+[sub_resource type="Resource" id="Resource_6eybt"]
+script = ExtResource("5_mieck")
+max_combo_count = 4
+damage_variations = {
+-2: SubResource("Resource_yovia"),
+-1: SubResource("Resource_ramay"),
+0: SubResource("Resource_jufax"),
+1: SubResource("Resource_lom2l"),
+2: SubResource("Resource_iq6m7"),
+3: SubResource("Resource_ote4s")
+}
+title = null
+money_type = 0
+cost = 0
+upgrade_array = Array[ExtResource("6_26ane")]([])
+slot_type = 0
+icon_folder_path = ""
+rarity = 0
+id = 0
+name = ""
+description = ""
+
+[resource]
+script = ExtResource("7_2tmvj")
+attack_power_multiplier = 1.8
+max_health = 1600
+critical_chance = 0.3
+critical_damage_multiplier = 2.0
+dodge_chance = 0.5
+movement_speed_multiplier = 1.2
+status_resist_multiplier = 0.2
+effect_power_multiplier = 1.2
+fighting_style = SubResource("Resource_6eybt")

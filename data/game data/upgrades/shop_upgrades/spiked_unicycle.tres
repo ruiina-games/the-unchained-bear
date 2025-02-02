@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ShopUpgrade" load_steps=5 format=3 uid="uid://b3x7ewj26dy2j"]
+[gd_resource type="Resource" script_class="ShopUpgrade" load_steps=6 format=3 uid="uid://b3x7ewj26dy2j"]
 
 [ext_resource type="Script" path="res://data/game data/upgrades/shop_upgrade.gd" id="1_pfyu6"]
 [ext_resource type="Script" path="res://data/game data/upgrades/stat_model.gd" id="2_l0qmx"]
@@ -13,12 +13,17 @@ script = ExtResource("2_l0qmx")
 stat_type = 4
 multiplier = 0.1
 
+[sub_resource type="Resource" id="Resource_d20jm"]
+script = ExtResource("2_l0qmx")
+stat_type = 6
+multiplier = 0.05
+
 [resource]
 script = ExtResource("1_pfyu6")
 title = "Spiked Unicycle"
 money_type = 0
-cost = 40
-upgrade_array = Array[ExtResource("2_l0qmx")]([SubResource("Resource_11032"), SubResource("Resource_14hnd")])
+cost = 50
+upgrade_array = Array[ExtResource("2_l0qmx")]([SubResource("Resource_11032"), SubResource("Resource_14hnd"), SubResource("Resource_d20jm")])
 slot_type = 3
 icon_folder_path = "res://assets/Constant modifiers/Studded Unicycle/"
 rarity = 0

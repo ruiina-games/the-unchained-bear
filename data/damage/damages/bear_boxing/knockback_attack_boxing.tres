@@ -12,6 +12,6 @@ duration = 0.0
 
 [resource]
 script = ExtResource("2_uif20")
-damage_amount = 20.0
+damage_amount = 140.0
 multiplier = 1.0
 effect = SubResource("Resource_0eke5")
