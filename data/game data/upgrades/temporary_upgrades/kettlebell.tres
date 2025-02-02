@@ -16,4 +16,4 @@ icon_folder_path = "res://assets/Upgrades/Temporary Upgrades/Kettlebell/"
 rarity = 0
 id = 0
 name = "Kettlebell"
-description = "Increases maximum health by 5% for each Rarity level."
+description = "Increase max health by 5% for each type of rarity."

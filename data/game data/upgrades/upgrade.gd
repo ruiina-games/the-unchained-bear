@@ -5,10 +5,10 @@ signal updated()
 
 enum RARITY {
 	COMMON = 0,
-	UNCOMMON,
-	RARE,
-	MYTHICAL,
-	LEGENDARY
+	UNCOMMON = 1,
+	RARE = 2,
+	MYTHICAL = 3,
+	LEGENDARY = 4
 }
 
 enum SLOT_TYPE {
@@ -50,3 +50,16 @@ func apply_legendary_effect():
 	pass
 func update_rarity():
 	pass
+
+func set_next_rarity():
+	match rarity:
+		Upgrade.RARITY.COMMON:
+			rarity = Upgrade.RARITY.UNCOMMON
+		Upgrade.RARITY.UNCOMMON:
+			rarity = Upgrade.RARITY.RARE
+		Upgrade.RARITY.RARE:
+			rarity = Upgrade.RARITY.MYTHICAL
+		Upgrade.RARITY.MYTHICAL:
+			rarity = Upgrade.RARITY.LEGENDARY
+		Upgrade.RARITY.LEGENDARY:
+			pass

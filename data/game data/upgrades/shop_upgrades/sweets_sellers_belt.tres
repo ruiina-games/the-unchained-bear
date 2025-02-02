@@ -11,7 +11,7 @@ multiplier = 0.1
 [sub_resource type="Resource" id="Resource_14hnd"]
 script = ExtResource("2_njvfu")
 stat_type = 5
-multiplier = 0.05
+multiplier = 0.04
 
 [resource]
 script = ExtResource("1_7bbjd")
