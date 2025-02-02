@@ -623,10 +623,10 @@ script = ExtResource("1_uu30b")
 [node name="SkipButtonCanvas" type="CanvasLayer" parent="."]
 
 [node name="SkipButton" type="TextureButton" parent="SkipButtonCanvas"]
-offset_left = 957.0
-offset_top = 557.0
-offset_right = 1185.0
-offset_bottom = 748.0
+offset_left = 1046.0
+offset_top = 593.0
+offset_right = 1274.0
+offset_bottom = 784.0
 texture_normal = ExtResource("2_tjkpl")
 flip_h = true
 
