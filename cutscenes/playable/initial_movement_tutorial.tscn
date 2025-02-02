@@ -35,61 +35,61 @@ size = Vector2(4594, 174)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_deebq"]
 size = Vector2(4318, 174)
 
-[sub_resource type="Resource" id="Resource_cft22"]
+[sub_resource type="Resource" id="Resource_c172f"]
 script = ExtResource("6_aejtu")
 frequency = 10.001
 damping = 0.485
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_2ih2l"]
+[sub_resource type="Resource" id="Resource_fbbek"]
 script = ExtResource("7_5esqf")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_hy0ul"]
+[sub_resource type="Resource" id="Resource_75s73"]
 script = ExtResource("7_5esqf")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_yflqc"]
+[sub_resource type="Resource" id="Resource_lfq8h"]
 script = ExtResource("6_aejtu")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_hgc66"]
+[sub_resource type="Resource" id="Resource_k32ry"]
 script = ExtResource("6_aejtu")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_t378m"]
+[sub_resource type="Resource" id="Resource_0q28b"]
 script = ExtResource("7_5esqf")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_iseyp"]
+[sub_resource type="Resource" id="Resource_b2p4p"]
 script = ExtResource("6_aejtu")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_nmq13"]
+[sub_resource type="Resource" id="Resource_pe6o1"]
 script = ExtResource("6_aejtu")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_n3qyd"]
+[sub_resource type="Resource" id="Resource_j1ibq"]
 script = ExtResource("7_5esqf")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_jbrkx"]
+[sub_resource type="Resource" id="Resource_5j5jf"]
 script = ExtResource("6_aejtu")
 frequency = 1.0
 damping = 1.0
@@ -615,7 +615,7 @@ target = NodePath("../BeastTamer")
 position = Vector2(1534, 449)
 
 [node name="TipFABRIK" parent="BeastTamer/WhipSkeleton/SoupStack/WhipStack" index="0"]
-easing = SubResource("Resource_cft22")
+easing = SubResource("Resource_c172f")
 
 [node name="Whip_01" parent="BeastTamer/WhipSkeleton/Handle" index="0"]
 rotation = 1.03266
@@ -643,7 +643,6 @@ scale = Vector2(0.999996, 0.999996)
 
 [node name="Whip_07" parent="BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06" index="0"]
 rotation = 0.817664
-scale = Vector2(0.999999, 0.999999)
 
 [node name="Whip_08" parent="BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07" index="0"]
 rotation = -0.0525414
@@ -655,7 +654,6 @@ scale = Vector2(0.999999, 0.999999)
 
 [node name="Whip_10" parent="BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09" index="0"]
 rotation = -1.29067
-scale = Vector2(0.999999, 0.999999)
 
 [node name="Whip_11" parent="BeastTamer/WhipSkeleton/Handle/Whip_01/Whip_02/Whip_03/Whip_04/Whip_05/Whip_06/Whip_07/Whip_08/Whip_09/Whip_10" index="0"]
 rotation = 0.0347232
@@ -698,31 +696,31 @@ rotation = -0.0583366
 scale = Vector2(0.999983, 0.999983)
 
 [node name="HandLTwoBoneIK" parent="BeastTamer/Skeleton2D/SoupStack/HandLStack" index="1"]
-first_joint_easing = SubResource("Resource_2ih2l")
+first_joint_easing = SubResource("Resource_fbbek")
 
 [node name="LegRTwoBoneIK" parent="BeastTamer/Skeleton2D/SoupStack/LegRStack" index="1"]
-first_joint_easing = SubResource("Resource_hy0ul")
+first_joint_easing = SubResource("Resource_75s73")
 
 [node name="DressFABRIK" parent="BeastTamer/Skeleton2D/SoupStack/LegRStack" index="2"]
-easing = SubResource("Resource_yflqc")
+easing = SubResource("Resource_lfq8h")
 
 [node name="KneeFABRIK" parent="BeastTamer/Skeleton2D/SoupStack/LegRStack" index="3"]
-easing = SubResource("Resource_hgc66")
+easing = SubResource("Resource_k32ry")
 
 [node name="LegLTwoBoneIK" parent="BeastTamer/Skeleton2D/SoupStack/LegLStack" index="1"]
-first_joint_easing = SubResource("Resource_t378m")
+first_joint_easing = SubResource("Resource_0q28b")
 
 [node name="DressFABRIK" parent="BeastTamer/Skeleton2D/SoupStack/LegLStack" index="2"]
-easing = SubResource("Resource_iseyp")
+easing = SubResource("Resource_b2p4p")
 
 [node name="KneeFABRIK" parent="BeastTamer/Skeleton2D/SoupStack/LegLStack" index="3"]
-easing = SubResource("Resource_nmq13")
+easing = SubResource("Resource_pe6o1")
 
 [node name="HeadLookAt" parent="BeastTamer/Skeleton2D/SoupStack/HeadStack" index="0"]
-easing = SubResource("Resource_n3qyd")
+easing = SubResource("Resource_j1ibq")
 
 [node name="FeatherJiggle" parent="BeastTamer/Skeleton2D/SoupStack/HeadStack" index="1"]
-easing = SubResource("Resource_jbrkx")
+easing = SubResource("Resource_5j5jf")
 
 [node name="UpperLegL" parent="BeastTamer/Skeleton2D/TorsoMain" index="0"]
 rotation = 0.11489
@@ -818,7 +816,6 @@ scale = Vector2(0.99988, 0.99988)
 
 [node name="UpperHandR" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/UpperBody" index="1"]
 rotation = -0.0733202
-scale = Vector2(0.999833, 0.999833)
 
 [node name="LowerHandR" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandR" index="0"]
 rotation = 0.1847
@@ -826,11 +823,9 @@ scale = Vector2(0.999839, 0.999839)
 
 [node name="WristR" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/UpperBody/UpperHandR/LowerHandR" index="0"]
 rotation = -1.67391
-scale = Vector2(0.999833, 0.999833)
 
 [node name="Head" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/UpperBody/NeckBase/NeckTop" index="0"]
 rotation = -0.050754
-scale = Vector2(0.999837, 0.999837)
 
 [node name="Feather" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/UpperBody/NeckBase/NeckTop/Head" index="0"]
 rotation = 1.24651
@@ -839,7 +834,6 @@ scale = Vector2(0.99984, 0.99984)
 [node name="StunParticle" parent="BeastTamer/DamageFX/Stun" index="0"]
 position = Vector2(-36.0626, -814.875)
 rotation = -1.61289
-scale = Vector2(0.999659, 0.999659)
 
 [node name="SlowParticle" parent="BeastTamer/DamageFX/Slow" index="0"]
 position = Vector2(-36.4783, -898.583)
