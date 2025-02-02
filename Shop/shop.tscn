@@ -241,7 +241,7 @@ offset_right = 225.0
 offset_bottom = -114.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "You can press [I] to open inventory"
+text = "You can press [E] to open inventory"
 label_settings = ExtResource("2_8713t")
 horizontal_alignment = 1
 
@@ -993,67 +993,67 @@ scale = Vector2(0.999999, 0.999999)
 visible = false
 
 [node name="TorsoTop" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="0"]
-rotation = 0.41811
+rotation = 0.385788
 scale = Vector2(0.999964, 0.999964)
 
 [node name="UpperArmR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="0"]
-rotation = 1.18606
+rotation = 1.44312
 scale = Vector2(0.999959, 0.999959)
 
 [node name="LowerArmR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR" index="0"]
-rotation = -1.57245
+rotation = -1.76531
 scale = Vector2(0.999956, 0.999956)
 
 [node name="WristR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR" index="0"]
-rotation = 1.70188
+rotation = 1.66788
 scale = Vector2(0.999969, 0.999969)
 
 [node name="UpperArmL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="1"]
-rotation = -1.15481
+rotation = -1.09632
 scale = Vector2(0.999966, 0.999966)
 
 [node name="LowerArmL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL" index="0"]
-rotation = -0.288814
+rotation = -0.364577
 scale = Vector2(0.99997, 0.99997)
 
 [node name="WristL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL" index="0"]
-rotation = 2.54201
+rotation = 2.60452
 scale = Vector2(0.999963, 0.999963)
 
 [node name="HeadMain" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="2"]
-rotation = -0.148755
+rotation = -0.129006
 scale = Vector2(0.999955, 0.999955)
 
 [node name="LowerJaw" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="0"]
-rotation = 1.05325
+rotation = 1.07548
 scale = Vector2(0.999963, 0.999963)
 
 [node name="EarL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="2"]
 scale = Vector2(0.443939, 0.778982)
 
 [node name="UpperLegR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="1"]
-rotation = 2.36918
+rotation = 1.87338
 scale = Vector2(0.999976, 0.999976)
 
 [node name="LowerLegR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/UpperLegR" index="0"]
-rotation = 0.805013
+rotation = 1.66264
 scale = Vector2(0.999962, 0.999962)
 
 [node name="UpperLegL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="2"]
-rotation = 1.96013
+rotation = 2.77146
 scale = Vector2(0.999973, 0.999973)
 
 [node name="LowerLegL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/UpperLegL" index="0"]
-rotation = 1.49661
+rotation = 0.226888
 scale = Vector2(0.999965, 0.999965)
 
 [node name="StunParticle" parent="PlayerController/BearNew/DamageFX/Stun" index="0"]
-position = Vector2(172.573, -592.841)
-rotation = -1.01945
+position = Vector2(168.61, -596.684)
+rotation = -1.03202
 scale = Vector2(0.999918, 0.999918)
 
 [node name="SlowParticle" parent="PlayerController/BearNew/DamageFX/Slow" index="0"]
-position = Vector2(134.199, -680.025)
+position = Vector2(129.143, -683.378)
 scale = Vector2(0.999988, 0.999988)
 
 [node name="DummyTarget" type="CharacterBody2D" parent="."]
