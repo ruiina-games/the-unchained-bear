@@ -11,7 +11,6 @@ multiplier = 0.1
 [resource]
 script = ExtResource("1_ogpkm")
 upgrade_array = Array[ExtResource("2_nnfiy")]([SubResource("Resource_d4qhk")])
-upgrade_multi_step = 1.0
 slot_type = 0
 icon_folder_path = "res://assets/Upgrades/Temporary Upgrades/Can Opener/"
 rarity = 0

@@ -58,7 +58,6 @@ title = null
 money_type = 0
 cost = 0
 upgrade_array = Array[ExtResource("5_jxocu")]([])
-upgrade_multi_step = 1.0
 slot_type = 0
 icon_folder_path = ""
 rarity = 0

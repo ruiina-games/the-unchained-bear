@@ -164,50 +164,43 @@ func apply_modifier(modifier: Upgrade, is_adding: bool) -> void:
 				increase_max_health(change)
 			
 			StatUpgrade.UPGRADABLE_STATS.ATTACK_POWER_MULTI:
-				var current_attack = attack_power_multiplier
-				var change = current_attack + stat.multiplier
+				var change = stat.multiplier
 				if !is_adding:
 					change = -change
 				increase_attack_power_multiplier(change)
 			
 			StatUpgrade.UPGRADABLE_STATS.CRITICAL_CHANCE:
-				var current_crit = critical_chance
-				var change = current_crit + stat.multiplier
+				var change = stat.multiplier
 				if !is_adding:
 					change = -change
 				increase_critical_chance(change)
 			
 			StatUpgrade.UPGRADABLE_STATS.CRITICAL_DAMAGE:
-				var current_crit_dmg = critical_damage_multiplier
-				var change = current_crit_dmg + stat.multiplier
+				var change = stat.multiplier
 				if !is_adding:
 					change = -change
 				increase_critical_damage_multiplier(change)
 			
 			StatUpgrade.UPGRADABLE_STATS.DODGE_CHANCE:
-				var current_dodge = dodge_chance
-				var change = current_dodge + stat.multiplier
+				var change = stat.multiplier
 				if !is_adding:
 					change = -change
 				increase_dodge_chance(change)
 			
 			StatUpgrade.UPGRADABLE_STATS.MOVEMENT_SPEED_MULTI:
-				var current_speed = movement_speed_multiplier
-				var change = current_speed + stat.multiplier
+				var change = stat.multiplier
 				if !is_adding:
 					change = -change
 				increase_movement_speed_multiplier(change)
 			
 			StatUpgrade.UPGRADABLE_STATS.STATUS_RESIST_MULTI:
-				var current_resist = status_resist_multiplier
-				var change = current_resist + stat.multiplier
+				var change = stat.multiplier
 				if !is_adding:
 					change = -change
 				increase_status_resist_multiplier(change)
 			
 			StatUpgrade.UPGRADABLE_STATS.EFFECT_POWER_MULTI:
-				var current_effect = effect_power_multiplier
-				var change = current_effect + stat.multiplier
+				var change = stat.multiplier
 				if !is_adding:
 					change = -change
 				increase_effect_power_multiplier(change)

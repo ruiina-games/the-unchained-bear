@@ -9,6 +9,8 @@ signal not_enough_tokens
 @export var reward_position = 0
 @export var spin_price: int = 1
 
+@onready var spin_sound = $SpinSound
+
 @onready var dark_green_slot = %DarkGreenSlot
 @onready var dark_blue_slot = %DarkBlueSlot
 @onready var pink_slot = %PinkSlot
@@ -128,14 +130,14 @@ func place_resources():
 			var random_reward_index = randi() % tickets_array[0].size()
 			rewards[index]["reward"] = tickets_array[0][random_reward_index]
 			rewards[index]["name"] = "TICKET"
-			rewards[index]["slot"].texture = load("res://assets/Upgrades/RoflTicket.png")
+			rewards[index]["slot"].texture = load("res://assets/Store/Ticket.png")
 		else:  # Потім tokens_array
 			# Вибираємо випадкову нагороду з tokens_array[1]
 			var token_index = i - tickets_array[0].size()
 			var random_reward_index = randi() % tokens_array[1].size()
 			rewards[index]["reward"] = tokens_array[1][random_reward_index]
 			rewards[index]["name"] = "TOKEN"
-			rewards[index]["slot"].texture = load("res://assets/Upgrades/RoflZheton.png")
+			rewards[index]["slot"].texture = load("res://assets/Store/Token.png")
 
 func _unhandled_input(event):
 	if area_entered:
@@ -152,19 +154,29 @@ func _unhandled_input(event):
 				is_spin = true
 				var tween = get_tree().create_tween().set_parallel(true)
 				tween.connect("finished", func():
-					#after tween finish animation, this function is call
+					# Після завершення анімації
 					var old_rotation_degrees = %front.rotation_degrees
-					#set is_spin = false to tell for user can press again
 					is_spin = false
 					if old_rotation_degrees > 360:
-						#This part is to fix the error that when rotating the steamer once, it will not rotate counterclockwise
 						var rad_ = fmod(old_rotation_degrees, 360)
 						%front.rotation_degrees = rad_
-					)
-				reward_position = randi_range(0, 360) #random position from 0 to 360 degrees
+				)
 
+				reward_position = randi_range(0, 360)  # Випадкова позиція від 0 до 360 градусів
 
-				tween.tween_property(%front, "rotation_degrees", reward_position +  360 * speed * power , 3).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CIRC)
+				# Тривалість анімації (3 секунди)
+				var animation_duration = 6.0
+
+				# Запуск звуку
+				spin_sound.play()
+
+				# Синхронізація звуку з анімацією
+				var sound_start_time = max(0, spin_sound.stream.get_length() - animation_duration)
+				spin_sound.seek(sound_start_time)
+
+				# Анімація прокрутки колеса
+				tween.tween_property(%front, "rotation_degrees", reward_position + 360 * speed * power, animation_duration).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CIRC)
+				
 				tween.finished.connect(func(): 
 					for item in rewards:
 						if reward_position >= item.from and reward_position <= item.to:
@@ -172,6 +184,5 @@ func _unhandled_input(event):
 								print("WOMP WOMP")
 							else:
 								print(item.reward, item.name)
-								#signal for another scene
 								receive_reward.emit(item.reward, item.name)
-						)
+				)

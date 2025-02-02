@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://qhpf0l7xje0f"]
+[gd_scene load_steps=24 format=3 uid="uid://qhpf0l7xje0f"]
 
 [ext_resource type="Script" path="res://even_more_main_than_main.gd" id="1_0ojiy"]
 [ext_resource type="PackedScene" uid="uid://nyr1tohq4w76" path="res://level_acrobat.tscn" id="1_ngjpe"]
@@ -8,8 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://bnv0o4pvq2ads" path="res://cutscenes/playable/cage_attack_tutorial.tscn" id="6_rxh64"]
 [ext_resource type="PackedScene" uid="uid://iho2j3v1lyy1" path="res://Shop/shop.tscn" id="7_3ujyh"]
 [ext_resource type="Script" path="res://pause.gd" id="8_ja8jw"]
+[ext_resource type="Texture2D" uid="uid://bp74rwy8rgxas" path="res://assets/Pause/Pause1/circus-Pause-1_0011_curtain-back-right.png" id="8_o18yg"]
 [ext_resource type="LabelSettings" uid="uid://drt4vbq5awgad" path="res://cutscenes/smaller_font.tres" id="9_8pm0r"]
 [ext_resource type="Texture2D" uid="uid://qb73vuf1xlmh" path="res://assets/Pause/Pause2/circus-Pause-2_0002_curtain-back.png" id="9_cmk7y"]
+[ext_resource type="Texture2D" uid="uid://1wi4qabphw4f" path="res://assets/Pause/Pause1/circus-Pause-1_0012_curtain-back-left.png" id="9_i0qtf"]
 [ext_resource type="Texture2D" uid="uid://dbjrweedy24v6" path="res://assets/Arena_1/Curtain_R.png" id="10_6tya1"]
 [ext_resource type="Texture2D" uid="uid://48cu42mood14" path="res://assets/Arena_1/Curtain_L.png" id="11_5lql3"]
 [ext_resource type="Texture2D" uid="uid://cal1hbscndpnw" path="res://assets/Pause/Pause1/circus-Pause-1_0000_vignette-.png" id="12_ewo7f"]
@@ -451,8 +453,35 @@ size_flags_vertical = 3
 text = "Acrobat
 "
 
+[node name="FinalCurtain" type="CanvasLayer" parent="."]
+
+[node name="BGCurtainR" type="TextureRect" parent="FinalCurtain"]
+offset_left = -73.0
+offset_top = -65.0
+offset_right = 613.0
+offset_bottom = 756.0
+texture = ExtResource("8_o18yg")
+expand_mode = 1
+
+[node name="BGCurtainL" type="TextureRect" parent="FinalCurtain"]
+offset_left = 612.0
+offset_top = -62.0
+offset_right = 1298.0
+offset_bottom = 759.0
+texture = ExtResource("9_i0qtf")
+expand_mode = 1
+
+[node name="Vignete" type="TextureRect" parent="FinalCurtain"]
+offset_left = -79.0
+offset_top = -48.0
+offset_right = 1342.0
+offset_bottom = 752.0
+texture = ExtResource("12_ewo7f")
+expand_mode = 1
+
 [node name="Pause" type="CanvasLayer" parent="." node_paths=PackedStringArray("anim_player")]
 process_mode = 2
+visible = false
 script = ExtResource("8_ja8jw")
 anim_player = NodePath("../PauseAnimationPlayer")
 
