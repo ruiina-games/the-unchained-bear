@@ -8,8 +8,8 @@
 [resource]
 script = ExtResource("2_blefl")
 money_dictionary = {
-0: 100,
-1: 5
+0: 10,
+1: 1
 }
 inventory = Array[ExtResource("1_sin6s")]([])
 temporary_upgrades = Array[ExtResource("3_7ixr4")]([])
