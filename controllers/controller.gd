@@ -190,21 +190,29 @@ func get_hsm():
 
 func apply_knockback(direction, force):
 	var initial_velocity = actor.velocity
-
-	var original_scale = actor.scale  # Збереження початкового напрямку
-	var original_rotation = actor.rotation
+	var original_scale = actor.scale  # Збереження початкового масштабу
+	var original_transform = actor.transform
+	var original_rotation = actor.rotation  # Збереження початкового обертання
 	actor.can_move = false
-	var knockback_duration: float = 0.3  # Duration of the knockback effect
+
+	var knockback_duration: float = 0.3  # Тривалість knockback
 	var elapsed_time: float = 0.0
 	
 	while elapsed_time < knockback_duration:
 		var knockback_force = lerp(force, 0.0, elapsed_time / knockback_duration)
 		current_velocity = knockback_force * direction
+		current_velocity = current_velocity.limit_length(3000)  # Обмежити швидкість
 		elapsed_time += get_physics_process_delta_time()
 		await get_tree().process_frame
 		actor.velocity = current_velocity
 		actor.move_and_slide()
 
+	# Відновлення стану персонажа
 	actor.velocity = initial_velocity
+	actor.rotation = 0  # Повернути обертання до нормального стану
+	# actor.scale = Vector2(1, 1)  # Повернути масштаб до нормального стану
 	actor.reset_scale(original_scale, original_rotation)
+	await get_tree().create_timer(0.2).timeout
 	actor.can_move = true
+	actor.reset_scale(original_scale, original_rotation)
+	#actor.transform = original_transform

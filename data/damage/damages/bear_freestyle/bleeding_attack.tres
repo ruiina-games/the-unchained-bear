@@ -8,11 +8,11 @@ script = ExtResource("1_o4xn3")
 bleeding_damage_percent = 0.03
 tick_interval = 2.0
 base_damage = 0.0
-base_proc_chance = 1.0
+base_proc_chance = 0.05
 duration = 0.0
 
 [resource]
 script = ExtResource("2_cdvrq")
-damage_amount = 20.0
+damage_amount = 100.0
 multiplier = 1.0
 effect = SubResource("Resource_ui36c")
