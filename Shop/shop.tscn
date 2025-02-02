@@ -277,6 +277,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="Inventory" type="Control" parent="CanvasLayer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -856,146 +857,6 @@ offset_bottom = 128.0
 theme_override_font_sizes/font_size = 80
 text = "Close Shop"
 
-[node name="ItemDetails" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -1728.0
-offset_top = 4126.0
-offset_right = -1688.0
-offset_bottom = 4166.0
-
-[node name="ItemPanel" type="Panel" parent="CanvasLayer/ItemDetails"]
-custom_minimum_size = Vector2(800, 800)
-layout_mode = 0
-offset_left = -266.0
-offset_right = 1570.0
-offset_bottom = 1438.0
-size_flags_horizontal = 6
-size_flags_vertical = 6
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ItemDetails/ItemPanel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 140
-alignment = 1
-
-[node name="MainInfoContainer" type="VBoxContainer" parent="CanvasLayer/ItemDetails/ItemPanel/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 50
-alignment = 1
-
-[node name="Row_1" type="HBoxContainer" parent="CanvasLayer/ItemDetails/ItemPanel/HBoxContainer/MainInfoContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="ItemName" type="Label" parent="CanvasLayer/ItemDetails/ItemPanel/HBoxContainer/MainInfoContainer/Row_1"]
-layout_mode = 2
-text = "Cylinder Hat
-"
-label_settings = ExtResource("3_cc6nc")
-
-[node name="Row_2" type="HBoxContainer" parent="CanvasLayer/ItemDetails/ItemPanel/HBoxContainer/MainInfoContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="Slot" type="Label" parent="CanvasLayer/ItemDetails/ItemPanel/HBoxContainer/MainInfoContainer/Row_2"]
-layout_mode = 2
-text = "Head Piece
-"
-label_settings = ExtResource("10_j741j")
-
-[node name="Rarity" type="Label" parent="CanvasLayer/ItemDetails/ItemPanel/HBoxContainer/MainInfoContainer/Row_2"]
-layout_mode = 2
-text = ", COMMON
-"
-label_settings = ExtResource("10_j741j")
-
-[node name="Row_3" type="HBoxContainer" parent="CanvasLayer/ItemDetails/ItemPanel/HBoxContainer/MainInfoContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/ItemDetails/ItemPanel/HBoxContainer/MainInfoContainer/Row_3"]
-layout_mode = 2
-texture = ExtResource("7_4j7l8")
-
-[node name="Row_4" type="HBoxContainer" parent="CanvasLayer/ItemDetails/ItemPanel/HBoxContainer/MainInfoContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="Description" type="Label" parent="CanvasLayer/ItemDetails/ItemPanel/HBoxContainer/MainInfoContainer/Row_4"]
-custom_minimum_size = Vector2(600, 0)
-layout_mode = 2
-text = "This elegant hat make everyone who sees you respect you and gives you confidence in battle."
-label_settings = ExtResource("10_j741j")
-autowrap_mode = 2
-
-[node name="Row_5" type="HBoxContainer" parent="CanvasLayer/ItemDetails/ItemPanel/HBoxContainer/MainInfoContainer"]
-layout_mode = 2
-theme_override_constants/separation = 50
-alignment = 1
-
-[node name="Price" type="Label" parent="CanvasLayer/ItemDetails/ItemPanel/HBoxContainer/MainInfoContainer/Row_5"]
-layout_mode = 2
-text = "12500"
-label_settings = ExtResource("3_cc6nc")
-
-[node name="Currency" type="Label" parent="CanvasLayer/ItemDetails/ItemPanel/HBoxContainer/MainInfoContainer/Row_5"]
-layout_mode = 2
-text = "TICKETS"
-label_settings = ExtResource("3_cc6nc")
-
-[node name="Modifiers Conainer" type="VBoxContainer" parent="CanvasLayer/ItemDetails/ItemPanel/HBoxContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="ModifierRow_1" type="HBoxContainer" parent="CanvasLayer/ItemDetails/ItemPanel/HBoxContainer/Modifiers Conainer"]
-layout_mode = 2
-theme_override_constants/separation = 65
-
-[node name="StatType" type="Label" parent="CanvasLayer/ItemDetails/ItemPanel/HBoxContainer/Modifiers Conainer/ModifierRow_1"]
-layout_mode = 2
-text = "Damage Multiplier"
-label_settings = ExtResource("3_cc6nc")
-
-[node name="Modifier" type="Label" parent="CanvasLayer/ItemDetails/ItemPanel/HBoxContainer/Modifiers Conainer/ModifierRow_1"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "0.15
-"
-label_settings = ExtResource("3_cc6nc")
-horizontal_alignment = 2
-
-[node name="ModifierRow_2" type="HBoxContainer" parent="CanvasLayer/ItemDetails/ItemPanel/HBoxContainer/Modifiers Conainer"]
-layout_mode = 2
-theme_override_constants/separation = 65
-
-[node name="StatType" type="Label" parent="CanvasLayer/ItemDetails/ItemPanel/HBoxContainer/Modifiers Conainer/ModifierRow_2"]
-layout_mode = 2
-text = "Different Multiplier"
-label_settings = ExtResource("3_cc6nc")
-
-[node name="Modifier" type="Label" parent="CanvasLayer/ItemDetails/ItemPanel/HBoxContainer/Modifiers Conainer/ModifierRow_2"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "1.15
-"
-label_settings = ExtResource("3_cc6nc")
-horizontal_alignment = 2
-
-[node name="BuyButton" type="Button" parent="CanvasLayer/ItemDetails/ItemPanel"]
-layout_mode = 0
-offset_left = 1083.0
-offset_top = 1275.0
-offset_right = 1721.0
-offset_bottom = 1433.0
-theme_override_font_sizes/font_size = 80
-text = "Buy Item"
-
 [node name="ShopArea" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2048
@@ -1126,9 +987,6 @@ texture = ExtResource("12_lek23")
 position = Vector2(-707, 420)
 target = NodePath("../DummyTarget")
 
-[node name="HandL" parent="PlayerController/CanvasLayer/Tedddy/Skeleton2D/Main/Body" index="0"]
-scale = Vector2(1, 1)
-
 [node name="Head" parent="PlayerController/CanvasLayer/Tedddy/Skeleton2D/Main/Body" index="2"]
 scale = Vector2(0.999999, 0.999999)
 
@@ -1136,67 +994,67 @@ scale = Vector2(0.999999, 0.999999)
 visible = false
 
 [node name="TorsoTop" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="0"]
-rotation = 0.338823
-scale = Vector2(0.999965, 0.999965)
+rotation = 0.330947
+scale = Vector2(0.999964, 0.999964)
 
 [node name="UpperArmR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="0"]
-rotation = 1.41282
+rotation = 1.37549
 scale = Vector2(0.999959, 0.999959)
 
 [node name="LowerArmR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR" index="0"]
-rotation = -1.73112
-scale = Vector2(0.999957, 0.999957)
+rotation = -1.7248
+scale = Vector2(0.999956, 0.999956)
 
 [node name="WristR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR" index="0"]
-rotation = 1.7939
-scale = Vector2(0.99997, 0.99997)
+rotation = 1.7636
+scale = Vector2(0.999969, 0.999969)
 
 [node name="UpperArmL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="1"]
-rotation = -1.00607
+rotation = -0.989885
 scale = Vector2(0.999966, 0.999966)
 
 [node name="LowerArmL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL" index="0"]
-rotation = -0.476428
+rotation = -0.495333
 scale = Vector2(0.999971, 0.999971)
 
 [node name="WristL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL" index="0"]
-rotation = 2.69211
-scale = Vector2(0.999964, 0.999964)
+rotation = 2.70617
+scale = Vector2(0.999963, 0.999963)
 
 [node name="HeadMain" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="2"]
-rotation = -0.100262
+rotation = -0.0954335
 scale = Vector2(0.999955, 0.999955)
 
 [node name="LowerJaw" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="0"]
-rotation = 1.1047
-scale = Vector2(0.999964, 0.999964)
+rotation = 1.1091
+scale = Vector2(0.999963, 0.999963)
 
 [node name="EarL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="2"]
 scale = Vector2(0.443939, 0.778982)
 
 [node name="UpperLegR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="1"]
-rotation = 2.43467
+rotation = 2.01509
 scale = Vector2(0.999976, 0.999976)
 
 [node name="LowerLegR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/UpperLegR" index="0"]
-rotation = 0.681023
-scale = Vector2(0.999963, 0.999963)
+rotation = 1.48337
+scale = Vector2(0.999962, 0.999962)
 
 [node name="UpperLegL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="2"]
-rotation = 2.01893
-scale = Vector2(0.999974, 0.999974)
+rotation = 2.37733
+scale = Vector2(0.999973, 0.999973)
 
 [node name="LowerLegL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/UpperLegL" index="0"]
-rotation = 1.41402
-scale = Vector2(0.999966, 0.999966)
+rotation = 0.75497
+scale = Vector2(0.999965, 0.999965)
 
 [node name="StunParticle" parent="PlayerController/BearNew/DamageFX/Stun" index="0"]
-position = Vector2(162.683, -602.064)
-rotation = -1.05024
-scale = Vector2(0.99992, 0.99992)
+position = Vector2(161.67, -602.942)
+rotation = -1.05329
+scale = Vector2(0.999918, 0.999918)
 
 [node name="SlowParticle" parent="PlayerController/BearNew/DamageFX/Slow" index="0"]
-position = Vector2(121.643, -688.025)
+position = Vector2(120.368, -688.777)
 scale = Vector2(0.999988, 0.999988)
 
 [node name="DummyTarget" type="CharacterBody2D" parent="."]
