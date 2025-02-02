@@ -163,7 +163,7 @@ func _unhandled_input(event):
 	if event.is_action_pressed("interact") and if_on_exit:
 		animation_player.play("DISSAPEAR")
 		
-	if event.is_action_pressed("inv"):
+	if event.is_action_pressed("interact"):
 		if if_on_inventory and !inventory_is_open:
 			inventory.show()
 			player_controller.process_mode = Node.PROCESS_MODE_DISABLED

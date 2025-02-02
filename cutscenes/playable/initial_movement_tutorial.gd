@@ -24,7 +24,6 @@ var movement_tutorial_ended: bool = false
 var a_was_pressed: bool = false
 var d_was_pressed: bool = false
 var space_was_pressed: bool = false
-var s_was_pressed: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -45,9 +44,8 @@ func _unhandled_input(event):
 	
 	if tutorial_second_stage_started:
 		if event.is_action_pressed("jump"):
+			await get_tree().create_timer(0.7).timeout
 			space_was_pressed = true
-		if event.is_action_pressed("bend"):
-			s_was_pressed = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -89,13 +87,13 @@ func second_stage():
 		annoyance_timer.start()
 		
 		player_controller.hsm.allowed_advance_movement = true
-		tutorial_subtitle.text = "Press [SPACE] to jump and [S] to bend"
+		tutorial_subtitle.text = "Press [SPACE] to jump"
 
 func end_movement_tutorial():
 	if movement_tutorial_ended == true:
 		return
 		
-	if space_was_pressed and s_was_pressed:
+	if space_was_pressed:
 		tutorial_ended.emit()
 		movement_tutorial_ended = true
 
