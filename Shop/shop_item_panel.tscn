@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://j60fiewfup26"]
+[gd_scene load_steps=8 format=3 uid="uid://j60fiewfup26"]
 
 [ext_resource type="Script" path="res://Shop/shop_item_panel.gd" id="1_00dhx"]
 [ext_resource type="LabelSettings" uid="uid://ddlppfp33dpu1" path="res://cutscenes/a_bit_bigger_than_even_smaller_font.tres" id="1_862oa"]
+[ext_resource type="PackedScene" uid="uid://cw057lh8u8oro" path="res://Shop/item_details.tscn" id="2_4tt8x"]
 [ext_resource type="LabelSettings" uid="uid://wblyhtrwvirh" path="res://cutscenes/even_smaller_font.tres" id="2_qe7wl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q2wi6"]
@@ -25,6 +26,7 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 theme_override_styles/panel = SubResource("StyleBoxFlat_q2wi6")
 script = ExtResource("1_00dhx")
+item_popup = ExtResource("2_4tt8x")
 
 [node name="Grid" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(400, 400)

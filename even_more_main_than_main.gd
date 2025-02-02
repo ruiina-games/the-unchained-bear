@@ -177,6 +177,7 @@ func _on_exit_button_pressed():
 
 
 func _on_restart_button_pressed():
+	get_tree().paused = false
 	current_level_index = 0
 	load_scene(level_sequence[current_level_index])
 	%FinalCurtain.hide()

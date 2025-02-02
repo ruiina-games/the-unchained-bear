@@ -421,31 +421,31 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h68ra"]
 size = Vector2(4719, 688)
 
-[sub_resource type="Resource" id="Resource_l28h7"]
+[sub_resource type="Resource" id="Resource_kbcow"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_ag8nb"]
+[sub_resource type="Resource" id="Resource_1g7bt"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_cmqbj"]
+[sub_resource type="Resource" id="Resource_xf8ec"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_i1xio"]
+[sub_resource type="Resource" id="Resource_cbibh"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_jifje"]
+[sub_resource type="Resource" id="Resource_ao32k"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
@@ -765,19 +765,19 @@ offset_left = 201.0
 offset_right = 501.0
 
 [node name="RLegTwoBoneIK" parent="AcrobatController/Acrobat/Skeleton2D/SoupStack/RLegStack" index="0"]
-first_joint_easing = SubResource("Resource_l28h7")
+first_joint_easing = SubResource("Resource_kbcow")
 
 [node name="LLegTwoBoneIK" parent="AcrobatController/Acrobat/Skeleton2D/SoupStack/LLegStack" index="0"]
-first_joint_easing = SubResource("Resource_ag8nb")
+first_joint_easing = SubResource("Resource_1g7bt")
 
 [node name="HeadLookAt" parent="AcrobatController/Acrobat/Skeleton2D/SoupStack/HeadStack" index="0"]
-easing = SubResource("Resource_cmqbj")
+easing = SubResource("Resource_xf8ec")
 
 [node name="Bubon1LookAt" parent="AcrobatController/Acrobat/Skeleton2D/SoupStack/HeadStack" index="1"]
-easing = SubResource("Resource_i1xio")
+easing = SubResource("Resource_cbibh")
 
 [node name="Bubon2LookAt" parent="AcrobatController/Acrobat/Skeleton2D/SoupStack/HeadStack" index="2"]
-easing = SubResource("Resource_jifje")
+easing = SubResource("Resource_ao32k")
 
 [node name="UpperBody" parent="AcrobatController/Acrobat/Skeleton2D/Main" index="0"]
 scale = Vector2(0.999988, 0.999988)
