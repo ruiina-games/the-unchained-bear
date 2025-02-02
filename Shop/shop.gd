@@ -63,8 +63,8 @@ func _ready():
 	)
 	
 func _physics_process(delta: float) -> void:
-	tickets_label.text = "Tickets: " + str(player_stats.money_dictionary[PlayerStats.MONEY.TICKETS])
-	tokens_label.text = "Tokens: " + str(player_stats.money_dictionary[PlayerStats.MONEY.TOKENS])
+	tickets_label.text = str(player_stats.money_dictionary[PlayerStats.MONEY.TICKETS])
+	tokens_label.text = str(player_stats.money_dictionary[PlayerStats.MONEY.TOKENS])
 	
 	
 func fill_the_inventory():

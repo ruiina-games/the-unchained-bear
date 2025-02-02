@@ -1,4 +1,4 @@
-extends Panel
+extends TextureRect
 
 @export var player_contoller: PlayerController
 @export var wheel: SpinWheel
@@ -21,14 +21,14 @@ func receive_reward(reward, item_name):
 		player_contoller.actor.character_stats.apply_modifier(reward, true)
 		player_contoller.actor.character_stats.stats_upgraded.emit()
 	elif item_name == "TOKEN":
-		prize_name.text = str(reward) + " " + " Token(s)"
-		prize_icon.texture = load("res://assets/Upgrades/RoflZheton.png")
+		prize_name.text = str(reward) + " "
+		prize_icon.texture = load("res://assets/Store/Token.png")
 		prize_description.text = "You can use these to re-roll the Wheel"
 		player_contoller.actor.character_stats.money_dictionary[1] += reward
 		player_contoller.actor.character_stats.stats_upgraded.emit()
 	elif item_name == "TICKET":
-		prize_name.text = str(reward) + " " + " Ticket(s)"
-		prize_icon.texture = load("res://assets/Upgrades/RoflTicket.png")
+		prize_name.text = str(reward) + " "
+		prize_icon.texture = load("res://assets/Store/Ticket.png")
 		prize_description.text = "You can use these to buy from the Teddy"
 		player_contoller.actor.character_stats.money_dictionary[0] += reward
 		player_contoller.actor.character_stats.stats_upgraded.emit()

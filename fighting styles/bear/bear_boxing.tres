@@ -17,7 +17,6 @@ title = "Booklet \"The Great Box\""
 money_type = 0
 cost = 100
 upgrade_array = Array[ExtResource("3_psjlk")]([])
-upgrade_multi_step = 1.0
 slot_type = 4
 icon_folder_path = "res://assets/Fight_Styles/Boxing/"
 rarity = 4

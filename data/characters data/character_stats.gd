@@ -30,8 +30,8 @@ func increase_attack_power_multiplier(amount: float) -> void:
 	attack_power_multiplier += amount
 
 func increase_max_health(amount: float) -> void:
-	heal(amount)
 	max_health += amount
+	heal(amount)
 
 func heal(amount: int) -> void:
 	current_health = min(current_health + amount, max_health)

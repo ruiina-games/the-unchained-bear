@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://clfvobvi3rno6"]
+[gd_scene load_steps=6 format=3 uid="uid://clfvobvi3rno6"]
 
 [ext_resource type="Script" path="res://Shop/SpinWheel/addons/spin_wheel.gd" id="1_l4rrp"]
 [ext_resource type="Texture2D" uid="uid://bcu46sm3pcjeq" path="res://assets/Store/Store/Baraban_Stand.png" id="2_80i00"]
 [ext_resource type="Texture2D" uid="uid://cnu682dffev" path="res://assets/Store/Store/Baraban.png" id="3_n73fj"]
 [ext_resource type="Texture2D" uid="uid://gai1hdlhn8lg" path="res://assets/Store/Store/Baraban_Glass.png" id="4_x0syi"]
+[ext_resource type="AudioStream" uid="uid://krsgjgcukmnf" path="res://assets/Sounds/mixkit-bike-wheel-spinning-1613.mp3" id="5_nj3mq"]
 
 [node name="spin_wheel" type="Control"]
 layout_mode = 3
@@ -59,6 +60,7 @@ offset_top = 118.468
 offset_right = 548.633
 offset_bottom = 329.467
 expand_mode = 2
+stretch_mode = 5
 
 [node name="DarkBlueSlot" type="TextureRect" parent="background/front"]
 unique_name_in_owner = true
@@ -68,6 +70,7 @@ offset_top = 121.484
 offset_right = 816.585
 offset_bottom = 332.484
 expand_mode = 2
+stretch_mode = 5
 
 [node name="PinkSlot" type="TextureRect" parent="background/front"]
 unique_name_in_owner = true
@@ -77,6 +80,7 @@ offset_top = 349.202
 offset_right = 1037.07
 offset_bottom = 560.202
 expand_mode = 2
+stretch_mode = 5
 
 [node name="OrangeSlot" type="TextureRect" parent="background/front"]
 unique_name_in_owner = true
@@ -86,6 +90,7 @@ offset_top = 599.541
 offset_right = 1035.54
 offset_bottom = 810.541
 expand_mode = 2
+stretch_mode = 5
 
 [node name="GreenSlot" type="TextureRect" parent="background/front"]
 unique_name_in_owner = true
@@ -95,6 +100,7 @@ offset_top = 816.703
 offset_right = 816.585
 offset_bottom = 1027.7
 expand_mode = 2
+stretch_mode = 5
 
 [node name="PurpleSlot" type="TextureRect" parent="background/front"]
 unique_name_in_owner = true
@@ -104,6 +110,7 @@ offset_top = 822.735
 offset_right = 542.508
 offset_bottom = 1033.74
 expand_mode = 2
+stretch_mode = 5
 
 [node name="BlueSlot" type="TextureRect" parent="background/front"]
 unique_name_in_owner = true
@@ -113,6 +120,7 @@ offset_top = 599.541
 offset_right = 323.552
 offset_bottom = 810.541
 expand_mode = 2
+stretch_mode = 5
 
 [node name="YellowSlot" type="TextureRect" parent="background/front"]
 unique_name_in_owner = true
@@ -122,6 +130,7 @@ offset_top = 343.17
 offset_right = 325.083
 offset_bottom = 554.17
 expand_mode = 2
+stretch_mode = 5
 
 [node name="glass" type="TextureRect" parent="background"]
 unique_name_in_owner = true
@@ -139,3 +148,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(578, 578)
 texture = ExtResource("4_x0syi")
+
+[node name="SpinSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_nj3mq")
+volume_db = -10.0
