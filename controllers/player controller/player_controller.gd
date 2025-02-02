@@ -42,6 +42,7 @@ func update_fs():
 	actor.animation_tree.active = true
 
 func kill_actor():
+	actor.character_stats.clear_temporary_modifiers()
 	hsm.dispatch(hsm.DIED)
 
 func init_state_machine() -> void:
@@ -80,6 +81,11 @@ func set_stunned(was_stunned: bool):
 		hsm.dispatch(hsm.STUNNED)
 	else:
 		hsm.dispatch(stunned_state.EVENT_FINISHED)
+
+func finish_round():
+	super()
+	var player_stats: PlayerStats = actor.character_stats
+	player_stats.money_dictionary[PlayerStats.MONEY.TICKETS] += randi_range(5, 20)
 
 func reset_combo():
 	# print("Combo has been reset")

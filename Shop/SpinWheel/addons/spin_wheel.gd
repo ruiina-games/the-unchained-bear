@@ -1,11 +1,13 @@
 extends Control
 class_name SpinWheel
 
+signal not_enough_tokens
+
 @export var is_spin: bool = false
 @export var speed: int = 10
 @export var power: int = 2
 @export var reward_position = 0
-
+@export var spin_price: int = 1
 
 @onready var dark_green_slot = %DarkGreenSlot
 @onready var dark_blue_slot = %DarkBlueSlot
@@ -15,8 +17,6 @@ class_name SpinWheel
 @onready var purple_slot = %PurpleSlot
 @onready var blue_slot = %BlueSlot
 @onready var yellow_slot = %YellowSlot
-
-
 
 var area_entered: bool = false
 var current_chatacter_stats: PlayerStats
@@ -140,6 +140,13 @@ func place_resources():
 func _unhandled_input(event):
 	if area_entered:
 		if event.is_action_pressed("interact"):
+			if !current_chatacter_stats.has_tokens_to_spin_a_wheel(spin_price):
+				print("NO TOKENS")
+				not_enough_tokens.emit()
+				return
+			else:
+				current_chatacter_stats.purchase_spin(spin_price)
+			
 			place_resources()
 			if is_spin == false:
 				is_spin = true

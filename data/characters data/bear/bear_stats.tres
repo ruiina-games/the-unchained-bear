@@ -9,7 +9,7 @@
 script = ExtResource("2_blefl")
 money_dictionary = {
 0: 0,
-1: 0
+1: 1
 }
 inventory = Array[ExtResource("1_sin6s")]([])
 temporary_upgrades = Array[ExtResource("3_7ixr4")]([])

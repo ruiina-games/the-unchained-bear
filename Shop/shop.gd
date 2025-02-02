@@ -3,6 +3,9 @@ extends Node2D
 signal next_stage
 signal run_out_of_items
 
+@onready var tickets_label: Label = %"Tickets Label"
+@onready var tokens_label: Label = %"Tokens Label"
+
 @export var shop_items_amount: int = 6  # Кількість предметів у магазині
 @export var teddy: Teddy
 @export var wheel: SpinWheel
@@ -58,6 +61,11 @@ func _ready():
 		delete_shop_panels()
 		create_shop_panels()
 	)
+	
+func _physics_process(delta: float) -> void:
+	tickets_label.text = "Tickets: " + str(player_stats.money_dictionary[PlayerStats.MONEY.TICKETS])
+	tokens_label.text = "Tokens: " + str(player_stats.money_dictionary[PlayerStats.MONEY.TOKENS])
+	
 	
 func fill_the_inventory():
 	for item in inventory_grid_container.get_children():
