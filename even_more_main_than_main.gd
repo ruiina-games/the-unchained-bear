@@ -37,6 +37,7 @@ var current_level_index: int = 0
 ]
 
 func _ready() -> void:
+	%FinalCurtain.hide()
 	load_scene(level_sequence[0])
 	
 	GlobalSignals.ready_to_transit.connect(func(agent):
@@ -102,7 +103,10 @@ func _on_boss_died():
 		# Оновлюємо індекс, щоб після магазину перейти на наступний рівень
 		current_level_index += 1
 	else:
-		print("Останній бос переможений!")  # Тут можна додати логіку завершення гри
+		%FinalCurtain.show()
+		%PauseAnimationPlayer.play("GAME_COMPLETED")
+		get_tree().paused = true
+		
 		
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("restart"):
@@ -166,3 +170,13 @@ func _is_restart_allowed() -> bool:
 	# Перевіряємо, чи поточний рівень є одним із дозволених
 	var allowed_levels = [beast_tameress_scene, duo_animals_scene, acrobat_scene]
 	return current_scene in allowed_levels
+
+
+func _on_exit_button_pressed():
+	get_tree().quit()
+
+
+func _on_restart_button_pressed():
+	current_level_index = 0
+	load_scene(level_sequence[current_level_index])
+	%FinalCurtain.hide()
