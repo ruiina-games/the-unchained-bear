@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CharacterStats" load_steps=18 format=3 uid="uid://c83a8sr00x80o"]
+[gd_resource type="Resource" script_class="CharacterStats" load_steps=18 format=3 uid="uid://0vfa8scgpbef"]
 
 [ext_resource type="Script" path="res://data/damage/scripts/knockback.gd" id="1_w3b48"]
 [ext_resource type="Script" path="res://data/damage/scripts/damage.gd" id="2_h00y0"]

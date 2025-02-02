@@ -421,37 +421,37 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h68ra"]
 size = Vector2(4719, 688)
 
-[sub_resource type="Resource" id="Resource_gbbvu"]
+[sub_resource type="Resource" id="Resource_l28h7"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_dmcus"]
+[sub_resource type="Resource" id="Resource_ag8nb"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_5nvy1"]
+[sub_resource type="Resource" id="Resource_cmqbj"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_ewb4t"]
+[sub_resource type="Resource" id="Resource_i1xio"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_6c0lm"]
+[sub_resource type="Resource" id="Resource_jifje"]
 script = ExtResource("5_lmbfr")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[node name="main" type="Node2D"]
+[node name="main2" type="Node2D"]
 position = Vector2(0, -1)
 
 [node name="EffectsController" type="Node2D" parent="." node_paths=PackedStringArray("player_controller", "main_camera")]
@@ -684,6 +684,9 @@ shape = SubResource("RectangleShape2D_h68ra")
 position = Vector2(-1445, 455)
 target = NodePath("BearNew")
 
+[node name="Head" parent="PlayerController/CanvasLayer/Tedddy/Skeleton2D/Main/Body" index="2"]
+scale = Vector2(1, 1)
+
 [node name="BearNew" parent="PlayerController" index="1"]
 position = Vector2(3, 25)
 
@@ -693,7 +696,6 @@ scale = Vector2(0.999977, 0.999977)
 
 [node name="UpperArmR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="0"]
 rotation = 1.23182
-scale = Vector2(0.999973, 0.999973)
 
 [node name="LowerArmR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR" index="0"]
 rotation = -1.58356
@@ -713,7 +715,6 @@ scale = Vector2(0.99998, 0.99998)
 
 [node name="WristL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL" index="0"]
 rotation = 2.59099
-scale = Vector2(0.999974, 0.999974)
 
 [node name="HeadMain" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="2"]
 rotation = -0.128661
@@ -740,7 +741,6 @@ scale = Vector2(0.999986, 0.999986)
 
 [node name="LowerLegL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/UpperLegL" index="0"]
 rotation = 1.11293
-scale = Vector2(0.999979, 0.999979)
 
 [node name="StunParticle" parent="PlayerController/BearNew/DamageFX/Stun" index="0"]
 position = Vector2(168.542, -596.755)
@@ -765,19 +765,19 @@ offset_left = 201.0
 offset_right = 501.0
 
 [node name="RLegTwoBoneIK" parent="AcrobatController/Acrobat/Skeleton2D/SoupStack/RLegStack" index="0"]
-first_joint_easing = SubResource("Resource_gbbvu")
+first_joint_easing = SubResource("Resource_l28h7")
 
 [node name="LLegTwoBoneIK" parent="AcrobatController/Acrobat/Skeleton2D/SoupStack/LLegStack" index="0"]
-first_joint_easing = SubResource("Resource_dmcus")
+first_joint_easing = SubResource("Resource_ag8nb")
 
 [node name="HeadLookAt" parent="AcrobatController/Acrobat/Skeleton2D/SoupStack/HeadStack" index="0"]
-easing = SubResource("Resource_5nvy1")
+easing = SubResource("Resource_cmqbj")
 
 [node name="Bubon1LookAt" parent="AcrobatController/Acrobat/Skeleton2D/SoupStack/HeadStack" index="1"]
-easing = SubResource("Resource_ewb4t")
+easing = SubResource("Resource_i1xio")
 
 [node name="Bubon2LookAt" parent="AcrobatController/Acrobat/Skeleton2D/SoupStack/HeadStack" index="2"]
-easing = SubResource("Resource_6c0lm")
+easing = SubResource("Resource_jifje")
 
 [node name="UpperBody" parent="AcrobatController/Acrobat/Skeleton2D/Main" index="0"]
 scale = Vector2(0.999988, 0.999988)
@@ -825,7 +825,6 @@ scale = Vector2(0.999994, 0.999994)
 
 [node name="FootR" parent="AcrobatController/Acrobat/Skeleton2D/Main/UpperLegR/LowerLegR" index="0"]
 rotation = 1.59017
-scale = Vector2(0.999985, 0.999985)
 
 [node name="UpperLegL" parent="AcrobatController/Acrobat/Skeleton2D/Main" index="2"]
 rotation = 0.0810342
