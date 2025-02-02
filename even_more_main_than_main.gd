@@ -64,6 +64,7 @@ func load_scene(scene: PackedScene):
 	if current_level:
 		current_level.queue_free()  # Видаляємо поточну сцену
 
+	current_scene = scene  # Оновлюємо current_scene
 	current_level = scene.instantiate()  # Створюємо нову сцену
 	call_deferred("add_child", current_level)  # Додаємо її до дерева сцен
 
@@ -105,18 +106,27 @@ func _on_boss_died():
 		
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("restart"):
-		if current_level:
-			current_level.queue_free()
-		add_level(current_scene)
-		GlobalSignals.stop_slow_motion.emit()
-		GlobalSignals.reset_stats_all.emit()
+		# Перевіряємо, чи current_level ініціалізований
+		if current_level != null:
+			# Перевіряємо, чи поточний рівень дозволяє рестарт
+			if _is_restart_allowed():
+				if current_level:
+					current_level.queue_free()
+				add_level(current_scene)
+				GlobalSignals.stop_slow_motion.emit()
+				GlobalSignals.reset_stats_all.emit()
+			else:
+				print(current_level)
+				print("Restart is not allowed on this level.")
+		else:
+			print("Current level is not set. Cannot restart.")
 	elif event.is_action_pressed("lvl_selection"):
 		show_cheat_lvl_selection()
 		GlobalSignals.stop_slow_motion.emit()
 		GlobalSignals.reset_stats_all.emit()
 	elif event.is_action_pressed("pause"):
 		toggle_pause()
-
+		
 func add_level(scene_to_spawn: PackedScene):
 	current_scene = scene_to_spawn
 	current_level = scene_to_spawn.instantiate()
@@ -147,3 +157,12 @@ func resume_game():
 	await get_tree().create_timer(1.0).timeout
 	get_tree().paused = false
 	pause.hide()
+
+func _is_restart_allowed() -> bool:
+	# Перевіряємо, чи current_level ініціалізований
+	if current_level == null:
+		return false
+
+	# Перевіряємо, чи поточний рівень є одним із дозволених
+	var allowed_levels = [beast_tameress_scene, duo_animals_scene, acrobat_scene]
+	return current_scene in allowed_levels
