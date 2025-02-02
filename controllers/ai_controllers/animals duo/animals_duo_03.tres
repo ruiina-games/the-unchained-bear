@@ -1,4 +1,4 @@
-[gd_resource type="BehaviorTree" load_steps=27 format=3 uid="uid://dp30f3tlgh77f"]
+[gd_resource type="BehaviorTree" load_steps=28 format=3 uid="uid://dp30f3tlgh77f"]
 
 [ext_resource type="Script" path="res://ai/tasks/play_tree_anim.gd" id="1_33btb"]
 [ext_resource type="Script" path="res://ai/tasks/conditions/check_if_dead.gd" id="1_fyoi6"]
@@ -21,13 +21,16 @@ var/can_move/hint_string = ""
 [sub_resource type="BTCondition" id="BTCondition_wkg7q"]
 script = ExtResource("1_fyoi6")
 
+[sub_resource type="BTConsolePrint" id="BTConsolePrint_feo3v"]
+text = "dead"
+
 [sub_resource type="BTAction" id="BTAction_hhosj"]
 custom_name = "Lion Death"
 script = ExtResource("1_33btb")
 animation_condition = &"death"
 
 [sub_resource type="BTSequence" id="BTSequence_xxs17"]
-children = [SubResource("BTCondition_wkg7q"), SubResource("BTAction_hhosj")]
+children = [SubResource("BTCondition_wkg7q"), SubResource("BTConsolePrint_feo3v"), SubResource("BTAction_hhosj")]
 
 [sub_resource type="BTAction" id="BTAction_fudo8"]
 custom_name = "Idling"

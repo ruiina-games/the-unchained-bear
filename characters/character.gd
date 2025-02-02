@@ -30,7 +30,7 @@ signal died()
 @export var universal_hit_sound: AudioStreamPlayer2D
 
 var effects_dic: Dictionary
-var round_finished: bool = false
+
 var can_move: bool = true
 var is_dead: bool = false
 var is_on_floor: bool = false
