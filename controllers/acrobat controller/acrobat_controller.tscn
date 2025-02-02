@@ -222,31 +222,31 @@ root_task = SubResource("BTSelector_unlav")
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_4pa35"]
 
-[sub_resource type="Resource" id="Resource_g4frq"]
+[sub_resource type="Resource" id="Resource_2jm35"]
 script = ExtResource("5_f83hx")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_5nhct"]
+[sub_resource type="Resource" id="Resource_tc7rc"]
 script = ExtResource("5_f83hx")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_e52gb"]
+[sub_resource type="Resource" id="Resource_726om"]
 script = ExtResource("5_f83hx")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_4wkac"]
+[sub_resource type="Resource" id="Resource_eiloj"]
 script = ExtResource("5_f83hx")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_o8g3x"]
+[sub_resource type="Resource" id="Resource_3llu0"]
 script = ExtResource("5_f83hx")
 frequency = 1.0
 damping = 1.0
@@ -309,93 +309,93 @@ script = ExtResource("8_v52dh")
 collision_mask = 0
 
 [node name="RLegTwoBoneIK" parent="Acrobat/Skeleton2D/SoupStack/RLegStack" index="0"]
-first_joint_easing = SubResource("Resource_g4frq")
+first_joint_easing = SubResource("Resource_2jm35")
 
 [node name="LLegTwoBoneIK" parent="Acrobat/Skeleton2D/SoupStack/LLegStack" index="0"]
-first_joint_easing = SubResource("Resource_5nhct")
+first_joint_easing = SubResource("Resource_tc7rc")
 
 [node name="HeadLookAt" parent="Acrobat/Skeleton2D/SoupStack/HeadStack" index="0"]
-easing = SubResource("Resource_e52gb")
+easing = SubResource("Resource_726om")
 
 [node name="Bubon1LookAt" parent="Acrobat/Skeleton2D/SoupStack/HeadStack" index="1"]
-easing = SubResource("Resource_4wkac")
+easing = SubResource("Resource_eiloj")
 
 [node name="Bubon2LookAt" parent="Acrobat/Skeleton2D/SoupStack/HeadStack" index="2"]
-easing = SubResource("Resource_o8g3x")
+easing = SubResource("Resource_3llu0")
 
 [node name="UpperBody" parent="Acrobat/Skeleton2D/Main" index="0"]
 scale = Vector2(0.999982, 0.999982)
 
 [node name="Head" parent="Acrobat/Skeleton2D/Main/UpperBody/Neck" index="0"]
-rotation = 0.072465
+rotation = 0.0744147
 scale = Vector2(0.999988, 0.999988)
 
 [node name="Bubon_1" parent="Acrobat/Skeleton2D/Main/UpperBody/Neck/Head" index="0"]
-rotation = -0.966416
+rotation = -1.02431
 scale = Vector2(0.999997, 0.999997)
 
 [node name="Bubon_2" parent="Acrobat/Skeleton2D/Main/UpperBody/Neck/Head" index="1"]
-rotation = -0.473032
+rotation = -0.524966
 scale = Vector2(0.999994, 0.999994)
 
 [node name="UpperHandR" parent="Acrobat/Skeleton2D/Main/UpperBody" index="1"]
-rotation = -0.139789
+rotation = -0.182457
 scale = Vector2(0.99999, 0.99999)
 
 [node name="LowerHandR" parent="Acrobat/Skeleton2D/Main/UpperBody/UpperHandR" index="0"]
-rotation = 0.935342
+rotation = 0.800343
 scale = Vector2(0.999996, 0.999996)
 
 [node name="WristR" parent="Acrobat/Skeleton2D/Main/UpperBody/UpperHandR/LowerHandR" index="0"]
-rotation = 2.34131
+rotation = 2.00602
 scale = Vector2(0.999994, 0.999994)
 
 [node name="UpperHandL" parent="Acrobat/Skeleton2D/Main/UpperBody" index="2"]
-rotation = 0.0179112
+rotation = -0.0057253
 scale = Vector2(0.99999, 0.99999)
 
 [node name="LowerHandL" parent="Acrobat/Skeleton2D/Main/UpperBody/UpperHandL" index="0"]
-rotation = 0.659326
+rotation = 0.551339
 scale = Vector2(0.999995, 0.999995)
 
 [node name="WristL" parent="Acrobat/Skeleton2D/Main/UpperBody/UpperHandL/LowerHandL" index="0"]
-rotation = 1.31586
+rotation = 1.20862
 scale = Vector2(0.999994, 0.999994)
 
 [node name="UpperLegR" parent="Acrobat/Skeleton2D/Main" index="1"]
-rotation = 0.100022
+rotation = 0.0405091
 scale = Vector2(0.999991, 0.999991)
 
 [node name="LowerLegR" parent="Acrobat/Skeleton2D/Main/UpperLegR" index="0"]
-rotation = -0.237587
+rotation = -0.122359
 scale = Vector2(0.999992, 0.999992)
 
 [node name="FootR" parent="Acrobat/Skeleton2D/Main/UpperLegR/LowerLegR" index="0"]
-rotation = 1.5834
+rotation = 1.59029
 scale = Vector2(0.999985, 0.999985)
 
 [node name="UpperLegL" parent="Acrobat/Skeleton2D/Main" index="2"]
-rotation = 0.0902843
+rotation = 0.083733
 scale = Vector2(0.99999, 0.99999)
 
 [node name="LowerLegL" parent="Acrobat/Skeleton2D/Main/UpperLegL" index="0"]
 scale = Vector2(0.999995, 0.999995)
 
 [node name="FootL" parent="Acrobat/Skeleton2D/Main/UpperLegL/LowerLegL" index="0"]
-rotation = 1.52685
+rotation = 1.54275
 scale = Vector2(0.99999, 0.99999)
 
 [node name="AnimationTree" parent="Acrobat" index="10"]
 parameters/MainStateMachine/ATTACK/blend_position = 1.01218
 
 [node name="StunParticle" parent="Acrobat/DamageFX/Stun" index="0"]
-position = Vector2(-52.9418, -1003.4)
-rotation = 0.0395386
+position = Vector2(-47.0922, -1010.57)
+rotation = 0.0617491
 scale = Vector2(0.99997, 0.99997)
 
 [node name="SlowParticle" parent="Acrobat/DamageFX/Slow" index="0"]
-position = Vector2(-60.0085, -1075.04)
-rotation = 0.0395386
+position = Vector2(-52.5661, -1082.35)
+rotation = 0.0617491
 scale = Vector2(0.99997, 0.99997)
 
 [editable path="Acrobat"]
