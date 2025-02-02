@@ -72,8 +72,8 @@ func purchase_item(item: ShopUpgrade) -> bool:
 func update_item(item: ShopUpgrade):
 	item.rarity += 1
 	item.cost *= 2  # Збільшуємо вартість
-	item.updated.emit()
 	item.initialize_upgrade()
+	item.updated.emit()
 
 # Функція для відображення доступних для покупки предметів
 func display_available_items() -> void:

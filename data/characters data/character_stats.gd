@@ -27,6 +27,8 @@ var reserve_copy: CharacterStats
 
 # Methods to handle improvements and updates
 func increase_attack_power_multiplier(amount: float) -> void:
+	print("attack_power_multiplier ", attack_power_multiplier)
+	print("amount", amount)
 	attack_power_multiplier += amount
 
 func increase_max_health(amount: float) -> void:

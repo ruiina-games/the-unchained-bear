@@ -48,6 +48,7 @@ func get_rarity_name(rarity_value: RARITY) -> String:
 # Interface
 func apply_legendary_effect():
 	pass
+	
 func update_rarity():
 	pass
 
