@@ -34,6 +34,7 @@ func apply_damage(_enemy: Node2D, _object: ThrowingObject):
 
 func check_dodge() -> bool:
 	if randf() < agent.character_stats.dodge_chance:
+		# print("Attack dodged!")
 		agent.dodge_attack()
 		return true
 	return false
@@ -62,11 +63,11 @@ func apply_negative_effects(enemy_stats: CharacterStats, negative_effect: Negati
 	if !negative_effect or randf() >= negative_effect.base_proc_chance:
 		return
 	
-	# Перевіряємо чи ефект вже активний
+	# considering that negative effect will never be reset
+	# if victim is already suffering from negative effect it won't take it once more
 	if agent.effects_dic.has(negative_effect):
 		if agent.effects_dic[negative_effect] == true:
 			return
-			
 	agent.activate_effect(negative_effect)
 
 	var agent_stats: CharacterStats = agent.character_stats
@@ -77,37 +78,17 @@ func apply_negative_effects(enemy_stats: CharacterStats, negative_effect: Negati
 
 	if negative_effect is TickingNegativeEffect:
 		process_ticking_effects(negative_effect, effect_multiplier)
-		# Тікаючі ефекти деактивуються самі після завершення циклу тіків
 
 	elif negative_effect is Knockback:
 		process_knockback_effect(negative_effect, effect_multiplier)
-		# Нокбек - одноразова дія, можна деактивувати одразу
-		agent.deactivate_effect(negative_effect)
 
 	elif negative_effect is SlowEffect:
 		process_slow_effect(negative_effect, effect_multiplier)
-		# SlowEffect деактивується після таймера
 
 	elif negative_effect is StunEffect:
 		process_stun_effect(negative_effect, effect_multiplier)
-		# StunEffect деактивується після таймера
-
-func process_slow_effect(effect: SlowEffect, multiplier: float):    
-	var slow_ratio = effect.slow_ratio * multiplier
-	var original_multiplier: float = agent.character_stats.reserve_copy.movement_speed_multiplier
-	
-	agent.character_stats.movement_speed_multiplier = (1 - slow_ratio)
-	await get_tree().create_timer(effect.duration * multiplier).timeout
-	agent.character_stats.movement_speed_multiplier = original_multiplier
-	agent.deactivate_effect(effect)  # Деактивуємо ефект після закінчення уповільнення
-
-func process_stun_effect(effect: StunEffect, multiplier: float):
-	agent.got_stunned.emit(true)
-	print(agent.name + " Was Stunned")
-	await get_tree().create_timer(effect.duration * multiplier).timeout
-	print(agent.name + " Stun finished")
-	agent.got_stunned.emit(false)
-	agent.deactivate_effect(effect)  # Деактивуємо ефект після закінчення стану
+		
+	agent.deactivate_effect(negative_effect)
 
 func process_ticking_effects(effect: TickingNegativeEffect, multiplier: float):
 	var tick_count: int = int(effect.get_ticks_amount() * multiplier)
@@ -115,20 +96,15 @@ func process_ticking_effects(effect: TickingNegativeEffect, multiplier: float):
 
 	if effect is FireEffect:
 		for i in range(tick_count):
-			if agent.round_finished:
-				break
 			await get_tree().create_timer(tick_interval).timeout
 			var adjusted_damage = effect.base_damage * multiplier
 			agent.character_stats.take_damage(adjusted_damage)
 			if agent.character_stats.current_health <= 0:
 				handle_death()
 				break
-		agent.deactivate_effect(effect)  # Деактивуємо вогонь після всіх тіків
 
 	elif effect is BleedingEffect:
 		for i in range(999999):
-			if agent.round_finished:
-				break
 			await get_tree().create_timer(tick_interval).timeout
 			var bleeding_damage = effect.calculate_damage(agent.character_stats.max_health)
 			bleeding_damage *= multiplier
@@ -136,7 +112,22 @@ func process_ticking_effects(effect: TickingNegativeEffect, multiplier: float):
 			if agent.character_stats.current_health <= 0:
 				handle_death()
 				break
-		agent.deactivate_effect(effect)  # Деактивуємо кровотечу після всіх тіків
+
+# DONE
+func process_slow_effect(effect: SlowEffect, multiplier: float):	
+	var slow_ratio = effect.slow_ratio * multiplier
+	var original_multiplier: float = agent.character_stats.reserve_copy.movement_speed_multiplier
+	
+	agent.character_stats.movement_speed_multiplier = (1 - slow_ratio)
+	await get_tree().create_timer(effect.duration * multiplier).timeout
+	agent.character_stats.movement_speed_multiplier = original_multiplier
+
+func process_stun_effect(effect: StunEffect, multiplier: float):
+	agent.got_stunned.emit(true)
+	print(agent.name + "Was Stunned")
+	await get_tree().create_timer(effect.duration * multiplier).timeout
+	print(agent.name + "Stun finished")
+	agent.got_stunned.emit(false)
 
 func process_knockback_effect(effect: Knockback, multiplier: float):
 	var knockback_force = effect.knockback_force * multiplier
@@ -147,11 +138,10 @@ func process_knockback_effect(effect: Knockback, multiplier: float):
 	agent.got_knocked.emit(knockback_direction, knockback_force)
 
 func handle_death():
-	if !agent.is_dead:
-	# Вимикаємо всі ефекти перед смертю
-		GlobalSignals.character_died.emit(agent)
-		agent.died.emit()
-		agent.is_dead = true
+	GlobalSignals.character_died.emit(agent)
+	agent.died.emit()
+	agent.is_dead = true
+	# print(agent.name + " has died.")
 
 func heal(heal_amount: float):
 	if !agent:

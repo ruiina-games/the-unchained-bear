@@ -43,7 +43,6 @@ func connect_signals():
 		apply_knockback(direction, force)
 	)
 	actor.died.connect(func():
-		disable_all_effects()
 		kill_actor()
 	)
 	actor.got_stunned.connect(func(was_stunned: bool):
@@ -58,15 +57,6 @@ func connect_signals():
 	actor.character_stats.hp_changed.connect(func(new_hp: int):
 		set_hp_label(new_hp)
 	)
-	target.died.connect(func():
-		actor.round_finished = true
-		disable_all_effects()
-	)
-
-func disable_all_effects():
-	for effect in actor.effects_dic:
-		if actor.effects_dic[effect] == true:
-			actor.deactivate_effect(effect)
 
 func set_controller_inactive():
 	pass
@@ -82,76 +72,56 @@ func init_state_machine() -> void:
 # Ця функція викликається лише коли ефект вмикається або вимикається.
 # Тому треба придумати якийсь переключатель.
 func process_effects(effect: Effect):
-	# Get the effect state from the dictionary
-	var effect_active = actor.effects_dic[effect]
 	if effect is FireEffect:
-		for particle in actor.fire_folder.get_children():
-			if effect_active:
-				particle.lifetime = effect.duration
-				particle.emitting = true
-				
-				# Create timer to disable the effect
-				var duration_timer: Timer = Timer.new()
-				duration_timer.wait_time = effect.duration
-				duration_timer.one_shot = true
-				add_child(duration_timer)
-				duration_timer.start()
-				
-				duration_timer.timeout.connect(func():
-					if particle:
-						particle.emitting = false
-					duration_timer.queue_free()
-				)
-			else:
+		var duration_timer = Timer.new()
+		duration_timer.wait_time = effect.duration
+		add_child(duration_timer)
+		duration_timer.start()
+		
+		duration_timer.timeout.connect(func():
+			for particle in actor.fire_folder.get_children():
 				particle.emitting = false
+			)
+		for particle in actor.fire_folder.get_children():
+			if particle.emitting == true:
+				particle.lifetime += effect.duration
+				
+			particle.lifetime = effect.duration
+			particle.emitting = true
 
 	elif effect is BleedingEffect:
 		for particle in actor.blood_folder.get_children():
-			if effect_active:
-				await get_tree().create_timer(0.2).timeout
-				particle.emitting = true
-			else:
-				particle.emitting = false
-				
+			await get_tree().create_timer(0.2).timeout
+			particle.emitting = true
 	elif effect is SlowEffect:
+		var duration_timer = Timer.new()
+		duration_timer.wait_time = effect.duration
+		add_child(duration_timer)
+		duration_timer.start()
+		
+		duration_timer.timeout.connect(func():
+			for particle in actor.slow_folder.get_children():
+				particle.emitting = false
+			)
+		
 		for particle in actor.slow_folder.get_children():
-			if effect_active:
-				particle.lifetime = effect.duration
-				particle.emitting = true
-				
-				var duration_timer = Timer.new()
-				duration_timer.wait_time = effect.duration
-				duration_timer.one_shot = true
-				add_child(duration_timer)
-				duration_timer.start()
-				
-				duration_timer.timeout.connect(func():
-					if particle:
-						particle.emitting = false
-					duration_timer.queue_free()
-				)
-			else:
-				particle.emitting = false
-				
+			particle.lifetime = effect.duration
+			particle.emitting = true
+
+		
 	elif effect is StunEffect:
-		for particle in actor.stun_folder.get_children():
-			if effect_active:
-				particle.emitting = true
-				
-				var duration_timer = Timer.new()
-				duration_timer.wait_time = effect.duration
-				duration_timer.one_shot = true
-				add_child(duration_timer)
-				duration_timer.start()
-				
-				duration_timer.timeout.connect(func():
-					if particle:
-						particle.emitting = false
-					duration_timer.queue_free()
-				)
-			else:
+		var duration_timer = Timer.new()
+		duration_timer.wait_time = effect.duration
+		add_child(duration_timer)
+		duration_timer.start()
+		
+		duration_timer.timeout.connect(func():
+			for particle in actor.stun_folder.get_children():
 				particle.emitting = false
-				
+			)
+		
+		for particle in actor.stun_folder.get_children():
+			particle.emitting = true
 	elif effect is Knockback:
 		pass
 
