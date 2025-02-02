@@ -14,6 +14,6 @@ func update_ui():
 	if !item:
 		return
 	
-	# item.load_icon()
+	item.load_icon()
 	if item.icon_texture:
 		texture_normal = item.icon_texture

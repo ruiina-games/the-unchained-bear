@@ -30,6 +30,8 @@ func _ready() -> void:
 	player_stats.fighting_style_changed.connect(func():
 		update_fs()
 		)
+		
+	GlobalSignals.player_crit.connect(func(agent): %TeddyMovementPayer.play("toasty"))
 
 func update_fs():
 	fighting_style = actor.character_stats.fighting_style

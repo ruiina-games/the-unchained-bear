@@ -80,7 +80,6 @@ func create_item_slots():
 	if !slot_container_scene:
 		print("no ", slot_container_scene)
 		return
-		
 	for slot in equiped_container.get_children():
 		match slot.slot:
 			Upgrade.SLOT_TYPE.HEAD:
@@ -135,6 +134,7 @@ func _on_shop_area_body_entered(body):
 func _on_shop_area_body_exited(body):
 	shop_active = false
 	hint_label.visible = false
+	%Shop.visible = false
 
 func _on_wheel_area_body_entered(body):
 	wheel.area_entered = true
@@ -149,7 +149,7 @@ func _unhandled_input(event):
 		if event.is_action_pressed("interact"):
 			%Shop.visible = true
 			teddy.animation_player.play("greetings")
-		elif event.is_action_pressed("pause"):
+		elif event.is_action_pressed("interact") and %Shop.visible == true:
 			%Shop.visible = false
 
 	if event.is_action_pressed("interact") and if_on_exit:
@@ -159,8 +159,8 @@ func _unhandled_input(event):
 		if if_on_inventory and !inventory_is_open:
 			inventory.show()
 			player_controller.process_mode = Node.PROCESS_MODE_DISABLED
-			%Camera2D.position = Vector2(1019, -287)
-			%Camera2D.zoom = Vector2(0.4, 0.4)
+			%Camera2D.position = Vector2(-78, 2065)
+			%Camera2D.zoom = Vector2(0.34, 0.34)
 			inventory_is_open = true
 		elif inventory_is_open:
 			inventory.hide()
@@ -169,9 +169,6 @@ func _unhandled_input(event):
 			%Camera2D.zoom = Vector2(0.34, 0.34)
 			inventory_is_open = false
 
-func _on_next_stage_area_body_entered(body):
-	if_on_exit = true
-	question_label.show()
 
 func _on_next_stage_area_body_exited(body):
 	if_on_exit = false
@@ -196,3 +193,17 @@ func _on_leave_inventory_button_pressed():
 	%Camera2D.position = Vector2(24, -367)
 	%Camera2D.zoom = Vector2(0.34, 0.34)
 	inventory_is_open = false
+
+
+func _on_next_stage_area_body_entered(body):
+	if_on_exit = true
+	question_label.show()
+
+
+func _on_close_shop_button_pressed():
+	%Shop.visible = false
+
+
+func _on_shop_visibility_changed():
+	if %Shop.visible == false:
+		teddy.goodbye_sound.play(1.0)

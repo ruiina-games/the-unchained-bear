@@ -61,6 +61,7 @@ func connect_signals():
 func set_controller_inactive():
 	pass
 
+
 func kill_actor():
 	pass
 
@@ -132,7 +133,8 @@ func set_stunned(stunned: bool):
 func set_hp_label(new_hp: int):
 	if hp_bar:
 		hp_bar.max_value = actor.character_stats.max_health
-		hp_bar.value = actor.character_stats.current_health
+		hp_bar.value = new_hp
+		hp_bar.step = 1
 
 func _process(delta: float) -> void:
 	if !target:

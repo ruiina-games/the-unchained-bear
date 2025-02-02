@@ -1,9 +1,9 @@
-[gd_scene load_steps=44 format=3 uid="uid://iho2j3v1lyy1"]
+[gd_scene load_steps=50 format=3 uid="uid://iho2j3v1lyy1"]
 
 [ext_resource type="Texture2D" uid="uid://hfv6fovd6eke" path="res://assets/Store/Store/Background.png" id="1_04ypj"]
 [ext_resource type="Script" path="res://Shop/shop.gd" id="1_f14ov"]
 [ext_resource type="PackedScene" uid="uid://cevie0mm3xc4j" path="res://controllers/player controller/player_controller.tscn" id="1_tvtkn"]
-[ext_resource type="LabelSettings" path="res://cutscenes/basic_font.tres" id="2_8713t"]
+[ext_resource type="LabelSettings" uid="uid://brp3qn5x2peqk" path="res://cutscenes/basic_font.tres" id="2_8713t"]
 [ext_resource type="Script" path="res://characters/character.gd" id="2_ck00k"]
 [ext_resource type="Texture2D" uid="uid://duw820g44xtga" path="res://assets/Store/Store/Flags_2.png" id="2_whptf"]
 [ext_resource type="Texture2D" uid="uid://dttiblyel24gd" path="res://assets/Store/Store/Flags_1.png" id="3_23o10"]
@@ -17,17 +17,22 @@
 [ext_resource type="Resource" uid="uid://c40i2hba3vmid" path="res://data/characters data/bear/bear_stats.tres" id="4_vxxbe"]
 [ext_resource type="Texture2D" uid="uid://bh1slwxpbhhgx" path="res://assets/Store/Store/Cabin.png" id="5_2x8qb"]
 [ext_resource type="Texture2D" uid="uid://dk11w1r725vk4" path="res://assets/Store/Store/Curtain_2.png" id="5_sik2m"]
-[ext_resource type="PackedScene" path="res://Shop/tedddy.tscn" id="5_uop7w"]
+[ext_resource type="PackedScene" uid="uid://b4rstorssuhyo" path="res://Shop/tedddy.tscn" id="5_uop7w"]
 [ext_resource type="Texture2D" uid="uid://de5oqmbfgr4uv" path="res://assets/Store/Store/Barrel.png" id="6_be7tm"]
 [ext_resource type="PackedScene" uid="uid://cjbnosxi4m18l" path="res://characters/bear/bear_new.tscn" id="6_q34lt"]
 [ext_resource type="Texture2D" uid="uid://ctylypcm85o68" path="res://assets/Upgrades/Temporary Upgrades/EmptySlot.png" id="7_4j7l8"]
 [ext_resource type="Texture2D" uid="uid://dgiuwaixygax8" path="res://assets/Upgrades/Temporary Upgrades/Boxing Gloves/common.png" id="8_xhtjx"]
 [ext_resource type="PackedScene" uid="uid://ciqp7p2ny6o0f" path="res://Shop/inventory_item.tscn" id="9_81sq0"]
 [ext_resource type="LabelSettings" uid="uid://wblyhtrwvirh" path="res://cutscenes/even_smaller_font.tres" id="10_j741j"]
+[ext_resource type="Texture2D" uid="uid://q5rhk1sx3qap" path="res://assets/inventory/inventory_0005_tab-yellow.png" id="10_xvvd8"]
+[ext_resource type="Texture2D" uid="uid://cuwp28rgsya4v" path="res://assets/inventory/inventory_0006_tab-purple.png" id="12_2tl3r"]
 [ext_resource type="Texture2D" uid="uid://bn7uhusk2hoeq" path="res://globals/photo_2025-01-31_11-39-33.jpg" id="12_lek23"]
 [ext_resource type="PackedScene" uid="uid://cgqxe81427ik7" path="res://Shop/slot_container.tscn" id="12_xrpra"]
 [ext_resource type="Script" path="res://Shop/prize_popup.gd" id="13_3erh3"]
+[ext_resource type="Texture2D" uid="uid://cwyddppgp0b4f" path="res://assets/photo_2025-02-01_17-23-30.jpg" id="13_hw3k1"]
+[ext_resource type="Texture2D" uid="uid://hajjpwc7y5ir" path="res://assets/inventory/inventory_0004_board-yellow.png" id="13_tstwl"]
 [ext_resource type="AudioStream" uid="uid://j456e5gqtfqm" path="res://assets/Sounds/shop_music.mp3" id="15_5tx3v"]
+[ext_resource type="Texture2D" uid="uid://py605drmnt83" path="res://assets/inventory/inventory_0002_back-arrow.png" id="15_pljyh"]
 [ext_resource type="PackedScene" uid="uid://j60fiewfup26" path="res://Shop/shop_item_panel.tscn" id="18_iwvpi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yib2x"]
@@ -46,7 +51,7 @@ bg_color = Color(0, 0, 0, 1)
 bg_color = Color(5.86594e-08, 0.143815, 9.62615e-08, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0v4g7"]
-bg_color = Color(0, 0, 0, 0.74902)
+bg_color = Color(0, 0, 0, 0.913725)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qjwae"]
 size = Vector2(677, 1048)
@@ -55,7 +60,7 @@ size = Vector2(677, 1048)
 size = Vector2(646, 898)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_spye5"]
-size = Vector2(295, 1154)
+size = Vector2(422.5, 1154)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_74kqe"]
 size = Vector2(524, 552)
@@ -74,6 +79,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/ColorRect")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"show"
+}, {
+"args": [],
+"method": &"hide"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_8hx1j"]
@@ -128,6 +150,9 @@ _data = {
 "RESET": SubResource("Animation_87uh3")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y02li"]
+size = Vector2(4719, 688)
+
 [node name="Shop" type="Node2D" node_paths=PackedStringArray("teddy", "wheel")]
 script = ExtResource("1_f14ov")
 teddy = NodePath("Location/Tedddy")
@@ -136,6 +161,11 @@ shop_item_panel_scene = ExtResource("18_iwvpi")
 slot_container_scene = ExtResource("12_xrpra")
 inventory_item_scene = ExtResource("9_81sq0")
 metadata/_edit_lock_ = true
+
+[node name="Photo2025-02-0117-23-30" type="Sprite2D" parent="."]
+position = Vector2(4650, 1611)
+scale = Vector2(1.81354, 1.95833)
+texture = ExtResource("13_hw3k1")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
@@ -192,7 +222,6 @@ text = "Press [E] to proceed to the next boss"
 label_settings = ExtResource("2_8713t")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -206,14 +235,15 @@ color = Color(0, 0, 0, 1)
 
 [node name="Inventory" type="Control" parent="CanvasLayer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -262.0
-offset_top = 2974.0
-offset_right = -262.0
-offset_bottom = 2974.0
+offset_left = -1285.0
+offset_top = 5375.0
+offset_right = -1285.0
+offset_bottom = 5375.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -222,39 +252,80 @@ script = ExtResource("3_75rdg")
 
 [node name="InventoryBG" type="TextureRect" parent="CanvasLayer/Inventory"]
 layout_mode = 0
-offset_left = -740.0
-offset_top = -4502.0
-offset_right = 3120.0
-offset_bottom = -2322.0
+offset_left = -1536.0
+offset_top = -5042.0
+offset_right = 2324.0
+offset_bottom = -2862.0
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_04ypj")
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Inventory/InventoryBG"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Inventory"]
+z_index = 1
 layout_mode = 0
-offset_left = 1717.0
-offset_top = 1299.0
-offset_right = 2205.0
-offset_bottom = 1931.0
+offset_left = 853.0
+offset_top = -3115.0
+offset_right = 1341.0
+offset_bottom = -2483.0
+scale = Vector2(1.7, 1.7)
 texture = ExtResource("6_be7tm")
 
-[node name="PlayerInventoryContainer" type="HBoxContainer" parent="CanvasLayer/Inventory/InventoryBG"]
+[node name="TabStats" type="TextureButton" parent="CanvasLayer/Inventory"]
 unique_name_in_owner = true
+layout_mode = 0
+offset_left = -160.0
+offset_top = -4220.0
+offset_right = 299.0
+offset_bottom = -4099.0
+texture_normal = ExtResource("10_xvvd8")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/Inventory/TabStats"]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 411.0
-offset_top = 392.0
-offset_right = -584.0
-offset_bottom = -438.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -9.5
+offset_right = 20.0
+offset_bottom = 9.5
 grow_horizontal = 2
 grow_vertical = 2
+text = "Stats"
+label_settings = ExtResource("3_cc6nc")
 
-[node name="StatsBG" type="Panel" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer"]
-custom_minimum_size = Vector2(1200, 0)
-layout_mode = 2
-size_flags_horizontal = 3
+[node name="TabInventory" type="TextureButton" parent="CanvasLayer/Inventory"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 350.0
+offset_top = -4221.0
+offset_right = 809.0
+offset_bottom = -4100.0
+texture_normal = ExtResource("12_2tl3r")
+stretch_mode = 0
 
-[node name="InventoryUpperContainer" type="VBoxContainer" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG"]
+[node name="Label" type="Label" parent="CanvasLayer/Inventory/TabInventory"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = -47.5
+offset_right = 168.0
+offset_bottom = 47.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Inventory"
+label_settings = ExtResource("3_cc6nc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerInventoryContainer" type="HBoxContainer" parent="CanvasLayer/Inventory"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -262,30 +333,22 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -454.0
-offset_top = -675.0
-offset_right = 454.0
-offset_bottom = 675.0
+offset_left = -932.0
+offset_top = -4470.0
+offset_right = 2224.0
+offset_bottom = -2894.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 165
-alignment = 1
 
-[node name="Label" type="Label" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/InventoryUpperContainer"]
-layout_mode = 2
-text = "Inventory"
-label_settings = ExtResource("3_cc6nc")
-horizontal_alignment = 1
-
-[node name="InventoryGridContainer" type="GridContainer" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/InventoryUpperContainer"]
+[node name="StatsInvBoard" type="TextureRect" parent="CanvasLayer/Inventory/PlayerInventoryContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(1200, 0)
 layout_mode = 2
-columns = 3
+size_flags_horizontal = 6
+texture = ExtResource("13_tstwl")
+expand_mode = 5
 
-[node name="InventoryItem" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/InventoryUpperContainer/InventoryGridContainer" instance=ExtResource("9_81sq0")]
-layout_mode = 2
-
-[node name="StatsUpperContainer" type="VBoxContainer" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG"]
+[node name="InventoryUpperContainer" type="VBoxContainer" parent="CanvasLayer/Inventory/PlayerInventoryContainer/StatsInvBoard"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -294,21 +357,55 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -332.0
-offset_top = -583.0
-offset_right = 332.0
-offset_bottom = 583.0
+offset_left = -453.5
+offset_top = -715.0
+offset_right = 454.5
+offset_bottom = 635.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = -30
+alignment = 1
 
-[node name="Label" type="Label" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/StatsUpperContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/Inventory/PlayerInventoryContainer/StatsInvBoard/InventoryUpperContainer"]
+layout_mode = 2
+text = "Inventory"
+label_settings = ExtResource("3_cc6nc")
+horizontal_alignment = 1
+
+[node name="InventoryGridContainer" type="GridContainer" parent="CanvasLayer/Inventory/PlayerInventoryContainer/StatsInvBoard/InventoryUpperContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1200, 1200)
+layout_mode = 2
+size_flags_vertical = 4
+columns = 3
+
+[node name="InventoryItem" parent="CanvasLayer/Inventory/PlayerInventoryContainer/StatsInvBoard/InventoryUpperContainer/InventoryGridContainer" instance=ExtResource("9_81sq0")]
+layout_mode = 2
+
+[node name="StatsUpperContainer" type="VBoxContainer" parent="CanvasLayer/Inventory/PlayerInventoryContainer/StatsInvBoard"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -375.5
+offset_top = -625.0
+offset_right = 375.5
+offset_bottom = 651.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 35
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/Inventory/PlayerInventoryContainer/StatsInvBoard/StatsUpperContainer"]
 layout_mode = 2
 text = "Player Stats"
 label_settings = ExtResource("3_cc6nc")
 horizontal_alignment = 1
 
-[node name="StatsContainer" type="GridContainer" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/StatsUpperContainer"]
+[node name="StatsContainer" type="GridContainer" parent="CanvasLayer/Inventory/PlayerInventoryContainer/StatsInvBoard/StatsUpperContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -316,19 +413,20 @@ theme_override_constants/v_separation = 105
 script = ExtResource("3_p4i63")
 character_stats = ExtResource("4_vxxbe")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/StatsUpperContainer/StatsContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Inventory/PlayerInventoryContainer/StatsInvBoard/StatsUpperContainer/StatsContainer"]
 layout_mode = 2
-theme_override_constants/separation = 16
+theme_override_constants/separation = 0
 
-[node name="DamageMultiplierContainer" type="HSplitContainer" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/StatsUpperContainer/StatsContainer/VBoxContainer"]
+[node name="DamageMultiplierContainer" type="HSplitContainer" parent="CanvasLayer/Inventory/PlayerInventoryContainer/StatsInvBoard/StatsUpperContainer/StatsContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/StatsUpperContainer/StatsContainer/VBoxContainer/DamageMultiplierContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/Inventory/PlayerInventoryContainer/StatsInvBoard/StatsUpperContainer/StatsContainer/VBoxContainer/DamageMultiplierContainer"]
+modulate = Color(1, 0.585611, 0.524716, 1)
 layout_mode = 2
 text = "Damage Multiplier: "
 label_settings = ExtResource("3_cc6nc")
 
-[node name="damage_multiplier" type="Label" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/StatsUpperContainer/StatsContainer/VBoxContainer/DamageMultiplierContainer"]
+[node name="damage_multiplier" type="Label" parent="CanvasLayer/Inventory/PlayerInventoryContainer/StatsInvBoard/StatsUpperContainer/StatsContainer/VBoxContainer/DamageMultiplierContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
@@ -336,15 +434,16 @@ text = "0"
 label_settings = ExtResource("3_cc6nc")
 horizontal_alignment = 2
 
-[node name="CriticalChanceContainer" type="HSplitContainer" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/StatsUpperContainer/StatsContainer/VBoxContainer"]
+[node name="CriticalChanceContainer" type="HSplitContainer" parent="CanvasLayer/Inventory/PlayerInventoryContainer/StatsInvBoard/StatsUpperContainer/StatsContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/StatsUpperContainer/StatsContainer/VBoxContainer/CriticalChanceContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/Inventory/PlayerInventoryContainer/StatsInvBoard/StatsUpperContainer/StatsContainer/VBoxContainer/CriticalChanceContainer"]
+modulate = Color(1, 0.585611, 0.524716, 1)
 layout_mode = 2
 text = "Critical Chance: "
 label_settings = ExtResource("3_cc6nc")
 
-[node name="critical_chance" type="Label" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/StatsUpperContainer/StatsContainer/VBoxContainer/CriticalChanceContainer"]
+[node name="critical_chance" type="Label" parent="CanvasLayer/Inventory/PlayerInventoryContainer/StatsInvBoard/StatsUpperContainer/StatsContainer/VBoxContainer/CriticalChanceContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
@@ -352,15 +451,16 @@ text = "0"
 label_settings = ExtResource("3_cc6nc")
 horizontal_alignment = 2
 
-[node name="CriticalDamageContainer" type="HSplitContainer" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/StatsUpperContainer/StatsContainer/VBoxContainer"]
+[node name="CriticalDamageContainer" type="HSplitContainer" parent="CanvasLayer/Inventory/PlayerInventoryContainer/StatsInvBoard/StatsUpperContainer/StatsContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/StatsUpperContainer/StatsContainer/VBoxContainer/CriticalDamageContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/Inventory/PlayerInventoryContainer/StatsInvBoard/StatsUpperContainer/StatsContainer/VBoxContainer/CriticalDamageContainer"]
+modulate = Color(1, 0.585611, 0.524716, 1)
 layout_mode = 2
 text = "Critical Damage: "
 label_settings = ExtResource("3_cc6nc")
 
-[node name="critical_damage" type="Label" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/StatsUpperContainer/StatsContainer/VBoxContainer/CriticalDamageContainer"]
+[node name="critical_damage" type="Label" parent="CanvasLayer/Inventory/PlayerInventoryContainer/StatsInvBoard/StatsUpperContainer/StatsContainer/VBoxContainer/CriticalDamageContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
@@ -368,19 +468,20 @@ text = "0"
 label_settings = ExtResource("3_cc6nc")
 horizontal_alignment = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/StatsUpperContainer/StatsContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/Inventory/PlayerInventoryContainer/StatsInvBoard/StatsUpperContainer/StatsContainer"]
 layout_mode = 2
-theme_override_constants/separation = 16
+theme_override_constants/separation = 0
 
-[node name="MaxHealthContainer" type="HSplitContainer" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/StatsUpperContainer/StatsContainer/VBoxContainer2"]
+[node name="MaxHealthContainer" type="HSplitContainer" parent="CanvasLayer/Inventory/PlayerInventoryContainer/StatsInvBoard/StatsUpperContainer/StatsContainer/VBoxContainer2"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/StatsUpperContainer/StatsContainer/VBoxContainer2/MaxHealthContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/Inventory/PlayerInventoryContainer/StatsInvBoard/StatsUpperContainer/StatsContainer/VBoxContainer2/MaxHealthContainer"]
+modulate = Color(0.554099, 1, 0.531099, 1)
 layout_mode = 2
 text = "Max Health: "
 label_settings = ExtResource("3_cc6nc")
 
-[node name="max health" type="Label" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/StatsUpperContainer/StatsContainer/VBoxContainer2/MaxHealthContainer"]
+[node name="max health" type="Label" parent="CanvasLayer/Inventory/PlayerInventoryContainer/StatsInvBoard/StatsUpperContainer/StatsContainer/VBoxContainer2/MaxHealthContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
@@ -388,15 +489,16 @@ text = "0"
 label_settings = ExtResource("3_cc6nc")
 horizontal_alignment = 2
 
-[node name="CurrentHeatlthContainer" type="HSplitContainer" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/StatsUpperContainer/StatsContainer/VBoxContainer2"]
+[node name="CurrentHeatlthContainer" type="HSplitContainer" parent="CanvasLayer/Inventory/PlayerInventoryContainer/StatsInvBoard/StatsUpperContainer/StatsContainer/VBoxContainer2"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/StatsUpperContainer/StatsContainer/VBoxContainer2/CurrentHeatlthContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/Inventory/PlayerInventoryContainer/StatsInvBoard/StatsUpperContainer/StatsContainer/VBoxContainer2/CurrentHeatlthContainer"]
+modulate = Color(0.554099, 1, 0.531099, 1)
 layout_mode = 2
 text = "Current Health: "
 label_settings = ExtResource("3_cc6nc")
 
-[node name="current_health" type="Label" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/StatsUpperContainer/StatsContainer/VBoxContainer2/CurrentHeatlthContainer"]
+[node name="current_health" type="Label" parent="CanvasLayer/Inventory/PlayerInventoryContainer/StatsInvBoard/StatsUpperContainer/StatsContainer/VBoxContainer2/CurrentHeatlthContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
@@ -404,15 +506,16 @@ text = "0"
 label_settings = ExtResource("3_cc6nc")
 horizontal_alignment = 2
 
-[node name="StatusResistContainer" type="HSplitContainer" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/StatsUpperContainer/StatsContainer/VBoxContainer2"]
+[node name="StatusResistContainer" type="HSplitContainer" parent="CanvasLayer/Inventory/PlayerInventoryContainer/StatsInvBoard/StatsUpperContainer/StatsContainer/VBoxContainer2"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/StatsUpperContainer/StatsContainer/VBoxContainer2/StatusResistContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/Inventory/PlayerInventoryContainer/StatsInvBoard/StatsUpperContainer/StatsContainer/VBoxContainer2/StatusResistContainer"]
+modulate = Color(0.554099, 1, 0.531099, 1)
 layout_mode = 2
 text = "Status Resists: "
 label_settings = ExtResource("3_cc6nc")
 
-[node name="status_resist" type="Label" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/StatsUpperContainer/StatsContainer/VBoxContainer2/StatusResistContainer"]
+[node name="status_resist" type="Label" parent="CanvasLayer/Inventory/PlayerInventoryContainer/StatsInvBoard/StatsUpperContainer/StatsContainer/VBoxContainer2/StatusResistContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
@@ -420,19 +523,20 @@ text = "0"
 label_settings = ExtResource("3_cc6nc")
 horizontal_alignment = 2
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/StatsUpperContainer/StatsContainer"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="CanvasLayer/Inventory/PlayerInventoryContainer/StatsInvBoard/StatsUpperContainer/StatsContainer"]
 layout_mode = 2
-theme_override_constants/separation = 16
+theme_override_constants/separation = 0
 
-[node name="MovementSpeedContainer" type="HSplitContainer" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/StatsUpperContainer/StatsContainer/VBoxContainer3"]
+[node name="MovementSpeedContainer" type="HSplitContainer" parent="CanvasLayer/Inventory/PlayerInventoryContainer/StatsInvBoard/StatsUpperContainer/StatsContainer/VBoxContainer3"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/StatsUpperContainer/StatsContainer/VBoxContainer3/MovementSpeedContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/Inventory/PlayerInventoryContainer/StatsInvBoard/StatsUpperContainer/StatsContainer/VBoxContainer3/MovementSpeedContainer"]
+modulate = Color(0.991606, 1, 0.496144, 1)
 layout_mode = 2
 text = "Movement Speed: "
 label_settings = ExtResource("3_cc6nc")
 
-[node name="movement_speed" type="Label" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/StatsUpperContainer/StatsContainer/VBoxContainer3/MovementSpeedContainer"]
+[node name="movement_speed" type="Label" parent="CanvasLayer/Inventory/PlayerInventoryContainer/StatsInvBoard/StatsUpperContainer/StatsContainer/VBoxContainer3/MovementSpeedContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
@@ -440,15 +544,16 @@ text = "0"
 label_settings = ExtResource("3_cc6nc")
 horizontal_alignment = 2
 
-[node name="DogdeContainer" type="HSplitContainer" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/StatsUpperContainer/StatsContainer/VBoxContainer3"]
+[node name="DogdeContainer" type="HSplitContainer" parent="CanvasLayer/Inventory/PlayerInventoryContainer/StatsInvBoard/StatsUpperContainer/StatsContainer/VBoxContainer3"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/StatsUpperContainer/StatsContainer/VBoxContainer3/DogdeContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/Inventory/PlayerInventoryContainer/StatsInvBoard/StatsUpperContainer/StatsContainer/VBoxContainer3/DogdeContainer"]
+modulate = Color(0.991606, 1, 0.496144, 1)
 layout_mode = 2
 text = "Dodge Chance: "
 label_settings = ExtResource("3_cc6nc")
 
-[node name="dodge_chance" type="Label" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/StatsUpperContainer/StatsContainer/VBoxContainer3/DogdeContainer"]
+[node name="dodge_chance" type="Label" parent="CanvasLayer/Inventory/PlayerInventoryContainer/StatsInvBoard/StatsUpperContainer/StatsContainer/VBoxContainer3/DogdeContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
@@ -456,15 +561,16 @@ text = "0"
 label_settings = ExtResource("3_cc6nc")
 horizontal_alignment = 2
 
-[node name="EffectPowerContainer" type="HSplitContainer" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/StatsUpperContainer/StatsContainer/VBoxContainer3"]
+[node name="EffectPowerContainer" type="HSplitContainer" parent="CanvasLayer/Inventory/PlayerInventoryContainer/StatsInvBoard/StatsUpperContainer/StatsContainer/VBoxContainer3"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/StatsUpperContainer/StatsContainer/VBoxContainer3/EffectPowerContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/Inventory/PlayerInventoryContainer/StatsInvBoard/StatsUpperContainer/StatsContainer/VBoxContainer3/EffectPowerContainer"]
+modulate = Color(0.991606, 1, 0.496144, 1)
 layout_mode = 2
 text = "Effect Power: "
 label_settings = ExtResource("3_cc6nc")
 
-[node name="effect power" type="Label" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/StatsUpperContainer/StatsContainer/VBoxContainer3/EffectPowerContainer"]
+[node name="effect power" type="Label" parent="CanvasLayer/Inventory/PlayerInventoryContainer/StatsInvBoard/StatsUpperContainer/StatsContainer/VBoxContainer3/EffectPowerContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
@@ -472,24 +578,14 @@ text = "0"
 label_settings = ExtResource("3_cc6nc")
 horizontal_alignment = 2
 
-[node name="SwitchButton" type="Button" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(90, 60)
-layout_mode = 0
-offset_left = 859.0
-offset_top = 50.0
-offset_right = 1167.0
-offset_bottom = 172.0
-theme_override_font_sizes/font_size = 80
-text = "Switch"
-
-[node name="PlayerModel" type="Panel" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer"]
+[node name="PlayerModel" type="Panel" parent="CanvasLayer/Inventory/PlayerInventoryContainer"]
+custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_yib2x")
 
-[node name="CurrencyContainer" type="VBoxContainer" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/PlayerModel"]
+[node name="CurrencyContainer" type="VBoxContainer" parent="CanvasLayer/Inventory/PlayerInventoryContainer/PlayerModel"]
 layout_mode = 0
 offset_left = -12.0
 offset_top = 636.0
@@ -497,79 +593,85 @@ offset_right = 742.0
 offset_bottom = 808.0
 alignment = 1
 
-[node name="TicketsContainer" type="HBoxContainer" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/PlayerModel/CurrencyContainer"]
+[node name="TicketsContainer" type="HBoxContainer" parent="CanvasLayer/Inventory/PlayerInventoryContainer/PlayerModel/CurrencyContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="TicketsAmount" type="Label" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/PlayerModel/CurrencyContainer/TicketsContainer"]
+[node name="TicketsAmount" type="Label" parent="CanvasLayer/Inventory/PlayerInventoryContainer/PlayerModel/CurrencyContainer/TicketsContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 label_settings = ExtResource("3_cc6nc")
 
-[node name="Tickets" type="Label" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/PlayerModel/CurrencyContainer/TicketsContainer"]
+[node name="Tickets" type="Label" parent="CanvasLayer/Inventory/PlayerInventoryContainer/PlayerModel/CurrencyContainer/TicketsContainer"]
 layout_mode = 2
 text = "Tickets"
 label_settings = ExtResource("3_cc6nc")
 
-[node name="TokentsContainer" type="HBoxContainer" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/PlayerModel/CurrencyContainer"]
+[node name="TokentsContainer" type="HBoxContainer" parent="CanvasLayer/Inventory/PlayerInventoryContainer/PlayerModel/CurrencyContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="TokensAmount" type="Label" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/PlayerModel/CurrencyContainer/TokentsContainer"]
+[node name="TokensAmount" type="Label" parent="CanvasLayer/Inventory/PlayerInventoryContainer/PlayerModel/CurrencyContainer/TokentsContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 label_settings = ExtResource("3_cc6nc")
 
-[node name="Tokens" type="Label" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/PlayerModel/CurrencyContainer/TokentsContainer"]
+[node name="Tokens" type="Label" parent="CanvasLayer/Inventory/PlayerInventoryContainer/PlayerModel/CurrencyContainer/TokentsContainer"]
 layout_mode = 2
 text = "Tokens"
 label_settings = ExtResource("3_cc6nc")
 
-[node name="BearNew" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/PlayerModel" instance=ExtResource("6_q34lt")]
-position = Vector2(339, 380)
-scale = Vector2(1.12, 1.12)
+[node name="BearNew" parent="CanvasLayer/Inventory/PlayerInventoryContainer/PlayerModel" instance=ExtResource("6_q34lt")]
+position = Vector2(361.5, 448)
+scale = Vector2(1.7, 1.7)
 
-[node name="EquipedContainer" type="VBoxContainer" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer"]
+[node name="EquipedContainer" type="VBoxContainer" parent="CanvasLayer/Inventory/PlayerInventoryContainer"]
 unique_name_in_owner = true
+z_index = 2
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 4
 theme_override_constants/separation = 50
 alignment = 1
 
-[node name="HeadSlot" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/EquipedContainer" instance=ExtResource("12_xrpra")]
+[node name="HeadSlot" parent="CanvasLayer/Inventory/PlayerInventoryContainer/EquipedContainer" instance=ExtResource("12_xrpra")]
 unique_name_in_owner = true
 layout_mode = 2
+default_icon = ExtResource("7_4j7l8")
 
-[node name="BodySlot" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/EquipedContainer" instance=ExtResource("12_xrpra")]
+[node name="BodySlot" parent="CanvasLayer/Inventory/PlayerInventoryContainer/EquipedContainer" instance=ExtResource("12_xrpra")]
 unique_name_in_owner = true
 layout_mode = 2
+default_icon = ExtResource("7_4j7l8")
 slot = 2
 
-[node name="LegsSlot" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/EquipedContainer" instance=ExtResource("12_xrpra")]
+[node name="LegsSlot" parent="CanvasLayer/Inventory/PlayerInventoryContainer/EquipedContainer" instance=ExtResource("12_xrpra")]
 unique_name_in_owner = true
 layout_mode = 2
+default_icon = ExtResource("7_4j7l8")
 slot = 3
 
-[node name="FightingStyle" parent="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/EquipedContainer" instance=ExtResource("12_xrpra")]
+[node name="FightingStyle" parent="CanvasLayer/Inventory/PlayerInventoryContainer/EquipedContainer" instance=ExtResource("12_xrpra")]
 unique_name_in_owner = true
 layout_mode = 2
+default_icon = ExtResource("7_4j7l8")
 slot = 4
 
-[node name="LeaveInventoryButton" type="Button" parent="CanvasLayer/Inventory/InventoryBG"]
+[node name="LeaveInventoryButton" type="TextureButton" parent="CanvasLayer/Inventory"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 405.0
-offset_top = 1848.0
-offset_right = 1222.0
-offset_bottom = 2004.0
-theme_override_font_sizes/font_size = 100
-text = "Leave Inventory"
+offset_left = -278.0
+offset_top = -2508.0
+offset_right = 192.0
+offset_bottom = -2144.0
+texture_normal = ExtResource("15_pljyh")
+stretch_mode = 0
 
 [node name="PrizePopup" type="Panel" parent="CanvasLayer" node_paths=PackedStringArray("player_contoller", "wheel")]
 visible = false
@@ -656,9 +758,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -340.0
+offset_left = -436.0
 offset_top = -250.0
-offset_right = -340.0
+offset_right = -180.0
 offset_bottom = -250.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -684,6 +786,15 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/v_separation = 40
 columns = 3
+
+[node name="CloseShopButton" type="Button" parent="CanvasLayer/Shop/ShopPanel"]
+layout_mode = 0
+offset_left = 2382.0
+offset_top = 25.0
+offset_right = 2775.0
+offset_bottom = 128.0
+theme_override_font_sizes/font_size = 80
+text = "Close Shop"
 
 [node name="ItemDetails" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -848,7 +959,7 @@ collision_layer = 0
 collision_mask = 2048
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextStageArea"]
-position = Vector2(204.5, -2)
+position = Vector2(108, 41)
 shape = SubResource("RectangleShape2D_spye5")
 
 [node name="InventoryArea" type="Area2D" parent="."]
@@ -900,10 +1011,10 @@ stretch_mode = 3
 
 [node name="CabinBG" type="TextureRect" parent="Location"]
 layout_mode = 0
-offset_left = -3168.0
-offset_top = -1401.0
-offset_right = 692.0
-offset_bottom = 779.0
+offset_left = -3184.0
+offset_top = -1481.0
+offset_right = 676.0
+offset_bottom = 699.0
 texture = ExtResource("4_3djtt")
 stretch_mode = 3
 
@@ -955,71 +1066,77 @@ texture = ExtResource("12_lek23")
 position = Vector2(-707, 420)
 target = NodePath("../DummyTarget")
 
-[node name="HPBar" parent="PlayerController/CanvasLayer" index="0"]
+[node name="HandL" parent="PlayerController/CanvasLayer/Tedddy/Skeleton2D/Main/Body" index="0"]
+scale = Vector2(1, 1)
+
+[node name="Head" parent="PlayerController/CanvasLayer/Tedddy/Skeleton2D/Main/Body" index="2"]
+scale = Vector2(0.999999, 0.999999)
+
+[node name="HPBar" parent="PlayerController/CanvasLayer" index="2"]
 visible = false
 
 [node name="TorsoTop" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="0"]
-rotation = 0.361894
-scale = Vector2(0.999969, 0.999969)
-
-[node name="UpperArmR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="0"]
-rotation = 1.36742
-scale = Vector2(0.999963, 0.999963)
-
-[node name="LowerArmR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR" index="0"]
-rotation = -1.70882
-scale = Vector2(0.999962, 0.999962)
-
-[node name="WristR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR" index="0"]
-rotation = 1.93583
-scale = Vector2(0.999973, 0.999973)
-
-[node name="UpperArmL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="1"]
-rotation = -1.05429
-scale = Vector2(0.99997, 0.99997)
-
-[node name="LowerArmL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL" index="0"]
-rotation = -0.421073
-scale = Vector2(0.999974, 0.999974)
-
-[node name="WristL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL" index="0"]
-rotation = 2.65065
+rotation = 0.426234
 scale = Vector2(0.999967, 0.999967)
 
-[node name="HeadMain" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="2"]
-rotation = -0.11439
+[node name="UpperArmR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="0"]
+rotation = 1.35293
+scale = Vector2(0.999961, 0.999961)
+
+[node name="LowerArmR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR" index="0"]
+rotation = -1.67049
 scale = Vector2(0.999959, 0.999959)
 
+[node name="WristR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR" index="0"]
+rotation = 1.79288
+scale = Vector2(0.999971, 0.999971)
+
+[node name="UpperArmL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="1"]
+rotation = -1.165
+scale = Vector2(0.999968, 0.999968)
+
+[node name="LowerArmL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL" index="0"]
+rotation = -0.270533
+scale = Vector2(0.999973, 0.999973)
+
+[node name="WristL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL" index="0"]
+rotation = 2.52514
+scale = Vector2(0.999965, 0.999965)
+
+[node name="HeadMain" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="2"]
+rotation = -0.153714
+scale = Vector2(0.999957, 0.999957)
+
 [node name="LowerJaw" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="0"]
-rotation = 1.0918
+rotation = 1.04609
 scale = Vector2(0.999966, 0.999966)
 
 [node name="EarL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="2"]
 scale = Vector2(0.443939, 0.778982)
 
 [node name="UpperLegR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="1"]
-rotation = 2.24618
-scale = Vector2(0.999978, 0.999978)
-
-[node name="LowerLegR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/UpperLegR" index="0"]
-rotation = 1.03006
-scale = Vector2(0.999965, 0.999965)
-
-[node name="UpperLegL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="2"]
-rotation = 2.67768
+rotation = 2.13493
 scale = Vector2(0.999977, 0.999977)
 
+[node name="LowerLegR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/UpperLegR" index="0"]
+rotation = 1.1979
+scale = Vector2(0.999964, 0.999964)
+
+[node name="UpperLegL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="2"]
+rotation = 2.46983
+scale = Vector2(0.999975, 0.999975)
+
 [node name="LowerLegL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/UpperLegL" index="0"]
-rotation = 0.370401
-scale = Vector2(0.999969, 0.999969)
+rotation = 0.620314
+scale = Vector2(0.999967, 0.999967)
 
 [node name="StunParticle" parent="PlayerController/BearNew/DamageFX/Stun" index="0"]
-position = Vector2(165.62, -599.453)
-rotation = -1.0413
-scale = Vector2(0.999927, 0.999927)
+position = Vector2(173.555, -591.858)
+rotation = -1.01628
+scale = Vector2(0.999923, 0.999923)
 
 [node name="SlowParticle" parent="PlayerController/BearNew/DamageFX/Slow" index="0"]
-position = Vector2(125.35, -685.778)
+position = Vector2(135.457, -679.163)
 scale = Vector2(0.999988, 0.999988)
 
 [node name="DummyTarget" type="CharacterBody2D" parent="."]
@@ -1058,9 +1175,32 @@ libraries = {
 "": SubResource("AnimationLibrary_b6hg1")
 }
 
-[connection signal="pressed" from="CanvasLayer/Inventory/InventoryBG/PlayerInventoryContainer/StatsBG/SwitchButton" to="CanvasLayer/Inventory" method="_on_switch_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/Inventory/InventoryBG/LeaveInventoryButton" to="." method="_on_leave_inventory_button_pressed"]
+[node name="Wallls" type="StaticBody2D" parent="."]
+position = Vector2(181, 242)
+collision_layer = 512
+collision_mask = 0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Wallls"]
+position = Vector2(-2264, 251)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_y02li")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Wallls"]
+position = Vector2(2017, 227)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_y02li")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Wallls"]
+position = Vector2(-58, 618)
+rotation = -3.14159
+shape = SubResource("RectangleShape2D_y02li")
+
+[connection signal="pressed" from="CanvasLayer/Inventory/TabStats" to="CanvasLayer/Inventory" method="_on_tab_stats_pressed"]
+[connection signal="pressed" from="CanvasLayer/Inventory/TabInventory" to="CanvasLayer/Inventory" method="_on_tab_inventory_pressed"]
+[connection signal="pressed" from="CanvasLayer/Inventory/LeaveInventoryButton" to="." method="_on_leave_inventory_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PrizePopup/VBoxContainer/Button" to="CanvasLayer/PrizePopup" method="_on_button_pressed"]
+[connection signal="visibility_changed" from="CanvasLayer/Shop" to="." method="_on_shop_visibility_changed"]
+[connection signal="pressed" from="CanvasLayer/Shop/ShopPanel/CloseShopButton" to="." method="_on_close_shop_button_pressed"]
 [connection signal="body_entered" from="ShopArea" to="." method="_on_shop_area_body_entered"]
 [connection signal="body_exited" from="ShopArea" to="." method="_on_shop_area_body_exited"]
 [connection signal="body_entered" from="WheelArea" to="." method="_on_wheel_area_body_entered"]
@@ -1071,5 +1211,6 @@ libraries = {
 [connection signal="body_exited" from="InventoryArea" to="." method="_on_inventory_area_body_exited"]
 
 [editable path="PlayerController"]
+[editable path="PlayerController/CanvasLayer/Tedddy"]
 [editable path="PlayerController/BearNew"]
 [editable path="spin_wheel"]

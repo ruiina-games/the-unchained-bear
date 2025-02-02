@@ -1,8 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://cevie0mm3xc4j"]
+[gd_scene load_steps=27 format=3 uid="uid://cevie0mm3xc4j"]
 
 [ext_resource type="Script" path="res://controllers/player controller/player_controller.gd" id="1_jg0g5"]
+[ext_resource type="PackedScene" uid="uid://b4rstorssuhyo" path="res://Shop/tedddy.tscn" id="2_b3wxo"]
+[ext_resource type="Texture2D" uid="uid://chmvetfxn4iw4" path="res://assets/HPBar/HP-bar-back.png" id="2_bt7rb"]
 [ext_resource type="PackedScene" uid="uid://cjbnosxi4m18l" path="res://characters/bear/bear_new.tscn" id="2_drj5a"]
 [ext_resource type="Script" path="res://controllers/player controller/player state machine/player_state_machine.gd" id="3_7xkve"]
+[ext_resource type="Texture2D" uid="uid://bce65avwg4625" path="res://assets/HPBar/HP-bar-front.png" id="3_ne3ve"]
 [ext_resource type="Texture2D" uid="uid://dxtyf8ln75bdu" path="res://assets/New_Bear/images/Head_Up.png" id="4_2sym7"]
 [ext_resource type="Script" path="res://controllers/player controller/player state machine/states/idle.gd" id="4_hhf8t"]
 [ext_resource type="Texture2D" uid="uid://cc62kiuqsd3u" path="res://assets/New_Bear/images/Head_Down.png" id="4_kp14w"]
@@ -18,11 +21,90 @@
 [ext_resource type="Script" path="res://controllers/player controller/stunned.gd" id="11_1g1x7"]
 [ext_resource type="Texture2D" uid="uid://cn8tebw0neagh" path="res://assets/New_Bear/images/R_Ear.png" id="11_gfand"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m2ihu"]
-bg_color = Color(0.314316, 0.314316, 0.314316, 1)
+[sub_resource type="Animation" id="Animation_yfvdv"]
+resource_name = "toasty"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tedddy:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-127, 339), Vector2(22, 335), Vector2(20, 335), Vector2(-127, 339)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tedddy:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.08812]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Tedddy/AnimationPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"toasty", -1, 1.0, false],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_xem38"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tedddy:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-127, 339)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tedddy:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.08812]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u0b6w"]
+_data = {
+"RESET": SubResource("Animation_xem38"),
+"toasty": SubResource("Animation_yfvdv")
+}
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mtkan"]
+texture = ExtResource("2_bt7rb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k1xm0"]
+texture = ExtResource("3_ne3ve")
 
 [sub_resource type="Theme" id="Theme_y1bro"]
-ProgressBar/styles/background = SubResource("StyleBoxFlat_m2ihu")
+ProgressBar/styles/background = SubResource("StyleBoxTexture_mtkan")
+ProgressBar/styles/fill = SubResource("StyleBoxTexture_k1xm0")
 
 [node name="PlayerController" type="Node2D" node_paths=PackedStringArray("actor", "hsm", "hp_bar")]
 script = ExtResource("1_jg0g5")
@@ -34,6 +116,23 @@ hsm = NodePath("LimboHSM")
 hp_bar = NodePath("CanvasLayer/HPBar/HBBarContainer/HPBar")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TeddyMovementPayer" type="AnimationPlayer" parent="CanvasLayer"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_u0b6w")
+}
+
+[node name="Tedddy" parent="CanvasLayer" instance=ExtResource("2_b3wxo")]
+position = Vector2(-127, 339)
+rotation = 1.08812
+scale = Vector2(0.46, 0.46)
+
+[node name="HandL" parent="CanvasLayer/Tedddy/Skeleton2D/Main/Body" index="0"]
+scale = Vector2(1, 1)
+
+[node name="Head" parent="CanvasLayer/Tedddy/Skeleton2D/Main/Body" index="2"]
+scale = Vector2(1, 1)
 
 [node name="HPBar" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -145,58 +244,58 @@ internal_vertex_count = 2
 unique_name_in_owner = true
 
 [node name="TorsoTop" parent="BearNew/Skeleton2D/TorsoMain" index="0"]
-rotation = 0.339477
+rotation = 0.390895
 scale = Vector2(0.999978, 0.999978)
 
 [node name="UpperArmR" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop" index="0"]
-rotation = 1.36904
+rotation = 1.25091
 scale = Vector2(0.999974, 0.999974)
 
 [node name="LowerArmR" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR" index="0"]
-rotation = -1.70267
+rotation = -1.62309
 scale = Vector2(0.999972, 0.999972)
 
 [node name="WristR" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR" index="0"]
-rotation = 1.99145
+rotation = 1.73605
 scale = Vector2(0.999982, 0.999982)
 
 [node name="UpperArmL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop" index="1"]
-rotation = -1.01044
+rotation = -1.11209
 scale = Vector2(0.999975, 0.999975)
 
 [node name="LowerArmL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL" index="0"]
-rotation = -0.474773
+rotation = -0.35193
 scale = Vector2(0.999981, 0.999981)
 
 [node name="WristL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL" index="0"]
-rotation = 2.69206
+rotation = 2.59658
 scale = Vector2(0.999974, 0.999974)
 
 [node name="HeadMain" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop" index="2"]
-rotation = -0.100663
+rotation = -0.13213
 scale = Vector2(0.99997, 0.99997)
 
 [node name="LowerJaw" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="0"]
-rotation = 1.10531
+rotation = 1.07413
 scale = Vector2(0.999974, 0.999974)
 
 [node name="EarL" parent="BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="2"]
 scale = Vector2(0.443939, 0.778982)
 
 [node name="UpperLegR" parent="BearNew/Skeleton2D/TorsoMain" index="1"]
-rotation = 2.05955
+rotation = 2.4072
 scale = Vector2(0.999985, 0.999985)
 
 [node name="LowerLegR" parent="BearNew/Skeleton2D/TorsoMain/UpperLegR" index="0"]
-rotation = 1.29692
+rotation = 0.722885
 scale = Vector2(0.999974, 0.999974)
 
 [node name="UpperLegL" parent="BearNew/Skeleton2D/TorsoMain" index="2"]
-rotation = 2.64849
+rotation = 1.9271
 scale = Vector2(0.999985, 0.999985)
 
 [node name="LowerLegL" parent="BearNew/Skeleton2D/TorsoMain/UpperLegL" index="0"]
-rotation = 0.428906
+rotation = 1.55719
 scale = Vector2(0.999979, 0.999979)
 
 [node name="AnimationTree" parent="BearNew" index="10"]
@@ -209,12 +308,13 @@ parameters/MainStateMachine/IDLE/blend_position = 1.00243
 parameters/MainStateMachine/JUMP/blend_position = -0.0486618
 
 [node name="StunParticle" parent="BearNew/DamageFX/Stun" index="0"]
-position = Vector2(162.77, -601.995)
-rotation = -1.04999
+position = Vector2(169.246, -596.088)
+rotation = -1.03003
 scale = Vector2(0.999947, 0.999947)
 
 [node name="SlowParticle" parent="BearNew/DamageFX/Slow" index="0"]
-position = Vector2(121.751, -687.968)
+position = Vector2(129.95, -682.862)
+scale = Vector2(0.999989, 0.999989)
 
 [node name="LimboHSM" type="LimboHSM" parent="." node_paths=PackedStringArray("character", "controller")]
 unique_name_in_owner = true
@@ -252,4 +352,5 @@ animation_state_name = "death"
 unique_name_in_owner = true
 script = ExtResource("11_1g1x7")
 
+[editable path="CanvasLayer/Tedddy"]
 [editable path="BearNew"]
