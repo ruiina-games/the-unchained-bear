@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://hfv6fovd6eke" path="res://assets/Store/Store/Background.png" id="1_04ypj"]
 [ext_resource type="Script" path="res://Shop/shop.gd" id="1_f14ov"]
 [ext_resource type="PackedScene" uid="uid://cevie0mm3xc4j" path="res://controllers/player controller/player_controller.tscn" id="1_tvtkn"]
-[ext_resource type="LabelSettings" uid="uid://brp3qn5x2peqk" path="res://cutscenes/basic_font.tres" id="2_8713t"]
+[ext_resource type="LabelSettings" path="res://cutscenes/basic_font.tres" id="2_8713t"]
 [ext_resource type="Script" path="res://characters/character.gd" id="2_ck00k"]
 [ext_resource type="Texture2D" uid="uid://duw820g44xtga" path="res://assets/Store/Store/Flags_2.png" id="2_whptf"]
 [ext_resource type="Texture2D" uid="uid://dttiblyel24gd" path="res://assets/Store/Store/Flags_1.png" id="3_23o10"]
@@ -1065,9 +1065,6 @@ texture = ExtResource("12_lek23")
 [node name="PlayerController" parent="." node_paths=PackedStringArray("target") instance=ExtResource("1_tvtkn")]
 position = Vector2(-707, 420)
 target = NodePath("../DummyTarget")
-
-[node name="HandL" parent="PlayerController/CanvasLayer/Tedddy/Skeleton2D/Main/Body" index="0"]
-scale = Vector2(1, 1)
 
 [node name="Head" parent="PlayerController/CanvasLayer/Tedddy/Skeleton2D/Main/Body" index="2"]
 scale = Vector2(0.999999, 0.999999)
