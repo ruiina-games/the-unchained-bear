@@ -8,12 +8,12 @@
 [resource]
 script = ExtResource("2_blefl")
 money_dictionary = {
-0: 40000,
-1: 500
+0: 10,
+1: 1
 }
 inventory = Array[ExtResource("1_sin6s")]([])
 temporary_upgrades = Array[ExtResource("3_7ixr4")]([])
-attack_power_multiplier = 1.0
+attack_power_multiplier = 0.8
 max_health = 2000
 critical_chance = 0.05
 critical_damage_multiplier = 1.2

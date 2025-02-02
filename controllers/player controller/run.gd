@@ -8,6 +8,9 @@ func _update(delta: float):
 	handle_movement()
 
 func handle_movement():
+	var acceleration: float = controller.acceleration * character.character_stats.movement_speed_multiplier
+	var max_movement_speed: float = controller.speed * character.character_stats.movement_speed_multiplier
+	
 	var dir = Input.get_axis("move_left", "move_right")
 
 	# Прискорення і уповільнення
@@ -16,14 +19,14 @@ func handle_movement():
 			controller.current_velocity.x *= 0.3
 			controller.tilt = lerp(controller.tilt, 0.0, 0.3)
 
-		controller.current_velocity.x += dir * (controller.acceleration * character.character_stats.movement_speed_multiplier)
+		controller.current_velocity.x += dir * acceleration
 
 		if dir != controller.direction.x:
 			controller.actor.scale.x *= -1
 		controller.direction.x = dir
 
 	# Обмеження максимальної швидкості
-	controller.current_velocity.x = clamp(controller.current_velocity.x, -controller.speed, controller.speed * character.character_stats.movement_speed_multiplier)
+	controller.current_velocity.x = clamp(controller.current_velocity.x, -max_movement_speed, max_movement_speed)
 	controller.direction.y = controller.actor.global_position.direction_to(controller.current_velocity).normalized().y
 	controller.current_velocity.y = 0
 	

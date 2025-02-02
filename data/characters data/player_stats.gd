@@ -136,6 +136,7 @@ func clear_temporary_modifiers():
 	
 # Додає тимчасовий модифікатор і застосовує його ефекти
 func add_temporary_upgrade(new_upgrade: TemporaryUpgrade) -> void:
+	#for upgrade in temporary_upgrades:
 	temporary_upgrades.push_back(new_upgrade)
 	apply_modifier(new_upgrade, true)  # true = додати ефекти
 

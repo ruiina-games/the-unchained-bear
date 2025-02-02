@@ -15,10 +15,6 @@ func _ready() -> void:
 	for upgrade in temporary_upgrades_pool:
 		upgrade.initialize_upgrade()
 
-# Цією функцію дістаєш тимчасові апгрейди для колеса фортуни.
-# Параметри: 
-#	requested_upgrades_amount - кількість покращень, які тобі потрібні.
-#	player_stats - character_stats змінна у ведмедя.
 func get_temporary_upgrades_pool(requested_upgrades_amount: int, player_stats: PlayerStats) -> Array[TemporaryUpgrade]:
 	var pool: Array[TemporaryUpgrade] = []
 	var upgrades_to_randomize: Array[TemporaryUpgrade] = []
@@ -27,7 +23,6 @@ func get_temporary_upgrades_pool(requested_upgrades_amount: int, player_stats: P
 	var available_upgrades = temporary_upgrades_pool.duplicate()
 	
 	while pool.size() < requested_upgrades_amount and available_upgrades.size() > 0:
-		# Get random upgrade from available pool
 		var random_index = randi_range(0, available_upgrades.size() - 1)
 		var selected_upgrade = available_upgrades[random_index]
 		available_upgrades.remove_at(random_index)
@@ -36,50 +31,72 @@ func get_temporary_upgrades_pool(requested_upgrades_amount: int, player_stats: P
 		var existing_upgrade = null
 		for upgrade in player_stats.temporary_upgrades:
 			if upgrade.name == selected_upgrade.name:
-				existing_upgrade = selected_upgrade
+				existing_upgrade = upgrade
 				break
 		
 		if existing_upgrade:
-			if selected_upgrade.rarity < Upgrade.RARITY.LEGENDARY:
+			if existing_upgrade.rarity < Upgrade.RARITY.LEGENDARY:
 				# Create upgrade with increased rarity
 				var upgraded_version = selected_upgrade.duplicate()
-				# Збільшуємо рідкість на 1, але не виходимо за межі LEGENDARY
-				upgraded_version.rarity = min(upgraded_version.rarity + 1, Upgrade.RARITY.LEGENDARY)
+				upgraded_version.rarity = existing_upgrade.rarity  # Use existing upgrade's rarity as base
+				upgraded_version.set_next_rarity()
 				upgraded_version.initialize_upgrade()
-				pool.append(upgraded_version)
-				var rarity_name = get_rarity_name(upgraded_version.rarity)
+				pool.push_back(upgraded_version)
 		else:
 			# Add to pool and mark for rarity randomization
 			var new_upgrade = selected_upgrade.duplicate()
 			pool.append(new_upgrade)
 			upgrades_to_randomize.append(new_upgrade)
-			var rarity_name = get_rarity_name(new_upgrade.rarity)
 	
-	randomize_rarities(upgrades_to_randomize)
+	# Randomize rarities while avoiding duplicates
+	randomize_rarities_unique(upgrades_to_randomize, player_stats)
 	
 	for upgrade in pool:
 		var rarity_name = get_rarity_name(upgrade.rarity)
-		print("Name: ", upgrade.name, 
-			  " | Rarity: ", rarity_name)
+		print("Name: ", upgrade.name, " | Rarity: ", rarity_name)
 	
 	return pool
 
-func randomize_rarities(pool: Array[TemporaryUpgrade]):
+func randomize_rarities_unique(pool: Array[TemporaryUpgrade], player_stats: PlayerStats):
+	# Get existing rarities from player's upgrades
+	var existing_rarities = []
+	for upgrade in player_stats.temporary_upgrades:
+		existing_rarities.append(upgrade.rarity)
+	
 	for upgrade in pool:
-		var old_rarity_name = get_rarity_name(upgrade.rarity)
+		var available_rarities = []
 		
-		var random_value = randf()
-		
-		var cumulative_chance = 0.0
-		
+		# Create list of available rarities that aren't already in use
 		for rarity in rarity_to_chance.keys():
-			cumulative_chance += rarity_to_chance[rarity]
+			if not rarity in existing_rarities:
+				available_rarities.append(rarity)
+		
+		if available_rarities.is_empty():
+			# If all rarities are used, default to increasing the rarity
+			upgrade.rarity = min(upgrade.rarity + 1, Upgrade.RARITY.LEGENDARY)
+		else:
+			# Normalize chances for available rarities
+			var total_chance = 0.0
+			var adjusted_chances = {}
 			
-			if random_value <= cumulative_chance:
-				upgrade.rarity = rarity
-				upgrade.initialize_upgrade()
-				var new_rarity_name = get_rarity_name(upgrade.rarity)
-				break
+			for rarity in available_rarities:
+				total_chance += rarity_to_chance[rarity]
+			
+			for rarity in available_rarities:
+				adjusted_chances[rarity] = rarity_to_chance[rarity] / total_chance
+			
+			# Select random rarity from available ones
+			var random_value = randf()
+			var cumulative_chance = 0.0
+			
+			for rarity in adjusted_chances.keys():
+				cumulative_chance += adjusted_chances[rarity]
+				if random_value <= cumulative_chance:
+					upgrade.rarity = rarity
+					existing_rarities.append(rarity)  # Add to existing rarities to prevent future duplicates
+					break
+		
+		upgrade.initialize_upgrade()
 
 func get_rarity_name(rarity_value: int) -> String:
 	var keys = Upgrade.RARITY.keys()
