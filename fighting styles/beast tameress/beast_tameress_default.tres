@@ -15,7 +15,7 @@ duration = 3.0
 
 [sub_resource type="Resource" id="Resource_oywds"]
 script = ExtResource("2_2tj1g")
-damage_amount = 150.0
+damage_amount = 200.0
 multiplier = 1.0
 effect = SubResource("Resource_5d4ju")
 
@@ -28,7 +28,7 @@ duration = 3.0
 
 [sub_resource type="Resource" id="Resource_2fkhf"]
 script = ExtResource("2_2tj1g")
-damage_amount = 150.0
+damage_amount = 200.0
 multiplier = 1.0
 effect = SubResource("Resource_gix1r")
 
@@ -41,7 +41,7 @@ duration = 3.0
 
 [sub_resource type="Resource" id="Resource_jyc8r"]
 script = ExtResource("2_2tj1g")
-damage_amount = 250.0
+damage_amount = 300.0
 multiplier = 1.0
 effect = SubResource("Resource_4hjs6")
 

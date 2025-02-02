@@ -61,7 +61,8 @@ func _tick(delta: float) -> Status:
 	
 	# Рухаємо актора до цільової позиції
 	var direction = actor_global_position.direction_to(target_position)
-	velocity = direction * move_speed
+	velocity = direction * move_speed * controller.actor.character_stats.movement_speed_multiplier
+	velocity.y = 0
 	controller.actor.velocity = velocity
 	
 	controller.actor.adjust_scale_for_direction(direction)

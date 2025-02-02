@@ -24,14 +24,15 @@ func update_ui() -> void:
 
 		# Заповнюємо назву предмета
 		item_name.text = item.name
+		print(item.name)
 
 		# Заповнюємо назву слота
 		slot_name.text = format_text(StatUpgrade.SLOT_TYPE.keys()[slot])
-
+	
 		# Заповнюємо статистику предмета
 		var stats_text = ""
 		for stat in item.upgrade_array:
-			var stat_name = StatUpgrade.UPGRADABLE_STATS.keys()[stat.stat_type]
+			var stat_name = StatUpgrade.UPGRADABLE_STATS.keys()[stat.stat_type - 1]
 			var stat_value = stat.multiplier
 			stats_text += format_text(stat_name) + ": " + str(stat_value) + "\n"
 		stats.text = stats_text

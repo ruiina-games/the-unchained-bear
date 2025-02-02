@@ -60,10 +60,10 @@ shader_parameter/thickness = 0.3
 
 [sub_resource type="Resource" id="Resource_5h133"]
 script = ExtResource("4_gb6q2")
-attack_power_multiplier = 1.0
-max_health = 2000
-critical_chance = 0.05
-critical_damage_multiplier = 1.2
+attack_power_multiplier = 1.4
+max_health = 3000
+critical_chance = 0.1
+critical_damage_multiplier = 3.0
 dodge_chance = 0.0
 movement_speed_multiplier = 1.0
 status_resist_multiplier = 0.1
@@ -83,31 +83,31 @@ size = Vector2(488, 786)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yu2mn"]
 
-[sub_resource type="Resource" id="Resource_agdgu"]
+[sub_resource type="Resource" id="Resource_47nos"]
 script = ExtResource("23_qeh74")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_taudj"]
+[sub_resource type="Resource" id="Resource_spxts"]
 script = ExtResource("23_qeh74")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_0mn26"]
+[sub_resource type="Resource" id="Resource_oxfck"]
 script = ExtResource("23_qeh74")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_7ldox"]
+[sub_resource type="Resource" id="Resource_38hwr"]
 script = ExtResource("23_qeh74")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_tvd5q"]
+[sub_resource type="Resource" id="Resource_0m3bt"]
 script = ExtResource("26_pbnub")
 frequency = 1.0
 damping = 1.0
@@ -3178,7 +3178,7 @@ script = ExtResource("22_mouru")
 target_node = NodePath("../../../../TargetNodes/NeckTarget/HeadTarget")
 enabled = true
 bone_node = NodePath("../../../Main/BodyBack/BodyMid/BodyFront/Neck/Head")
-easing = SubResource("Resource_agdgu")
+easing = SubResource("Resource_47nos")
 
 [node name="NeckLookAt" type="Node" parent="Skeleton2D/SoupStack/HeadStack" node_paths=PackedStringArray("target_node", "bone_node")]
 script = ExtResource("22_mouru")
@@ -3186,7 +3186,7 @@ target_node = NodePath("../../../../TargetNodes/NeckTarget")
 enabled = true
 bone_node = NodePath("../../../Main/BodyBack/BodyMid/BodyFront/Neck")
 use_easing = true
-easing = SubResource("Resource_taudj")
+easing = SubResource("Resource_spxts")
 
 [node name="JawLookAt" type="Node" parent="Skeleton2D/SoupStack/HeadStack" node_paths=PackedStringArray("target_node", "bone_node")]
 script = ExtResource("22_mouru")
@@ -3205,7 +3205,7 @@ flip_bend_direction = true
 joint_one_bone_node = NodePath("../../../Main/BodyBack/BodyMid/BodyFront/UpperRHand")
 joint_two_bone_node = NodePath("../../../Main/BodyBack/BodyMid/BodyFront/UpperRHand/LowerRHand")
 chain_tip = NodePath("../../../Main/BodyBack/BodyMid/BodyFront/UpperRHand/LowerRHand/WristR")
-first_joint_easing = SubResource("Resource_0mn26")
+first_joint_easing = SubResource("Resource_oxfck")
 
 [node name="RWristLookAt" type="Node" parent="Skeleton2D/SoupStack/RHandStack" node_paths=PackedStringArray("target_node", "bone_node")]
 script = ExtResource("22_mouru")
@@ -3224,7 +3224,7 @@ flip_bend_direction = true
 joint_one_bone_node = NodePath("../../../Main/BodyBack/BodyMid/BodyFront/UpperLHand")
 joint_two_bone_node = NodePath("../../../Main/BodyBack/BodyMid/BodyFront/UpperLHand/LowerLHand")
 chain_tip = NodePath("../../../Main/BodyBack/BodyMid/BodyFront/UpperLHand/LowerLHand/WristL")
-first_joint_easing = SubResource("Resource_7ldox")
+first_joint_easing = SubResource("Resource_38hwr")
 
 [node name="LWristLookAt" type="Node" parent="Skeleton2D/SoupStack/LHandStack" node_paths=PackedStringArray("target_node", "bone_node")]
 script = ExtResource("22_mouru")
@@ -3257,10 +3257,10 @@ target_node = NodePath("../../../../TargetNodes/TailTarget")
 enabled = true
 bone_node = NodePath("../../../Main/BodyBack/Tail")
 use_easing = true
-easing = SubResource("Resource_tvd5q")
+easing = SubResource("Resource_0m3bt")
 
 [node name="Main" type="Bone2D" parent="Skeleton2D"]
-position = Vector2(55.7832, -320.447)
+position = Vector2(55.6942, -318.579)
 rotation = 3.01516
 rest = Transform2D(-0.992018, 0.126093, -0.126093, -0.992018, 56, -325)
 
@@ -3279,19 +3279,19 @@ rest = Transform2D(0.453436, 0.891289, -0.891289, 0.453436, 105.465, 42.6388)
 
 [node name="Neck" type="Bone2D" parent="Skeleton2D/Main/BodyBack/BodyMid/BodyFront"]
 position = Vector2(122.319, -0.280571)
-rotation = 0.220679
+rotation = 0.196238
 scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(0.933375, 0.358903, -0.358903, 0.933375, 122.319, -0.280571)
 
 [node name="Head" type="Bone2D" parent="Skeleton2D/Main/BodyBack/BodyMid/BodyFront/Neck"]
 position = Vector2(124.509, -27.34)
-rotation = 0.0519153
+rotation = 0.0637118
 scale = Vector2(0.999993, 0.999993)
 rest = Transform2D(1, 0, 0, 1, 124.509, -27.34)
 
 [node name="Jaw" type="Bone2D" parent="Skeleton2D/Main/BodyBack/BodyMid/BodyFront/Neck/Head"]
 position = Vector2(-65.4841, -31.762)
-rotation = -2.15741
+rotation = -2.14939
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(-0.493417, -0.869793, 0.869793, -0.493417, -65.4841, -31.762)
 auto_calculate_length_and_angle = false
@@ -3309,19 +3309,19 @@ update_rotation = false
 
 [node name="UpperRHand" type="Bone2D" parent="Skeleton2D/Main/BodyBack/BodyMid/BodyFront"]
 position = Vector2(4.42056, -90.1025)
-rotation = -0.183659
+rotation = -0.186448
 scale = Vector2(0.999997, 0.999997)
 rest = Transform2D(1, 0, 0, 1, 4.42056, -90.1025)
 
 [node name="LowerRHand" type="Bone2D" parent="Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperRHand"]
 position = Vector2(-154.547, -85.7156)
-rotation = 0.47398
+rotation = 0.481538
 scale = Vector2(0.999996, 0.999996)
 rest = Transform2D(1, 0, 0, 1, -154.547, -85.7156)
 
 [node name="WristR" type="Bone2D" parent="Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperRHand/LowerRHand"]
 position = Vector2(-74.9961, -80.0036)
-rotation = -1.64022
+rotation = -1.64499
 scale = Vector2(0.999994, 0.999994)
 rest = Transform2D(-0.0129681, -0.999916, 0.999916, -0.0129681, -74.9961, -80.0036)
 auto_calculate_length_and_angle = false
@@ -3330,19 +3330,19 @@ bone_angle = 0.0
 
 [node name="UpperLHand" type="Bone2D" parent="Skeleton2D/Main/BodyBack/BodyMid/BodyFront"]
 position = Vector2(-66.2865, -0.322116)
-rotation = -2.71494
+rotation = -2.71758
 scale = Vector2(0.999997, 0.999997)
 rest = Transform2D(-0.846017, -0.533156, 0.533156, -0.846017, -66.2865, -0.322116)
 
 [node name="LowerLHand" type="Bone2D" parent="Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperLHand"]
 position = Vector2(182.307, -5.67508)
-rotation = 0.474139
+rotation = 0.481267
 scale = Vector2(0.999997, 0.999997)
 rest = Transform2D(1, 0, 0, 1, 182.307, -5.67508)
 
 [node name="WristL" type="Bone2D" parent="Skeleton2D/Main/BodyBack/BodyMid/BodyFront/UpperLHand/LowerLHand"]
 position = Vector2(115.958, 32.0445)
-rotation = 0.63975
+rotation = 0.635261
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.645283, 0.763944, -0.763944, 0.645283, 115.958, 32.0445)
 auto_calculate_length_and_angle = false
@@ -3351,13 +3351,13 @@ bone_angle = 0.0
 
 [node name="UpperRLeg" type="Bone2D" parent="Skeleton2D/Main/BodyBack"]
 position = Vector2(109.239, -42.5654)
-rotation = -0.0170933
+rotation = -0.0203667
 scale = Vector2(0.999995, 0.999995)
 rest = Transform2D(1, 0, 0, 1, 109.239, -42.5654)
 
 [node name="LowerRLeg" type="Bone2D" parent="Skeleton2D/Main/BodyBack/UpperRLeg"]
 position = Vector2(-38.1187, -160.084)
-rotation = -1.05035
+rotation = -1.04336
 scale = Vector2(0.999997, 0.999997)
 rest = Transform2D(0.444579, -0.89574, 0.89574, 0.444579, -38.1187, -160.084)
 auto_calculate_length_and_angle = false
@@ -3366,13 +3366,13 @@ bone_angle = 0.0
 
 [node name="UpperLLeg" type="Bone2D" parent="Skeleton2D/Main/BodyBack"]
 position = Vector2(51.6853, -41.8166)
-rotation = -0.0335521
+rotation = -0.0359939
 scale = Vector2(0.999994, 0.999994)
 rest = Transform2D(1, 0, 0, 1, 51.6853, -41.8166)
 
 [node name="LowerLLeg" type="Bone2D" parent="Skeleton2D/Main/BodyBack/UpperLLeg"]
 position = Vector2(-67.2154, -184.952)
-rotation = -1.0399
+rotation = -1.03465
 scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(0.424166, -0.905585, 0.905585, 0.424166, -67.2154, -184.952)
 auto_calculate_length_and_angle = false
@@ -3381,7 +3381,7 @@ bone_angle = 0.0
 
 [node name="Tail" type="Bone2D" parent="Skeleton2D/Main/BodyBack"]
 position = Vector2(-17.6543, 19.933)
-rotation = 2.25668
+rotation = 2.03385
 scale = Vector2(0.999997, 0.999997)
 rest = Transform2D(-0.281249, 0.959635, -0.959635, -0.281249, -17.6543, 19.933)
 auto_calculate_length_and_angle = false
@@ -3395,11 +3395,11 @@ position = Vector2(-271, -667)
 gizmo_extents = 85.0
 
 [node name="HeadTarget" type="Marker2D" parent="TargetNodes/NeckTarget"]
-position = Vector2(16.5361, 292.614)
+position = Vector2(20.2079, 294.083)
 gizmo_extents = 85.0
 
 [node name="JawTarget" type="Marker2D" parent="TargetNodes"]
-position = Vector2(-367.751, -361.281)
+position = Vector2(-362.811, -359.345)
 gizmo_extents = 85.0
 
 [node name="LHandTarget" type="Marker2D" parent="TargetNodes"]
@@ -3427,7 +3427,7 @@ position = Vector2(96, -29)
 gizmo_extents = 85.0
 
 [node name="TailTarget" type="Marker2D" parent="TargetNodes"]
-position = Vector2(356.275, -801.601)
+position = Vector2(374.1, -791.52)
 gizmo_extents = 85.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -3576,8 +3576,8 @@ emitting = false
 [node name="Stun" type="Node2D" parent="DamageFX"]
 
 [node name="StunParticle" parent="DamageFX/Stun" instance=ExtResource("43_wo3g7")]
-position = Vector2(-267.909, -682.794)
-rotation = -1.89525
+position = Vector2(-271.538, -678.586)
+rotation = -1.9079
 scale = Vector2(0.999991, 0.999991)
 emitting = false
 
@@ -3585,7 +3585,7 @@ emitting = false
 
 [node name="SlowParticle" parent="DamageFX/Slow" instance=ExtResource("44_c0cto")]
 z_index = 10
-position = Vector2(-247.362, -742.129)
+position = Vector2(-251.744, -738.175)
 rotation = -3.14038
 scale = Vector2(0.999991, 0.999991)
 emitting = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cc8khg81hy583"]
+[gd_scene load_steps=9 format=3 uid="uid://cc8khg81hy583"]
 
 [ext_resource type="Script" path="res://globals/shop_manager.gd" id="1_wyttp"]
 [ext_resource type="Resource" uid="uid://c40i2hba3vmid" path="res://data/characters data/bear/bear_stats.tres" id="2_1mmhf"]
@@ -6,11 +6,10 @@
 [ext_resource type="Resource" uid="uid://b7v4o0nuviypc" path="res://data/game data/upgrades/shop_upgrades/cylinder_hat.tres" id="4_r6l3v"]
 [ext_resource type="Resource" uid="uid://k8syeoud0s83" path="res://fighting styles/bear/bear_boxing.tres" id="5_hwdru"]
 [ext_resource type="Resource" uid="uid://sdl7a5cv07o6" path="res://fighting styles/bear/bear_lumberjack.tres" id="6_av6jf"]
-[ext_resource type="Resource" uid="uid://camak8sgselho" path="res://data/game data/upgrades/shop_upgrades/jesters_hat.tres" id="7_f6rtg"]
 [ext_resource type="Resource" uid="uid://b3x7ewj26dy2j" path="res://data/game data/upgrades/shop_upgrades/spiked_unicycle.tres" id="8_ylf3b"]
 [ext_resource type="Resource" uid="uid://ce0p7w5d3q8nj" path="res://data/game data/upgrades/shop_upgrades/sweets_sellers_belt.tres" id="9_38nmy"]
 
 [node name="ShopManager" type="Node"]
 script = ExtResource("1_wyttp")
 player_stats = ExtResource("2_1mmhf")
-shop_assortment = Array[ExtResource("3_ekxpq")]([ExtResource("5_hwdru"), ExtResource("6_av6jf"), ExtResource("4_r6l3v"), ExtResource("7_f6rtg"), ExtResource("8_ylf3b"), ExtResource("9_38nmy")])
+shop_assortment = Array[ExtResource("3_ekxpq")]([ExtResource("5_hwdru"), ExtResource("6_av6jf"), ExtResource("4_r6l3v"), ExtResource("8_ylf3b"), ExtResource("9_38nmy")])

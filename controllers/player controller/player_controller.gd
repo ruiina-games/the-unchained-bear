@@ -44,6 +44,9 @@ func update_fs():
 func kill_actor():
 	actor.character_stats.clear_temporary_modifiers()
 	hsm.dispatch(hsm.DIED)
+	var player_stats: PlayerStats = actor.character_stats
+	player_stats.money_dictionary[PlayerStats.MONEY.TICKETS] += randi_range(5, 10)
+	player_stats.money_dictionary[PlayerStats.MONEY.TOKENS] += 1
 
 func init_state_machine() -> void:
 	hsm.add_transition(hsm.ANYSTATE, jump_state, hsm.JUMPED)
@@ -86,6 +89,7 @@ func finish_round():
 	super()
 	var player_stats: PlayerStats = actor.character_stats
 	player_stats.money_dictionary[PlayerStats.MONEY.TICKETS] += randi_range(5, 20)
+	player_stats.money_dictionary[PlayerStats.MONEY.TOKENS] += 1
 
 func reset_combo():
 	# print("Combo has been reset")

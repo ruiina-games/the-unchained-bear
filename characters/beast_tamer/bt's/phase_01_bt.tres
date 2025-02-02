@@ -1,4 +1,4 @@
-[gd_resource type="BehaviorTree" load_steps=44 format=3 uid="uid://c2gr4a0ig0ujm"]
+[gd_resource type="BehaviorTree" load_steps=43 format=3 uid="uid://c2gr4a0ig0ujm"]
 
 [ext_resource type="Script" path="res://ai/tasks/conditions/check_distance.gd" id="1_d83ie"]
 [ext_resource type="Script" path="res://ai/tasks/play_tree_anim.gd" id="1_jdqnl"]
@@ -89,7 +89,7 @@ children = [SubResource("BTCheckVar_3obbr"), SubResource("BTAction_cfxoc")]
 [sub_resource type="BTCondition" id="BTCondition_y8bbx"]
 custom_name = "Is enemy close enough to kick?"
 script = ExtResource("1_d83ie")
-target_distance = 600.0
+target_distance = 700.0
 check_mode = 1
 
 [sub_resource type="BTAction" id="BTAction_3hq8c"]
@@ -97,16 +97,9 @@ custom_name = "Perform Kick"
 script = ExtResource("1_jdqnl")
 animation_condition = &"kick"
 
-[sub_resource type="BTDelay" id="BTDelay_7e5dn"]
-seconds = 0.4
-custom_name = "Attack Inform"
-children = [SubResource("BTAction_3hq8c")]
-script = ExtResource("4_qpdct")
-inform_text = "BEAST TAMERESS IS GOING TO KICK"
-
 [sub_resource type="BTSequence" id="BTSequence_wbvid"]
 custom_name = "Kick"
-children = [SubResource("BTCondition_y8bbx"), SubResource("BTDelay_7e5dn")]
+children = [SubResource("BTCondition_y8bbx"), SubResource("BTAction_3hq8c")]
 
 [sub_resource type="BTSelector" id="BTSelector_smtbu"]
 custom_name = "Close Enemy or Consecutive Hits Selection"
@@ -160,7 +153,7 @@ custom_name = "Movement Sequence"
 children = [SubResource("BTAction_agp5m"), SubResource("BTDelay_2qism"), SubResource("BTAction_ep575"), SubResource("BTTimeLimit_fad70"), SubResource("BTAction_ympc1")]
 
 [sub_resource type="BTCooldown" id="BTCooldown_h1fli"]
-duration = 2.0
+duration = 1.0
 custom_name = "Movement Cooldown"
 children = [SubResource("BTSequence_7r6ke")]
 
@@ -175,7 +168,7 @@ script = ExtResource("2_1gm2q")
 available_attacks = 3
 
 [sub_resource type="BTDelay" id="BTDelay_txoqq"]
-seconds = 0.4
+seconds = 0.2
 custom_name = "Delay for attack inform to display"
 children = [SubResource("BTAction_vm3vn")]
 script = ExtResource("4_qpdct")
@@ -186,7 +179,7 @@ custom_name = "Attack 1 Sequence"
 children = [SubResource("BTCondition_31app"), SubResource("BTDelay_txoqq")]
 
 [sub_resource type="BTCooldown" id="BTCooldown_ufa2x"]
-duration = 2.5
+duration = 1.5
 custom_name = "Attack 1 Cooldown"
 children = [SubResource("BTSequence_qiqji")]
 
