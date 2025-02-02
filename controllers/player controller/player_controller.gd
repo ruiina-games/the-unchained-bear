@@ -18,9 +18,11 @@ class_name PlayerController
 @onready var attack_state: LimboState = %Attack
 @onready var death_state: LimboState = %Death
 @onready var stunned_state: StunnedPlayer = %Stunned
+@onready var knocked_state: KnockedPlayer = %Knocked
 
 var tilt_inertia: float = 0.1
 var combo_count: int
+var knocked: bool
 
 @onready var hp_bar_container = $CanvasLayer/HPBar
 
@@ -68,6 +70,8 @@ func _physics_process(delta: float):
 
 	if abs(tilt) < 0.5 and abs(current_velocity.x) < 5:
 		tilt = 0.0
+		
+	direction.y = 0
 
 func set_stunned(was_stunned: bool):
 	super(was_stunned)
@@ -83,10 +87,10 @@ func reset_combo():
 		fighting_style.combo_count = 0
 
 func apply_knockback(direction, force):
-	hsm.dispatch(hsm.MOVEMENT_FINISHED)
+	hsm.dispatch(hsm.KNOCKED)
 	super(direction, force)
-	tilt = clamp(tilt, -max_tilt, max_tilt)
-	actor.rotate(deg_to_rad(tilt))
+	#tilt = clamp(tilt, -max_tilt, max_tilt)
+	#actor.rotate(deg_to_rad(tilt))
 
 func unstuck():
 	hsm.dispatch(hsm.UNSTUCK)

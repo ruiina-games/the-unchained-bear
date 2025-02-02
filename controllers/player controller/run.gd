@@ -2,12 +2,12 @@ extends PlayerState
 class_name PlayerRunState
 
 func _update(delta: float):
-	handle_movement()
-
-func handle_movement():
 	if !character.can_move:
 		return
 
+	handle_movement()
+
+func handle_movement():
 	var dir = Input.get_axis("move_left", "move_right")
 
 	# Прискорення і уповільнення
@@ -33,8 +33,7 @@ func handle_movement():
 	else:
 		controller.tilt = lerp(controller.tilt, 0.0, 0.1)
 		
-		# Виклик події MOVEMENT_FINISHED, коли швидкість занадто мала
+	# Виклик події MOVEMENT_FINISHED, коли швидкість занадто мала
 	if abs(controller.current_velocity.x) < 1:  # Поріг швидкості, щоб вважати рух завершеним
 		dispatch(state_machine.MOVEMENT_FINISHED)
-	
 	super()

@@ -14,6 +14,8 @@ var FINISHED_ATTACK: StringName = "finished_attack"
 var DIED: StringName = "death"
 var STUNNED: StringName = "stunned"
 var UNSTUCK: StringName = "unstuck"
+var KNOCKED: StringName = "knocked"
+var KNOCKED_FINISHED: StringName = "knocked_finished"
 
 func init_state_machine():
 	super()
