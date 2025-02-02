@@ -42,13 +42,13 @@ func take_damage(amount: int) -> void:
 	hp_changed.emit(current_health)
 
 func increase_critical_chance(amount: float) -> void:
-	critical_chance += min(status_resist_multiplier + amount, 0.8)
+	critical_chance += min(critical_chance + amount, 0.8)
 
 func increase_critical_damage_multiplier(amount: float) -> void:
 	critical_damage_multiplier += amount
 
 func increase_dodge_chance(amount: float) -> void:
-	dodge_chance += min(status_resist_multiplier + amount, 0.8)
+	dodge_chance += min(dodge_chance + amount, 0.8)
 
 func increase_movement_speed_multiplier(amount: float) -> void:
 	movement_speed_multiplier += amount

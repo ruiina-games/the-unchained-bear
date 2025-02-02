@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_4dkq8")
-attack_power_multiplier = 1.2
-max_health = 2000
+attack_power_multiplier = 1.8
+max_health = 2800
 critical_chance = 0.2
 critical_damage_multiplier = 2.0
 dodge_chance = 0.0
