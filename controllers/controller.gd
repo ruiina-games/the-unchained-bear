@@ -59,7 +59,7 @@ func connect_signals():
 		set_hp_label(new_hp)
 	)
 	target.died.connect(func():
-		actor.round_finished = true
+		finish_round()
 		disable_all_effects()
 	)
 
@@ -71,6 +71,8 @@ func disable_all_effects():
 func set_controller_inactive():
 	pass
 
+func finish_round():
+	actor.round_finished = true
 
 func kill_actor():
 	pass

@@ -19,7 +19,7 @@ enum SLOT_TYPE {
 	FIGHTING_STYLE
 }
 
-@export var upgrade_multi_step: float = 1.0
+# @export var upgrade_multi_step: float = 1.0
 @export var slot_type: SLOT_TYPE = SLOT_TYPE.NONE  # Тип слота для цього апгрейду
 @export var icon_folder_path: String  # Шлях до папки з іконками
 @export var rarity: RARITY = RARITY.COMMON

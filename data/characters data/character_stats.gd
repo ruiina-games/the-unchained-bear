@@ -30,6 +30,7 @@ func increase_attack_power_multiplier(amount: float) -> void:
 	attack_power_multiplier += amount
 
 func increase_max_health(amount: float) -> void:
+	heal(amount)
 	max_health += amount
 
 func heal(amount: int) -> void:
@@ -49,14 +50,8 @@ func increase_critical_damage_multiplier(amount: float) -> void:
 func increase_dodge_chance(amount: float) -> void:
 	dodge_chance += amount
 
-# func increase_attack_speed_multiplier(amount: float) -> void:
-	# attack_speed_multiplier += amount
-
 func increase_movement_speed_multiplier(amount: float) -> void:
 	movement_speed_multiplier += amount
-
-# func increase_attack_range(amount: float) -> void:
-	# attack_range += amount
 
 func increase_status_resist_multiplier(amount: float) -> void:
 	status_resist_multiplier = min(status_resist_multiplier + amount, 1.0) # Cap at 100%

@@ -6,20 +6,19 @@
 [sub_resource type="Resource" id="Resource_11032"]
 script = ExtResource("2_hwkgf")
 stat_type = 3
-multiplier = 0.15
+multiplier = 0.05
 
 [sub_resource type="Resource" id="Resource_d2ue5"]
 script = ExtResource("2_hwkgf")
 stat_type = 4
-multiplier = 0.2
+multiplier = 0.1
 
 [resource]
 script = ExtResource("1_nw0kj")
 title = "Cylinder Hat"
 money_type = 0
-cost = 15
+cost = 25
 upgrade_array = Array[ExtResource("2_hwkgf")]([SubResource("Resource_11032"), SubResource("Resource_d2ue5")])
-upgrade_multi_step = 0.1
 slot_type = 1
 icon_folder_path = "res://assets/Constant modifiers/Top Hat/"
 rarity = 0

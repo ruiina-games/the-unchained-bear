@@ -19,20 +19,17 @@ func update_rarity():
 	
 	match rarity:
 		RARITY.COMMON:
-			multiplier = upgrade_multi_step
+			multiplier = 1
 		RARITY.UNCOMMON:
-			multiplier = upgrade_multi_step * 2
+			multiplier = 2
 		RARITY.RARE:
-			multiplier = upgrade_multi_step * 3
+			multiplier = 3
 		RARITY.MYTHICAL:
-			multiplier = upgrade_multi_step * 4
+			multiplier = 4
 		RARITY.LEGENDARY:
-			multiplier = upgrade_multi_step * 5
+			multiplier = 5
 			apply_legendary_effect()
 	
-	# Застосовуємо множник до всіх значень у upgrade_dictionary
+	# Застосовуємо множник до всіх значень у upgrade_array
 	for stats_model in upgrade_array:
-		if multiplier < 1.0:
-			stats_model.multiplier = 1 + multiplier
-		else:
-			stats_model.multiplier *= multiplier
+		stats_model.multiplier *= multiplier

@@ -144,34 +144,74 @@ func remove_temporary_upgrade(new_upgrade: TemporaryUpgrade) -> void:
 		temporary_upgrades.erase(new_upgrade)
 		apply_modifier(new_upgrade, false)  # false = відняти ефекти
 
-# Застосовує або видаляє ефекти модифікатора
+func has_tokens_to_spin_a_wheel(spin_price: int):
+	return money_dictionary[PlayerStats.MONEY.TOKENS] >= spin_price
+
+func purchase_spin(spin_price: int):
+	money_dictionary[PlayerStats.MONEY.TOKENS] = clampi(money_dictionary[PlayerStats.MONEY.TOKENS], 0, money_dictionary[PlayerStats.MONEY.TOKENS] - spin_price)
+
 func apply_modifier(modifier: Upgrade, is_adding: bool) -> void:
 	if modifier is FightingStyle:
 		return
 	
 	for stat in modifier.upgrade_array:
-		var value = stat.multiplier
-		if !is_adding:
-			value = -value  # Якщо віднімаємо, інвертуємо значення
-		
-		if modifier is StatUpgrade:
-			match stat.stat_type:
-				StatUpgrade.UPGRADABLE_STATS.MAX_HEALTH:
-					increase_max_health(value)
-				StatUpgrade.UPGRADABLE_STATS.ATTACK_POWER_MULTI:
-					increase_attack_power_multiplier(value)
-				StatUpgrade.UPGRADABLE_STATS.CRITICAL_CHANCE:
-					increase_critical_chance(value)
-				StatUpgrade.UPGRADABLE_STATS.CRITICAL_DAMAGE:
-					increase_critical_damage_multiplier(value)
-				StatUpgrade.UPGRADABLE_STATS.DODGE_CHANCE:
-					increase_dodge_chance(value)
-				StatUpgrade.UPGRADABLE_STATS.MOVEMENT_SPEED_MULTI:
-					increase_movement_speed_multiplier(value)
-				StatUpgrade.UPGRADABLE_STATS.STATUS_RESIST_MULTI:
-					increase_status_resist_multiplier(value)
-				StatUpgrade.UPGRADABLE_STATS.EFFECT_POWER_MULTI:
-					increase_effect_power_multiplier(value)
+		match stat.stat_type:
+			StatUpgrade.UPGRADABLE_STATS.MAX_HEALTH:
+				var current_health = max_health
+				var change = current_health * stat.multiplier
+				if !is_adding:
+					change = -change
+				increase_max_health(change)
+			
+			StatUpgrade.UPGRADABLE_STATS.ATTACK_POWER_MULTI:
+				var current_attack = attack_power_multiplier
+				var change = current_attack + stat.multiplier
+				if !is_adding:
+					change = -change
+				increase_attack_power_multiplier(change)
+			
+			StatUpgrade.UPGRADABLE_STATS.CRITICAL_CHANCE:
+				var current_crit = critical_chance
+				var change = current_crit + stat.multiplier
+				if !is_adding:
+					change = -change
+				increase_critical_chance(change)
+			
+			StatUpgrade.UPGRADABLE_STATS.CRITICAL_DAMAGE:
+				var current_crit_dmg = critical_damage_multiplier
+				var change = current_crit_dmg + stat.multiplier
+				if !is_adding:
+					change = -change
+				increase_critical_damage_multiplier(change)
+			
+			StatUpgrade.UPGRADABLE_STATS.DODGE_CHANCE:
+				var current_dodge = dodge_chance
+				var change = current_dodge + stat.multiplier
+				if !is_adding:
+					change = -change
+				increase_dodge_chance(change)
+			
+			StatUpgrade.UPGRADABLE_STATS.MOVEMENT_SPEED_MULTI:
+				var current_speed = movement_speed_multiplier
+				var change = current_speed + stat.multiplier
+				if !is_adding:
+					change = -change
+				increase_movement_speed_multiplier(change)
+			
+			StatUpgrade.UPGRADABLE_STATS.STATUS_RESIST_MULTI:
+				var current_resist = status_resist_multiplier
+				var change = current_resist + stat.multiplier
+				if !is_adding:
+					change = -change
+				increase_status_resist_multiplier(change)
+			
+			StatUpgrade.UPGRADABLE_STATS.EFFECT_POWER_MULTI:
+				var current_effect = effect_power_multiplier
+				var change = current_effect + stat.multiplier
+				if !is_adding:
+					change = -change
+				increase_effect_power_multiplier(change)
+	
 	stats_upgraded.emit()
 
 func change_fighting_style(new_style: FightingStyle):
