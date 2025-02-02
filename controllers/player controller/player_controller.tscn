@@ -21,6 +21,33 @@
 [ext_resource type="Script" path="res://controllers/player controller/stunned.gd" id="11_1g1x7"]
 [ext_resource type="Texture2D" uid="uid://cn8tebw0neagh" path="res://assets/New_Bear/images/R_Ear.png" id="11_gfand"]
 
+[sub_resource type="Animation" id="Animation_xem38"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tedddy:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-127, 339)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tedddy:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.08812]
+}
+
 [sub_resource type="Animation" id="Animation_yfvdv"]
 resource_name = "toasty"
 step = 0.1
@@ -63,33 +90,6 @@ tracks/2/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_xem38"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Tedddy:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-127, 339)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Tedddy:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.08812]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u0b6w"]
 _data = {
 "RESET": SubResource("Animation_xem38"),
@@ -127,9 +127,6 @@ libraries = {
 position = Vector2(-127, 339)
 rotation = 1.08812
 scale = Vector2(0.46, 0.46)
-
-[node name="HandL" parent="CanvasLayer/Tedddy/Skeleton2D/Main/Body" index="0"]
-scale = Vector2(1, 1)
 
 [node name="Head" parent="CanvasLayer/Tedddy/Skeleton2D/Main/Body" index="2"]
 scale = Vector2(1, 1)
@@ -314,7 +311,6 @@ scale = Vector2(0.999947, 0.999947)
 
 [node name="SlowParticle" parent="BearNew/DamageFX/Slow" index="0"]
 position = Vector2(129.95, -682.862)
-scale = Vector2(0.999989, 0.999989)
 
 [node name="LimboHSM" type="LimboHSM" parent="." node_paths=PackedStringArray("character", "controller")]
 unique_name_in_owner = true
