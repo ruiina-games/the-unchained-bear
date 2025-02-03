@@ -6,23 +6,23 @@
 [sub_resource type="Resource" id="Resource_11032"]
 script = ExtResource("2_l0qmx")
 stat_type = 3
-multiplier = 0.03
+base_value = 0.02
 
 [sub_resource type="Resource" id="Resource_14hnd"]
 script = ExtResource("2_l0qmx")
 stat_type = 4
-multiplier = 0.05
+base_value = 0.05
 
 [sub_resource type="Resource" id="Resource_d20jm"]
 script = ExtResource("2_l0qmx")
 stat_type = 6
-multiplier = 0.02
+base_value = 0.05
 
 [resource]
 script = ExtResource("1_pfyu6")
 title = "Spiked Unicycle"
 money_type = 0
-cost = 50
+cost = 75
 upgrade_array = Array[ExtResource("2_l0qmx")]([SubResource("Resource_11032"), SubResource("Resource_14hnd"), SubResource("Resource_d20jm")])
 slot_type = 3
 icon_folder_path = "res://assets/Constant modifiers/Studded Unicycle/"

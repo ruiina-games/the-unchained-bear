@@ -15,21 +15,21 @@ enum UPGRADABLE_STATS {
 @export var upgrade_array: Array[StatModel]
 
 func update_rarity():
-	var multiplier: float
+	var new_multiplier: float
 	
 	match rarity:
 		RARITY.COMMON:
-			multiplier = 1
+			new_multiplier = 1.0
 		RARITY.UNCOMMON:
-			multiplier = 2
+			new_multiplier = 2.0
 		RARITY.RARE:
-			multiplier = 3
+			new_multiplier = 3.0
 		RARITY.MYTHICAL:
-			multiplier = 4
+			new_multiplier = 4.0
 		RARITY.LEGENDARY:
-			multiplier = 5
+			new_multiplier = 5.0
 			apply_legendary_effect()
 	
-	# Застосовуємо множник до всіх значень у upgrade_array
 	for stats_model in upgrade_array:
-		stats_model.multiplier *= multiplier
+		stats_model.multiplier = stats_model.base_value * new_multiplier
+		print(name, " ", stats_model.multiplier)

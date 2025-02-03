@@ -6,9 +6,6 @@ extends Resource
 class_name StatModel
 
 @export var stat_type: StatUpgrade.UPGRADABLE_STATS
-@export var multiplier: float
+@export var base_value: float
 
-# Конструктор для зручного створення StatModel
-func _init(p_stat_type: StatUpgrade.UPGRADABLE_STATS = StatUpgrade.UPGRADABLE_STATS.MAX_HEALTH, p_multiplier: float = 0) -> void:
-	stat_type = p_stat_type
-	multiplier = p_multiplier
+var multiplier: float

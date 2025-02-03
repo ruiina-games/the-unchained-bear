@@ -19,7 +19,7 @@ enum SLOT_TYPE {
 	FIGHTING_STYLE
 }
 
-# @export var upgrade_multi_step: float = 1.0
+# @export var upgrade_multi_step: float = 1.0xs
 @export var slot_type: SLOT_TYPE = SLOT_TYPE.NONE  # Тип слота для цього апгрейду
 @export var icon_folder_path: String  # Шлях до папки з іконками
 @export var rarity: RARITY = RARITY.COMMON
@@ -48,18 +48,6 @@ func get_rarity_name(rarity_value: RARITY) -> String:
 # Interface
 func apply_legendary_effect():
 	pass
+	
 func update_rarity():
 	pass
-
-func set_next_rarity():
-	match rarity:
-		Upgrade.RARITY.COMMON:
-			rarity = Upgrade.RARITY.UNCOMMON
-		Upgrade.RARITY.UNCOMMON:
-			rarity = Upgrade.RARITY.RARE
-		Upgrade.RARITY.RARE:
-			rarity = Upgrade.RARITY.MYTHICAL
-		Upgrade.RARITY.MYTHICAL:
-			rarity = Upgrade.RARITY.LEGENDARY
-		Upgrade.RARITY.LEGENDARY:
-			pass
