@@ -38,8 +38,7 @@ func get_temporary_upgrades_pool(requested_upgrades_amount: int, player_stats: P
 			if existing_upgrade.rarity < Upgrade.RARITY.LEGENDARY:
 				# Create upgrade with increased rarity
 				var upgraded_version = selected_upgrade.duplicate()
-				upgraded_version.rarity = existing_upgrade.rarity  # Use existing upgrade's rarity as base
-				upgraded_version.set_next_rarity()
+				upgraded_version.rarity = min(Upgrade.RARITY.LEGENDARY, existing_upgrade.rarity + 1)  # Use existing upgrade's rarity as base
 				upgraded_version.initialize_upgrade()
 				pool.push_back(upgraded_version)
 		else:
@@ -51,9 +50,9 @@ func get_temporary_upgrades_pool(requested_upgrades_amount: int, player_stats: P
 	# Randomize rarities while avoiding duplicates
 	randomize_rarities_unique(upgrades_to_randomize, player_stats)
 	
-	for upgrade in pool:
-		var rarity_name = get_rarity_name(upgrade.rarity)
-		print("Name: ", upgrade.name, " | Rarity: ", rarity_name)
+	#for upgrade in pool:
+	#	var rarity_name = get_rarity_name(upgrade.rarity)
+	#	print("Name: ", upgrade.name, " | Rarity: ", rarity_name)
 	
 	return pool
 

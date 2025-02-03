@@ -16,7 +16,7 @@
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_qxid3"]
 
-[sub_resource type="Resource" id="Resource_iijpb"]
+[sub_resource type="Resource" id="Resource_fkggo"]
 script = ExtResource("3_2stpe")
 frequency = 10.001
 damping = 0.485
@@ -25,55 +25,55 @@ reaction = 1.0
 [sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_qhum3"]
 enabled = true
 
-[sub_resource type="Resource" id="Resource_2g6by"]
+[sub_resource type="Resource" id="Resource_shuqy"]
 script = ExtResource("4_ek7q5")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_l0m2i"]
+[sub_resource type="Resource" id="Resource_jj5ss"]
 script = ExtResource("4_ek7q5")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_yhs1f"]
+[sub_resource type="Resource" id="Resource_q6if4"]
 script = ExtResource("3_2stpe")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_gu2dm"]
+[sub_resource type="Resource" id="Resource_f8qm0"]
 script = ExtResource("3_2stpe")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_vbrrj"]
+[sub_resource type="Resource" id="Resource_8msa7"]
 script = ExtResource("4_ek7q5")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_pmqvy"]
+[sub_resource type="Resource" id="Resource_05nsn"]
 script = ExtResource("3_2stpe")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_k0iux"]
+[sub_resource type="Resource" id="Resource_rsbgw"]
 script = ExtResource("3_2stpe")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_tc1th"]
+[sub_resource type="Resource" id="Resource_8wppr"]
 script = ExtResource("4_ek7q5")
 frequency = 1.0
 damping = 1.0
 reaction = 1.0
 
-[sub_resource type="Resource" id="Resource_f8fc3"]
+[sub_resource type="Resource" id="Resource_4a4jo"]
 script = ExtResource("3_2stpe")
 frequency = 1.0
 damping = 1.0
@@ -153,7 +153,7 @@ script = ExtResource("4_avb0h")
 collision_layer = 0
 
 [node name="TipFABRIK" parent="BeastTamer/WhipSkeleton/SoupStack/WhipStack" index="0"]
-easing = SubResource("Resource_iijpb")
+easing = SubResource("Resource_fkggo")
 
 [node name="Whip_01" parent="BeastTamer/WhipSkeleton/Handle" index="0"]
 rotation = 1.03212
@@ -238,31 +238,31 @@ scale = Vector2(0.999983, 0.999983)
 modification_stack = SubResource("SkeletonModificationStack2D_qhum3")
 
 [node name="HandLTwoBoneIK" parent="BeastTamer/Skeleton2D/SoupStack/HandLStack" index="1"]
-first_joint_easing = SubResource("Resource_2g6by")
+first_joint_easing = SubResource("Resource_shuqy")
 
 [node name="LegRTwoBoneIK" parent="BeastTamer/Skeleton2D/SoupStack/LegRStack" index="1"]
-first_joint_easing = SubResource("Resource_l0m2i")
+first_joint_easing = SubResource("Resource_jj5ss")
 
 [node name="DressFABRIK" parent="BeastTamer/Skeleton2D/SoupStack/LegRStack" index="2"]
-easing = SubResource("Resource_yhs1f")
+easing = SubResource("Resource_q6if4")
 
 [node name="KneeFABRIK" parent="BeastTamer/Skeleton2D/SoupStack/LegRStack" index="3"]
-easing = SubResource("Resource_gu2dm")
+easing = SubResource("Resource_f8qm0")
 
 [node name="LegLTwoBoneIK" parent="BeastTamer/Skeleton2D/SoupStack/LegLStack" index="1"]
-first_joint_easing = SubResource("Resource_vbrrj")
+first_joint_easing = SubResource("Resource_8msa7")
 
 [node name="DressFABRIK" parent="BeastTamer/Skeleton2D/SoupStack/LegLStack" index="2"]
-easing = SubResource("Resource_pmqvy")
+easing = SubResource("Resource_05nsn")
 
 [node name="KneeFABRIK" parent="BeastTamer/Skeleton2D/SoupStack/LegLStack" index="3"]
-easing = SubResource("Resource_k0iux")
+easing = SubResource("Resource_rsbgw")
 
 [node name="HeadLookAt" parent="BeastTamer/Skeleton2D/SoupStack/HeadStack" index="0"]
-easing = SubResource("Resource_tc1th")
+easing = SubResource("Resource_8wppr")
 
 [node name="FeatherJiggle" parent="BeastTamer/Skeleton2D/SoupStack/HeadStack" index="1"]
-easing = SubResource("Resource_f8fc3")
+easing = SubResource("Resource_4a4jo")
 
 [node name="UpperLegL" parent="BeastTamer/Skeleton2D/TorsoMain" index="0"]
 rotation = 0.109977
@@ -302,7 +302,6 @@ scale = Vector2(0.99983, 0.99983)
 
 [node name="DressL_03" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02" index="0"]
 rotation = -0.0805364
-scale = Vector2(0.999827, 0.999827)
 
 [node name="DressL_04" parent="BeastTamer/Skeleton2D/TorsoMain/LowerBody/BaseDressL/DressL_01/DressL_02/DressL_03" index="0"]
 rotation = -0.0137687

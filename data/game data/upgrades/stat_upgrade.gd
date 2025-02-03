@@ -12,30 +12,11 @@ enum UPGRADABLE_STATS {
 	EFFECT_POWER_MULTI = 8
 }
 
-var first_time: bool = false
 @export var upgrade_array: Array[StatModel]
-
-func initialize_upgrade():
-	if !first_time:
-		for stat in upgrade_array:
-			match rarity:
-				Upgrade.RARITY.COMMON:
-					stat.previous_multiplier = 0
-				Upgrade.RARITY.UNCOMMON:
-					stat.previous_multiplier = 1.0
-				Upgrade.RARITY.RARE:
-					stat.previous_multiplier = 2.0
-				Upgrade.RARITY.MYTHICAL:
-					stat.previous_multiplier = 3.0
-				Upgrade.RARITY.LEGENDARY:
-					stat.previous_multiplier = 4.0
-		first_time = true
-	super()
 
 func update_rarity():
 	var new_multiplier: float
 	
-	# Визначаємо новий множник на основі рідкості
 	match rarity:
 		RARITY.COMMON:
 			new_multiplier = 1.0
@@ -49,12 +30,6 @@ func update_rarity():
 			new_multiplier = 5.0
 			apply_legendary_effect()
 	
-	# Застосовуємо новий множник до кожного StatModel
 	for stats_model in upgrade_array:
-		if stats_model.previous_multiplier > 0:
-		# Скасовуємо попередній множник (ділимо на нього)
-			stats_model.multiplier /= stats_model.previous_multiplier
-		# Застосовуємо новий множник
-		stats_model.multiplier *= new_multiplier
-		# Оновлюємо previous_multiplier для наступного виклику
-		stats_model.previous_multiplier = new_multiplier
+		stats_model.multiplier = stats_model.base_value * new_multiplier
+		print(name, " ", stats_model.multiplier)

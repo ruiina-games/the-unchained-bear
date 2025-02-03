@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://hfv6fovd6eke" path="res://assets/Store/Store/Background.png" id="1_04ypj"]
 [ext_resource type="Script" path="res://Shop/shop.gd" id="1_f14ov"]
 [ext_resource type="PackedScene" uid="uid://cevie0mm3xc4j" path="res://controllers/player controller/player_controller.tscn" id="1_tvtkn"]
-[ext_resource type="LabelSettings" uid="uid://brp3qn5x2peqk" path="res://cutscenes/basic_font.tres" id="2_8713t"]
+[ext_resource type="LabelSettings" path="res://cutscenes/basic_font.tres" id="2_8713t"]
 [ext_resource type="Script" path="res://characters/character.gd" id="2_ck00k"]
 [ext_resource type="Texture2D" uid="uid://duw820g44xtga" path="res://assets/Store/Store/Flags_2.png" id="2_whptf"]
 [ext_resource type="Texture2D" uid="uid://dttiblyel24gd" path="res://assets/Store/Store/Flags_1.png" id="3_23o10"]
@@ -263,7 +263,6 @@ text = "Press [E] to proceed to the next boss"
 label_settings = ExtResource("2_8713t")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -993,67 +992,67 @@ scale = Vector2(0.999999, 0.999999)
 visible = false
 
 [node name="TorsoTop" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="0"]
-rotation = 0.385788
+rotation = 0.389887
 scale = Vector2(0.999964, 0.999964)
 
 [node name="UpperArmR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="0"]
-rotation = 1.44312
+rotation = 1.29089
 scale = Vector2(0.999959, 0.999959)
 
 [node name="LowerArmR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR" index="0"]
-rotation = -1.76531
+rotation = -1.65314
 scale = Vector2(0.999956, 0.999956)
 
 [node name="WristR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR" index="0"]
-rotation = 1.66788
+rotation = 1.93868
 scale = Vector2(0.999969, 0.999969)
 
 [node name="UpperArmL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="1"]
-rotation = -1.09632
+rotation = -1.11132
 scale = Vector2(0.999966, 0.999966)
 
 [node name="LowerArmL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL" index="0"]
-rotation = -0.364577
+rotation = -0.354132
 scale = Vector2(0.99997, 0.99997)
 
 [node name="WristL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL" index="0"]
-rotation = 2.60452
+rotation = 2.59875
 scale = Vector2(0.999963, 0.999963)
 
 [node name="HeadMain" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="2"]
-rotation = -0.129006
+rotation = -0.131511
 scale = Vector2(0.999955, 0.999955)
 
 [node name="LowerJaw" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="0"]
-rotation = 1.07548
+rotation = 1.07514
 scale = Vector2(0.999963, 0.999963)
 
 [node name="EarL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="2"]
 scale = Vector2(0.443939, 0.778982)
 
 [node name="UpperLegR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="1"]
-rotation = 1.87338
+rotation = 2.30071
 scale = Vector2(0.999976, 0.999976)
 
 [node name="LowerLegR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/UpperLegR" index="0"]
-rotation = 1.66264
+rotation = 0.939801
 scale = Vector2(0.999962, 0.999962)
 
 [node name="UpperLegL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="2"]
-rotation = 2.77146
+rotation = 2.61711
 scale = Vector2(0.999973, 0.999973)
 
 [node name="LowerLegL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/UpperLegL" index="0"]
-rotation = 0.226888
+rotation = 0.453966
 scale = Vector2(0.999965, 0.999965)
 
 [node name="StunParticle" parent="PlayerController/BearNew/DamageFX/Stun" index="0"]
-position = Vector2(168.61, -596.684)
-rotation = -1.03202
+position = Vector2(169.118, -596.203)
+rotation = -1.03042
 scale = Vector2(0.999918, 0.999918)
 
 [node name="SlowParticle" parent="PlayerController/BearNew/DamageFX/Slow" index="0"]
-position = Vector2(129.143, -683.378)
+position = Vector2(129.789, -682.959)
 scale = Vector2(0.999988, 0.999988)
 
 [node name="DummyTarget" type="CharacterBody2D" parent="."]

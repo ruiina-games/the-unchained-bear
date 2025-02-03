@@ -6,12 +6,12 @@
 [sub_resource type="Resource" id="Resource_11032"]
 script = ExtResource("2_hwkgf")
 stat_type = 3
-multiplier = 0.02
+base_value = 0.03
 
 [sub_resource type="Resource" id="Resource_d2ue5"]
 script = ExtResource("2_hwkgf")
 stat_type = 4
-multiplier = 0.06
+base_value = 0.05
 
 [resource]
 script = ExtResource("1_nw0kj")
