@@ -1,0 +1,82 @@
+[gd_resource type="Resource" script_class="FightingStyle" load_steps=14 format=3 uid="uid://dhmuofq5ev26f"]
+
+[ext_resource type="Script" uid="uid://b5tu7q1kwhxns" path="res://data/damage/scripts/knockback.gd" id="1_cssev"]
+[ext_resource type="Script" uid="uid://1u7d7lewsisq" path="res://data/damage/scripts/damage.gd" id="1_dxg0b"]
+[ext_resource type="Script" uid="uid://cxkruoj1bbywc" path="res://fighting styles/fighting_style.gd" id="2_ps0yu"]
+[ext_resource type="Script" uid="uid://cec43g3kgpk05" path="res://data/damage/scripts/bleeding.gd" id="3_qsof8"]
+[ext_resource type="Script" uid="uid://bolcbdnnr374" path="res://data/game data/upgrades/stat_model.gd" id="5_0lkoj"]
+
+[sub_resource type="Resource" id="Resource_b10ir"]
+script = ExtResource("1_cssev")
+knockback_force = 14000.0
+base_damage = 0.0
+base_proc_chance = 1.0
+duration = 0.0
+
+[sub_resource type="Resource" id="Resource_tlx3i"]
+script = ExtResource("1_dxg0b")
+damage_amount = 200.0
+multiplier = 1.0
+effect = SubResource("Resource_b10ir")
+
+[sub_resource type="Resource" id="Resource_axwjy"]
+script = ExtResource("3_qsof8")
+bleeding_damage_percent = 0.03
+tick_interval = 1.0
+base_damage = 0.0
+base_proc_chance = 0.03
+duration = 0.0
+
+[sub_resource type="Resource" id="Resource_55f5y"]
+script = ExtResource("1_dxg0b")
+damage_amount = 90.0
+multiplier = 1.0
+effect = SubResource("Resource_axwjy")
+
+[sub_resource type="Resource" id="Resource_84tvl"]
+script = ExtResource("3_qsof8")
+bleeding_damage_percent = 0.03
+tick_interval = 1.0
+base_damage = 0.0
+base_proc_chance = 0.03
+duration = 0.0
+
+[sub_resource type="Resource" id="Resource_ngb2c"]
+script = ExtResource("1_dxg0b")
+damage_amount = 100.0
+multiplier = 1.0
+effect = SubResource("Resource_84tvl")
+
+[sub_resource type="Resource" id="Resource_t54kk"]
+script = ExtResource("3_qsof8")
+bleeding_damage_percent = 0.03
+tick_interval = 1.0
+base_damage = 0.0
+base_proc_chance = 0.03
+duration = 0.0
+
+[sub_resource type="Resource" id="Resource_kqi42"]
+script = ExtResource("1_dxg0b")
+damage_amount = 110.0
+multiplier = 1.0
+effect = SubResource("Resource_t54kk")
+
+[resource]
+script = ExtResource("2_ps0yu")
+max_combo_count = 3
+damage_variations = {
+-1: SubResource("Resource_tlx3i"),
+0: SubResource("Resource_55f5y"),
+1: SubResource("Resource_ngb2c"),
+2: SubResource("Resource_kqi42")
+}
+title = null
+money_type = 0
+cost = 0
+upgrade_array = Array[ExtResource("5_0lkoj")]([])
+slot_type = 0
+icon_folder_path = ""
+rarity = 0
+id = 0
+name = ""
+description = ""

@@ -1,0 +1,121 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi23ya8p3ryu"]
+
+[ext_resource type="Script" uid="uid://cvoxg81xq6lp" path="res://controllers/Effects/effects_controller.gd" id="1_effects"]
+[ext_resource type="Script" uid="uid://cm2wju4mxgrrm" path="res://test_scenes/combat_test.gd" id="2_combat"]
+
+[node name="CombatTest" type="Node2D"]
+script = ExtResource("2_combat")
+
+[node name="EffectsController" type="Node2D" parent="."]
+script = ExtResource("1_effects")
+tilt_duration = 1.0
+target_zoom = Vector2(0.31, 0.31)
+max_tilt_angle = 0.01
+shake_duration = 0.4
+shake_magnitude = 40.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+ignore_rotation = false
+zoom = Vector2(0.3, 0.3)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(181, 242)
+collision_layer = 512
+collision_mask = 0
+
+[node name="WallLeft" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-2553, 279)
+rotation = 1.5708
+
+[node name="WallRight" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2316, 167)
+rotation = 1.5708
+
+[node name="Floor" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-121, 1009)
+rotation = 3.14272
+
+[node name="ObjectSpawner" type="Node2D" parent="."]
+
+[node name="DebugUI" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="PanelContainer" parent="DebugUI"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 260.0
+offset_bottom = 500.0
+
+[node name="VBox" type="VBoxContainer" parent="DebugUI/Panel"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="DebugUI/Panel/VBox"]
+layout_mode = 2
+text = "== Combat Test =="
+
+[node name="Sep1" type="HSeparator" parent="DebugUI/Panel/VBox"]
+layout_mode = 2
+
+[node name="SpawnLabel" type="Label" parent="DebugUI/Panel/VBox"]
+layout_mode = 2
+text = "Spawn Boss:"
+
+[node name="SpawnBeastTameress" type="Button" parent="DebugUI/Panel/VBox"]
+layout_mode = 2
+text = "Beast Tameress"
+
+[node name="SpawnAnimalsDuo" type="Button" parent="DebugUI/Panel/VBox"]
+layout_mode = 2
+text = "Lion + Tiger"
+
+[node name="SpawnAcrobat" type="Button" parent="DebugUI/Panel/VBox"]
+layout_mode = 2
+text = "Acrobat"
+
+[node name="Sep2" type="HSeparator" parent="DebugUI/Panel/VBox"]
+layout_mode = 2
+
+[node name="ToggleLabel" type="Label" parent="DebugUI/Panel/VBox"]
+layout_mode = 2
+text = "Toggles:"
+
+[node name="GodMode" type="Button" parent="DebugUI/Panel/VBox"]
+layout_mode = 2
+text = "God Mode: OFF"
+
+[node name="OneHitKill" type="Button" parent="DebugUI/Panel/VBox"]
+layout_mode = 2
+text = "One-Hit Kill: OFF"
+
+[node name="ResetHP" type="Button" parent="DebugUI/Panel/VBox"]
+layout_mode = 2
+text = "Reset HP"
+
+[node name="Sep3" type="HSeparator" parent="DebugUI/Panel/VBox"]
+layout_mode = 2
+
+[node name="EffectsLabel" type="Label" parent="DebugUI/Panel/VBox"]
+layout_mode = 2
+text = "Effects (on player):"
+
+[node name="ApplyFire" type="Button" parent="DebugUI/Panel/VBox"]
+layout_mode = 2
+text = "Apply Fire"
+
+[node name="ApplyBleed" type="Button" parent="DebugUI/Panel/VBox"]
+layout_mode = 2
+text = "Apply Bleed"
+
+[node name="ApplyStun" type="Button" parent="DebugUI/Panel/VBox"]
+layout_mode = 2
+text = "Apply Stun"
+
+[node name="ApplySlow" type="Button" parent="DebugUI/Panel/VBox"]
+layout_mode = 2
+text = "Apply Slow"
+
+[node name="Sep4" type="HSeparator" parent="DebugUI/Panel/VBox"]
+layout_mode = 2
+
+[node name="StatsLabel" type="Label" parent="DebugUI/Panel/VBox"]
+layout_mode = 2
+text = "HP: --/--"

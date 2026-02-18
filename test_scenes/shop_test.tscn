@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://test_scenes/shop_test.gd" id="1_shop"]
+
+[node name="ShopTest" type="Node2D"]
+script = ExtResource("1_shop")
+
+[node name="DebugUI" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="PanelContainer" parent="DebugUI"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 260.0
+offset_bottom = 250.0
+
+[node name="VBox" type="VBoxContainer" parent="DebugUI/Panel"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="DebugUI/Panel/VBox"]
+layout_mode = 2
+text = "== Shop Test =="
+
+[node name="Sep1" type="HSeparator" parent="DebugUI/Panel/VBox"]
+layout_mode = 2
+
+[node name="AddTickets" type="Button" parent="DebugUI/Panel/VBox"]
+layout_mode = 2
+text = "+100 Tickets"
+
+[node name="AddTokens" type="Button" parent="DebugUI/Panel/VBox"]
+layout_mode = 2
+text = "+10 Tokens"
+
+[node name="SetMaxMoney" type="Button" parent="DebugUI/Panel/VBox"]
+layout_mode = 2
+text = "Set Max Money"
+
+[node name="ResetAll" type="Button" parent="DebugUI/Panel/VBox"]
+layout_mode = 2
+text = "Reset All"
+
+[node name="Sep2" type="HSeparator" parent="DebugUI/Panel/VBox"]
+layout_mode = 2
+
+[node name="MoneyLabel" type="Label" parent="DebugUI/Panel/VBox"]
+layout_mode = 2
+text = "Tickets: -- | Tokens: --"

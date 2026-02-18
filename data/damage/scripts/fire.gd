@@ -1,0 +1,2 @@
+extends TickingNegativeEffect
+class_name FireEffect

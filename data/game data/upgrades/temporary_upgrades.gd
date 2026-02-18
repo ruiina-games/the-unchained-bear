@@ -1,0 +1,2 @@
+extends StatUpgrade
+class_name TemporaryUpgrade

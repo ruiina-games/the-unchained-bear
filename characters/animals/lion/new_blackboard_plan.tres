@@ -1,0 +1,4 @@
+[gd_resource type="BlackboardPlan" format=3 uid="uid://bdcamkh2jjih3"]
+
+[resource]
+prefetch_nodepath_vars = false

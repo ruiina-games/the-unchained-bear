@@ -1,0 +1,258 @@
+[gd_scene load_steps=8 format=3 uid="uid://qhpf0l7xje0f"]
+
+[ext_resource type="Script" uid="uid://cotdadx1wrmj6" path="res://test_scene.gd" id="1_wv3gu"]
+[ext_resource type="Resource" uid="uid://sdl7a5cv07o6" path="res://fighting styles/bear/bear_lumberjack.tres" id="2_q7617"]
+[ext_resource type="Script" uid="uid://c40m7g8a5hyvu" path="res://pause.gd" id="8_hrr0x"]
+[ext_resource type="LabelSettings" uid="uid://drt4vbq5awgad" path="res://cutscenes/smaller_font.tres" id="9_6ircr"]
+[ext_resource type="LabelSettings" uid="uid://ddlppfp33dpu1" path="res://cutscenes/a_bit_bigger_than_even_smaller_font.tres" id="10_67bnb"]
+[ext_resource type="LabelSettings" uid="uid://wblyhtrwvirh" path="res://cutscenes/even_smaller_font.tres" id="11_rncqk"]
+[ext_resource type="PackedScene" uid="uid://cevie0mm3xc4j" path="res://controllers/player controller/player_controller.tscn" id="12_f2ewh"]
+
+[node name="Test Scene" type="Node2D"]
+script = ExtResource("1_wv3gu")
+new_fighting_style = ExtResource("2_q7617")
+
+[node name="CheatLvlSelection" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CheatLvlSelection"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="CheatLvlSelection/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="beast_tameress_btn" type="Button" parent="CheatLvlSelection/Control/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Beast Tameress"
+
+[node name="duo_animals_btn" type="Button" parent="CheatLvlSelection/Control/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Duo Animals"
+
+[node name="acrobat_btn" type="Button" parent="CheatLvlSelection/Control/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Acrobat
+"
+
+[node name="Pause" type="CanvasLayer" parent="."]
+process_mode = 2
+visible = false
+script = ExtResource("8_hrr0x")
+
+[node name="PauseMenu" type="Control" parent="Pause"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Pause/PauseMenu"]
+process_mode = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.352941)
+
+[node name="Label" type="Label" parent="Pause/PauseMenu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -73.0
+offset_top = 106.0
+offset_right = 486.0
+offset_bottom = 216.0
+grow_horizontal = 2
+text = "GAME PAUSED"
+label_settings = ExtResource("9_6ircr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause/PauseMenu"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 376.0
+offset_right = 265.0
+offset_bottom = 597.0
+theme_override_constants/separation = 16
+
+[node name="ResumeButton" type="Button" parent="Pause/PauseMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Resume"
+
+[node name="OptionsButton" type="Button" parent="Pause/PauseMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Options"
+
+[node name="ExitButton" type="Button" parent="Pause/PauseMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Exit
+"
+
+[node name="OptionsMenu" type="Control" parent="Pause"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause/OptionsMenu"]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 348.0
+offset_right = 694.0
+offset_bottom = 597.0
+theme_override_constants/separation = 6
+
+[node name="Label" type="Label" parent="Pause/OptionsMenu/VBoxContainer"]
+layout_mode = 2
+text = "Volume Settings"
+label_settings = ExtResource("10_67bnb")
+
+[node name="GeneralVolumeContainer" type="VBoxContainer" parent="Pause/OptionsMenu/VBoxContainer"]
+layout_mode = 2
+
+[node name="GeneralVolume" type="Label" parent="Pause/OptionsMenu/VBoxContainer/GeneralVolumeContainer"]
+layout_mode = 2
+text = "General Volume"
+label_settings = ExtResource("11_rncqk")
+
+[node name="GeneralVolumeSlider" type="HSlider" parent="Pause/OptionsMenu/VBoxContainer/GeneralVolumeContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="MusicVolumeContainer" type="VBoxContainer" parent="Pause/OptionsMenu/VBoxContainer"]
+layout_mode = 2
+
+[node name="MusicVolume" type="Label" parent="Pause/OptionsMenu/VBoxContainer/MusicVolumeContainer"]
+layout_mode = 2
+text = "Music Volume"
+label_settings = ExtResource("11_rncqk")
+
+[node name="MusicVolumeSlider" type="HSlider" parent="Pause/OptionsMenu/VBoxContainer/MusicVolumeContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="SFXVolumeContainer" type="VBoxContainer" parent="Pause/OptionsMenu/VBoxContainer"]
+layout_mode = 2
+
+[node name="SFXVolume" type="Label" parent="Pause/OptionsMenu/VBoxContainer/SFXVolumeContainer"]
+layout_mode = 2
+text = "SFX Volume"
+label_settings = ExtResource("11_rncqk")
+
+[node name="SFXVolumeSlider" type="HSlider" parent="Pause/OptionsMenu/VBoxContainer/SFXVolumeContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="PlayerController" parent="." node_paths=PackedStringArray("target") instance=ExtResource("12_f2ewh")]
+unique_name_in_owner = true
+position = Vector2(635, 648)
+target = NodePath("BearNew")
+
+[node name="TorsoTop" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="0"]
+rotation = 0.428916
+scale = Vector2(0.999975, 0.999975)
+
+[node name="UpperArmR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="0"]
+rotation = 1.16216
+scale = Vector2(0.999971, 0.999971)
+
+[node name="LowerArmR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR" index="0"]
+rotation = -1.55014
+scale = Vector2(0.999969, 0.999969)
+
+[node name="WristR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmR/LowerArmR" index="0"]
+rotation = 1.68593
+scale = Vector2(0.999979, 0.999979)
+
+[node name="UpperArmL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="1"]
+rotation = -1.16543
+scale = Vector2(0.999973, 0.999973)
+
+[node name="LowerArmL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL" index="0"]
+rotation = -0.264952
+scale = Vector2(0.999978, 0.999978)
+
+[node name="WristL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/UpperArmL/LowerArmL" index="0"]
+rotation = 2.51893
+scale = Vector2(0.999973, 0.999973)
+
+[node name="HeadMain" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop" index="2"]
+rotation = -0.155351
+scale = Vector2(0.999967, 0.999967)
+
+[node name="LowerJaw" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="0"]
+rotation = 1.04277
+scale = Vector2(0.999972, 0.999972)
+
+[node name="EarL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/TorsoTop/HeadMain" index="2"]
+scale = Vector2(0.443939, 0.778982)
+
+[node name="UpperLegR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="1"]
+rotation = 2.34025
+scale = Vector2(0.999983, 0.999983)
+
+[node name="LowerLegR" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/UpperLegR" index="0"]
+rotation = 0.86855
+scale = Vector2(0.999972, 0.999972)
+
+[node name="UpperLegL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain" index="2"]
+rotation = 1.99336
+scale = Vector2(0.999983, 0.999983)
+
+[node name="LowerLegL" parent="PlayerController/BearNew/Skeleton2D/TorsoMain/UpperLegL" index="0"]
+rotation = 1.43715
+scale = Vector2(0.999976, 0.999976)
+
+[node name="StunParticle" parent="PlayerController/BearNew/DamageFX/Stun" index="0"]
+position = Vector2(173.88, -591.535)
+rotation = -1.01524
+scale = Vector2(0.999941, 0.999941)
+
+[node name="SlowParticle" parent="PlayerController/BearNew/DamageFX/Slow" index="0"]
+position = Vector2(135.872, -678.881)
+scale = Vector2(0.999989, 0.999989)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.4, 0.4)
+
+[connection signal="pressed" from="Pause/PauseMenu/VBoxContainer/ResumeButton" to="Pause" method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Pause/PauseMenu/VBoxContainer/OptionsButton" to="Pause" method="_on_options_button_pressed"]
+[connection signal="pressed" from="Pause/PauseMenu/VBoxContainer/ExitButton" to="Pause" method="_on_exit_button_pressed"]
+
+[editable path="PlayerController"]
+[editable path="PlayerController/BearNew"]
