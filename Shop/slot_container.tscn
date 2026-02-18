@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgqxe81427ik7"]
+
+[ext_resource type="Script" uid="uid://c3gn5bvkxtva7" path="res://Shop/slot_container.gd" id="1_idca0"]
+[ext_resource type="Texture2D" uid="uid://cht7cpqdol3r7" path="res://assets/Upgrades/Temporary Upgrades/Kettlebell/common.png" id="1_ipbbf"]
+[ext_resource type="LabelSettings" uid="uid://ddlppfp33dpu1" path="res://cutscenes/a_bit_bigger_than_even_smaller_font.tres" id="2_pr8g2"]
+[ext_resource type="Texture2D" uid="uid://ctylypcm85o68" path="res://assets/Upgrades/Temporary Upgrades/EmptySlot.png" id="3_gb6w1"]
+[ext_resource type="LabelSettings" uid="uid://wblyhtrwvirh" path="res://cutscenes/even_smaller_font.tres" id="3_soucr"]
+
+[node name="SlotContainer" type="HBoxContainer"]
+script = ExtResource("1_idca0")
+default_icon = ExtResource("1_ipbbf")
+slot = 1
+
+[node name="Icon" type="TextureRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+texture = ExtResource("3_gb6w1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="ItemName" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+text = "Dsajfsdf dslfhjhsd l sdlhfl sldhfl"
+label_settings = ExtResource("2_pr8g2")
+autowrap_mode = 2
+
+[node name="SlotName" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Fdsdsgfdsgfdfdg"
+label_settings = ExtResource("3_soucr")
+
+[node name="StatsName" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(1, 0.95, 0.7, 1)
+layout_mode = 2
+text = "dsadasdasdasd"
+label_settings = ExtResource("3_soucr")
