@@ -1,2 +1,0 @@
-extends AIState
-class_name AcrobatState

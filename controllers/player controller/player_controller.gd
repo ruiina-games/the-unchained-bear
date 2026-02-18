@@ -8,7 +8,7 @@ class_name PlayerController
 @export var max_tilt: float = 20.0
 @export var acceleration: float = 100.0  # Заміна для delta
 @export var deceleration: float = 20.0  # Заміна для delta
-@export var jump_force: float = 2600
+@export var jump_force: float = 3200
 
 @export var sec_to_reset_combo: float = 0.4
 
@@ -54,6 +54,7 @@ func init_state_machine() -> void:
 	hsm.add_transition(idle_state, run_state, hsm.MOVEMENT_STARTED)
 	hsm.add_transition(run_state, idle_state, hsm.MOVEMENT_FINISHED)
 	hsm.add_transition(jump_state, idle_state, hsm.LANDED)
+	hsm.add_transition(jump_state, run_state, hsm.MOVEMENT_STARTED)
 	hsm.add_transition(run_state, attack_state, hsm.STARTED_ATTACK)
 	hsm.add_transition(idle_state, attack_state, hsm.STARTED_ATTACK)
 	hsm.add_transition(attack_state, idle_state, hsm.FINISHED_ATTACK)
